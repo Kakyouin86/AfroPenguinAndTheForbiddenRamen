@@ -1,0 +1,24 @@
+fileFormatVersion: 2
+guid: 2f0cdd32b0271ed41aef8b407b3fa4fd
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Astron Boy
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 32bb97f025fc90441b743d519b5ba6c7, type: 3}
+  - {fileID: 12800000, guid: 1636621e42176e1409eea21ad6420350, type: 3}
+  - {fileID: 12800000, guid: fb42da22f5025e74685a8c480d64ed54, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
