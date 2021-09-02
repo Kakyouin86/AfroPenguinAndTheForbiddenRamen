@@ -26,7 +26,7 @@ public class PlayerControllerPressStart : MonoBehaviour
 
     [Header("Physics")]
     public float maxSpeed = 7f;
-    public float linearDrag = 4f;
+    public float linearDrag = 4f; //This is a trick to avoid sliding when switching the X values.
     public float gravity = 1f;
     public float fallMultiplier = 5f;
 
@@ -72,7 +72,7 @@ public class PlayerControllerPressStart : MonoBehaviour
         {
             Flip();
         }
-        if (Mathf.Abs(rb.velocity.x) > maxSpeed)
+        if (Mathf.Abs(rb.velocity.x) > maxSpeed) //This is to make the maxSpeed the real maxSpeed and not exceed it if it is.
         {
             rb.velocity = new Vector2(Mathf.Sign(rb.velocity.x) * maxSpeed, rb.velocity.y);
         }
@@ -90,10 +90,12 @@ public class PlayerControllerPressStart : MonoBehaviour
     void modifyPhysics()
     {
         bool changingDirections = (direction.x > 0 && rb.velocity.x < 0) || (direction.x < 0 && rb.velocity.x > 0);
+        //This is to avoid the sliding.
 
         if (onGround) //Only if he's touching the ground.
         {
-            if (Mathf.Abs(direction.x) < 0.4f || changingDirections)
+            if (Mathf.Abs(direction.x) < 0.4f || changingDirections) //This is because we put 0.5 on the Animator. If it's below 0.5, it means it has to stop. In 
+                //this case, we are checking if it's changing directions (moving right and then switching to left without stopping).
             {
                 rb.drag = linearDrag;
             }
@@ -120,7 +122,7 @@ public class PlayerControllerPressStart : MonoBehaviour
     void Flip()
     {
         facingRight = !facingRight;
-        transform.rotation = Quaternion.Euler(0, facingRight ? 0 : 180, 0);
+        transform.rotation = Quaternion.Euler(0, facingRight ? 0 : 180, 0); //Let's us set the value in degrees || whether the value is 0 or 180 degrees. If it's true, value to 0, if it's false, to 180.
     }
     IEnumerator JumpSqueeze(float xSqueeze, float ySqueeze, float seconds)
     {
