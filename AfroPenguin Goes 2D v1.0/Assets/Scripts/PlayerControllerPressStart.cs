@@ -6,7 +6,7 @@ public class PlayerControllerPressStart : MonoBehaviour
 {//Few values I worked with (backup): Mass: 1 | Linear Drag: 0.6 | Angular: 0.05 | Gravity: 5 | Dynamic & Continuous | MoveSpeed: 10 | Jump Speed: 8 | Max Speed: 7 | Linear Drag: 4 | Gravity: 1 | Fall Multi.: 5 | Ground: 0.6
  //Also, for this to work, we have to set the objects such as this: Player, then child: Character Holder, then child: Chaarcter Nnimation.
  //The "Player" has the Rigidbody, this script, and an Edge Collider making it look like and M (below, the whole line is drawn).
- //Also Animation has to have a "horizonal" and "vertical" float.
+ //Also Animation has to have a "horizonal" and "vertical" float. || Idle to Running, Greater than 0.5
 
     [Header("Horizontal Movement")]
     public float moveSpeed = 10f;
@@ -52,9 +52,9 @@ public class PlayerControllerPressStart : MonoBehaviour
             jumpTimer = Time.time + jumpDelay;
         }
         animator.SetBool("onGround", onGround);
-        direction = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        direction = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")); //Get axis raw is either -1 , 0 or +1
     }
-    void FixedUpdate()
+    void FixedUpdate() //Always this is better when dealing with physics
     {
         moveCharacter(direction.x);
         if (jumpTimer > Time.time && onGround) // Then we are in the jump delay period
@@ -76,7 +76,7 @@ public class PlayerControllerPressStart : MonoBehaviour
         {
             rb.velocity = new Vector2(Mathf.Sign(rb.velocity.x) * maxSpeed, rb.velocity.y);
         }
-        animator.SetFloat("horizontal", Mathf.Abs(rb.velocity.x));
+        animator.SetFloat("horizontal", Mathf.Abs(rb.velocity.x)); //ABS mean always positive, despite the direction.
         animator.SetFloat("vertical", rb.velocity.y);
     }
     void Jump()
