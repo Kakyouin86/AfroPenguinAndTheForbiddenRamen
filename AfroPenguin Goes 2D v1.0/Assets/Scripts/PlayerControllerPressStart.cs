@@ -3,7 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerControllerPressStart : MonoBehaviour
-{
+{//Few values I worked with (backup): Mass: 1 | Linear Drag: 0.6 | Angular: 0.05 | Gravity: 5 | Dynamic & Continuous | MoveSpeed: 10 | Jump Speed: 8 | Max Speed: 7 | Linear Drag: 4 | Gravity: 1 | Fall Multi.: 5 | Ground: 0.6
+ //Also, for this to work, we have to set the objects such as this: Player, then child: Character Holder, then child: Chaarcter Nnimation.
+ //The "Player" has the Rigidbody, this script, and an Edge Collider making it look like and M (below, the whole line is drawn).
+ //Also Animation has to have a "horizonal" and "vertical" float.
+
     [Header("Horizontal Movement")]
     public float moveSpeed = 10f;
     public Vector2 direction;
@@ -12,7 +16,7 @@ public class PlayerControllerPressStart : MonoBehaviour
     [Header("Vertical Movement")]
     public float jumpSpeed = 15f;
     public float jumpDelay = 0.25f;
-    private float jumpTimer;
+    private float jumpTimer; // How long since we pressed the Jump button
 
     [Header("Components")]
     public Rigidbody2D rb;
@@ -29,7 +33,7 @@ public class PlayerControllerPressStart : MonoBehaviour
     [Header("Collision")]
     public bool onGround = false; //We need to check if the Raycast is on the ground or off the ground.
     public float groundLength = 0.6f;
-    public Vector3 colliderOffset;
+    public Vector3 colliderOffset; //In case the red line in the middle is off but the other leg is on the ground. If we don't have this, we can't jump as he is not on the ground.
 
     // Update is called once per frame
     void Update()
@@ -37,7 +41,8 @@ public class PlayerControllerPressStart : MonoBehaviour
         bool wasOnGround = onGround;
         onGround = Physics2D.Raycast(transform.position + colliderOffset, Vector2.down, groundLength, groundLayer) || Physics2D.Raycast(transform.position - colliderOffset, Vector2.down, groundLength, groundLayer);
         //First part is the origin point, directly in the center of the character | direction of the line (down) | lengh of that line | the layer mark (the ground
-        if (!wasOnGround && onGround)
+        //Each leg, each part of the "OR".
+        if (!wasOnGround && onGround) //If we are not on the ground, we just landed on the ground.
         {
             StartCoroutine(JumpSqueeze(1.25f, 0.8f, 0.05f));
         }
@@ -52,7 +57,7 @@ public class PlayerControllerPressStart : MonoBehaviour
     void FixedUpdate()
     {
         moveCharacter(direction.x);
-        if (jumpTimer > Time.time && onGround)
+        if (jumpTimer > Time.time && onGround) // Then we are in the jump delay period
         {
             Jump();
         }
@@ -76,16 +81,17 @@ public class PlayerControllerPressStart : MonoBehaviour
     }
     void Jump()
     {
+        //First we reset the vertical velocity. It stops all vertical movement.
         rb.velocity = new Vector2(rb.velocity.x, 0);
-        rb.AddForce(Vector2.up * jumpSpeed, ForceMode2D.Impulse);
-        jumpTimer = 0;
+        rb.AddForce(Vector2.up * jumpSpeed, ForceMode2D.Impulse); //First paramether: where we apply the force (up). The second, the RB we want this force to be applied.
+        jumpTimer = 0; //We prevent the player from jumping more than once.
         StartCoroutine(JumpSqueeze(0.5f, 1.2f, 0.1f));
     }
     void modifyPhysics()
     {
         bool changingDirections = (direction.x > 0 && rb.velocity.x < 0) || (direction.x < 0 && rb.velocity.x > 0);
 
-        if (onGround)
+        if (onGround) //Only if he's touching the ground.
         {
             if (Mathf.Abs(direction.x) < 0.4f || changingDirections)
             {
@@ -95,17 +101,17 @@ public class PlayerControllerPressStart : MonoBehaviour
             {
                 rb.drag = 0f;
             }
-            rb.gravityScale = 0;
+            rb.gravityScale = 0; //No gravity when the player is touching the ground.
         }
         else
         {
-            rb.gravityScale = gravity;
-            rb.drag = linearDrag * 0.15f;
-            if (rb.velocity.y < 0)
+            rb.gravityScale = gravity; //We apply gravity, the minute the player is off the ground
+            rb.drag = linearDrag * 0.15f; //On experience, 50% of the drag value.
+            if (rb.velocity.y < 0) //The first thing we want to check is the downward velocity so we can apply our fall multiplier
             {
                 rb.gravityScale = gravity * fallMultiplier;
             }
-            else if (rb.velocity.y > 0 && !Input.GetButton("Jump"))
+            else if (rb.velocity.y > 0 && !Input.GetButton("Jump")) //If we are moving upwards but we have released our jump button, we want to limit out jump to a smaller height.
             {
                 rb.gravityScale = gravity * (fallMultiplier / 2);
             }
@@ -138,9 +144,10 @@ public class PlayerControllerPressStart : MonoBehaviour
     }
     private void OnDrawGizmos()
     {
-        //Gizmos: starting point and ending points
+        //Gizmos: starting point and ending points . It takes the ground point and takes it into the Y axis.
         Gizmos.color = Color.red;
         Gizmos.DrawLine(transform.position + colliderOffset, transform.position + colliderOffset + Vector3.down * groundLength);
         Gizmos.DrawLine(transform.position - colliderOffset, transform.position - colliderOffset + Vector3.down * groundLength);
+        //Each line is a leg, so go ahead and move the X values so each line is on one leg.
     }
 }
