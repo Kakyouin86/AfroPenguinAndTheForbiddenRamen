@@ -1,115 +1,12 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!21 &-5810824783659777149
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Super Mario Bros Material
-  m_Shader: {fileID: 4800000, guid: 68e6db2ebdc24f95958faec2be5558d6, type: 3}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _BumpMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _Cube:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _FaceTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _MainTex:
-        m_Texture: {fileID: -5281776658366386097}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _OutlineTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats:
-    - _Ambient: 0.5
-    - _Bevel: 0.5
-    - _BevelClamp: 0
-    - _BevelOffset: 0
-    - _BevelRoundness: 0
-    - _BevelWidth: 0
-    - _BumpFace: 0
-    - _BumpOutline: 0
-    - _ColorMask: 15
-    - _CullMode: 0
-    - _Diffuse: 0.5
-    - _FaceDilate: 0
-    - _FaceUVSpeedX: 0
-    - _FaceUVSpeedY: 0
-    - _GlowInner: 0.05
-    - _GlowOffset: 0
-    - _GlowOuter: 0.05
-    - _GlowPower: 0.75
-    - _GradientScale: 6
-    - _LightAngle: 3.1416
-    - _MaskSoftnessX: 0
-    - _MaskSoftnessY: 0
-    - _OutlineSoftness: 0
-    - _OutlineUVSpeedX: 0
-    - _OutlineUVSpeedY: 0
-    - _OutlineWidth: 0
-    - _PerspectiveFilter: 0.875
-    - _Reflectivity: 10
-    - _ScaleRatioA: 1
-    - _ScaleRatioB: 1
-    - _ScaleRatioC: 1
-    - _ScaleX: 1
-    - _ScaleY: 1
-    - _ShaderFlags: 0
-    - _Sharpness: 0
-    - _SpecularPower: 2
-    - _Stencil: 0
-    - _StencilComp: 8
-    - _StencilOp: 0
-    - _StencilReadMask: 255
-    - _StencilWriteMask: 255
-    - _TextureHeight: 512
-    - _TextureWidth: 512
-    - _UnderlayDilate: 0
-    - _UnderlayOffsetX: 0
-    - _UnderlayOffsetY: 0
-    - _UnderlaySoftness: 0
-    - _VertexOffsetX: 0
-    - _VertexOffsetY: 0
-    - _WeightBold: 0.75
-    - _WeightNormal: 0
-    m_Colors:
-    - _ClipRect: {r: -32767, g: -32767, b: 32767, a: 32767}
-    - _EnvMatrixRotation: {r: 0, g: 0, b: 0, a: 0}
-    - _FaceColor: {r: 1, g: 1, b: 1, a: 1}
-    - _GlowColor: {r: 0, g: 1, b: 0, a: 0.5}
-    - _MaskCoord: {r: 0, g: 0, b: 32767, a: 32767}
-    - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
-    - _ReflectFaceColor: {r: 0, g: 0, b: 0, a: 1}
-    - _ReflectOutlineColor: {r: 0, g: 0, b: 0, a: 1}
-    - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
-    - _UnderlayColor: {r: 0, g: 0, b: 0, a: 0.5}
-  m_BuildTextureStacks: []
---- !u!28 &-5281776658366386097
+--- !u!28 &-4407651128818177173
 Texture2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Super Mario Bros Atlas
+  m_Name: Super Mario Bros 256 Atlas
   m_ImageContentsHash:
     serializedVersion: 2
     Hash: 00000000000000000000000000000000
@@ -160,14 +57,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
-  m_Name: Super Mario Bros
+  m_Name: Super Mario Bros. 256
   m_EditorClassIdentifier: 
-  hashCode: 1560853941
-  material: {fileID: -5810824783659777149}
-  materialHashCode: 577940341
+  hashCode: 1241384970
+  material: {fileID: 8121320963106169181}
+  materialHashCode: 715247210
   m_Version: 1.1.0
-  m_SourceFontFileGUID: 14f37a701b3a2cb42aaf70d0cf62ce4b
-  m_SourceFontFile_EditorRef: {fileID: 12800000, guid: 14f37a701b3a2cb42aaf70d0cf62ce4b, type: 3}
+  m_SourceFontFileGUID: 33cec7dcd105d6f4b84fcc21715fae32
+  m_SourceFontFile_EditorRef: {fileID: 12800000, guid: 33cec7dcd105d6f4b84fcc21715fae32, type: 3}
   m_SourceFontFile: {fileID: 0}
   m_AtlasPopulationMode: 0
   m_FaceInfo:
@@ -1818,640 +1715,560 @@ MonoBehaviour:
     m_GlyphIndex: 3
     m_Scale: 1
   m_AtlasTextures:
-  - {fileID: -5281776658366386097}
+  - {fileID: -4407651128818177173}
   m_AtlasTextureIndex: 0
   m_IsMultiAtlasTexturesEnabled: 0
   m_ClearDynamicDataOnBuild: 0
   m_UsedGlyphRects:
   - m_X: 0
     m_Y: 0
-    m_Width: 80
-    m_Height: 55
-  - m_X: 80
+    m_Width: 69
+    m_Height: 27
+  - m_X: 69
     m_Y: 0
-    m_Width: 80
-    m_Height: 55
-  - m_X: 160
-    m_Y: 0
-    m_Width: 72
-    m_Height: 55
-  - m_X: 232
-    m_Y: 0
-    m_Width: 72
-    m_Height: 55
-  - m_X: 304
-    m_Y: 0
-    m_Width: 66
-    m_Height: 56
-  - m_X: 370
-    m_Y: 0
-    m_Width: 66
-    m_Height: 56
-  - m_X: 436
-    m_Y: 0
-    m_Width: 63
-    m_Height: 62
+    m_Width: 61
+    m_Height: 58
   - m_X: 0
-    m_Y: 55
-    m_Width: 61
-    m_Height: 56
-  - m_X: 61
-    m_Y: 55
-    m_Width: 61
-    m_Height: 56
-  - m_X: 122
-    m_Y: 55
+    m_Y: 27
     m_Width: 60
-    m_Height: 57
-  - m_X: 0
-    m_Y: 111
-    m_Width: 59
-    m_Height: 55
-  - m_X: 59
-    m_Y: 111
-    m_Width: 59
-    m_Height: 55
-  - m_X: 182
-    m_Y: 55
-    m_Width: 58
-    m_Height: 59
-  - m_X: 118
-    m_Y: 112
-    m_Width: 58
-    m_Height: 59
-  - m_X: 240
-    m_Y: 55
-    m_Width: 57
-    m_Height: 55
-  - m_X: 0
-    m_Y: 166
-    m_Width: 57
-    m_Height: 55
-  - m_X: 57
-    m_Y: 166
-    m_Width: 56
-    m_Height: 56
-  - m_X: 0
-    m_Y: 221
-    m_Width: 56
-    m_Height: 56
-  - m_X: 297
-    m_Y: 56
-    m_Width: 55
-    m_Height: 56
-  - m_X: 240
-    m_Y: 110
-    m_Width: 55
-    m_Height: 56
-  - m_X: 176
-    m_Y: 114
-    m_Width: 54
-    m_Height: 56
-  - m_X: 352
-    m_Y: 56
-    m_Width: 54
-    m_Height: 56
-  - m_X: 406
-    m_Y: 56
-    m_Width: 30
-    m_Height: 29
-  - m_X: 436
-    m_Y: 62
-    m_Width: 54
-    m_Height: 55
-  - m_X: 406
-    m_Y: 85
-    m_Width: 30
-    m_Height: 25
-  - m_X: 490
-    m_Y: 62
-    m_Width: 21
-    m_Height: 22
-  - m_X: 490
-    m_Y: 84
-    m_Width: 18
-    m_Height: 24
-  - m_X: 406
-    m_Y: 110
-    m_Width: 26
-    m_Height: 69
-  - m_X: 490
-    m_Y: 108
-    m_Width: 15
-    m_Height: 70
-  - m_X: 432
-    m_Y: 117
-    m_Width: 54
-    m_Height: 15
-  - m_X: 432
-    m_Y: 132
-    m_Width: 53
-    m_Height: 56
-  - m_X: 485
-    m_Y: 178
-    m_Width: 26
-    m_Height: 69
-  - m_X: 295
-    m_Y: 112
-    m_Width: 53
-    m_Height: 56
-  - m_X: 348
-    m_Y: 112
-    m_Width: 53
-    m_Height: 56
-  - m_X: 230
-    m_Y: 166
-    m_Width: 53
-    m_Height: 56
-  - m_X: 176
-    m_Y: 170
-    m_Width: 53
-    m_Height: 56
-  - m_X: 113
-    m_Y: 171
-    m_Width: 53
-    m_Height: 56
-  - m_X: 56
-    m_Y: 222
-    m_Width: 52
-    m_Height: 56
-  - m_X: 0
-    m_Y: 277
-    m_Width: 52
-    m_Height: 55
-  - m_X: 283
-    m_Y: 168
-    m_Width: 51
-    m_Height: 60
-  - m_X: 229
-    m_Y: 222
-    m_Width: 51
-    m_Height: 56
-  - m_X: 166
-    m_Y: 226
-    m_Width: 51
-    m_Height: 56
-  - m_X: 108
-    m_Y: 227
-    m_Width: 51
-    m_Height: 55
-  - m_X: 52
-    m_Y: 278
-    m_Width: 51
-    m_Height: 55
-  - m_X: 0
-    m_Y: 332
-    m_Width: 51
-    m_Height: 55
-  - m_X: 334
-    m_Y: 168
-    m_Width: 51
-    m_Height: 55
-  - m_X: 385
-    m_Y: 179
-    m_Width: 47
-    m_Height: 56
-  - m_X: 334
-    m_Y: 223
-    m_Width: 50
-    m_Height: 55
-  - m_X: 432
-    m_Y: 188
-    m_Width: 50
-    m_Height: 55
-  - m_X: 384
-    m_Y: 235
-    m_Width: 48
-    m_Height: 56
-  - m_X: 432
-    m_Y: 243
-    m_Width: 50
-    m_Height: 55
-  - m_X: 482
-    m_Y: 247
-    m_Width: 26
-    m_Height: 59
-  - m_X: 280
-    m_Y: 228
-    m_Width: 50
-    m_Height: 55
-  - m_X: 330
-    m_Y: 278
-    m_Width: 49
-    m_Height: 56
-  - m_X: 379
-    m_Y: 291
-    m_Width: 49
-    m_Height: 56
-  - m_X: 428
-    m_Y: 298
-    m_Width: 49
-    m_Height: 56
-  - m_X: 477
-    m_Y: 306
-    m_Width: 32
-    m_Height: 56
-  - m_X: 217
-    m_Y: 278
-    m_Width: 49
-    m_Height: 56
-  - m_X: 266
-    m_Y: 283
-    m_Width: 49
-    m_Height: 56
-  - m_X: 315
-    m_Y: 334
-    m_Width: 48
-    m_Height: 56
-  - m_X: 363
-    m_Y: 347
-    m_Width: 48
-    m_Height: 55
-  - m_X: 411
-    m_Y: 354
-    m_Width: 48
-    m_Height: 55
-  - m_X: 459
-    m_Y: 362
-    m_Width: 47
-    m_Height: 56
-  - m_X: 0
-    m_Y: 418
-    m_Width: 26
     m_Height: 58
-  - m_X: 0
-    m_Y: 387
-    m_Width: 32
-    m_Height: 31
-  - m_X: 0
-    m_Y: 476
-    m_Width: 25
-    m_Height: 24
-  - m_X: 25
-    m_Y: 476
-    m_Width: 22
-    m_Height: 24
-  - m_X: 26
-    m_Y: 418
-    m_Width: 25
-    m_Height: 58
-  - m_X: 32
-    m_Y: 390
-    m_Width: 22
-    m_Height: 22
-  - m_X: 51
-    m_Y: 333
-    m_Width: 45
-    m_Height: 57
-  - m_X: 47
-    m_Y: 476
-    m_Width: 32
-    m_Height: 19
-  - m_X: 51
-    m_Y: 418
-    m_Width: 37
-    m_Height: 57
-  - m_X: 88
-    m_Y: 418
-    m_Width: 46
-    m_Height: 56
-  - m_X: 96
-    m_Y: 339
-    m_Width: 46
-    m_Height: 56
-  - m_X: 103
-    m_Y: 282
-    m_Width: 46
-    m_Height: 56
-  - m_X: 149
-    m_Y: 282
-    m_Width: 47
-    m_Height: 55
-  - m_X: 196
-    m_Y: 334
-    m_Width: 47
-    m_Height: 55
-  - m_X: 149
-    m_Y: 337
-    m_Width: 47
-    m_Height: 55
-  - m_X: 243
-    m_Y: 334
-    m_Width: 22
-    m_Height: 41
-  - m_X: 265
-    m_Y: 339
-    m_Width: 44
-    m_Height: 56
-  - m_X: 309
-    m_Y: 390
-    m_Width: 44
-    m_Height: 56
-  - m_X: 134
-    m_Y: 446
-    m_Width: 44
-    m_Height: 56
-  - m_X: 134
-    m_Y: 395
-    m_Width: 25
-    m_Height: 47
-  - m_X: 178
-    m_Y: 446
-    m_Width: 44
-    m_Height: 56
-  - m_X: 222
-    m_Y: 389
-    m_Width: 43
-    m_Height: 56
-  - m_X: 265
-    m_Y: 395
-    m_Width: 44
-    m_Height: 55
-  - m_X: 222
-    m_Y: 445
-    m_Width: 43
-    m_Height: 55
-  - m_X: 265
-    m_Y: 450
-    m_Width: 42
-    m_Height: 56
-  - m_X: 307
-    m_Y: 450
-    m_Width: 32
-    m_Height: 56
-  m_FreeGlyphRects:
-  - m_X: 118
-    m_Y: 111
-    m_Width: 4
-    m_Height: 1
-  - m_X: 297
-    m_Y: 55
-    m_Width: 7
-    m_Height: 1
-  - m_X: 176
-    m_Y: 112
-    m_Width: 6
-    m_Height: 2
-  - m_X: 499
+  - m_X: 130
     m_Y: 0
-    m_Width: 12
-    m_Height: 62
-  - m_X: 432
-    m_Y: 110
-    m_Width: 4
-    m_Height: 7
-  - m_X: 508
-    m_Y: 84
-    m_Width: 3
-    m_Height: 94
-  - m_X: 505
-    m_Y: 108
-    m_Width: 6
-    m_Height: 70
-  - m_X: 486
-    m_Y: 117
-    m_Width: 4
-    m_Height: 61
-  - m_X: 485
-    m_Y: 132
-    m_Width: 5
-    m_Height: 46
-  - m_X: 295
-    m_Y: 110
-    m_Width: 2
+    m_Width: 60
+    m_Height: 58
+  - m_X: 190
+    m_Y: 0
+    m_Width: 58
+    m_Height: 58
+  - m_X: 248
+    m_Y: 0
+    m_Width: 58
+    m_Height: 58
+  - m_X: 306
+    m_Y: 0
+    m_Width: 58
+    m_Height: 58
+  - m_X: 364
+    m_Y: 0
+    m_Width: 58
+    m_Height: 58
+  - m_X: 422
+    m_Y: 0
+    m_Width: 57
+    m_Height: 58
+  - m_X: 479
+    m_Y: 0
+    m_Width: 29
+    m_Height: 58
+  - m_X: 0
+    m_Y: 85
+    m_Width: 53
+    m_Height: 59
+  - m_X: 0
+    m_Y: 144
+    m_Width: 53
+    m_Height: 59
+  - m_X: 0
+    m_Y: 203
+    m_Width: 51
+    m_Height: 59
+  - m_X: 0
+    m_Y: 262
+    m_Width: 51
+    m_Height: 59
+  - m_X: 0
+    m_Y: 321
+    m_Width: 48
+    m_Height: 59
+  - m_X: 0
+    m_Y: 380
+    m_Width: 48
+    m_Height: 59
+  - m_X: 0
+    m_Y: 439
+    m_Width: 33
+    m_Height: 59
+  - m_X: 33
+    m_Y: 439
+    m_Width: 57
+    m_Height: 58
+  - m_X: 48
+    m_Y: 321
+    m_Width: 55
+    m_Height: 58
+  - m_X: 48
+    m_Y: 379
+    m_Width: 55
+    m_Height: 58
+  - m_X: 90
+    m_Y: 437
+    m_Width: 54
+    m_Height: 58
+  - m_X: 51
+    m_Y: 203
+    m_Width: 54
+    m_Height: 58
+  - m_X: 51
+    m_Y: 261
+    m_Width: 53
+    m_Height: 58
+  - m_X: 103
+    m_Y: 319
+    m_Width: 52
+    m_Height: 58
+  - m_X: 104
+    m_Y: 261
+    m_Width: 52
+    m_Height: 58
+  - m_X: 103
+    m_Y: 377
+    m_Width: 51
+    m_Height: 58
+  - m_X: 144
+    m_Y: 435
+    m_Width: 51
+    m_Height: 58
+  - m_X: 154
+    m_Y: 377
+    m_Width: 51
+    m_Height: 58
+  - m_X: 155
+    m_Y: 319
+    m_Width: 50
+    m_Height: 58
+  - m_X: 195
+    m_Y: 435
+    m_Width: 50
+    m_Height: 58
+  - m_X: 53
+    m_Y: 85
+    m_Width: 50
+    m_Height: 58
+  - m_X: 60
+    m_Y: 58
+    m_Width: 23
+    m_Height: 27
+  - m_X: 83
+    m_Y: 58
+    m_Width: 23
+    m_Height: 27
+  - m_X: 53
+    m_Y: 143
+    m_Width: 50
+    m_Height: 58
+  - m_X: 103
+    m_Y: 85
+    m_Width: 50
+    m_Height: 58
+  - m_X: 106
+    m_Y: 58
+    m_Width: 23
+    m_Height: 26
+  - m_X: 103
+    m_Y: 143
+    m_Width: 50
+    m_Height: 58
+  - m_X: 105
+    m_Y: 201
+    m_Width: 50
+    m_Height: 58
+  - m_X: 129
+    m_Y: 58
+    m_Width: 25
+    m_Height: 24
+  - m_X: 153
+    m_Y: 82
+    m_Width: 50
+    m_Height: 58
+  - m_X: 153
+    m_Y: 140
+    m_Width: 50
+    m_Height: 58
+  - m_X: 155
+    m_Y: 198
+    m_Width: 49
+    m_Height: 58
+  - m_X: 156
+    m_Y: 256
+    m_Width: 49
+    m_Height: 58
+  - m_X: 203
+    m_Y: 58
+    m_Width: 49
+    m_Height: 58
+  - m_X: 203
+    m_Y: 116
+    m_Width: 49
+    m_Height: 58
+  - m_X: 204
+    m_Y: 174
+    m_Width: 49
+    m_Height: 58
+  - m_X: 252
+    m_Y: 58
+    m_Width: 49
+    m_Height: 58
+  - m_X: 252
+    m_Y: 116
+    m_Width: 49
+    m_Height: 58
+  - m_X: 205
+    m_Y: 232
+    m_Width: 49
+    m_Height: 58
+  - m_X: 253
+    m_Y: 174
+    m_Width: 48
+    m_Height: 58
+  - m_X: 205
+    m_Y: 290
+    m_Width: 48
+    m_Height: 58
+  - m_X: 205
+    m_Y: 348
+    m_Width: 47
+    m_Height: 58
+  - m_X: 205
+    m_Y: 406
+    m_Width: 57
+    m_Height: 29
+  - m_X: 252
+    m_Y: 348
+    m_Width: 47
+    m_Height: 58
+  - m_X: 253
+    m_Y: 290
+    m_Width: 47
+    m_Height: 58
+  - m_X: 254
+    m_Y: 232
+    m_Width: 47
+    m_Height: 58
+  - m_X: 245
+    m_Y: 435
+    m_Width: 46
+    m_Height: 58
+  - m_X: 262
+    m_Y: 406
+    m_Width: 46
+    m_Height: 28
+  - m_X: 299
+    m_Y: 348
+    m_Width: 46
+    m_Height: 58
+  - m_X: 300
+    m_Y: 290
+    m_Width: 46
+    m_Height: 58
+  - m_X: 291
+    m_Y: 434
+    m_Width: 46
+    m_Height: 58
+  - m_X: 308
+    m_Y: 406
+    m_Width: 36
+    m_Height: 28
+  - m_X: 337
+    m_Y: 434
+    m_Width: 46
+    m_Height: 58
+  - m_X: 345
+    m_Y: 348
+    m_Width: 46
+    m_Height: 58
+  - m_X: 383
+    m_Y: 406
+    m_Width: 45
+    m_Height: 58
+  - m_X: 383
+    m_Y: 464
+    m_Width: 25
+    m_Height: 44
+  - m_X: 408
+    m_Y: 464
+    m_Width: 25
+    m_Height: 41
+  - m_X: 433
+    m_Y: 58
+    m_Width: 49
+    m_Height: 57
+  - m_X: 391
+    m_Y: 58
+    m_Width: 42
+    m_Height: 40
+  - m_X: 346
+    m_Y: 58
+    m_Width: 45
+    m_Height: 58
+  - m_X: 301
+    m_Y: 58
+    m_Width: 45
+    m_Height: 58
+  - m_X: 482
+    m_Y: 58
+    m_Width: 29
+    m_Height: 58
+  - m_X: 433
+    m_Y: 115
+    m_Width: 49
+    m_Height: 57
+  - m_X: 482
+    m_Y: 116
+    m_Width: 29
+    m_Height: 58
+  - m_X: 433
+    m_Y: 172
+    m_Width: 49
+    m_Height: 49
+  - m_X: 482
+    m_Y: 174
+    m_Width: 27
+    m_Height: 58
+  - m_X: 301
+    m_Y: 232
+    m_Width: 45
+    m_Height: 58
+  - m_X: 433
+    m_Y: 221
+    m_Width: 48
+    m_Height: 57
+  - m_X: 481
+    m_Y: 232
+    m_Width: 27
+    m_Height: 58
+  - m_X: 346
+    m_Y: 290
+    m_Width: 45
+    m_Height: 58
+  - m_X: 433
+    m_Y: 278
+    m_Width: 47
+    m_Height: 40
+  - m_X: 480
+    m_Y: 290
+    m_Width: 26
+    m_Height: 58
+  - m_X: 391
+    m_Y: 348
+    m_Width: 45
+    m_Height: 58
+  - m_X: 428
+    m_Y: 406
+    m_Width: 44
+    m_Height: 58
+  - m_X: 436
+    m_Y: 318
+    m_Width: 44
+    m_Height: 58
+  - m_X: 472
+    m_Y: 376
+    m_Width: 37
+    m_Height: 58
+  - m_X: 472
+    m_Y: 434
+    m_Width: 37
+    m_Height: 58
+  - m_X: 391
+    m_Y: 98
+    m_Width: 36
+    m_Height: 57
+  - m_X: 346
+    m_Y: 116
+    m_Width: 45
+    m_Height: 53
+  - m_X: 301
+    m_Y: 116
+    m_Width: 44
+    m_Height: 53
+  - m_X: 301
+    m_Y: 169
+    m_Width: 43
+    m_Height: 58
+  - m_X: 344
+    m_Y: 169
+    m_Width: 43
+    m_Height: 58
+  - m_X: 387
+    m_Y: 169
+    m_Width: 44
+    m_Height: 49
+  - m_X: 346
+    m_Y: 227
+    m_Width: 33
+    m_Height: 58
+  m_FreeGlyphRects:
+  - m_X: 48
+    m_Y: 437
+    m_Width: 42
     m_Height: 2
-  - m_X: 230
-    m_Y: 114
-    m_Width: 10
-    m_Height: 52
-  - m_X: 113
-    m_Y: 166
-    m_Width: 5
+  - m_X: 51
+    m_Y: 319
+    m_Width: 52
+    m_Height: 2
+  - m_X: 103
+    m_Y: 435
+    m_Width: 41
+    m_Height: 2
+  - m_X: 60
+    m_Y: 27
+    m_Width: 9
+    m_Height: 31
+  - m_X: 53
+    m_Y: 201
+    m_Width: 52
+    m_Height: 2
+  - m_X: 106
+    m_Y: 84
+    m_Width: 47
+    m_Height: 1
+  - m_X: 129
+    m_Y: 82
+    m_Width: 24
+    m_Height: 3
+  - m_X: 153
+    m_Y: 198
+    m_Width: 2
+    m_Height: 3
+  - m_X: 105
+    m_Y: 259
+    m_Width: 51
+    m_Height: 2
+  - m_X: 155
+    m_Y: 256
+    m_Width: 1
     m_Height: 5
-  - m_X: 56
+  - m_X: 154
+    m_Y: 58
+    m_Width: 49
+    m_Height: 24
+  - m_X: 203
+    m_Y: 174
+    m_Width: 1
+    m_Height: 24
+  - m_X: 204
+    m_Y: 232
+    m_Width: 1
+    m_Height: 24
+  - m_X: 156
+    m_Y: 314
+    m_Width: 49
+    m_Height: 5
+  - m_X: 262
+    m_Y: 434
+    m_Width: 29
+    m_Height: 1
+  - m_X: 344
+    m_Y: 406
+    m_Width: 39
+    m_Height: 28
+  - m_X: 0
+    m_Y: 508
+    m_Width: 511
+    m_Height: 3
+  - m_X: 0
+    m_Y: 498
+    m_Width: 383
+    m_Height: 13
+  - m_X: 33
+    m_Y: 497
+    m_Width: 350
+    m_Height: 14
+  - m_X: 90
+    m_Y: 495
+    m_Width: 293
+    m_Height: 16
+  - m_X: 144
+    m_Y: 493
+    m_Width: 239
+    m_Height: 18
+  - m_X: 291
+    m_Y: 492
+    m_Width: 92
+    m_Height: 19
+  - m_X: 408
+    m_Y: 505
+    m_Width: 103
+    m_Height: 6
+  - m_X: 508
+    m_Y: 0
+    m_Width: 3
+    m_Height: 58
+  - m_X: 509
+    m_Y: 174
+    m_Width: 2
+    m_Height: 337
+  - m_X: 481
     m_Y: 221
     m_Width: 1
-    m_Height: 1
-  - m_X: 283
-    m_Y: 166
-    m_Width: 12
-    m_Height: 2
-  - m_X: 229
-    m_Y: 170
-    m_Width: 1
-    m_Height: 52
-  - m_X: 166
-    m_Y: 171
-    m_Width: 10
-    m_Height: 55
-  - m_X: 108
-    m_Y: 222
-    m_Width: 5
-    m_Height: 5
-  - m_X: 52
-    m_Y: 277
-    m_Width: 4
-    m_Height: 1
-  - m_X: 401
-    m_Y: 112
-    m_Width: 5
-    m_Height: 67
-  - m_X: 385
-    m_Y: 168
-    m_Width: 21
     m_Height: 11
-  - m_X: 384
-    m_Y: 223
+  - m_X: 480
+    m_Y: 278
     m_Width: 1
     m_Height: 12
-  - m_X: 482
-    m_Y: 188
-    m_Width: 3
-    m_Height: 59
-  - m_X: 280
-    m_Y: 222
-    m_Width: 3
-    m_Height: 6
-  - m_X: 330
-    m_Y: 228
-    m_Width: 4
-    m_Height: 50
-  - m_X: 379
-    m_Y: 278
-    m_Width: 5
-    m_Height: 13
-  - m_X: 428
-    m_Y: 291
-    m_Width: 4
-    m_Height: 7
+  - m_X: 391
+    m_Y: 318
+    m_Width: 45
+    m_Height: 30
   - m_X: 508
-    m_Y: 247
+    m_Y: 232
     m_Width: 3
-    m_Height: 59
-  - m_X: 509
-    m_Y: 247
-    m_Width: 2
-    m_Height: 264
-  - m_X: 477
-    m_Y: 298
-    m_Width: 5
-    m_Height: 8
-  - m_X: 217
-    m_Y: 226
-    m_Width: 12
-    m_Height: 52
-  - m_X: 266
-    m_Y: 278
-    m_Width: 14
-    m_Height: 5
-  - m_X: 315
-    m_Y: 283
-    m_Width: 15
-    m_Height: 51
-  - m_X: 363
-    m_Y: 334
-    m_Width: 16
-    m_Height: 13
-  - m_X: 411
-    m_Y: 347
-    m_Width: 17
-    m_Height: 7
+    m_Height: 144
   - m_X: 506
-    m_Y: 362
+    m_Y: 290
     m_Width: 5
-    m_Height: 149
-  - m_X: 459
-    m_Y: 354
-    m_Width: 18
-    m_Height: 8
-  - m_X: 51
-    m_Y: 332
-    m_Width: 1
-    m_Height: 1
-  - m_X: 32
-    m_Y: 387
-    m_Width: 19
-    m_Height: 3
-  - m_X: 54
-    m_Y: 390
-    m_Width: 42
+    m_Height: 86
+  - m_X: 436
+    m_Y: 376
+    m_Width: 36
+    m_Height: 30
+  - m_X: 480
+    m_Y: 348
+    m_Width: 31
     m_Height: 28
-  - m_X: 103
-    m_Y: 278
-    m_Width: 5
-    m_Height: 4
-  - m_X: 96
-    m_Y: 333
-    m_Width: 7
-    m_Height: 6
-  - m_X: 159
-    m_Y: 227
-    m_Width: 7
-    m_Height: 55
-  - m_X: 196
-    m_Y: 282
-    m_Width: 21
-    m_Height: 52
-  - m_X: 96
-    m_Y: 338
-    m_Width: 53
-    m_Height: 1
-  - m_X: 265
-    m_Y: 334
+  - m_X: 433
+    m_Y: 492
+    m_Width: 78
+    m_Height: 19
+  - m_X: 433
+    m_Y: 464
+    m_Width: 39
+    m_Height: 47
+  - m_X: 345
+    m_Y: 116
     m_Width: 1
-    m_Height: 5
-  - m_X: 353
-    m_Y: 418
-    m_Width: 158
-    m_Height: 93
-  - m_X: 353
-    m_Y: 402
-    m_Width: 58
-    m_Height: 109
-  - m_X: 353
-    m_Y: 409
-    m_Width: 106
-    m_Height: 102
-  - m_X: 353
-    m_Y: 390
-    m_Width: 10
-    m_Height: 121
-  - m_X: 309
-    m_Y: 339
-    m_Width: 6
-    m_Height: 51
-  - m_X: 0
-    m_Y: 500
-    m_Width: 134
-    m_Height: 11
-  - m_X: 47
-    m_Y: 495
-    m_Width: 87
-    m_Height: 16
-  - m_X: 51
-    m_Y: 475
-    m_Width: 83
-    m_Height: 1
-  - m_X: 79
-    m_Y: 475
-    m_Width: 55
-    m_Height: 36
-  - m_X: 88
-    m_Y: 474
-    m_Width: 46
-    m_Height: 37
-  - m_X: 32
-    m_Y: 412
-    m_Width: 102
-    m_Height: 6
-  - m_X: 54
-    m_Y: 395
-    m_Width: 80
-    m_Height: 23
-  - m_X: 142
-    m_Y: 338
-    m_Width: 7
-    m_Height: 57
-  - m_X: 243
-    m_Y: 375
-    m_Width: 22
+    m_Height: 53
+  - m_X: 391
+    m_Y: 155
+    m_Width: 42
     m_Height: 14
-  - m_X: 142
-    m_Y: 392
-    m_Width: 80
-    m_Height: 3
-  - m_X: 159
-    m_Y: 392
-    m_Width: 63
-    m_Height: 54
-  - m_X: 134
-    m_Y: 442
-    m_Width: 88
-    m_Height: 4
-  - m_X: 196
-    m_Y: 389
-    m_Width: 26
-    m_Height: 57
-  - m_X: 0
-    m_Y: 506
-    m_Width: 511
+  - m_X: 391
+    m_Y: 218
+    m_Width: 42
+    m_Height: 130
+  - m_X: 427
+    m_Y: 98
+    m_Width: 6
+    m_Height: 71
+  - m_X: 431
+    m_Y: 98
+    m_Width: 2
+    m_Height: 250
+  - m_X: 387
+    m_Y: 218
+    m_Width: 46
+    m_Height: 72
+  - m_X: 301
+    m_Y: 227
+    m_Width: 45
     m_Height: 5
-  - m_X: 0
-    m_Y: 502
-    m_Width: 265
-    m_Height: 9
-  - m_X: 222
-    m_Y: 500
-    m_Width: 43
-    m_Height: 11
-  - m_X: 309
-    m_Y: 446
-    m_Width: 202
-    m_Height: 4
-  - m_X: 339
-    m_Y: 446
-    m_Width: 172
-    m_Height: 65
+  - m_X: 346
+    m_Y: 285
+    m_Width: 87
+    m_Height: 5
+  - m_X: 379
+    m_Y: 227
+    m_Width: 54
+    m_Height: 63
   m_fontInfo:
     Name: 
     PointSize: 0
@@ -2531,3 +2348,106 @@ MonoBehaviour:
   boldSpacing: 7
   italicStyle: 35
   tabSize: 10
+--- !u!21 &8121320963106169181
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Super Mario Bros 256 Material
+  m_Shader: {fileID: 4800000, guid: 68e6db2ebdc24f95958faec2be5558d6, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _BumpMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Cube:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _FaceTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: -4407651128818177173}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OutlineTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _Ambient: 0.5
+    - _Bevel: 0.5
+    - _BevelClamp: 0
+    - _BevelOffset: 0
+    - _BevelRoundness: 0
+    - _BevelWidth: 0
+    - _BumpFace: 0
+    - _BumpOutline: 0
+    - _ColorMask: 15
+    - _CullMode: 0
+    - _Diffuse: 0.5
+    - _FaceDilate: 0
+    - _FaceUVSpeedX: 0
+    - _FaceUVSpeedY: 0
+    - _GlowInner: 0.05
+    - _GlowOffset: 0
+    - _GlowOuter: 0.05
+    - _GlowPower: 0.75
+    - _GradientScale: 6
+    - _LightAngle: 3.1416
+    - _MaskSoftnessX: 0
+    - _MaskSoftnessY: 0
+    - _OutlineSoftness: 0
+    - _OutlineUVSpeedX: 0
+    - _OutlineUVSpeedY: 0
+    - _OutlineWidth: 0
+    - _PerspectiveFilter: 0.875
+    - _Reflectivity: 10
+    - _ScaleRatioA: 1
+    - _ScaleRatioB: 1
+    - _ScaleRatioC: 1
+    - _ScaleX: 1
+    - _ScaleY: 1
+    - _ShaderFlags: 0
+    - _Sharpness: 0
+    - _SpecularPower: 2
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
+    - _TextureHeight: 512
+    - _TextureWidth: 512
+    - _UnderlayDilate: 0
+    - _UnderlayOffsetX: 0
+    - _UnderlayOffsetY: 0
+    - _UnderlaySoftness: 0
+    - _VertexOffsetX: 0
+    - _VertexOffsetY: 0
+    - _WeightBold: 0.75
+    - _WeightNormal: 0
+    m_Colors:
+    - _ClipRect: {r: -32767, g: -32767, b: 32767, a: 32767}
+    - _EnvMatrixRotation: {r: 0, g: 0, b: 0, a: 0}
+    - _FaceColor: {r: 1, g: 1, b: 1, a: 1}
+    - _GlowColor: {r: 0, g: 1, b: 0, a: 0.5}
+    - _MaskCoord: {r: 0, g: 0, b: 32767, a: 32767}
+    - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
+    - _ReflectFaceColor: {r: 0, g: 0, b: 0, a: 1}
+    - _ReflectOutlineColor: {r: 0, g: 0, b: 0, a: 1}
+    - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
+    - _UnderlayColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_BuildTextureStacks: []
