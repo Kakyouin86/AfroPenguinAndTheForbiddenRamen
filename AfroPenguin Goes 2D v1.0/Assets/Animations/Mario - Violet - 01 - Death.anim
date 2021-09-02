@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Ball Enemies - 01 (Orange) - Death
+  m_Name: Mario - Violet - 01 - Death
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,9 +20,9 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: -2199795434803056750, guid: fe1ae712e0733a544a673b8f28206883, type: 3}
+      value: {fileID: 5324484127249545128, guid: f855571fca9270445b215ac9be17cd0e, type: 3}
     - time: 0.016666668
-      value: {fileID: -5198896893391990808, guid: fe1ae712e0733a544a673b8f28206883, type: 3}
+      value: {fileID: -39021135152719989, guid: f855571fca9270445b215ac9be17cd0e, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -42,8 +42,8 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: -2199795434803056750, guid: fe1ae712e0733a544a673b8f28206883, type: 3}
-    - {fileID: -5198896893391990808, guid: fe1ae712e0733a544a673b8f28206883, type: 3}
+    - {fileID: 5324484127249545128, guid: f855571fca9270445b215ac9be17cd0e, type: 3}
+    - {fileID: -39021135152719989, guid: f855571fca9270445b215ac9be17cd0e, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
