@@ -120,16 +120,28 @@ public class PlayerController : MonoBehaviour
             }
             //Stop NEW
 
-            if (GetComponent<Rigidbody2D>().velocity.x < 0)
+            if (GetComponent<Rigidbody2D>().velocity.x != 0) //si la velocidad es 0, no hacer nada
             {
-                sr.flipX = true;
-                facingRight = false;
+                bool prevFacing = facingRight; //Guardo el estado anterior para poder compararlo luego, para hacer el humito
+                bool isNegativeVelocity = GetComponent<Rigidbody2D>().velocity.x < 0; //la velocidad es negativa?
+                sr.flipX = isNegativeVelocity; // filpX es igual a lo anterior
+                facingRight = !isNegativeVelocity; //facingRight es lo contrario a flipX
+                if (facingRight != prevFacing) // comparo si el booleano cambió o no para ver si triggerear el humito
+                {
+                    CreateDust();
+                }
             }
-            else if (GetComponent<Rigidbody2D>().velocity.x > 0)
-            {
-                sr.flipX = false;
-                facingRight = true;
-            }
+
+            //if (GetComponent<Rigidbody2D>().velocity.x < 0)
+            //{
+            //    sr.flipX = true;
+            //    facingRight = false;
+            //}
+            //else if (GetComponent<Rigidbody2D>().velocity.x > 0)
+            //{
+            //    sr.flipX = false;
+            //    facingRight = true;
+            //}
         }
 
         else
