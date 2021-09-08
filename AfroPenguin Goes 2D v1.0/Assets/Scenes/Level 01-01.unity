@@ -6847,7 +6847,7 @@ GameObject:
   - component: {fileID: 221822269}
   - component: {fileID: 221822268}
   m_Layer: 8
-  m_Name: Player (AfroPenguin Pixel Art_25)
+  m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6893,7 +6893,7 @@ SpriteRenderer:
   m_SortingLayerID: 843369713
   m_SortingLayer: 6
   m_SortingOrder: 4
-  m_Sprite: {fileID: 643706285603299601, guid: 36b7842c9c654df4f93a9710925622db, type: 3}
+  m_Sprite: {fileID: -6905337462940492471, guid: 36b7842c9c654df4f93a9710925622db, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -6912,7 +6912,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 221822264}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.03854477, y: -2.9109125, z: 0}
+  m_LocalPosition: {x: 0, y: -2.9086695, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1655106434}
@@ -6972,25 +6972,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48294e161f5d49a459e127836d217683, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 8
-  jumpForce: 15
-  doubleJumpForce: 15
+  moveSpeed: 4
+  moveSpeedModifier: 1.5
+  isRunning: 0
   whatIsGround:
     serializedVersion: 2
     m_Bits: 640
-  isGrounded: 1
-  wasOnGround: 0
-  canDoubleJump: 0
-  stopInput: 0
-  facingRight: 0
   groundCheckPoint: {fileID: 1655106434}
+  groundCheckRadius: 0.2
+  isGrounded: 1
+  jumpForce: 15
+  availableJumps: 0
+  totalJumps: 2
+  multipleJumps: 0
+  canMultipleJump: 0
+  wasDoubleJump: 0
+  coyoteJump: 0
+  stopInput: 0
+  facingRight: 1
   sr: {fileID: 221822265}
   knockbackLenght: 0.25
   knockbackForce: 5
   knockbackCounter: 0
+  isKnockback: 0
   bounceForce: 15
   camTarget: {fileID: 1845694261}
-  aheadAmount: 2
+  aheadAmount: 1.5
   aheadSpeed: 1
   dust: {fileID: 16131336}
 --- !u!50 &221822270
@@ -15717,7 +15724,7 @@ GameObject:
   m_Layer: 8
   m_Name: Ground Point
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
