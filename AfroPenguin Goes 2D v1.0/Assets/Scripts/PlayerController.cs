@@ -19,8 +19,6 @@ public class PlayerController : MonoBehaviour
     public int availableJumps;
     public int totalJumps = 2;
     public bool multipleJumps;
-    public bool canMultipleJump;
-    public bool wasDoubleJump;
     public bool coyoteJump;
     public bool stopInput;
     public bool facingRight = true;
@@ -88,14 +86,17 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    #region Can Move Or Interact
     public bool CanMoveOrInteract()
     {
         bool can = true;
         if (isKnockback)
             can = false;
         return can;
-    }
+    } 
+    #endregion
 
+    #region Ground Check
     public void GroundCheck()
     {
         bool wasGrounded = isGrounded;
@@ -121,7 +122,9 @@ public class PlayerController : MonoBehaviour
                 StartCoroutine(CoyoteJumpDelay());
         }
     }
+    #endregion
 
+    #region Move Player
     void MovePlayer(float dir)
     {
         //Set the yVelocity Value
@@ -166,8 +169,10 @@ public class PlayerController : MonoBehaviour
             camTarget.localPosition = new Vector3(Mathf.Lerp(camTarget.localPosition.x, aheadAmount * Input.GetAxisRaw("Horizontal"), aheadSpeed * Time.deltaTime), camTarget.localPosition.y, camTarget.localPosition.z);
         }
     }
+    #endregion
 
 
+    #region Jump
     public void Jump()
     {
         if (Input.GetButtonDown("Jump"))
@@ -197,18 +202,22 @@ public class PlayerController : MonoBehaviour
         }
         if (Input.GetButtonUp("Jump") && GetComponent<Rigidbody2D>().velocity.y > 0)
         {
-           // isGrounded = false;
+            // isGrounded = false;
             GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, GetComponent<Rigidbody2D>().velocity.y * 0.5f);
         }
     }
+    #endregion
 
+    #region Coyote Jump
     IEnumerator CoyoteJumpDelay()
     {
         coyoteJump = true;
         yield return new WaitForSeconds(0.2f);
         coyoteJump = false;
     }
+    #endregion
 
+    #region Knockback
     public void KnockBack()
     {
         knockbackCounter = knockbackLenght;
@@ -233,15 +242,20 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(knockbackCounter);
         isKnockback = false;
     }
+    #endregion
 
+    #region Bounce
     public void Bounce()
     {
         GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, bounceForce);
         AudioManager.instance.PlaySFX(10);
     }
+    #endregion
 
+    #region Create Dust
     public void CreateDust()
     {
         dust.Play();
     }
-}
+} 
+#endregion
