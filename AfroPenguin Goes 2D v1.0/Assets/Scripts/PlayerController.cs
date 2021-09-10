@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class PlayerController : MonoBehaviour
 {
     public static PlayerController instance;
     [Header("Movement")]
     private float horizontalValue;
+    private float verticalValue;
     //public float moveSpeed = 8.0f;
     public float moveSpeed = 4.0f;
     public float moveSpeedModifier = 1.5f;
@@ -20,6 +22,10 @@ public class PlayerController : MonoBehaviour
     public int totalJumps = 2;
     public bool multipleJumps;
     public bool coyoteJump;
+    public float dashSpeed = 30.0f;
+    public float dashXMultiplier = 2.0f;
+    public bool isDashing;
+    public bool hasDashed;
     public bool stopInput;
     public bool facingRight = true;
 
@@ -54,8 +60,10 @@ public class PlayerController : MonoBehaviour
 
     //Dust effect
 
-    [Header("Particle System (Dust)")]
-    public ParticleSystem dust;
+    [Header("Particle Systems")]
+    public ParticleSystem dustParticle;
+    public ParticleSystem jumpDustParticle;
+    public ParticleSystem dashDustParticle;
 
     private void Awake()
     {
@@ -78,6 +86,7 @@ public class PlayerController : MonoBehaviour
             GroundCheck();
             MovePlayer(horizontalValue);
             Jump();
+            Dash();
         }
     }
 
@@ -106,6 +115,8 @@ public class PlayerController : MonoBehaviour
         if (colliders.Length > 0)
         {
             isGrounded = true;
+            hasDashed = false;
+            isDashing = false;
             anim.SetBool("isGrounded", true);
             if (!wasGrounded)
             {
@@ -121,6 +132,11 @@ public class PlayerController : MonoBehaviour
             if (wasGrounded)
                 StartCoroutine(CoyoteJumpDelay());
         }
+
+        if (wasGrounded != isGrounded) // comparo si el booleano cambió o no para ver si triggerear el humito
+        {
+            CreateJumpDust();
+        }
     }
     #endregion
 
@@ -129,8 +145,8 @@ public class PlayerController : MonoBehaviour
     {
         //Set the yVelocity Value
         anim.SetFloat("yVelocity", GetComponent<Rigidbody2D>().velocity.y);
-
         horizontalValue = Input.GetAxisRaw("Horizontal");
+        verticalValue = Input.GetAxisRaw("Vertical");
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             isRunning = true;
@@ -157,7 +173,7 @@ public class PlayerController : MonoBehaviour
             bool isNegativeVelocity = GetComponent<Rigidbody2D>().velocity.x < 0; //la velocidad es negativa?
             sr.flipX = isNegativeVelocity; // filpX es igual a lo anterior
             facingRight = !isNegativeVelocity; //facingRight es lo contrario a flipX
-            if (facingRight != prevFacing) // comparo si el booleano cambió o no para ver si triggerear el humito
+            if (facingRight != prevFacing && GetComponent<Rigidbody2D>().velocity.y == 0) // comparo si el booleano cambió o no para ver si triggerear el humito
             {
                 CreateDust();
             }
@@ -182,7 +198,7 @@ public class PlayerController : MonoBehaviour
                 multipleJumps = true;
                 availableJumps--;
                 GetComponent<Rigidbody2D>().velocity = Vector2.up * jumpForce;
-                CreateDust();
+                CreateJumpDust();
             }
             else
             {
@@ -202,7 +218,6 @@ public class PlayerController : MonoBehaviour
         }
         if (Input.GetButtonUp("Jump") && GetComponent<Rigidbody2D>().velocity.y > 0)
         {
-            // isGrounded = false;
             GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, GetComponent<Rigidbody2D>().velocity.y * 0.5f);
         }
     }
@@ -216,6 +231,64 @@ public class PlayerController : MonoBehaviour
         coyoteJump = false;
     }
     #endregion
+
+    public void Dash()
+    {
+        if (Input.GetButtonDown("Fire1") && !hasDashed)
+        {
+            if (horizontalValue != 0 || verticalValue != 0)
+                Dash(horizontalValue, verticalValue);
+        }
+    }
+    public void Dash(float x, float y)
+    {
+        anim.SetBool("isDashing", true);
+        Camera.main.transform.DOComplete();
+        Camera.main.transform.DOShakePosition(.2f, .5f, 14, 90, false, true);
+        FindObjectOfType<RippleEffect>().Emit(Camera.main.WorldToViewportPoint(transform.position));
+
+        hasDashed = true;
+
+        anim.SetTrigger("dash");
+
+        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        Vector2 dir = new Vector2(x * dashXMultiplier, y);
+
+        GetComponent<Rigidbody2D>().velocity += dir * dashSpeed;
+        StartCoroutine(DashWait());
+    }
+
+    IEnumerator DashWait()
+    {
+        FindObjectOfType<GhostTrail>().ShowGhost();
+        StartCoroutine(GroundDash());
+        DOVirtual.Float(14, 0, .8f, RigidbodyDrag);
+
+        dashDustParticle.Play();
+        GetComponent<Rigidbody2D>().gravityScale = 0;
+        //wallJumped = true;
+        isDashing = true;
+
+        yield return new WaitForSeconds(.3f);
+
+        dashDustParticle.Stop();
+        GetComponent<Rigidbody2D>().gravityScale = 5;
+        //wallJumped = false;
+        isDashing = false;
+        anim.SetBool("isDashing", false);
+    }
+
+    IEnumerator GroundDash()
+    {
+        yield return new WaitForSeconds(.15f);
+        if (isGrounded)
+            hasDashed = false;
+    }
+
+    void RigidbodyDrag(float x)
+    {
+        GetComponent<Rigidbody2D>().drag = x;
+    }
 
     #region Knockback
     public void KnockBack()
@@ -255,7 +328,18 @@ public class PlayerController : MonoBehaviour
     #region Create Dust
     public void CreateDust()
     {
-        dust.Play();
+        dustParticle.Play();
+    }
+
+    public void CreateJumpDust()
+    {
+        jumpDustParticle.Play();
+    }
+
+    public void CreateDashDust()
+    {
+        dashDustParticle.Play();
     }
 } 
 #endregion
+

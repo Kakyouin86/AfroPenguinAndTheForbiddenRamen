@@ -6,6 +6,7 @@ public class Stompbox : MonoBehaviour
 {
     public GameObject deathEffect;
     public GameObject collectible;
+    public int damageToDeal;
     [Range(0, 100)] public float chanceToDrop = 0.35f;
 
     // Start is called before the first frame update
@@ -22,16 +23,14 @@ public class Stompbox : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Enemy")
+        if (other.gameObject.tag == "Hurtbox")
         {
-            Debug.Log("Hit Enemy");
-
-            other.transform.parent.gameObject.SetActive(false);
+            //other.transform.gameObject.SetActive(false);
+            other.gameObject.GetComponent<EnemyHP>().TakeDamage(damageToDeal);
 
             Instantiate(deathEffect, other.transform.position, other.transform.rotation);
 
             PlayerController.instance.Bounce();
-
 
             float dropSelect = Random.Range(0, 100f);
 
