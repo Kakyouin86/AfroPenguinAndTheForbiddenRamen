@@ -125,6 +125,33 @@ TextureImporter:
   - first:
       213: -7616285576486744830
     second: AfroPenguin Pixel Art_26
+  - first:
+      213: -1051348630459381871
+    second: AfroPenguin Pixel Art_29
+  - first:
+      213: -494689391333148052
+    second: AfroPenguin Pixel Art_32
+  - first:
+      213: 612058727952885191
+    second: AfroPenguin Pixel Art_34
+  - first:
+      213: -2954246032964186897
+    second: AfroPenguin Pixel Art_35
+  - first:
+      213: -3981788241169717065
+    second: AfroPenguin Pixel Art_36
+  - first:
+      213: -1279717808017227539
+    second: AfroPenguin Pixel Art_37
+  - first:
+      213: -8965861449287025611
+    second: AfroPenguin Pixel Art_38
+  - first:
+      213: 748984007835958685
+    second: AfroPenguin Pixel Art_39
+  - first:
+      213: -1653861525737246068
+    second: AfroPenguin Pixel Art_43
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -218,11 +245,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 142
-        y: 256
+        y: 372
         width: 18
         height: 34
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -238,12 +265,12 @@ TextureImporter:
       name: AfroPenguin Pixel Art_8
       rect:
         serializedVersion: 2
-        x: 270
-        y: 256
-        width: 21
-        height: 41
+        x: 333
+        y: 372
+        width: 24
+        height: 39
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -259,12 +286,12 @@ TextureImporter:
       name: AfroPenguin Pixel Art_10
       rect:
         serializedVersion: 2
-        x: 16
-        y: 192
+        x: 79
+        y: 308
         width: 18
         height: 35
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -280,12 +307,12 @@ TextureImporter:
       name: AfroPenguin Pixel Art_12
       rect:
         serializedVersion: 2
-        x: 10
-        y: 130
-        width: 31
-        height: 33
+        x: 76
+        y: 247
+        width: 27
+        height: 36
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -301,12 +328,12 @@ TextureImporter:
       name: AfroPenguin Pixel Art_13
       rect:
         serializedVersion: 2
-        x: 76
-        y: 131
-        width: 27
-        height: 36
+        x: 138
+        y: 246
+        width: 31
+        height: 33
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -322,12 +349,12 @@ TextureImporter:
       name: AfroPenguin Pixel Art_16
       rect:
         serializedVersion: 2
-        x: 16
-        y: 64
-        width: 18
-        height: 35
+        x: 48
+        y: 180
+        width: 19
+        height: 34
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -343,12 +370,12 @@ TextureImporter:
       name: AfroPenguin Pixel Art_17
       rect:
         serializedVersion: 2
-        x: 48
-        y: 64
-        width: 19
-        height: 34
+        x: 79
+        y: 180
+        width: 20
+        height: 35
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -364,12 +391,12 @@ TextureImporter:
       name: AfroPenguin Pixel Art_21
       rect:
         serializedVersion: 2
-        x: 15
-        y: 0
-        width: 18
-        height: 35
+        x: 207
+        y: 180
+        width: 21
+        height: 33
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -385,12 +412,12 @@ TextureImporter:
       name: AfroPenguin Pixel Art_25
       rect:
         serializedVersion: 2
-        x: 144
-        y: 0
-        width: 16
+        x: 336
+        y: 180
+        width: 19
         height: 34
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -406,12 +433,12 @@ TextureImporter:
       name: AfroPenguin Pixel Art_27
       rect:
         serializedVersion: 2
-        x: 209
-        y: 0
-        width: 15
-        height: 35
+        x: 17
+        y: 132
+        width: 16
+        height: 34
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -427,12 +454,12 @@ TextureImporter:
       name: AfroPenguin Pixel Art_28
       rect:
         serializedVersion: 2
-        x: 240
-        y: 0
+        x: 49
+        y: 132
         width: 16
-        height: 35
+        height: 34
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -449,11 +476,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 16
-        y: 320
+        y: 436
         width: 18
         height: 35
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -470,11 +497,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 143
-        y: 320
+        y: 436
         width: 21
         height: 35
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -491,11 +518,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 271
-        y: 320
+        y: 436
         width: 18
         height: 35
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -512,11 +539,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 16
-        y: 256
+        y: 372
         width: 18
         height: 35
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -533,11 +560,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 79
-        y: 256
+        y: 372
         width: 18
         height: 35
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -553,12 +580,12 @@ TextureImporter:
       name: AfroPenguin Pixel Art_7
       rect:
         serializedVersion: 2
-        x: 202
-        y: 256
-        width: 27
-        height: 35
-      alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+        x: 270
+        y: 372
+        width: 21
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -574,12 +601,12 @@ TextureImporter:
       name: AfroPenguin Pixel Art_9
       rect:
         serializedVersion: 2
-        x: 333
-        y: 256
-        width: 24
-        height: 39
+        x: 16
+        y: 308
+        width: 18
+        height: 35
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -595,12 +622,12 @@ TextureImporter:
       name: AfroPenguin Pixel Art_11
       rect:
         serializedVersion: 2
-        x: 79
-        y: 192
-        width: 18
-        height: 35
+        x: 10
+        y: 246
+        width: 31
+        height: 33
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -616,12 +643,12 @@ TextureImporter:
       name: AfroPenguin Pixel Art_14
       rect:
         serializedVersion: 2
-        x: 138
-        y: 130
-        width: 31
-        height: 33
+        x: 204
+        y: 247
+        width: 27
+        height: 36
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -637,12 +664,12 @@ TextureImporter:
       name: AfroPenguin Pixel Art_15
       rect:
         serializedVersion: 2
-        x: 204
-        y: 131
-        width: 27
-        height: 36
+        x: 16
+        y: 180
+        width: 18
+        height: 35
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -658,12 +685,12 @@ TextureImporter:
       name: AfroPenguin Pixel Art_18
       rect:
         serializedVersion: 2
-        x: 79
-        y: 64
-        width: 20
+        x: 110
+        y: 180
+        width: 22
         height: 35
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -679,12 +706,12 @@ TextureImporter:
       name: AfroPenguin Pixel Art_19
       rect:
         serializedVersion: 2
-        x: 110
-        y: 64
-        width: 22
+        x: 142
+        y: 180
+        width: 20
         height: 35
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -700,12 +727,12 @@ TextureImporter:
       name: AfroPenguin Pixel Art_20
       rect:
         serializedVersion: 2
-        x: 142
-        y: 64
-        width: 20
-        height: 35
+        x: 176
+        y: 180
+        width: 19
+        height: 34
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -721,12 +748,12 @@ TextureImporter:
       name: AfroPenguin Pixel Art_22
       rect:
         serializedVersion: 2
-        x: 48
-        y: 0
-        width: 16
-        height: 35
+        x: 238
+        y: 180
+        width: 22
+        height: 33
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -742,12 +769,12 @@ TextureImporter:
       name: AfroPenguin Pixel Art_23
       rect:
         serializedVersion: 2
-        x: 81
-        y: 0
-        width: 15
-        height: 35
+        x: 272
+        y: 180
+        width: 19
+        height: 34
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -763,12 +790,12 @@ TextureImporter:
       name: AfroPenguin Pixel Art_24
       rect:
         serializedVersion: 2
-        x: 113
-        y: 0
-        width: 15
-        height: 34
+        x: 304
+        y: 180
+        width: 19
+        height: 35
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -784,12 +811,12 @@ TextureImporter:
       name: AfroPenguin Pixel Art_26
       rect:
         serializedVersion: 2
-        x: 176
-        y: 0
+        x: 368
+        y: 180
         width: 16
         height: 35
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -797,6 +824,447 @@ TextureImporter:
       bones: []
       spriteID: 20d8399fe948d4690800000000000000
       internalID: -7616285576486744830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AfroPenguin Pixel Art_29
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 132
+        width: 15
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 197006aadfbd861f0800000000000000
+      internalID: -1051348630459381871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AfroPenguin Pixel Art_30
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 132
+        width: 15
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46bee2c60423b60b0800000000000000
+      internalID: -5734434448251884700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AfroPenguin Pixel Art_31
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 132
+        width: 15
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d516690871e26b950800000000000000
+      internalID: 6464404993613390173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AfroPenguin Pixel Art_32
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 132
+        width: 16
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6afe6b9e928229f0800000000000000
+      internalID: -494689391333148052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AfroPenguin Pixel Art_33
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 132
+        width: 15
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 817b974953a683870800000000000000
+      internalID: 8662790661603964696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AfroPenguin Pixel Art_34
+      rect:
+        serializedVersion: 2
+        x: 242
+        y: 132
+        width: 15
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c52f459b287e7800800000000000000
+      internalID: 612058727952885191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AfroPenguin Pixel Art_35
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 132
+        width: 15
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fec0012a2e86007d0800000000000000
+      internalID: -2954246032964186897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AfroPenguin Pixel Art_36
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 132
+        width: 16
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b8604ae0b8ddb8c0800000000000000
+      internalID: -3981788241169717065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AfroPenguin Pixel Art_37
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 84
+        width: 18
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de044601f678d3ee0800000000000000
+      internalID: -1279717808017227539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AfroPenguin Pixel Art_38
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 84
+        width: 16
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53cb0e9d38cd29380800000000000000
+      internalID: -8965861449287025611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AfroPenguin Pixel Art_39
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 84
+        width: 15
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9db281acfce46a00800000000000000
+      internalID: 748984007835958685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AfroPenguin Pixel Art_6
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 372
+        width: 20
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aee2c93779379cd10800000000000000
+      internalID: 2146373791735623402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AfroPenguin Pixel Art_40
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 84
+        width: 15
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98b4f285bb46f8d10800000000000000
+      internalID: 2130031904570690441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AfroPenguin Pixel Art_41
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 84
+        width: 16
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa92b878cc7d787c0800000000000000
+      internalID: -4069046464858609233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AfroPenguin Pixel Art_42
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 84
+        width: 16
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1204e0d99560219b0800000000000000
+      internalID: -5111015645155278815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AfroPenguin Pixel Art_43
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 84
+        width: 15
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c82feb274bd4c09e0800000000000000
+      internalID: -1653861525737246068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AfroPenguin Pixel Art_44
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 84
+        width: 16
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b18e537d6c5aaa090800000000000000
+      internalID: -8022417512774375397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AfroPenguin Pixel Art_45
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 84
+        width: 15
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e2a3bc27b475a170800000000000000
+      internalID: 8189079827520922338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AfroPenguin Pixel Art_46
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 84
+        width: 15
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c94f3ea387b4ba5d0800000000000000
+      internalID: -3050261342857202532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AfroPenguin Pixel Art_47
+      rect:
+        serializedVersion: 2
+        x: 335
+        y: 84
+        width: 16
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48220f861e64add50800000000000000
+      internalID: 6762795724392374916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AfroPenguin Pixel Art_48
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 84
+        width: 16
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 831aa6dd07440b720800000000000000
+      internalID: 2859861014922043704
       vertices: []
       indices: 
       edges: []

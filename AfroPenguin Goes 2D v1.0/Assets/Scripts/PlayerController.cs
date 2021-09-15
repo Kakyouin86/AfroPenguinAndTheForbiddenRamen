@@ -74,6 +74,8 @@ public class PlayerController : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         sr = GetComponent<SpriteRenderer>();
+        isGrounded = true;
+        isDashing = false;
     }
 
     void Update()
@@ -116,7 +118,7 @@ public class PlayerController : MonoBehaviour
         {
             isGrounded = true;
             hasDashed = false;
-            isDashing = false;
+            //isDashing = false;
             anim.SetBool("isGrounded", true);
             if (!wasGrounded)
             {
@@ -232,9 +234,10 @@ public class PlayerController : MonoBehaviour
     }
     #endregion
 
+    #region Dash
     public void Dash()
     {
-        if (Input.GetButtonDown("Fire1") && !hasDashed)
+        if (Input.GetButton("Fire1") && !hasDashed) //was GetButtonDown.
         {
             if (horizontalValue != 0 || verticalValue != 0)
                 Dash(horizontalValue, verticalValue);
@@ -242,7 +245,15 @@ public class PlayerController : MonoBehaviour
     }
     public void Dash(float x, float y)
     {
-        anim.SetBool("isDashing", true);
+        if (x == 0)
+        {
+            anim.SetBool("isDashingUp", true);
+        }
+
+        else
+        {
+            anim.SetBool("isDashing", true);
+        }
         Camera.main.transform.DOComplete();
         Camera.main.transform.DOShakePosition(.2f, .5f, 14, 90, false, true);
         FindObjectOfType<RippleEffect>().Emit(Camera.main.WorldToViewportPoint(transform.position));
@@ -288,7 +299,8 @@ public class PlayerController : MonoBehaviour
     void RigidbodyDrag(float x)
     {
         GetComponent<Rigidbody2D>().drag = x;
-    }
+    } 
+    #endregion
 
     #region Knockback
     public void KnockBack()
@@ -330,7 +342,6 @@ public class PlayerController : MonoBehaviour
     {
         dustParticle.Play();
     }
-
     public void CreateJumpDust()
     {
         jumpDustParticle.Play();

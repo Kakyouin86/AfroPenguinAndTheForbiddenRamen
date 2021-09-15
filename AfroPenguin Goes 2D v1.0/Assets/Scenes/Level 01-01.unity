@@ -7046,7 +7046,7 @@ MonoBehaviour:
   multipleJumps: 0
   coyoteJump: 0
   dashSpeed: 20
-  dashXMultiplier: 5
+  dashXMultiplier: 1.2
   isDashing: 0
   hasDashed: 0
   stopInput: 0
@@ -7607,7 +7607,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   refractionStrength: 0.1
   reflectionColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-  reflectionStrength: 0.7
+  reflectionStrength: 0.2
   waveSpeed: 1.25
   dropInterval: 0.5
   shader: {fileID: 4800000, guid: 162fe242d486f4dab90ed53db15b9c19, type: 3}
