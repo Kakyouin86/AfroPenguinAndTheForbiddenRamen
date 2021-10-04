@@ -58,10 +58,10 @@ public class PlayerHealthController : MonoBehaviour
             invincibleCounter -= Time.deltaTime;
             //we are taking away another value from this from the invincible counter.
 
-            stompbox.SetActive(false); //This will prevent hitting the enemy by accident if you "f*//**" up.
+            //stompbox.SetActive(false);
             if (invincibleCounter <= 0)
             {
-                stompbox.SetActive(true); //Same as above.
+                //stompbox.SetActive(true);
                 spriteRenderer.color = new Color(1f, 1f, 1f, 1.0f);
                 //spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, 1.0f);
             }
@@ -153,7 +153,6 @@ public class PlayerHealthController : MonoBehaviour
             return new WaitForSeconds(0.05f);
             flashing = false;
         }
-        spriteRenderer.color = new Color(1f, 1f, 1f, 1.0f);
     }
 }
 

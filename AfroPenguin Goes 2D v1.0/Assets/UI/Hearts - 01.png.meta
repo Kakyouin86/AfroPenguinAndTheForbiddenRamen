@@ -1,18 +1,18 @@
 fileFormatVersion: 2
-guid: d9a616f95048ea84e8fc6f7920f846b8
+guid: 214e32435e5faf541baac47c468cca61
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8109154662235370213
-    second: UI_Heart_0
+      213: -2972120832140180727
+    second: Hearts - 01_0
   - first:
-      213: 2139837793675082937
-    second: UI_Heart_1
+      213: -8776824225906498545
+    second: Hearts - 01_1
   - first:
-      213: -4390673095631447188
-    second: UI_Heart_2
+      213: 6366208435805220817
+    second: Hearts - 01_2
   externalObjects: {}
-  serializedVersion: 10
+  serializedVersion: 11
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -32,6 +32,7 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -41,8 +42,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -54,7 +55,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -63,13 +64,17 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 64
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -81,18 +86,6 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
-    maxTextureSize: 64
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -107,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: UI_Heart_0
+      name: Hearts - 01_0
       rect:
         serializedVersion: 2
         x: 0
@@ -121,14 +114,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c77f0d6fa52143d498eb5e1c1c20b788
-      internalID: 8109154662235370213
+      spriteID: 9030fb2a9d7e0c6d0800000000000000
+      internalID: -2972120832140180727
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI_Heart_1
+      name: Hearts - 01_1
       rect:
         serializedVersion: 2
         x: 14
@@ -142,14 +135,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a8a603124f070a04db57b76a36cd517b
-      internalID: 2139837793675082937
+      spriteID: f04ecce3ed4723680800000000000000
+      internalID: -8776824225906498545
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI_Heart_2
+      name: Hearts - 01_2
       rect:
         serializedVersion: 2
         x: 28
@@ -163,8 +156,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3812db01545ccdf4392046f0800857d1
-      internalID: -4390673095631447188
+      spriteID: 1dfe34eb7d0595850800000000000000
+      internalID: 6366208435805220817
       vertices: []
       indices: 
       edges: []
