@@ -2075,6 +2075,7 @@ GameObject:
   - component: {fileID: 221822271}
   - component: {fileID: 221822270}
   - component: {fileID: 221822268}
+  - component: {fileID: 221822269}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -2161,7 +2162,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 221822264}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: ae5124186edea9048a4a4160fd32b47b, type: 2}
   m_CullingMode: 0
@@ -2191,6 +2192,32 @@ MonoBehaviour:
   flashing: 0
   deathEffect: {fileID: 5956304332789093692, guid: fd98062c6e8dabd4fb854ac17d438a10, type: 3}
   stompbox: {fileID: 21373725}
+--- !u!114 &221822269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 221822264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48294e161f5d49a459e127836d217683, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 8
+  jumpForce: 15
+  isGrounded: 0
+  canDoubleJump: 0
+  groundCheckPoint: {fileID: 1655106434}
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 640
+  sr: {fileID: 221822265}
+  knockbackLenght: 0.25
+  knockbackForce: 5
+  knockbackCounter: 0
+  bounceForce: 15
+  stopInput: 0
 --- !u!50 &221822270
 Rigidbody2D:
   serializedVersion: 4
