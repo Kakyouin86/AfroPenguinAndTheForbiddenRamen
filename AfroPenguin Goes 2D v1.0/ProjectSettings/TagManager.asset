@@ -8,6 +8,7 @@ TagManager:
   - Platform
   - Spike
   - Goal Flag
+  - Item
   layers:
   - Default
   - TransparentFX
@@ -62,4 +63,7 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 843369713
+    locked: 0
+  - name: Item
+    uniqueID: 2613268623
     locked: 0
