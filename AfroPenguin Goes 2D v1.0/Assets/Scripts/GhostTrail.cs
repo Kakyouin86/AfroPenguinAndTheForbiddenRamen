@@ -22,8 +22,8 @@ public class GhostTrail : MonoBehaviour
         {
             Transform currentGhost = ghostsParent.GetChild(i);
             s.AppendCallback(()=> currentGhost.position = PlayerController.instance.transform.position);
-            s.AppendCallback(() => currentGhost.GetComponent<SpriteRenderer>().flipX = PlayerController.instance.sr.flipX);
-            s.AppendCallback(()=> currentGhost.GetComponent<SpriteRenderer>().sprite = PlayerController.instance.sr.sprite);
+            s.AppendCallback(() => currentGhost.GetComponent<SpriteRenderer>().flipX = PlayerController.instance.theSR.flipX);
+            s.AppendCallback(()=> currentGhost.GetComponent<SpriteRenderer>().sprite = PlayerController.instance.theSR.sprite);
             s.Append(currentGhost.GetComponent<SpriteRenderer>().material.DOColor(trailColor, 0));
             s.AppendCallback(() => FadeSprite(currentGhost));
             s.AppendInterval(ghostInterval);

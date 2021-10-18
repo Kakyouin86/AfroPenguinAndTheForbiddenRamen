@@ -51,7 +51,7 @@ public class LevelManager : MonoBehaviour
 
         PlayerController.instance.gameObject.SetActive(true);
 
-        PlayerController.instance.sr.flipX = false;
+        PlayerController.instance.theSR.flipX = false;
 
         PlayerController.instance.gameObject.transform.position = CheckpointController.instance.spawnPoint;
 
