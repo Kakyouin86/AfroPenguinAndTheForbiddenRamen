@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Globalization;
+using System.Numerics;
 using DG.Tweening;
 using UnityEngine;
 using Vector2 = UnityEngine.Vector2;
@@ -9,7 +10,6 @@ public class PlayerController : MonoBehaviour
 {
     #region Variables
     public static PlayerController instance;
-
     public bool stopInput;
 
     [Header("Ground Check")] 
@@ -23,14 +23,15 @@ public class PlayerController : MonoBehaviour
     public Rigidbody2D theRB;
     public SpriteRenderer theSR;
     public bool facingRight;
-    public float moveSpeed = 10f;
+    public float moveSpeed = 4f;
     public float moveSpeedModifier = 1.5f;
 
     [Header("Dash")] 
     public bool hasDashed;
     public bool isDashing;
-    public float dashSpeed = 50f;
-    public float dashSpeedModifier = 10f;
+    public float dashSpeed = 30f;
+    public float dashTime = 0.1f;
+    public float dashTimeInAir = 0.1f;
 
     [Header("Knockback")]
     public float knockbackLenght = 0.25f;
@@ -39,7 +40,7 @@ public class PlayerController : MonoBehaviour
     public bool isKnockback;
 
     [Header("Jump")]
-    public float jumpForce = 12.0f;
+    public float jumpForce = 15.0f;
     public int availableJumps;
     public int totalJumps = 2;
     public bool multipleJumps;
@@ -53,6 +54,11 @@ public class PlayerController : MonoBehaviour
     public float aheadAmount = 1.5f;
     public float aheadSpeed = 1f;
     #endregion
+
+    [Header("Particle Systems")]
+    public ParticleSystem dustParticle;
+    public ParticleSystem jumpDustParticle;
+    public ParticleSystem dashDustParticle;
 
     #region Awake
     private void Awake()
@@ -119,14 +125,16 @@ public class PlayerController : MonoBehaviour
     #region Walk
     void Walk(Vector2 direction)
     {
+        float xVal = direction.x * moveSpeed * moveSpeedModifier * 100 * Time.fixedDeltaTime;
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            theRB.velocity = new Vector2(direction.x * moveSpeed * moveSpeedModifier, theRB.velocity.y);
+            theRB.velocity = new Vector2(xVal, theRB.velocity.y);
+            //theRB.velocity = new Vector2(direction.x * moveSpeed * moveSpeedModifier, theRB.velocity.y);
         }
         else
         {
-            //theRB.velocity = new Vector2(direction.x * moveSpeed, theRB.velocity.y);
-            theRB.velocity = Vector2.Lerp(theRB.velocity, (new Vector2(direction.x * moveSpeed, theRB.velocity.y)), dashSpeedModifier * Time.deltaTime);
+            theRB.velocity = new Vector2(direction.x * moveSpeed * 100 * Time.fixedDeltaTime, theRB.velocity.y);
+            //theRB.velocity = Vector2.Lerp(theRB.velocity, (new Vector2(direction.x * moveSpeed, theRB.velocity.y)), dashSpeedModifier * Time.deltaTime);
         }
     }
     #endregion
@@ -138,7 +146,6 @@ public class PlayerController : MonoBehaviour
         isGrounded = Physics2D.OverlapCircle((Vector2) transform.position + bottomOffset, groundCheckRadius, whatIsGround);
         if (isGrounded && !isDashing)
         {
-
             hasDashed = false;
             isDashing = false;
             if (!cameFromTheGround)
@@ -146,6 +153,7 @@ public class PlayerController : MonoBehaviour
                 availableJumps = totalJumps;
                 multipleJumps = false;
                 Debug.Log("I came from the sky");
+                CreateJumpDust();
             }
         }
         else
@@ -187,6 +195,10 @@ public class PlayerController : MonoBehaviour
                 }
             }
         }
+        if (Input.GetButtonUp("Jump") && GetComponent<Rigidbody2D>().velocity.y > 0)
+        {
+            theRB.velocity = new Vector2(theRB.velocity.x, theRB.velocity.y * 0.5f);
+        }
     }
     #endregion
 
@@ -206,39 +218,38 @@ public class PlayerController : MonoBehaviour
         {
             if (xRaw != 0 || yRaw != 0)
             {
+                Camera.main.transform.DOComplete();
+                FindObjectOfType<RippleEffect>().Emit(Camera.main.WorldToViewportPoint(transform.position));
                 hasDashed = true;
-                theRB.velocity = Vector2.zero;
                 Vector2 dashDirection = new Vector2(xRaw, yRaw);
-                theRB.velocity += dashDirection.normalized * dashSpeed;
-                StartCoroutine(DashWait());
+                theRB.velocity = Vector2.zero;
+                float prevGravity = theRB.gravityScale; //Store previous gravity scale
+                theRB.gravityScale = 0; //Set gravity scale to 0
+                Debug.Log("Set Gravity to 0");
+                dashDustParticle.Play();
+                FindObjectOfType<GhostTrail>().ShowGhost();
+                StartCoroutine(DashCoroutine(dashDirection, prevGravity));
+                //theRB.velocity += dashDirection.normalized * dashSpeed;
             }
         }
     }
 
-    IEnumerator DashWait()
+    IEnumerator DashCoroutine(Vector2 dashDirection, float prevGravity)
     {
-
-        StartCoroutine(GroundDash());
-        DOVirtual.Float(14, 0, .8f, RigidbodyDrag);
-        theRB.gravityScale = 0;
-        //GetComponent<BetterJumping>().enabled = false;
-        isDashing = true;
-        yield return new WaitForSeconds(.3f);
-        theRB.gravityScale = 5;
-        //GetComponent<BetterJumping>().enabled = true;
+        for (float t = 0; t < 1; t += Time.deltaTime / dashTime) //A loop that repeats every frame for a certain amount of seconds
+        {
+            theRB.velocity = dashDirection * dashSpeed;
+            //theRB.velocity = Vector2 * dashSpeed; //Set velocity
+            yield return null; //Wait until next frame
+        }
+        FindObjectOfType<GhostTrail>().ShowGhost();
+        theRB.velocity = Vector2.zero;
+        hasDashed = true;
         isDashing = false;
-    }
-
-    IEnumerator GroundDash()
-    {
-        yield return new WaitForSeconds(.15f);
-        if (isGrounded)
-            hasDashed = false;
-    }
-
-    public void RigidbodyDrag(float x3)
-    {
-        theRB.drag = x3;
+        yield return new WaitForSeconds(dashTimeInAir);
+        theRB.gravityScale = prevGravity; //Restore previous value of gravity
+        Debug.Log("Set Gravity to " +prevGravity);
+        dashDustParticle.Stop();
     }
     #endregion
 
@@ -290,17 +301,17 @@ public class PlayerController : MonoBehaviour
     #region Dust Particles
     public void CreateDust()
     {
-
+        dustParticle.Play();
     }
 
     public void CreateJumpDust()
     {
-
+        jumpDustParticle.Play();
     }
 
     public void CreateDashDust()
     {
-
+        dashDustParticle.Play();
     }
     #endregion
 

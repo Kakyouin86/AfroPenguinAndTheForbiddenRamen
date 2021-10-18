@@ -132,7 +132,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4794862844157284352, guid: c91e063db1774db45b3991de700ec069, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4794862844157284352, guid: c91e063db1774db45b3991de700ec069, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2073,8 +2073,8 @@ GameObject:
   - component: {fileID: 221822265}
   - component: {fileID: 221822267}
   - component: {fileID: 221822271}
-  - component: {fileID: 221822270}
   - component: {fileID: 221822273}
+  - component: {fileID: 221822270}
   - component: {fileID: 221822272}
   - component: {fileID: 221822268}
   - component: {fileID: 221822269}
@@ -2149,10 +2149,10 @@ Transform:
   m_Children:
   - {fileID: 1655106434}
   - {fileID: 21373726}
+  - {fileID: 1282373721}
   - {fileID: 1331078383}
   - {fileID: 161054264}
   - {fileID: 444187035}
-  - {fileID: 1282373721}
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2263,20 +2263,21 @@ MonoBehaviour:
     m_Bits: 640
   groundCheckRadius: 0.2
   bottomOffset: {x: 0, y: -1}
-  theRB: {fileID: 0}
-  theSR: {fileID: 0}
+  theRB: {fileID: 221822270}
+  theSR: {fileID: 221822265}
   facingRight: 0
-  moveSpeed: 10
+  moveSpeed: 4
   moveSpeedModifier: 1.5
   hasDashed: 0
   isDashing: 0
-  dashSpeed: 50
-  dashSpeedModifier: 10
+  dashSpeed: 30
+  dashTime: 0.1
+  dashTimeInAir: 0.1
   knockbackLenght: 0.25
   knockbackForce: 5
   knockbackCounter: 0
   isKnockback: 0
-  jumpForce: 12
+  jumpForce: 15
   availableJumps: 0
   totalJumps: 2
   multipleJumps: 0
@@ -2285,21 +2286,31 @@ MonoBehaviour:
   camTarget: {fileID: 1282373721}
   aheadAmount: 1.5
   aheadSpeed: 1
---- !u!114 &221822273
-MonoBehaviour:
+  dustParticle: {fileID: 1488497835}
+  jumpDustParticle: {fileID: 1978404650}
+  dashDustParticle: {fileID: 991524017}
+--- !u!68 &221822273
+EdgeCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 221822264}
   m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e60736a622b972141b267a390c62fbe1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  theRB: {fileID: 0}
-  fallMultiplier: 3
-  lowJumpMultiplier: 8
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: 10dc8abcc8560874f93816bac9dc6cd3, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.04864961, y: -0.02486181}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -0.5625, y: 0}
+  - {x: 0.5625, y: 0}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
 --- !u!1 &239950687
 GameObject:
   m_ObjectHideFlags: 0
@@ -5108,6 +5119,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!198 &991524017 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 4794862844157284354, guid: c91e063db1774db45b3991de700ec069, type: 3}
+  m_PrefabInstance: {fileID: 2481806}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1001764881
 GameObject:
   m_ObjectHideFlags: 0
@@ -6070,7 +6086,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 221822266}
-  m_RootOrder: 5
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1331078383 stripped
 Transform:
@@ -6222,7 +6238,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8699963454454607357, guid: 0a84ea27922fe154ebd2aecf6e46dace, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8699963454454607357, guid: 0a84ea27922fe154ebd2aecf6e46dace, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6275,7 +6291,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5575556837994626741, guid: 13830e747b4019445a53e79a54f9cc19, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5575556837994626741, guid: 13830e747b4019445a53e79a54f9cc19, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10226,6 +10242,11 @@ CompositeCollider2D:
     m_Paths: []
   m_VertexDistance: 1
   m_OffsetDistance: 0.00005
+--- !u!198 &1488497835 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 5575556837994626747, guid: 13830e747b4019445a53e79a54f9cc19, type: 3}
+  m_PrefabInstance: {fileID: 1436914537}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1518304080
 GameObject:
   m_ObjectHideFlags: 0
@@ -12238,6 +12259,11 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.3381392, y: 0.06831297}
   m_EdgeRadius: 0
+--- !u!198 &1978404650 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 8699963454454607359, guid: 0a84ea27922fe154ebd2aecf6e46dace, type: 3}
+  m_PrefabInstance: {fileID: 1377282885}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2003998450
 GameObject:
   m_ObjectHideFlags: 0
