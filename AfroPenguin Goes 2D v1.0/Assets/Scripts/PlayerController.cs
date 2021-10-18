@@ -12,8 +12,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("Ground Check")] 
     public bool isGrounded;
-    public bool wasGrounded;
-    public bool groundTouch;
+    public bool cameFromTheGround;
     public LayerMask whatIsGround;
     public float groundCheckRadius = 0.2f;
     public Vector2 bottomOffset;
@@ -24,12 +23,12 @@ public class PlayerController : MonoBehaviour
     public bool facingRight;
     public float moveSpeed = 10f;
     public float moveSpeedModifier = 1.5f;
-    public float wallJumpLerp = 10f;
 
     [Header("Dash")] 
     public bool hasDashed;
     public bool isDashing;
     public float dashSpeed = 50f;
+    public float dashSpeedModifier = 10f;
 
     [Header("Knockback")]
     public float knockbackLenght = 0.25f;
@@ -117,36 +116,32 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            theRB.velocity = Vector2.Lerp(theRB.velocity, (new Vector2(direction.x * moveSpeed, theRB.velocity.y)), wallJumpLerp * Time.deltaTime);
+            theRB.velocity = Vector2.Lerp(theRB.velocity, (new Vector2(direction.x * moveSpeed, theRB.velocity.y)), dashSpeedModifier * Time.deltaTime);
         }
     }
 
     void GroundCheck()
     {
-        wasGrounded = isGrounded;
-        isGrounded = false;
+        cameFromTheGround = isGrounded;
         isGrounded = Physics2D.OverlapCircle((Vector2) transform.position + bottomOffset, groundCheckRadius, whatIsGround);
-        if (isGrounded && !groundTouch)
+        if (isGrounded)
         {
             hasDashed = false;
             isDashing = false;
-            groundTouch = true;
-            if (!wasGrounded)
+            if (!cameFromTheGround)
             {
                 availableJumps = totalJumps;
                 multipleJumps = false;
+                Debug.Log("I came from the sky");
             }
         }
-        
-        if (!isGrounded && groundTouch)
+        else
         {
-            StartCoroutine(CoyoteJumpDelay());
-            groundTouch = false;
-        }
-
-        if (wasGrounded != isGrounded) // comparo si el booleano cambió o no para ver si triggerear el humito
-        {
-            CreateJumpDust();
+            if (cameFromTheGround)
+            {
+                Debug.Log("I came from the ground");
+                StartCoroutine(CoyoteJumpDelay());
+            }
         }
     }
 
@@ -157,7 +152,6 @@ public class PlayerController : MonoBehaviour
         {
             if (isGrounded)
             {
-
                 multipleJumps = true;
                 availableJumps--;
                 theRB.velocity = Vector2.up * jumpForce;
@@ -178,10 +172,6 @@ public class PlayerController : MonoBehaviour
                     theRB.velocity = Vector2.up * jumpForce;
                 }
             }
-        }
-        if (Input.GetButtonUp("Jump") && theRB.velocity.y > 0)
-        {
-            theRB.velocity = new Vector2(theRB.velocity.x, theRB.velocity.y * 0.5f);
         }
     }
     #endregion
