@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Globalization;
 using DG.Tweening;
 using UnityEngine;
 using Vector2 = UnityEngine.Vector2;
@@ -6,6 +7,7 @@ using Vector3 = UnityEngine.Vector3;
 
 public class PlayerController : MonoBehaviour
 {
+    #region Variables
     public static PlayerController instance;
 
     public bool stopInput;
@@ -50,26 +52,31 @@ public class PlayerController : MonoBehaviour
     public Transform camTarget;
     public float aheadAmount = 1.5f;
     public float aheadSpeed = 1f;
+    #endregion
 
-
+    #region Awake
     private void Awake()
     {
         instance = this;
     }
+    #endregion
 
+    #region Start
     void Start()
     {
         theRB = GetComponent<Rigidbody2D>();
         theSR = GetComponent<SpriteRenderer>();
     }
+    #endregion
 
+    #region Update
     void Update()
     {
         if (!PauseMenu.instance.isPaused && !stopInput)
             //if the pause is false (we are playing) AND, we haven't stopped our input, then... move the player. If one of them true, we can't do ANY of this stuff. If both are true, then it won't move.
         {
-            if (CanMoveOrInteract() == false)
-            return;
+            if (CanMoveOrInteract() == false) 
+                return;
         }
 
         float x = Input.GetAxis("Horizontal");
@@ -85,18 +92,19 @@ public class PlayerController : MonoBehaviour
         Dash(xRaw, yRaw);
         CameraTrick();
 
-        if (theRB.velocity.x != 0) //si la velocidad es 0, no hacer nada
+        if (theRB.velocity.x != 0) //if velocity is 0, then do nothing.
         {
-            bool prevFacing = facingRight; //Guardo el estado anterior para poder compararlo luego, para hacer el humito
-            bool isNegativeVelocity = theRB.velocity.x < 0; //la velocidad es negativa?
-            theSR.flipX = isNegativeVelocity; // filpX es igual a lo anterior
-            facingRight = !isNegativeVelocity; //facingRight es lo contrario a flipX
-            if (facingRight != prevFacing && theRB.velocity.y == 0) // comparo si el booleano cambió o no para ver si triggerear el humito
+            bool prevFacing = facingRight; //Save previous state so I can compare it to create Dust
+            bool isNegativeVelocity = theRB.velocity.x < 0; //Is negative velocity?
+            theSR.flipX = isNegativeVelocity; //FlipX is the same as what I wrote previously
+            facingRight = !isNegativeVelocity; //facingRight is contrary to FlipX
+            if (facingRight != prevFacing && theRB.velocity.y == 0) //Compare bool: if it changed or not
             {
                 CreateDust();
             }
         }
     }
+    #endregion
 
     #region Can Move Or Interact
     public bool CanMoveOrInteract()
@@ -108,6 +116,7 @@ public class PlayerController : MonoBehaviour
     }
     #endregion
 
+    #region Walk
     void Walk(Vector2 direction)
     {
         if (Input.GetKey(KeyCode.LeftShift))
@@ -116,16 +125,20 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
+            //theRB.velocity = new Vector2(direction.x * moveSpeed, theRB.velocity.y);
             theRB.velocity = Vector2.Lerp(theRB.velocity, (new Vector2(direction.x * moveSpeed, theRB.velocity.y)), dashSpeedModifier * Time.deltaTime);
         }
     }
+    #endregion
 
+    #region Ground Check
     void GroundCheck()
     {
         cameFromTheGround = isGrounded;
         isGrounded = Physics2D.OverlapCircle((Vector2) transform.position + bottomOffset, groundCheckRadius, whatIsGround);
-        if (isGrounded)
+        if (isGrounded && !isDashing)
         {
+
             hasDashed = false;
             isDashing = false;
             if (!cameFromTheGround)
@@ -144,6 +157,7 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
+    #endregion
 
     #region Jump
     public void Jump()
@@ -185,6 +199,7 @@ public class PlayerController : MonoBehaviour
     }
     #endregion
 
+    #region Dash
     public void Dash(float xRaw, float yRaw)
     {
         if (Input.GetButtonDown("Fire1") && !hasDashed)
@@ -206,11 +221,11 @@ public class PlayerController : MonoBehaviour
         StartCoroutine(GroundDash());
         DOVirtual.Float(14, 0, .8f, RigidbodyDrag);
         theRB.gravityScale = 0;
-
+        //GetComponent<BetterJumping>().enabled = false;
         isDashing = true;
         yield return new WaitForSeconds(.3f);
-        theRB.gravityScale = 3;
-
+        theRB.gravityScale = 5;
+        //GetComponent<BetterJumping>().enabled = true;
         isDashing = false;
     }
 
@@ -225,6 +240,7 @@ public class PlayerController : MonoBehaviour
     {
         theRB.drag = x3;
     }
+    #endregion
 
     #region Knockback
     public void KnockBack()
@@ -260,6 +276,7 @@ public class PlayerController : MonoBehaviour
     }
     #endregion
 
+    #region Camera Mario Bros Style
     public void CameraTrick()
     {
         //Camera Trick: Set a target as a child of the player so it moves either left or right when switching positions
@@ -268,7 +285,9 @@ public class PlayerController : MonoBehaviour
             camTarget.localPosition = new Vector3(Mathf.Lerp(camTarget.localPosition.x, aheadAmount * Input.GetAxisRaw("Horizontal"), aheadSpeed * Time.deltaTime), camTarget.localPosition.y, camTarget.localPosition.z);
         }
     }
+#endregion
 
+    #region Dust Particles
     public void CreateDust()
     {
 
@@ -283,9 +302,13 @@ public class PlayerController : MonoBehaviour
     {
 
     }
+    #endregion
+
+    #region Ground Check Gizmo
     public void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere((Vector2) transform.position + bottomOffset, groundCheckRadius);
     }
+    #endregion    
 }
