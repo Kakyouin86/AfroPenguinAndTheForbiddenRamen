@@ -29,23 +29,20 @@ public class PlayerHealthController : MonoBehaviour
     public static PlayerHealthController instance;
     public int currentHealth = 6;
     public int maxHealth = 6;
-    public float invincibleLenght = 1;
-    public float invincibleCounter;
+    public float invisibleLength = 1;
+    public float invisibleCounter;
     private SpriteRenderer spriteRenderer;
     public bool flashing;
     public GameObject deathEffect;
     public GameObject stompbox;
-
-
+    
     private void Awake()
     {
         instance = this;
         flashing = false;
-        //this means this is the exact components that this script is at this moment.
     }
     void Start()
     {
-
         currentHealth = maxHealth;
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
@@ -53,13 +50,13 @@ public class PlayerHealthController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (invincibleCounter > 0)
+        if (invisibleCounter > 0)
         {
-            invincibleCounter -= Time.deltaTime;
+            invisibleCounter -= Time.deltaTime;
             //we are taking away another value from this from the invincible counter.
 
             //stompbox.SetActive(false);
-            if (invincibleCounter <= 0)
+            if (invisibleCounter <= 0)
             {
                 //stompbox.SetActive(true);
                 spriteRenderer.color = new Color(1f, 1f, 1f, 1.0f);
@@ -70,7 +67,7 @@ public class PlayerHealthController : MonoBehaviour
 
     public void DealDamage()
     {
-        if (invincibleCounter <= 0)
+        if (invisibleCounter <= 0)
         {
             //currentHealth = currentHealth - 25;
             currentHealth--;
@@ -83,10 +80,9 @@ public class PlayerHealthController : MonoBehaviour
                 LevelManager.instance.RespawnPlayer();
             }
 
-
             else
             {
-                invincibleCounter = invincibleLenght;
+                invisibleCounter = invisibleLength;
                 PlayerController.instance.KnockBack();
                 AudioManager.instance.PlaySFX(9);
                 if (currentHealth < 2)
@@ -131,7 +127,6 @@ public class PlayerHealthController : MonoBehaviour
         }
     }
 
-
     public void FlashWrapper()
     {
         if (!flashing)
@@ -140,9 +135,9 @@ public class PlayerHealthController : MonoBehaviour
 
     IEnumerator Flash()
     {
-        while (invincibleCounter > 0)
+        while (invisibleCounter > 0)
         {
-            // invincibleCounter -= Time.deltaTime;
+            //invincibleCounter -= Time.deltaTime;
             flashing = true;
             spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, 0.5f);
             yield

@@ -9,6 +9,7 @@ TagManager:
   - Spike
   - Goal Flag
   - Item
+  - Hurtbox
   layers:
   - Default
   - TransparentFX
@@ -16,7 +17,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Enemies
   - Ground
   - Player
   - Platform

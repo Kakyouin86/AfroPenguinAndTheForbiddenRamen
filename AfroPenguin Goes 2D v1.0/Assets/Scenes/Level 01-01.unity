@@ -434,6 +434,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deathEffect: {fileID: 5956304332789093692, guid: fd98062c6e8dabd4fb854ac17d438a10, type: 3}
   collectible: {fileID: 3520091368721921335, guid: 2949bf68f82c1724abc4181f4c801af1, type: 3}
+  damageToDeal: 1
   chanceToDrop: 100
 --- !u!1 &27222760
 GameObject:
@@ -1082,7 +1083,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 127329695}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Left Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1452,13 +1453,14 @@ GameObject:
   - component: {fileID: 182450471}
   - component: {fileID: 182450470}
   - component: {fileID: 182450469}
+  - component: {fileID: 182450476}
   m_Layer: 0
   m_Name: Enemy Rat 02
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &182450469
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1626,6 +1628,28 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &182450476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 182450468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9bdea275d44edf40b4916a2e865e9f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  theAnim: {fileID: 0}
+  theSR: {fileID: 0}
+  parentCol: {fileID: 0}
+  hurtboxCol: {fileID: 0}
+  enemyHP: 2
+  currentHP: 0
+  flashing: 0
+  isDead: 0
+  invisibleLength: 1
+  invisibleCounter: 0
 --- !u!1 &193581844
 GameObject:
   m_ObjectHideFlags: 0
@@ -2189,8 +2213,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 6
   maxHealth: 6
-  invincibleLenght: 1
-  invincibleCounter: 0
+  invisibleLength: 1
+  invisibleCounter: 0
   flashing: 0
   deathEffect: {fileID: 5956304332789093692, guid: fd98062c6e8dabd4fb854ac17d438a10, type: 3}
   stompbox: {fileID: 21373725}
@@ -2332,7 +2356,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &239950688
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4330,7 +4354,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &714371222
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4889,7 +4913,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 858332247}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Right Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6354,7 +6378,7 @@ GameObject:
   - component: {fileID: 1444017132}
   - component: {fileID: 1444017131}
   - component: {fileID: 1444017134}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Enemy Rat 01
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -6482,7 +6506,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.15036678, y: 0.3280642}
+  m_Offset: {x: -0.18330806, y: -0.2973665}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -6493,7 +6517,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.2616978, y: 0.14015818}
+  m_Size: {x: 1.6843501, y: 1.040735}
   m_EdgeRadius: 0
 --- !u!50 &1444017133
 Rigidbody2D:
@@ -11861,7 +11885,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1901824560
 Transform:
   m_ObjectHideFlags: 0
@@ -12028,9 +12052,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1954298304}
   - component: {fileID: 1954298307}
-  m_Layer: 0
+  - component: {fileID: 1954298305}
+  m_Layer: 6
   m_Name: Rat Collider
-  m_TagString: Enemy
+  m_TagString: Hurtbox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12049,6 +12074,28 @@ Transform:
   m_Father: {fileID: 1444017128}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1954298305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1954298303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9bdea275d44edf40b4916a2e865e9f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  theAnim: {fileID: 1444017130}
+  theSR: {fileID: 1444017129}
+  parentCol: {fileID: 1444017132}
+  hurtboxCol: {fileID: 1954298307}
+  enemyHP: 2
+  currentHP: 0
+  flashing: 0
+  isDead: 0
+  invisibleLength: 0.03
+  invisibleCounter: 0
 --- !u!61 &1954298307
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12059,10 +12106,10 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.1566143, y: 0.20973158}
+  m_Offset: {x: 0, y: -0.158867}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -12073,7 +12120,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.6907549, y: 0.28442144}
+  m_Size: {x: 1.317734, y: 1.317734}
   m_EdgeRadius: 0
 --- !u!1 &1961382674
 GameObject:
