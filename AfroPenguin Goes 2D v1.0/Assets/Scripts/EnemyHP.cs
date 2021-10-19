@@ -10,7 +10,7 @@ public class EnemyHP : MonoBehaviour
     public int enemyHP;
     public int currentHP;
     public bool isDead;
-    public float invisibleLength = 0.03f;
+    public float invisibleLength = 0.05f;
     public float invisibleCounter;
 
     void Start()
@@ -25,11 +25,16 @@ public class EnemyHP : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHP -= damage;
-        if (currentHP > 0)
+        if (currentHP >= 2)
         {
             StartCoroutine("HitConfirm");
         }
-        else
+        
+        else if (currentHP == 1)
+        {
+            StartCoroutine("HitConfirmAlmostDead");
+        }
+        else if (currentHP == 0)
         {
             isDead = true;
             parentCol.enabled = false;
@@ -46,13 +51,36 @@ public class EnemyHP : MonoBehaviour
 
     IEnumerator HitConfirm()
     {
+        theSR.enabled = false;
+        StartCoroutine("Flash");
+        yield return new WaitForSeconds(0.1f);
+        theSR.enabled = true;
+    }
+
+    IEnumerator HitConfirmAlmostDead()
+    {
             theSR.enabled = false;
-            StartCoroutine("Flash");
+            StartCoroutine("FlashAlmostDead");
             yield return new WaitForSeconds(0.1f);
             theSR.enabled = true;
-        }
-
+    }
     IEnumerator Flash()
+    {
+        invisibleCounter = invisibleLength;
+        while (invisibleCounter > 0)
+        {
+            invisibleCounter -= Time.deltaTime;
+            theSR.color = new Color(theSR.color.r, theSR.color.g, theSR.color.b, 0.5f);
+            yield
+                return new WaitForSeconds(0.05f);
+            theSR.color = new Color(theSR.color.r, theSR.color.g, theSR.color.b, 1f);
+            yield
+                return new WaitForSeconds(0.05f);
+        }
+        theSR.color = new Color(1f, 1f, 1f, 1.0f);
+    }
+
+    IEnumerator FlashAlmostDead()
     {
         invisibleCounter = invisibleLength;
         while (invisibleCounter > 0)

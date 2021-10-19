@@ -140,7 +140,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4794862844157284352, guid: c91e063db1774db45b3991de700ec069, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1
+      value: -0.02
       objectReference: {fileID: 0}
     - target: {fileID: 4794862844157284352, guid: c91e063db1774db45b3991de700ec069, type: 3}
       propertyPath: m_LocalPosition.z
@@ -432,6 +432,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ecba9663d1ebbc4a8cd9d9e213d00ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thePC: {fileID: 0}
   deathEffect: {fileID: 5956304332789093692, guid: fd98062c6e8dabd4fb854ac17d438a10, type: 3}
   collectible: {fileID: 3520091368721921335, guid: 2949bf68f82c1724abc4181f4c801af1, type: 3}
   damageToDeal: 1
@@ -2289,6 +2290,7 @@ MonoBehaviour:
   bottomOffset: {x: 0, y: -1}
   theRB: {fileID: 221822270}
   theSR: {fileID: 221822265}
+  direction: {x: 0, y: 0}
   facingRight: 0
   moveSpeed: 4
   moveSpeedModifier: 1.5
@@ -12092,10 +12094,10 @@ MonoBehaviour:
   theSR: {fileID: 1444017129}
   parentCol: {fileID: 1444017132}
   hurtboxCol: {fileID: 1954298307}
-  enemyHP: 2
+  enemyHP: 4
   currentHP: 0
   isDead: 0
-  invisibleLength: 0.03
+  invisibleLength: 0.05
   invisibleCounter: 0
 --- !u!61 &1954298307
 BoxCollider2D:

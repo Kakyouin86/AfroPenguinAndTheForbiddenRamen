@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
     [Header("Movement")] 
     public Rigidbody2D theRB;
     public SpriteRenderer theSR;
+    public Vector2 direction;
     public bool facingRight;
     public float moveSpeed = 4f;
     public float moveSpeedModifier = 1.5f;
@@ -92,9 +93,9 @@ public class PlayerController : MonoBehaviour
         float xRaw = Input.GetAxisRaw("Horizontal");
         float yRaw = Input.GetAxisRaw("Vertical");
         //Vector2 direction = new Vector2(x, y);
-        Vector2 direction = new Vector2(xRaw, yRaw);
+        direction = new Vector2(xRaw, yRaw);
 
-        Walk(direction);
+        Walk();
         GroundCheck();
         Jump();
         Dash(xRaw, yRaw);
@@ -125,7 +126,7 @@ public class PlayerController : MonoBehaviour
     #endregion
 
     #region Walk
-    void Walk(Vector2 direction)
+    void Walk()
     {
         float xVal = direction.x * moveSpeed * moveSpeedModifier * 100 * Time.fixedDeltaTime;
         if (Input.GetKey(KeyCode.LeftShift))
@@ -146,6 +147,7 @@ public class PlayerController : MonoBehaviour
     {
         cameFromTheGround = isGrounded;
         isGrounded = Physics2D.OverlapCircle((Vector2) transform.position + bottomOffset, groundCheckRadius, whatIsGround);
+        theRB.gravityScale = 5;
         if (isGrounded && !isDashing)
         {
             hasDashed = false;
@@ -264,7 +266,15 @@ public class PlayerController : MonoBehaviour
         theRB.velocity = Vector2.zero;
         hasDashed = true;
         isDashing = false;
-        yield return new WaitForSeconds(dashTimeInAir);
+        if (dashDown == false)
+        {
+            yield return new WaitForSeconds(dashTimeInAir);
+        }
+        else
+        {
+            yield return new WaitForSeconds(0);
+        }
+
         theRB.gravityScale = prevGravity; //Restore previous value of gravity
         Debug.Log("Set Gravity to " +prevGravity);
         dashDustParticle.Stop();
