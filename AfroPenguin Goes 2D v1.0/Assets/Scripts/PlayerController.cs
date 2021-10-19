@@ -28,8 +28,7 @@ public class PlayerController : MonoBehaviour
     public float moveSpeedModifier = 1.5f;
 
     [Header("Dash")] 
-    public bool hasDashed;
-    public bool isDashing;
+    public bool isdashing;
     public bool dashDown;
     public float dashSpeed = 30f;
     public float dashTime = 0.1f;
@@ -148,10 +147,9 @@ public class PlayerController : MonoBehaviour
         cameFromTheGround = isGrounded;
         isGrounded = Physics2D.OverlapCircle((Vector2) transform.position + bottomOffset, groundCheckRadius, whatIsGround);
         theRB.gravityScale = 5;
-        if (isGrounded && !isDashing)
+        if (isGrounded)
         {
-            hasDashed = false;
-            isDashing = false;
+            isdashing = false;
             if (!cameFromTheGround)
             {
                 availableJumps = totalJumps;
@@ -226,7 +224,7 @@ public class PlayerController : MonoBehaviour
     #region Dash
     public void Dash(float xRaw, float yRaw)
     {
-        if (Input.GetButtonDown("Fire1") && !hasDashed)
+        if (Input.GetButtonDown("Fire1") && !isdashing)
         {
             if (xRaw != 0 || yRaw != 0)
             {
@@ -240,7 +238,7 @@ public class PlayerController : MonoBehaviour
                 }
                 Camera.main.transform.DOComplete();
                 FindObjectOfType<RippleEffect>().Emit(Camera.main.WorldToViewportPoint(transform.position));
-                hasDashed = true;
+                isdashing = true;
                 Vector2 dashDirection = new Vector2(xRaw, yRaw);
                 theRB.velocity = Vector2.zero;
                 float prevGravity = theRB.gravityScale; //Store previous gravity scale
@@ -264,8 +262,7 @@ public class PlayerController : MonoBehaviour
         }
         FindObjectOfType<GhostTrail>().ShowGhost();
         theRB.velocity = Vector2.zero;
-        hasDashed = true;
-        isDashing = false;
+        isdashing = true;
         if (dashDown == false)
         {
             yield return new WaitForSeconds(dashTimeInAir);

@@ -22,7 +22,7 @@ public class Stompbox : MonoBehaviour
         {
             if (other.gameObject.tag == "Hurtbox")
             {
-                //other.transform.gameObject.SetActive(false);
+
                 other.gameObject.GetComponent<EnemyHP>().TakeDamage(damageToDeal);
                 Instantiate(deathEffect, other.transform.position, other.transform.rotation);
                 PlayerController.instance.Bounce();
