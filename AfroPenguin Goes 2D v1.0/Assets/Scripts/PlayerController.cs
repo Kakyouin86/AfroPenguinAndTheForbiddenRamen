@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
     [Header("Movement")] 
     public Rigidbody2D theRB;
     public SpriteRenderer theSR;
+    public Animator theAnimator;
     public Vector2 direction;
     public bool facingRight;
     public float moveSpeed = 4f;
@@ -54,13 +55,13 @@ public class PlayerController : MonoBehaviour
     public Transform camTarget;
     public float aheadAmount = 1.5f;
     public float aheadSpeed = 1f;
-    #endregion
 
     [Header("Particle Systems")]
     public ParticleSystem dustParticle;
     public ParticleSystem jumpDustParticle;
     public ParticleSystem dashDustParticle;
     public ParticleSystem dashDownDustParticle;
+    #endregion
 
     #region Awake
     private void Awake()
@@ -74,6 +75,7 @@ public class PlayerController : MonoBehaviour
     {
         theRB = GetComponent<Rigidbody2D>();
         theSR = GetComponent<SpriteRenderer>();
+        theAnimator = GetComponent<Animator>();
     }
     #endregion
 
@@ -92,6 +94,8 @@ public class PlayerController : MonoBehaviour
         float xRaw = Input.GetAxisRaw("Horizontal");
         float yRaw = Input.GetAxisRaw("Vertical");
         //Vector2 direction = new Vector2(x, y);
+        theAnimator.SetFloat("xVelocity", Mathf.Abs(theRB.velocity.x));
+        theAnimator.SetFloat("yVelocity", theRB.velocity.y);
         direction = new Vector2(xRaw, yRaw);
 
         Walk();
@@ -125,7 +129,7 @@ public class PlayerController : MonoBehaviour
     #endregion
 
     #region Walk
-    void Walk()
+    public void Walk()
     {
         float xVal = direction.x * moveSpeed * moveSpeedModifier * 100 * Time.fixedDeltaTime;
         if (Input.GetKey(KeyCode.LeftShift))
@@ -142,10 +146,11 @@ public class PlayerController : MonoBehaviour
     #endregion
 
     #region Ground Check
-    void GroundCheck()
+    public void GroundCheck()
     {
         cameFromTheGround = isGrounded;
         isGrounded = Physics2D.OverlapCircle((Vector2) transform.position + bottomOffset, groundCheckRadius, whatIsGround);
+        theAnimator.SetBool("isGrounded", true);
         theRB.gravityScale = 5;
         if (isGrounded)
         {
@@ -168,9 +173,11 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
+            theAnimator.SetBool("isGrounded", false);
             if (cameFromTheGround)
             {
                 Debug.Log("I came from the ground");
+                theAnimator.SetBool("isGrounded", false);
                 StartCoroutine(CoyoteJumpDelay());
             }
         }
@@ -239,6 +246,7 @@ public class PlayerController : MonoBehaviour
                 Camera.main.transform.DOComplete();
                 FindObjectOfType<RippleEffect>().Emit(Camera.main.WorldToViewportPoint(transform.position));
                 isdashing = true;
+                theAnimator.SetBool("isDashing", true);
                 Vector2 dashDirection = new Vector2(xRaw, yRaw);
                 theRB.velocity = Vector2.zero;
                 float prevGravity = theRB.gravityScale; //Store previous gravity scale
@@ -258,7 +266,7 @@ public class PlayerController : MonoBehaviour
         {
             theRB.velocity = dashDirection * dashSpeed;
             //theRB.velocity = Vector2 * dashSpeed; //Set velocity
-            yield return null; //Wait until next frame
+            yield return null;
         }
         FindObjectOfType<GhostTrail>().ShowGhost();
         theRB.velocity = Vector2.zero;
@@ -272,9 +280,10 @@ public class PlayerController : MonoBehaviour
             yield return new WaitForSeconds(0);
         }
 
-        theRB.gravityScale = prevGravity; //Restore previous value of gravity
+        theRB.gravityScale = prevGravity;
         Debug.Log("Set Gravity to " +prevGravity);
         dashDustParticle.Stop();
+        theAnimator.SetBool("isDashing", false);
     }
     #endregion
 
@@ -284,7 +293,7 @@ public class PlayerController : MonoBehaviour
         knockbackCounter = knockbackLenght;
         StartCoroutine(KnockBackDelay());
         GetComponent<Rigidbody2D>().velocity = new Vector2(0f, knockbackForce);
-
+        theAnimator.SetTrigger("hurt");
         knockbackCounter -= Time.deltaTime;
         //this counts down my time.
         if (!theSR.flipX)
