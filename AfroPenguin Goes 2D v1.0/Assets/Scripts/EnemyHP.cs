@@ -9,7 +9,6 @@ public class EnemyHP : MonoBehaviour
     public Collider2D hurtboxCol;
     public int enemyHP;
     public int currentHP;
-    public bool flashing;
     public bool isDead;
     public float invisibleLength = 0.03f;
     public float invisibleCounter;

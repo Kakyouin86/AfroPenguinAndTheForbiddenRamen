@@ -6,10 +6,10 @@ public class Stompbox : MonoBehaviour
 {
     public GameObject deathEffect;
     public GameObject collectible;
-    public int damageToDeal;
-    [Range(0, 100)] public float chanceToDrop = 0.35f;
+    public int damageToDeal = 1;
+    [Range(0, 100)] public float chanceToDrop = 1f;
     
-    private void OnTriggerEnter2D(Collider2D other)
+    public void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "Hurtbox")
         {
@@ -19,7 +19,7 @@ public class Stompbox : MonoBehaviour
             PlayerController.instance.Bounce();
         }
 
-        if (other.gameObject.GetComponent<EnemyHP>().isDead)
+        if (other.gameObject.tag == "Hurtbox" && other.gameObject.GetComponent<EnemyHP>().isDead)
         {
             float dropSelect = Random.Range(0, 100f);
 
@@ -27,8 +27,6 @@ public class Stompbox : MonoBehaviour
             {
                 Instantiate(collectible, other.transform.position, other.transform.rotation);
             }
-
-            AudioManager.instance.PlaySFX(3);
         }
     }
 }
