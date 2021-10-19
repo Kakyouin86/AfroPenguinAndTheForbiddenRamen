@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour
     [Header("Dash")] 
     public bool hasDashed;
     public bool isDashing;
+    public bool dashDown;
     public float dashSpeed = 30f;
     public float dashTime = 0.1f;
     public float dashTimeInAir = 0.1f;
@@ -59,6 +60,7 @@ public class PlayerController : MonoBehaviour
     public ParticleSystem dustParticle;
     public ParticleSystem jumpDustParticle;
     public ParticleSystem dashDustParticle;
+    public ParticleSystem dashDownDustParticle;
 
     #region Awake
     private void Awake()
@@ -153,7 +155,15 @@ public class PlayerController : MonoBehaviour
                 availableJumps = totalJumps;
                 multipleJumps = false;
                 Debug.Log("I came from the sky");
-                CreateJumpDust();
+                if (dashDown)
+                {
+                    CreateDashDownDust();
+                    dashDown = false;
+                }
+                else
+                {
+                    CreateJumpDust();
+                }
             }
         }
         else
@@ -218,6 +228,14 @@ public class PlayerController : MonoBehaviour
         {
             if (xRaw != 0 || yRaw != 0)
             {
+                if (yRaw == -1)
+                {
+                    dashDown = true;
+                }
+                else
+                {
+                    dashDown = false;
+                }
                 Camera.main.transform.DOComplete();
                 FindObjectOfType<RippleEffect>().Emit(Camera.main.WorldToViewportPoint(transform.position));
                 hasDashed = true;
@@ -312,6 +330,11 @@ public class PlayerController : MonoBehaviour
     public void CreateDashDust()
     {
         dashDustParticle.Play();
+    }
+
+    public void CreateDashDownDust()
+    {
+        dashDownDustParticle.Play();
     }
     #endregion
 

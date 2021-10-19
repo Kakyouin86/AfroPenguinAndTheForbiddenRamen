@@ -2294,6 +2294,7 @@ MonoBehaviour:
   moveSpeedModifier: 1.5
   hasDashed: 0
   isDashing: 0
+  dashDown: 0
   dashSpeed: 30
   dashTime: 0.1
   dashTimeInAir: 0.1
@@ -2313,6 +2314,7 @@ MonoBehaviour:
   dustParticle: {fileID: 1488497835}
   jumpDustParticle: {fileID: 1978404650}
   dashDustParticle: {fileID: 991524017}
+  dashDownDustParticle: {fileID: 8699963452884835306}
 --- !u!68 &221822273
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -12966,5 +12968,10 @@ PrefabInstance:
 --- !u!4 &8699963452884835304 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5556887545613020661, guid: 2959bcda19a1cc94cb266cb1f7de54a3, type: 3}
+  m_PrefabInstance: {fileID: 3864789339306898973}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &8699963452884835306 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 5556887545613020663, guid: 2959bcda19a1cc94cb266cb1f7de54a3, type: 3}
   m_PrefabInstance: {fileID: 3864789339306898973}
   m_PrefabAsset: {fileID: 0}
