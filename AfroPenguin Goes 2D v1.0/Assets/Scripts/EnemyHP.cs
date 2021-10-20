@@ -5,6 +5,7 @@ public class EnemyHP : MonoBehaviour
 {
     public Animator theAnim;
     public SpriteRenderer theSR;
+    public Animator theAnimator;
     public Collider2D parentCol;
     public Collider2D hurtboxCol;
     public int enemyHP;
@@ -16,7 +17,7 @@ public class EnemyHP : MonoBehaviour
     void Start()
     {
         currentHP = enemyHP;
-        //theAnim = transform.parent.GetComponent<Animator>();
+        theAnimator = transform.parent.GetComponent<Animator>();
         parentCol = transform.parent.GetComponent<Collider2D>();
         hurtboxCol = GetComponent<Collider2D>();
         theSR = transform.parent.GetComponent<SpriteRenderer>();
@@ -37,6 +38,7 @@ public class EnemyHP : MonoBehaviour
         else if (currentHP == 0)
         {
             isDead = true;
+            theAnimator.SetBool("isDead", isDead);
             parentCol.enabled = false;
             hurtboxCol.enabled = false;
             StartCoroutine("KillSwitch");
