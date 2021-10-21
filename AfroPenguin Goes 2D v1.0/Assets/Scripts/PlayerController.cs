@@ -30,11 +30,17 @@ public class PlayerController : MonoBehaviour
     public float moveSpeedModifier = 1.5f;
 
     [Header("Dash")] 
-    public bool isdashing;
+    public bool isDashing;
     public bool dashDown;
     public float dashSpeed = 30f;
     public float dashTime = 0.1f;
     public float dashTimeInAir = 0.1f;
+
+    [Header("Dash Controller")] 
+    public bool canDash;
+    public float currentDashGauge = 0f;
+    public float maxDashGauge = 100f;
+    public float collectDashGauge = 20f;
 
     [Header("Knockback")]
     public float knockbackLenght = 0.25f;
@@ -78,16 +84,14 @@ public class PlayerController : MonoBehaviour
         theRB = GetComponent<Rigidbody2D>();
         theSR = GetComponent<SpriteRenderer>();
         theAnimator = GetComponent<Animator>();
-        //GetComponent<CapsuleCollider2D>().sharedMaterial.friction = 0f;
-        //GetComponent<CapsuleCollider2D>().sharedMaterial.bounciness = 0f;
+        currentDashGauge = 0f;
     }
 
     #endregion
 
-        #region Update
+    #region Update
         void Update()
     {
-
         if (CanMoveOrInteract() == false) 
                 return;
         {
@@ -161,7 +165,7 @@ public class PlayerController : MonoBehaviour
         theRB.gravityScale = 5;
         if (isGrounded)
         {
-            isdashing = false;
+            isDashing = false;
             if (!cameFromTheGround)
             {
                 availableJumps = totalJumps;
@@ -235,10 +239,29 @@ public class PlayerController : MonoBehaviour
     }
     #endregion
 
+    #region Build Dash
+
+    public void BuildDash()
+    {
+        currentDashGauge += collectDashGauge;
+        if (currentDashGauge >= maxDashGauge)
+        {
+            currentDashGauge = 100f;
+            canDash = true;
+        }
+    }
+    #endregion
+
+    public ParticleSystem DashDownDustParticle
+    {
+        get => dashDownDustParticle;
+        set => dashDownDustParticle = value;
+    }
+
     #region Dash
     public void Dash(float xRaw, float yRaw)
     {
-        if (Input.GetButtonDown("Fire1") && !isdashing)
+        if (Input.GetButtonDown("Fire1") && !isDashing && canDash)
         {
             if (xRaw != 0 || yRaw != 0)
             {
@@ -252,7 +275,7 @@ public class PlayerController : MonoBehaviour
                 }
                 Camera.main.transform.DOComplete();
                 FindObjectOfType<RippleEffect>().Emit(Camera.main.WorldToViewportPoint(transform.position));
-                isdashing = true;
+                isDashing = true;
                 theAnimator.SetBool("isDashing", true);
                 Vector2 dashDirection = new Vector2(xRaw, yRaw);
                 theRB.velocity = Vector2.zero;
@@ -277,7 +300,7 @@ public class PlayerController : MonoBehaviour
         }
         FindObjectOfType<GhostTrail>().ShowGhost();
         theRB.velocity = Vector2.zero;
-        isdashing = true;
+        isDashing = true;
         if (dashDown == false)
         {
             yield return new WaitForSeconds(dashTimeInAir);
@@ -291,6 +314,7 @@ public class PlayerController : MonoBehaviour
         Debug.Log("Set Gravity to " +prevGravity);
         dashDustParticle.Stop();
         theAnimator.SetBool("isDashing", false);
+        canDash = false;
     }
     #endregion
 

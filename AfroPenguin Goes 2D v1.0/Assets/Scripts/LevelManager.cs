@@ -9,7 +9,7 @@ public class LevelManager : MonoBehaviour
     public Animator theAnimator;
     public PhysicsMaterial2D physicsMaterial;
     public float waitToRespawn = 1.5f;
-    public int gemsCollected;
+    public int starsCollected;
     public string levelToLoad;
     public float timeInLevel;
     public bool isPlayingIntro;
@@ -18,11 +18,6 @@ public class LevelManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
-    }
-
-    void Start()
-    {
-
     }
 
     void Update()
@@ -93,17 +88,17 @@ public class LevelManager : MonoBehaviour
         PlayerPrefs.SetInt(SceneManager.GetActiveScene().name + "_unlocked", 1);
         PlayerPrefs.SetString("CurrentLevel", (SceneManager.GetActiveScene().name));
         
-        if (PlayerPrefs.HasKey(SceneManager.GetActiveScene().name + "_gems"))
+        if (PlayerPrefs.HasKey(SceneManager.GetActiveScene().name + "_stars"))
         {
-            if (gemsCollected > PlayerPrefs.GetInt(SceneManager.GetActiveScene().name + "_gems"))
+            if (starsCollected > PlayerPrefs.GetInt(SceneManager.GetActiveScene().name + "_stars"))
             {
-                PlayerPrefs.SetInt(SceneManager.GetActiveScene().name + "_gems", gemsCollected);
+                PlayerPrefs.SetInt(SceneManager.GetActiveScene().name + "_stars", starsCollected);
             }
         }
 
         else
         {
-            PlayerPrefs.SetInt(SceneManager.GetActiveScene().name + "_gems", gemsCollected);
+            PlayerPrefs.SetInt(SceneManager.GetActiveScene().name + "_stars", starsCollected);
         }
 
         if (PlayerPrefs.HasKey(SceneManager.GetActiveScene().name + "_time"))

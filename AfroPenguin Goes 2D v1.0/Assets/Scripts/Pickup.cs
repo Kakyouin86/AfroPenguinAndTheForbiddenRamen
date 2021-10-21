@@ -4,22 +4,29 @@ using UnityEngine;
 
 public class Pickup : MonoBehaviour
 {
-    public bool isGem;
-    public bool isHeal;
     private bool isCollected;
-    public GameObject pickupEffect;
+
+    [Header("Item Types")]
+    public bool isStar;
+    public bool isHeal;
+    public bool isOrb;
+
+    [Header("Effects")]
+    public GameObject pickupEffectStar;
+    public GameObject pickupEffectHeal;
+    public GameObject pickupEffectOrb;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player") && !isCollected)
         {
-            if (isGem)
+            if (isStar)
             {
-                LevelManager.instance.gemsCollected++;
+                LevelManager.instance.starsCollected++;
                 isCollected = true;
                 Destroy(gameObject);
-                Instantiate(pickupEffect, transform.position, transform.rotation);
-                UIController.instance.UpdateGemCount();
+                Instantiate(pickupEffectStar, transform.position, transform.rotation);
+                UIController.instance.UpdateStarsCount();
                 AudioManager.instance.PlaySFX(6);
             }
             
@@ -32,9 +39,18 @@ public class Pickup : MonoBehaviour
                     PlayerHealthController.instance.HealPlayer();
                     isCollected = true;
                     Destroy(gameObject);
-                    Instantiate(pickupEffect, transform.position, transform.rotation);
+                    Instantiate(pickupEffectHeal, transform.position, transform.rotation);
                     AudioManager.instance.PlaySFX(7);
                 }
+            }
+
+            if (isOrb)
+            {
+                PlayerController.instance.BuildDash();
+                isCollected = true;
+                Destroy(gameObject);
+                Instantiate(pickupEffectOrb, transform.position, transform.rotation);
+                AudioManager.instance.PlaySFX(7);
             }
         }
     }

@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8297217019480487259}
   - component: {fileID: 5895232386291149470}
+  - component: {fileID: 2571552258897693540}
   - component: {fileID: 2736244051525251090}
   - component: {fileID: 6423152482544506065}
-  - component: {fileID: 2571552258897693540}
   - component: {fileID: 8434557175995359210}
   - component: {fileID: 5557625321408807787}
   m_Layer: 0
@@ -56,38 +56,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &2736244051525251090
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3520091368721921335}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72fc2a9e53d7a6a4898c74b3c4fdd948, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isGem: 1
-  isHeal: 0
-  pickupEffect: {fileID: 8943749494099812749, guid: 4481d0707f4af22408204bfb9dc439c1, type: 3}
---- !u!114 &6423152482544506065
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3520091368721921335}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bdcb69d59224aaa4ea7d10a141470f87, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  jumpSpeed: 15
-  theRB: {fileID: 5557625321408807787}
-  target: {fileID: 4809328456298088570}
-  origin: {x: 0, y: 0}
-  returnToOrigin: 0
 --- !u!212 &2571552258897693540
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -126,19 +94,54 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1681698673
-  m_SortingLayer: 7
-  m_SortingOrder: 4
-  m_Sprite: {fileID: 0}
+  m_SortingLayer: 5
+  m_SortingOrder: 1
+  m_Sprite: {fileID: 21300000, guid: 3b544c10532bb2a4c823ae9f0255e612, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.8125, y: 0.8125}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2736244051525251090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3520091368721921335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72fc2a9e53d7a6a4898c74b3c4fdd948, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isStar: 1
+  isHeal: 0
+  isOrb: 0
+  pickupEffectStar: {fileID: 3534479628547249196, guid: 6215effe050e9cc438dec1a3b5541154, type: 3}
+  pickupEffectHeal: {fileID: 0}
+  pickupEffectOrb: {fileID: 0}
+--- !u!114 &6423152482544506065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3520091368721921335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdcb69d59224aaa4ea7d10a141470f87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpSpeed: 15
+  theRB: {fileID: 5557625321408807787}
+  target: {fileID: 4809328456298088570}
+  origin: {x: 0, y: 0}
+  returnToOrigin: 0
 --- !u!58 &8434557175995359210
 CircleCollider2D:
   m_ObjectHideFlags: 0

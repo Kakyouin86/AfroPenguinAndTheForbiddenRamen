@@ -8,7 +8,7 @@ public class UIController : MonoBehaviour
     public static UIController instance;
     public Image heart01, heart02, heart03;
     public Sprite heartFull, heartEmpty, heartHalf;
-    public Text gemText;
+    public Text starsText;
     public Image fadeScreen;
     public float fadeSpeed = 3.0f;
     public bool shouldFadeToBlack, shouldFadeFromBlack;
@@ -21,7 +21,7 @@ public class UIController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        UpdateGemCount();
+        UpdateStarsCount();
         FadeFromBlack();
     }
 
@@ -99,9 +99,9 @@ public class UIController : MonoBehaviour
         }
     }
 
-    public void UpdateGemCount()
+    public void UpdateStarsCount()
     {
-        gemText.text = LevelManager.instance.gemsCollected.ToString();
+        starsText.text = LevelManager.instance.starsCollected.ToString();
         //converts the numbers into strings.
     }
 
