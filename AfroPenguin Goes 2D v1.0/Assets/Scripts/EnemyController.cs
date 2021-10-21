@@ -22,8 +22,8 @@ public class EnemyController : MonoBehaviour
         theRB = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
 
-       leftPoint.parent= null;
-       rightPoint.parent = null;
+        leftPoint.parent= null;
+        rightPoint.parent = null;
 
         moveRight = true;
 

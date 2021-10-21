@@ -3,6 +3,7 @@ using System.Globalization;
 using System.Numerics;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.Assertions.Must;
 using Vector2 = UnityEngine.Vector2;
 using Vector3 = UnityEngine.Vector3;
 
@@ -10,7 +11,7 @@ public class PlayerController : MonoBehaviour
 {
     #region Variables
     public static PlayerController instance;
-    public bool stopInput;
+    public bool canMove;
 
     [Header("Ground Check")] 
     public bool isGrounded;
@@ -71,48 +72,50 @@ public class PlayerController : MonoBehaviour
     #endregion
 
     #region Start
+
     void Start()
     {
         theRB = GetComponent<Rigidbody2D>();
         theSR = GetComponent<SpriteRenderer>();
         theAnimator = GetComponent<Animator>();
+        //GetComponent<CapsuleCollider2D>().sharedMaterial.friction = 0f;
+        //GetComponent<CapsuleCollider2D>().sharedMaterial.bounciness = 0f;
     }
+
     #endregion
 
-    #region Update
-    void Update()
+        #region Update
+        void Update()
     {
-        if (!PauseMenu.instance.isPaused && !stopInput)
-            //if the pause is false (we are playing) AND, we haven't stopped our input, then... move the player. If one of them true, we can't do ANY of this stuff. If both are true, then it won't move.
-        {
-            if (CanMoveOrInteract() == false) 
+
+        if (CanMoveOrInteract() == false) 
                 return;
-        }
-
-        float x = Input.GetAxis("Horizontal");
-        float y = Input.GetAxis("Vertical");
-        float xRaw = Input.GetAxisRaw("Horizontal");
-        float yRaw = Input.GetAxisRaw("Vertical");
-        //Vector2 direction = new Vector2(x, y);
-        theAnimator.SetFloat("xVelocity", Mathf.Abs(theRB.velocity.x));
-        theAnimator.SetFloat("yVelocity", theRB.velocity.y);
-        direction = new Vector2(xRaw, yRaw);
-
-        Walk();
-        GroundCheck();
-        Jump();
-        Dash(xRaw, yRaw);
-        CameraTrick();
-
-        if (theRB.velocity.x != 0) //if velocity is 0, then do nothing.
         {
-            bool prevFacing = facingRight; //Save previous state so I can compare it to create Dust
-            bool isNegativeVelocity = theRB.velocity.x < 0; //Is negative velocity?
-            theSR.flipX = isNegativeVelocity; //FlipX is the same as what I wrote previously
-            facingRight = !isNegativeVelocity; //facingRight is contrary to FlipX
-            if (facingRight != prevFacing && theRB.velocity.y == 0) //Compare bool: if it changed or not
+            float x = Input.GetAxis("Horizontal");
+            float y = Input.GetAxis("Vertical");
+            float xRaw = Input.GetAxisRaw("Horizontal");
+            float yRaw = Input.GetAxisRaw("Vertical");
+            //Vector2 direction = new Vector2(x, y);
+            theAnimator.SetFloat("xVelocity", Mathf.Abs(theRB.velocity.x));
+            theAnimator.SetFloat("yVelocity", theRB.velocity.y);
+            direction = new Vector2(xRaw, yRaw);
+
+            Walk();
+            GroundCheck();
+            Jump();
+            Dash(xRaw, yRaw);
+            CameraTrick();
+
+            if (theRB.velocity.x != 0) //if velocity is 0, then do nothing.
             {
-                CreateDust();
+                bool prevFacing = facingRight; //Save previous state so I can compare it to create Dust
+                bool isNegativeVelocity = theRB.velocity.x < 0; //Is negative velocity?
+                theSR.flipX = isNegativeVelocity; //FlipX is the same as what I wrote previously
+                facingRight = !isNegativeVelocity; //facingRight is contrary to FlipX
+                if (facingRight != prevFacing && theRB.velocity.y == 0) //Compare bool: if it changed or not
+                {
+                    CreateDust();
+                }
             }
         }
     }
@@ -121,8 +124,12 @@ public class PlayerController : MonoBehaviour
     #region Can Move Or Interact
     public bool CanMoveOrInteract()
     {
-        bool canMove = true;
+            canMove = true;
         if (isKnockback)
+            canMove = false;
+        if (PauseMenu.instance.isPaused)
+            canMove = false;
+        if (LevelManager.instance.isPlayingIntro)
             canMove = false;
         return canMove;
     }

@@ -6,10 +6,14 @@ using UnityEngine.SceneManagement;
 public class LevelManager : MonoBehaviour
 {
     public static LevelManager instance;
+    public Animator theAnimator;
+    public PhysicsMaterial2D physicsMaterial;
     public float waitToRespawn = 1.5f;
     public int gemsCollected;
     public string levelToLoad;
     public float timeInLevel;
+    public bool isPlayingIntro;
+
 
     private void Awake()
     {
@@ -18,12 +22,22 @@ public class LevelManager : MonoBehaviour
 
     void Start()
     {
-        timeInLevel = 0.0f;
+
     }
 
     void Update()
     {
-        timeInLevel += Time.deltaTime;
+        if (theAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime <= 1)
+        {
+            isPlayingIntro = true;
+            PlayerController.instance.GetComponent<CapsuleCollider2D>().sharedMaterial = null;
+        }
+        else
+        {
+            isPlayingIntro = false;
+            PlayerController.instance.GetComponent<CapsuleCollider2D>().sharedMaterial = physicsMaterial;
+            timeInLevel += Time.deltaTime;
+        }
     }
 
     public void RespawnPlayer()
@@ -67,9 +81,8 @@ public class LevelManager : MonoBehaviour
 
     public IEnumerator EndLevelCo()
     {
-
         AudioManager.instance.PlayLevelVictory();
-        PlayerController.instance.stopInput = true;
+        PlayerController.instance.canMove = false;
         CameraController.instance.stopFollow = true;
         UIController.instance.levelCompleteText.SetActive(true);
         yield return new WaitForSeconds(1.5f);
