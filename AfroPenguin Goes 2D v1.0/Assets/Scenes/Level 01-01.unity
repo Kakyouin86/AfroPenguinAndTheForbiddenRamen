@@ -2253,9 +2253,6 @@ MonoBehaviour:
   currentDashGauge: 0
   maxDashGauge: 100
   collectDashGauge: 20
-  speedDashGauge: 0.01
-  dashIndicatorSlider: {fileID: 5066815514599808436}
-  visualDashGaugeImage: {fileID: 2065458088}
   knockbackLenght: 0.25
   knockbackForce: 5
   knockbackCounter: 0
@@ -2820,6 +2817,9 @@ MonoBehaviour:
   heartEmpty: {fileID: 253694437597318847, guid: 0cca6fbc2511735429c6da4ce4635a4b, type: 3}
   heartHalf: {fileID: -7400779124571833525, guid: 0cca6fbc2511735429c6da4ce4635a4b, type: 3}
   starsText: {fileID: 1812304025}
+  speedDashGauge: 0.01
+  dashIndicatorSlider: {fileID: 5066815514599808436}
+  visualDashGaugeImage: {fileID: 2065458088}
   fadeScreen: {fileID: 486684026}
   fadeSpeed: 3
   shouldFadeToBlack: 0

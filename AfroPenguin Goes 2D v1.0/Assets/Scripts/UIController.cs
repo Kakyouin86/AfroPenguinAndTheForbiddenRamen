@@ -6,13 +6,28 @@ using UnityEngine.UI;
 public class UIController : MonoBehaviour
 {
     public static UIController instance;
-    public Image heart01, heart02, heart03;
-    public Sprite heartFull, heartEmpty, heartHalf;
+    [Header("Hearts UI")]
+    public Image heart01;
+    public Image heart02;
+    public Image heart03;
+    public Sprite heartFull;
+    public Sprite heartEmpty;
+    public Sprite heartHalf;
+
+    [Header("Stars UI")]
     public Text starsText;
+
+    [Header("Dash UI")]
+    public float speedDashGauge = 0.01f;
+    public Slider dashIndicatorSlider;
+    public Image visualDashGaugeImage;
+
+    [Header("Screen UI")]
     public Image fadeScreen;
     public float fadeSpeed = 3.0f;
     public bool shouldFadeToBlack, shouldFadeFromBlack;
     public GameObject levelCompleteText;
+
 
     private void Awake()
     {
@@ -23,6 +38,7 @@ public class UIController : MonoBehaviour
     {
         UpdateStarsCount();
         FadeFromBlack();
+        dashIndicatorSlider.value = 0;
     }
 
     // Update is called once per frame
@@ -117,4 +133,9 @@ public class UIController : MonoBehaviour
         shouldFadeToBlack = false;
     }
 
+    public void DashSlider()
+    {
+        dashIndicatorSlider.value = PlayerController.instance.currentDashGauge;
+        visualDashGaugeImage.fillAmount = Mathf.Lerp(visualDashGaugeImage.fillAmount, PlayerController.instance.currentDashGauge, Time.deltaTime* speedDashGauge);
+    }
 }
