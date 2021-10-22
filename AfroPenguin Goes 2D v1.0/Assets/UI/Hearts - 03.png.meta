@@ -1,7 +1,58 @@
 fileFormatVersion: 2
 guid: 0cca6fbc2511735429c6da4ce4635a4b
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 3178133332714133693
+    second: Hearts - 03_0
+  - first:
+      213: 885600673686300456
+    second: Hearts - 03_1
+  - first:
+      213: -8946523799209296626
+    second: Hearts - 03_2
+  - first:
+      213: 748208945087545927
+    second: Hearts - 03_3
+  - first:
+      213: -7400779124571833525
+    second: Hearts - 03_4
+  - first:
+      213: -6282130914237688554
+    second: Hearts - 03_5
+  - first:
+      213: 916281460409823617
+    second: Hearts - 03_6
+  - first:
+      213: 933526953239091418
+    second: Hearts - 03_7
+  - first:
+      213: 253694437597318847
+    second: Hearts - 03_8
+  - first:
+      213: -5037840735555449439
+    second: Hearts - 03_9
+  - first:
+      213: 979143632468719894
+    second: Hearts - 03_10
+  - first:
+      213: 676153940726873505
+    second: Hearts - 03_11
+  - first:
+      213: -5355286409015281901
+    second: Hearts - 03_12
+  - first:
+      213: -8655189463665141716
+    second: Hearts - 03_13
+  - first:
+      213: 7418637989767091638
+    second: Hearts - 03_14
+  - first:
+      213: -1868594764982695888
+    second: Hearts - 03_15
+  - first:
+      213: -7065339555589920773
+    second: Hearts - 03_16
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -89,7 +140,364 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Hearts - 03_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 80
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db811497d6ffa1c20800000000000000
+      internalID: 3178133332714133693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hearts - 03_1
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 80
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8272befde194a4c00800000000000000
+      internalID: 885600673686300456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hearts - 03_2
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 80
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0d3d8d510097d380800000000000000
+      internalID: -8946523799209296626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hearts - 03_3
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 80
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74286b5421c226a00800000000000000
+      internalID: 748208945087545927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hearts - 03_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4bf4c2e8962b4990800000000000000
+      internalID: -7400779124571833525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hearts - 03_5
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 64
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 615dc58b73361d8a0800000000000000
+      internalID: -6282130914237688554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hearts - 03_6
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 64
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 181f002322947bc00800000000000000
+      internalID: 916281460409823617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hearts - 03_7
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 64
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad8911461dd84fc00800000000000000
+      internalID: 933526953239091418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hearts - 03_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 48
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fbe0b723fbd458300800000000000000
+      internalID: 253694437597318847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hearts - 03_9
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 48
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ad893aea8ef51ab0800000000000000
+      internalID: -5037840735555449439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hearts - 03_10
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 48
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 619326d22fd969d00800000000000000
+      internalID: 979143632468719894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hearts - 03_11
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 48
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ad718a3d6e226900800000000000000
+      internalID: 676153940726873505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hearts - 03_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 317ba2072633ea5b0800000000000000
+      internalID: -5355286409015281901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hearts - 03_13
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 32
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c28198a3a0792e780800000000000000
+      internalID: -8655189463665141716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hearts - 03_14
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b5194132fb44f660800000000000000
+      internalID: 7418637989767091638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hearts - 03_15
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 32
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0384d0426fa6116e0800000000000000
+      internalID: -1868594764982695888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hearts - 03_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 16
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf7eb83ab1fd2fd90800000000000000
+      internalID: -7065339555589920773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

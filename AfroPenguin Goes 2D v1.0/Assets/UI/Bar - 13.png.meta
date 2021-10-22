@@ -1,7 +1,43 @@
 fileFormatVersion: 2
 guid: 63625965c56a8fa44b268068ff77fefa
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 7703015212908463071
+    second: Bar - 13_0
+  - first:
+      213: 1613184015164380831
+    second: Bar - 13_1
+  - first:
+      213: -1374943630767752218
+    second: Bar - 13_2
+  - first:
+      213: -7974911709546310172
+    second: Bar - 13_3
+  - first:
+      213: -4335872820319607794
+    second: Bar - 13_4
+  - first:
+      213: -6157507233580601345
+    second: Bar - 13_5
+  - first:
+      213: 9001293350623382050
+    second: Bar - 13_6
+  - first:
+      213: -4409977250579610862
+    second: Bar - 13_7
+  - first:
+      213: 153508641118494496
+    second: Bar - 13_8
+  - first:
+      213: -60207076400030822
+    second: Bar - 13_9
+  - first:
+      213: 6034167831418928335
+    second: Bar - 13_10
+  - first:
+      213: -4202858529232170614
+    second: Bar - 13_11
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -89,7 +125,259 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Bar - 13_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 29
+        width: 8
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd3c6d8168b96ea60800000000000000
+      internalID: 7703015212908463071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bar - 13_1
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 29
+        width: 8
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f961635905e236610800000000000000
+      internalID: 1613184015164380831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bar - 13_2
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 28
+        width: 8
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ebf6e57d083bece0800000000000000
+      internalID: -1374943630767752218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bar - 13_3
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 29
+        width: 8
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e593659d0c635190800000000000000
+      internalID: -7974911709546310172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bar - 13_4
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 29
+        width: 8
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e04249174a2e3d3c0800000000000000
+      internalID: -4335872820319607794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bar - 13_5
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 29
+        width: 8
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fffa7808bc32c8aa0800000000000000
+      internalID: -6157507233580601345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bar - 13_6
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 29
+        width: 8
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22a0efa8c940bec70800000000000000
+      internalID: 9001293350623382050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bar - 13_7
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 17
+        width: 14
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21306af3e0d9cc2c0800000000000000
+      internalID: -4409977250579610862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bar - 13_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1
+        width: 22
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02f12d7bb4f512200800000000000000
+      internalID: 153508641118494496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bar - 13_9
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 0
+        width: 22
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9b1636abf91a2ff0800000000000000
+      internalID: -60207076400030822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bar - 13_10
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 0
+        width: 24
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fcc70da1cabadb350800000000000000
+      internalID: 6034167831418928335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bar - 13_11
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 0
+        width: 24
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8155e37f627ca5c0800000000000000
+      internalID: -4202858529232170614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
