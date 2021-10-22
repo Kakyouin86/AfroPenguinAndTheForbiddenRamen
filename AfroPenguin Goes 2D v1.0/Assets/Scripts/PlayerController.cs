@@ -4,6 +4,7 @@ using System.Numerics;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Assertions.Must;
+using UnityEngine.UI;
 using Vector2 = UnityEngine.Vector2;
 using Vector3 = UnityEngine.Vector3;
 
@@ -38,9 +39,12 @@ public class PlayerController : MonoBehaviour
 
     [Header("Dash Controller")] 
     public bool canDash;
-    public float currentDashGauge = 0f;
+    public float currentDashGauge;
     public float maxDashGauge = 100f;
     public float collectDashGauge = 20f;
+    public float speedDashGauge = 1f;
+    public Slider dashIndicatorSlider;
+    public Image visualDashGaugeImage;
 
     [Header("Knockback")]
     public float knockbackLenght = 0.25f;
@@ -85,6 +89,8 @@ public class PlayerController : MonoBehaviour
         theSR = GetComponent<SpriteRenderer>();
         theAnimator = GetComponent<Animator>();
         currentDashGauge = 0f;
+        dashIndicatorSlider.value = 0;
+
     }
 
     #endregion
@@ -244,6 +250,9 @@ public class PlayerController : MonoBehaviour
     public void BuildDash()
     {
         currentDashGauge += collectDashGauge;
+        dashIndicatorSlider.value = currentDashGauge;
+        visualDashGaugeImage.fillAmount = Mathf.Lerp(visualDashGaugeImage.fillAmount, currentDashGauge, Time.deltaTime * speedDashGauge);
+
         if (currentDashGauge >= maxDashGauge)
         {
             currentDashGauge = 100f;
@@ -251,13 +260,7 @@ public class PlayerController : MonoBehaviour
         }
     }
     #endregion
-
-    public ParticleSystem DashDownDustParticle
-    {
-        get => dashDownDustParticle;
-        set => dashDownDustParticle = value;
-    }
-
+    
     #region Dash
     public void Dash(float xRaw, float yRaw)
     {
@@ -315,6 +318,8 @@ public class PlayerController : MonoBehaviour
         dashDustParticle.Stop();
         theAnimator.SetBool("isDashing", false);
         canDash = false;
+        currentDashGauge = 0f;
+        dashIndicatorSlider.value = currentDashGauge;
     }
     #endregion
 
