@@ -42,7 +42,7 @@ public class PlayerController : MonoBehaviour
     public float currentDashGauge;
     public float maxDashGauge = 100f;
     public float collectDashGauge = 20f;
-    public float speedDashGauge = 1f;
+    public float speedDashGauge = 0.01f;
     public Slider dashIndicatorSlider;
     public Image visualDashGaugeImage;
 
