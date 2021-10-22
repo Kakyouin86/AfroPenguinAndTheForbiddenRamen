@@ -9,12 +9,11 @@ public class LevelManager : MonoBehaviour
     public Animator theAnimator;
     public PhysicsMaterial2D physicsMaterial;
     public float waitToRespawn = 1.5f;
+    public float sumLostLife;
     public int starsCollected;
     public string levelToLoad;
     public float timeInLevel;
     public bool isPlayingIntro;
-
-
     private void Awake()
     {
         instance = this;
@@ -35,13 +34,18 @@ public class LevelManager : MonoBehaviour
         }
     }
 
+    public void SumLostLife()
+    {
+        sumLostLife++;
+    }
+
     public void RespawnPlayer()
     {
         StartCoroutine(RespawnCo());
     }
 
     //this is a coroutine. It happens outside the normal time of Unity. LESSON 41 WITH JAMES DOYLE.
-    private IEnumerator RespawnCo()
+    public IEnumerator RespawnCo()
     {
         //this is a CoRoutine. It happens outside the normal execution time of Unity.
         PlayerController.instance.gameObject.SetActive(false);

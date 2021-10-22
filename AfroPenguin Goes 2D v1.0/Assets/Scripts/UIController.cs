@@ -14,6 +14,9 @@ public class UIController : MonoBehaviour
     public Sprite heartEmpty;
     public Sprite heartHalf;
 
+    [Header("Lives Lost UI")]
+    public Text livesLostText;
+
     [Header("Stars UI")]
     public Text starsText;
 
@@ -21,6 +24,8 @@ public class UIController : MonoBehaviour
     public float speedDashGauge = 0.01f;
     public Slider dashIndicatorSlider;
     public Image visualDashGaugeImage;
+    public Animator barAnimator;
+    public Animator iconAnimator;
 
     [Header("Screen UI")]
     public Image fadeScreen;
@@ -99,14 +104,11 @@ public class UIController : MonoBehaviour
                 heart02.sprite = heartEmpty;
                 heart03.sprite = heartEmpty;
                 break;
-
-
             case 0:
                 heart01.sprite = heartEmpty;
                 heart02.sprite = heartEmpty;
                 heart03.sprite = heartEmpty;
                 break;
-
             default:
                 heart01.sprite = heartEmpty;
                 heart02.sprite = heartEmpty;
@@ -118,7 +120,11 @@ public class UIController : MonoBehaviour
     public void UpdateStarsCount()
     {
         starsText.text = LevelManager.instance.starsCollected.ToString();
-        //converts the numbers into strings.
+    }
+
+    public void SumLostLife()
+    {
+        livesLostText.text = LevelManager.instance.sumLostLife.ToString();
     }
 
     public void FadeToBlack()

@@ -249,6 +249,8 @@ public class PlayerController : MonoBehaviour
         {
             currentDashGauge = 100f;
             canDash = true;
+            UIController.instance.barAnimator.SetBool("isFilled", true);
+            UIController.instance.iconAnimator.SetBool("isFilled", true);
         }
     }
     #endregion
@@ -311,6 +313,8 @@ public class PlayerController : MonoBehaviour
         theAnimator.SetBool("isDashing", false);
         canDash = false;
         currentDashGauge = 0f;
+        UIController.instance.barAnimator.SetBool("isFilled",false);
+        UIController.instance.iconAnimator.SetBool("isFilled",false);
         UIController.instance.dashIndicatorSlider.value = currentDashGauge;
     }
     #endregion
