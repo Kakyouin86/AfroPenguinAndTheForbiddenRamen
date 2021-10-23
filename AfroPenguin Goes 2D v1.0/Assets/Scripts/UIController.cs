@@ -67,7 +67,6 @@ public class UIController : MonoBehaviour
             }
         }
     }
-
     public void UpdateHealthUpdate()
     {
         switch(PlayerHealthController.instance.currentHealth)

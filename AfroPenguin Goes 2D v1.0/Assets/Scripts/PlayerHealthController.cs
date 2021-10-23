@@ -43,6 +43,7 @@ public class PlayerHealthController : MonoBehaviour
     }
     void Start()
     {
+        flashing = false;
         currentHealth = maxHealth;
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
@@ -69,7 +70,6 @@ public class PlayerHealthController : MonoBehaviour
     {
         if (invisibleCounter <= 0)
         {
-            //currentHealth = currentHealth - 25;
             currentHealth--;
 
             if (currentHealth <= 0)
