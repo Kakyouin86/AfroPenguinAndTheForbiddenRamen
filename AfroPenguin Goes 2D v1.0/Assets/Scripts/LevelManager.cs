@@ -112,6 +112,7 @@ public class LevelManager : MonoBehaviour
                 PlayerPrefs.SetFloat(SceneManager.GetActiveScene().name + "_time", timeInLevel);
             }
         }
+
         else
         {
             PlayerPrefs.SetFloat(SceneManager.GetActiveScene().name + "_time", timeInLevel);

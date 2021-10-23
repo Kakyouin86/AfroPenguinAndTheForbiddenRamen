@@ -78,6 +78,8 @@ public class PlayerHealthController : MonoBehaviour
                 gameObject.SetActive(false);
                 Instantiate(deathEffect, transform.position, transform.rotation);
                 LevelManager.instance.RespawnPlayer();
+                LevelManager.instance.SumLostLife();
+                UIController.instance.SumLostLife();
             }
 
             else
