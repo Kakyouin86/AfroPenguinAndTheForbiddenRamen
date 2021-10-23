@@ -103,7 +103,7 @@ public class PlayerController : MonoBehaviour
             GroundCheck();
             Jump();
             Dash(xRaw, yRaw);
-            CameraTrick();
+            //CameraTrick(); If I want the Super Mario Style camera, Here is the "where"
 
             if (theRB.velocity.x != 0) //if velocity is 0, then do nothing.
             {
