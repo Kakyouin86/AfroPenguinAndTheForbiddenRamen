@@ -58,11 +58,6 @@ public class PlayerController : MonoBehaviour
     [Header("Bounce After Jump")]
     public float bounceForce = 15.0f;
 
-    [Header("Mario Style Camera")]
-    public Transform camTarget;
-    public float aheadAmount = 1.5f;
-    public float aheadSpeed = 1f;
-
     [Header("Particle Systems")]
     public ParticleSystem dustParticle;
     public ParticleSystem jumpDustParticle;
@@ -352,18 +347,7 @@ public class PlayerController : MonoBehaviour
         GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, bounceForce);
     }
     #endregion
-
-    #region Camera Mario Bros Style
-    public void CameraTrick()
-    {
-        //Camera Trick: Set a target as a child of the player so it moves either left or right when switching positions
-        if (Input.GetAxisRaw("Horizontal") != 0)
-        {
-            camTarget.localPosition = new Vector3(Mathf.Lerp(camTarget.localPosition.x, aheadAmount * Input.GetAxisRaw("Horizontal"), aheadSpeed * Time.deltaTime), camTarget.localPosition.y, camTarget.localPosition.z);
-        }
-    }
-#endregion
-
+    
     #region Dust Particles
     public void CreateDust()
     {
