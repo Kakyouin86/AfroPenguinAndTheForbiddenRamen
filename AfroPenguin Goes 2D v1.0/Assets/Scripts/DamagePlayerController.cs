@@ -4,8 +4,16 @@ using UnityEngine;
 
 public class DamagePlayerController : MonoBehaviour
 {
+    public void Start()
+    {
+        
+    }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    public void Update()
+    {
+        
+    }
+    public void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Player")
         {

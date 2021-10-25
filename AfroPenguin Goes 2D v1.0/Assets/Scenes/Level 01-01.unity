@@ -596,7 +596,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 45493226}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 785c960371ea99a42aaf061a16fb4ee8, type: 3}
+  m_Script: {fileID: 11500000, guid: 3303e48014a1aba46b6b61a9e5b98410, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!61 &45493229
@@ -2263,9 +2263,6 @@ MonoBehaviour:
   multipleJumps: 0
   coyoteJump: 0
   bounceForce: 15
-  camTarget: {fileID: 1282373721}
-  aheadAmount: 1.5
-  aheadSpeed: 1
   dustParticle: {fileID: 1488497835}
   jumpDustParticle: {fileID: 1978404650}
   dashDustParticle: {fileID: 991524017}
@@ -3437,7 +3434,7 @@ MonoBehaviour:
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: 0
 --- !u!114 &477416174
@@ -3479,7 +3476,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -747.4, y: 260.9}
+  m_AnchoredPosition: {x: -742.9, y: 260.9}
   m_SizeDelta: {x: 91.899, y: 15.173}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &486684025
@@ -7198,7 +7195,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1444017127}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 785c960371ea99a42aaf061a16fb4ee8, type: 3}
+  m_Script: {fileID: 11500000, guid: 3303e48014a1aba46b6b61a9e5b98410, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1454578785
@@ -13455,7 +13452,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2064299460}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 785c960371ea99a42aaf061a16fb4ee8, type: 3}
+  m_Script: {fileID: 11500000, guid: 3303e48014a1aba46b6b61a9e5b98410, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &2064299462
