@@ -23,7 +23,6 @@ public class EnemyHP : MonoBehaviour
         hurtboxCol = GetComponent<Collider2D>();
         theSR = transform.parent.GetComponent<SpriteRenderer>();
     }
-
     public void TakeDamage(int damage)
     {
         currentHP -= damage;
@@ -50,19 +49,21 @@ public class EnemyHP : MonoBehaviour
     {
         PlayerHealthController.instance.enabled = false;
         GetComponentInParent<DamagePlayerController>().enabled = false;
-
+        
         if (currentHP > damageDash)
         {
-            PlayerController.instance.KnockBackDash();
+            PlayerController.instance.hasntHit = true;
             currentHP -= damageDash;
             StartCoroutine("HitConfirm");
+            Debug.Log("Toco 1");
         }
 
         if (currentHP == damageDash + 1)
         {
-            PlayerController.instance.KnockBackDash();
+            PlayerController.instance.hasntHit = true;
             currentHP -= damageDash;
             StartCoroutine("HitConfirmAlmostDead");
+            Debug.Log("Toco 2");
         }
 
         else
@@ -73,6 +74,7 @@ public class EnemyHP : MonoBehaviour
             parentCol.enabled = false;
             hurtboxCol.enabled = false;
             KillInstantly();
+            Debug.Log("Toco 3");
         }
 
         PlayerController.instance.dashRightCollider.SetActive(false);
@@ -81,6 +83,12 @@ public class EnemyHP : MonoBehaviour
         PlayerController.instance.dashDownCollider.SetActive(false);
         PlayerHealthController.instance.enabled = true;
         GetComponentInParent<DamagePlayerController>().enabled = true;
+    }
+
+    IEnumerator KillSwitch()
+    {
+        yield return new WaitForSeconds(0f);
+        Destroy(transform.parent.gameObject);
     }
     
     public void KillInstantly()

@@ -172,7 +172,7 @@ public class PlayerController : MonoBehaviour
         theRB.gravityScale = 5;
         if (isGrounded)
         {
-            isDashing = false;
+            //isDashing = false;
             if (!cameFromTheGround)
             {
                 availableJumps = totalJumps;
@@ -319,14 +319,19 @@ public class PlayerController : MonoBehaviour
     {
         for (float t = 0; t < 1; t += Time.deltaTime / dashTime) //A loop that repeats every frame for a certain amount of seconds
         {
+            if (hasntHit)
             theRB.velocity = dashDirection * dashSpeed;
+            else
+            {
+                KnockBackDash();
+            }
             //theRB.velocity = Vector2 * dashSpeed; //Set velocity
             yield return null;
         }
 
         FindObjectOfType<GhostTrail>().ShowGhost();
-            theRB.velocity = Vector2.zero;
-            isDashing = true;
+        theRB.velocity = Vector2.zero;
+        isDashing = true;
 
         if (dashDown == false)
         {
@@ -341,6 +346,7 @@ public class PlayerController : MonoBehaviour
         Debug.Log("Set Gravity to " +prevGravity);
         dashDustParticle.Stop();
         theAnimator.SetBool("isDashing", false);
+        isDashing = false;
         canDash = false;
         currentDashGauge = 0f;
         dashRightCollider.SetActive(false);
@@ -397,6 +403,8 @@ public class PlayerController : MonoBehaviour
         {
             theRB.velocity = new Vector2(knockbackForce, theRB.velocity.y);
         }
+
+        hasntHit = false;
     }
     IEnumerator KnockBackDashDelay()
     {

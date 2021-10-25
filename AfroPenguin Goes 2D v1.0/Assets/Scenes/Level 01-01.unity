@@ -585,7 +585,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &45493227
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13076,7 +13076,7 @@ MonoBehaviour:
   theAnimator: {fileID: 0}
   parentCol: {fileID: 1444017132}
   hurtboxCol: {fileID: 1954298307}
-  enemyHP: 1
+  enemyHP: 3
   currentHP: 0
   isDead: 0
   invisibleLength: 0.05
@@ -13737,7 +13737,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2064299461
 MonoBehaviour:
   m_ObjectHideFlags: 0
