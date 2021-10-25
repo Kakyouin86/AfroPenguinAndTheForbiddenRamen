@@ -1,10 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 public class EnemyHP : MonoBehaviour
 {
-    public Animator theAnim;
     public SpriteRenderer theSR;
     public Animator theAnimator;
     public Collider2D parentCol;
@@ -14,6 +14,7 @@ public class EnemyHP : MonoBehaviour
     public bool isDead;
     public float invisibleLength = 0.05f;
     public float invisibleCounter;
+    public float multiplier = 2f;
 
     void Start()
     {
@@ -47,42 +48,14 @@ public class EnemyHP : MonoBehaviour
 
     public void TakeDamageDash(int damageDash)
     {
-        PlayerHealthController.instance.enabled = false;
-        GetComponentInParent<DamagePlayerController>().enabled = false;
-        
-        if (currentHP > damageDash)
-        {
-            PlayerController.instance.hasntHit = true;
+            PlayerController.instance.KnockBackDash(multiplier);
             currentHP -= damageDash;
             StartCoroutine("HitConfirm");
-            Debug.Log("Toco 1");
-        }
-
-        if (currentHP == damageDash + 1)
-        {
-            PlayerController.instance.hasntHit = true;
-            currentHP -= damageDash;
-            StartCoroutine("HitConfirmAlmostDead");
-            Debug.Log("Toco 2");
-        }
-
-        else
-        {
-            currentHP -= damageDash;
             isDead = true;
             theAnimator.SetBool("isDead", isDead);
             parentCol.enabled = false;
             hurtboxCol.enabled = false;
             KillInstantly();
-            Debug.Log("Toco 3");
-        }
-
-        PlayerController.instance.dashRightCollider.SetActive(false);
-        PlayerController.instance.dashLeftCollider.SetActive(false);
-        PlayerController.instance.dashUpCollider.SetActive(false);
-        PlayerController.instance.dashDownCollider.SetActive(false);
-        PlayerHealthController.instance.enabled = true;
-        GetComponentInParent<DamagePlayerController>().enabled = true;
     }
 
     IEnumerator KillSwitch()

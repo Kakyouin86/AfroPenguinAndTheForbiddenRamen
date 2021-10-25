@@ -3785,7 +3785,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9bdea275d44edf40b4916a2e865e9f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  theAnim: {fileID: 2064299466}
   theSR: {fileID: 2064299465}
   theAnimator: {fileID: 0}
   parentCol: {fileID: 2064299463}
@@ -3795,6 +3794,7 @@ MonoBehaviour:
   isDead: 0
   invisibleLength: 0.05
   invisibleCounter: 0
+  multiplier: 2
 --- !u!61 &537855458
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3808,7 +3808,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.158867}
+  m_Offset: {x: 0, y: -0.2973665}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -3819,7 +3819,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.317734, y: 1.317734}
+  m_Size: {x: 1.317734, y: 1.2054954}
   m_EdgeRadius: 0
 --- !u!1 &613997621
 GameObject:
@@ -4944,7 +4944,7 @@ MonoBehaviour:
   deathEffect: {fileID: 1091509851538068864, guid: 7629a88614125d245853a0d49ff2af2e, type: 3}
   collectible: {fileID: 3520091368721921335, guid: 2949bf68f82c1724abc4181f4c801af1, type: 3}
   damageToDealDash: 3
-  chanceToDrop: 1
+  chanceToDrop: 100
 --- !u!61 &792563585
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5821,7 +5821,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9bdea275d44edf40b4916a2e865e9f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  theAnim: {fileID: 45493232}
   theSR: {fileID: 45493231}
   theAnimator: {fileID: 0}
   parentCol: {fileID: 45493229}
@@ -5831,6 +5830,7 @@ MonoBehaviour:
   isDead: 0
   invisibleLength: 0.05
   invisibleCounter: 0
+  multiplier: 0
 --- !u!61 &1041987406
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7092,8 +7092,8 @@ GameObject:
   - component: {fileID: 1444017129}
   - component: {fileID: 1444017133}
   - component: {fileID: 1444017132}
-  - component: {fileID: 1444017131}
   - component: {fileID: 1444017134}
+  - component: {fileID: 1444017131}
   m_Layer: 6
   m_Name: Enemy Rat 01
   m_TagString: Enemy
@@ -7197,18 +7197,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1444017127}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf3ab2162ccbcf94b9939045dc96f086, type: 3}
+  m_Script: {fileID: 11500000, guid: 3303e48014a1aba46b6b61a9e5b98410, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
-  leftPoint: {fileID: 127329695}
-  rightPoint: {fileID: 858332247}
-  moveRight: 0
-  theSR: {fileID: 1444017129}
-  moveTime: 3
-  waitTime: 0
-  moveCount: 0
-  waitCount: 0
 --- !u!61 &1444017132
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7233,7 +7224,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.6843501, y: 1.040735}
+  m_Size: {x: 1.6843501, y: 1.205495}
   m_EdgeRadius: 0
 --- !u!50 &1444017133
 Rigidbody2D:
@@ -7265,9 +7256,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 1444017127}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3303e48014a1aba46b6b61a9e5b98410, type: 3}
+  m_Script: {fileID: 11500000, guid: bf3ab2162ccbcf94b9939045dc96f086, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveSpeed: 5
+  leftPoint: {fileID: 127329695}
+  rightPoint: {fileID: 858332247}
+  moveRight: 0
+  theSR: {fileID: 1444017129}
+  moveTime: 3
+  waitTime: 0
+  moveCount: 0
+  waitCount: 0
 --- !u!1 &1454578785
 GameObject:
   m_ObjectHideFlags: 0
@@ -11197,7 +11197,7 @@ MonoBehaviour:
   deathEffect: {fileID: 1091509851538068864, guid: 7629a88614125d245853a0d49ff2af2e, type: 3}
   collectible: {fileID: 3520091368721921335, guid: 2949bf68f82c1724abc4181f4c801af1, type: 3}
   damageToDealDash: 3
-  chanceToDrop: 1
+  chanceToDrop: 100
 --- !u!61 &1538336290
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11211,7 +11211,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.16903698, y: 1.2554609}
+  m_Offset: {x: -0.2173869, y: 1.1562928}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -11222,7 +11222,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.338074, y: 0.33153558}
+  m_Size: {x: 1.1967435, y: 0.5298717}
   m_EdgeRadius: 0
 --- !u!1 &1539911288
 GameObject:
@@ -12192,7 +12192,7 @@ MonoBehaviour:
   deathEffect: {fileID: 1091509851538068864, guid: 7629a88614125d245853a0d49ff2af2e, type: 3}
   collectible: {fileID: 3520091368721921335, guid: 2949bf68f82c1724abc4181f4c801af1, type: 3}
   damageToDealDash: 3
-  chanceToDrop: 1
+  chanceToDrop: 100
 --- !u!61 &1797157142
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13071,16 +13071,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9bdea275d44edf40b4916a2e865e9f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  theAnim: {fileID: 1444017130}
   theSR: {fileID: 1444017129}
-  theAnimator: {fileID: 0}
+  theAnimator: {fileID: 1444017130}
   parentCol: {fileID: 1444017132}
   hurtboxCol: {fileID: 1954298307}
-  enemyHP: 3
-  currentHP: 0
+  enemyHP: 2
+  currentHP: 2
   isDead: 0
   invisibleLength: 0.05
   invisibleCounter: 0
+  multiplier: 2.5
 --- !u!61 &1954298307
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13094,7 +13094,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.158867}
+  m_Offset: {x: 0, y: -0.2973665}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -13105,7 +13105,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.317734, y: 1.317734}
+  m_Size: {x: 1.317734, y: 1.2054954}
   m_EdgeRadius: 0
 --- !u!1 &1961382674
 GameObject:
@@ -13313,7 +13313,7 @@ MonoBehaviour:
   deathEffect: {fileID: 1091509851538068864, guid: 7629a88614125d245853a0d49ff2af2e, type: 3}
   collectible: {fileID: 3520091368721921335, guid: 2949bf68f82c1724abc4181f4c801af1, type: 3}
   damageToDealDash: 3
-  chanceToDrop: 1
+  chanceToDrop: 100
 --- !u!1 &2003998450
 GameObject:
   m_ObjectHideFlags: 0
@@ -13737,7 +13737,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &2064299461
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13795,7 +13795,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.6843501, y: 1.040735}
+  m_Size: {x: 1.6843501, y: 1.205495}
   m_EdgeRadius: 0
 --- !u!50 &2064299464
 Rigidbody2D:

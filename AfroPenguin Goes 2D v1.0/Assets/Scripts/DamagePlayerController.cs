@@ -6,12 +6,12 @@ public class DamagePlayerController : MonoBehaviour
 {
     public void Start()
     {
-        
+
     }
 
     public void Update()
     {
-        
+
     }
     public void OnTriggerEnter2D(Collider2D other)
     {
@@ -24,5 +24,12 @@ public class DamagePlayerController : MonoBehaviour
             PlayerHealthController.instance.DealDamage();
             Debug.Log("Hit Player");
         }
+
+        if (other.tag == "Player" && PlayerController.instance.isDashing)
+        {
+            GetComponent<BoxCollider2D>().enabled = false;
+            GetComponent<BoxCollider2D>().enabled = true;
+        }
+
     }
 }

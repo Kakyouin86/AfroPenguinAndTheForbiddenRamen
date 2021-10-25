@@ -87,6 +87,7 @@ public class PlayerController : MonoBehaviour
         theAnimator = GetComponent<Animator>();
         currentDashGauge = 0f;
         isKnockback = false;
+        canDash = false;
         hasntHit = true;
         dashRightCollider.SetActive(false);
         dashLeftCollider.SetActive(false);
@@ -318,13 +319,8 @@ public class PlayerController : MonoBehaviour
     IEnumerator DashCoroutine(Vector2 dashDirection, float prevGravity)
     {
         for (float t = 0; t < 1; t += Time.deltaTime / dashTime) //A loop that repeats every frame for a certain amount of seconds
-        {
-            if (hasntHit)
+        {            
             theRB.velocity = dashDirection * dashSpeed;
-            else
-            {
-                KnockBackDash();
-            }
             //theRB.velocity = Vector2 * dashSpeed; //Set velocity
             yield return null;
         }
@@ -332,7 +328,7 @@ public class PlayerController : MonoBehaviour
         FindObjectOfType<GhostTrail>().ShowGhost();
         theRB.velocity = Vector2.zero;
         isDashing = true;
-
+        
         if (dashDown == false)
         {
             yield return new WaitForSeconds(dashTimeInAir);
@@ -342,6 +338,11 @@ public class PlayerController : MonoBehaviour
             yield return new WaitForSeconds(0);
         }
 
+        hasntHit = true;
+        dashRightCollider.SetActive(false);
+        dashLeftCollider.SetActive(false);
+        dashUpCollider.SetActive(false);
+        dashDownCollider.SetActive(false);
         theRB.gravityScale = prevGravity;
         Debug.Log("Set Gravity to " +prevGravity);
         dashDustParticle.Stop();
@@ -349,22 +350,18 @@ public class PlayerController : MonoBehaviour
         isDashing = false;
         canDash = false;
         currentDashGauge = 0f;
-        dashRightCollider.SetActive(false);
-        dashLeftCollider.SetActive(false);
-        dashUpCollider.SetActive(false);
-        dashDownCollider.SetActive(false);
         UIController.instance.barAnimator.SetBool("isFilled",false);
         UIController.instance.iconAnimator.SetBool("isFilled",false);
         UIController.instance.dashIndicatorSlider.value = currentDashGauge;
     }
     #endregion
 
-    #region Knockback
+    #region KnockBack
     public void KnockBack()
     {
         StartCoroutine(KnockBackDelay());
         knockbackCounter = knockbackLenght;
-        GetComponent<Rigidbody2D>().velocity = new Vector2(0f, knockbackForce);
+        theRB.velocity = new Vector2(0f, knockbackForce);
         theAnimator.SetTrigger("hurt");
         knockbackCounter -= Time.deltaTime;
         //this counts down my time.
@@ -386,12 +383,12 @@ public class PlayerController : MonoBehaviour
     }
     #endregion
 
-    #region KnockBackDash
-    public void KnockBackDash()
+    #region KnockbackDash
+    public void KnockBackDash(float multiplier)
     {
         StartCoroutine(KnockBackDashDelay());
         knockbackCounter = knockbackLenght;
-        GetComponent<Rigidbody2D>().velocity = new Vector2(0f, knockbackForce);
+        theRB.velocity = new Vector2(0f, knockbackForce * multiplier);
         knockbackCounter -= Time.deltaTime;
         //this counts down my time.
         if (!theSR.flipX)
@@ -403,22 +400,22 @@ public class PlayerController : MonoBehaviour
         {
             theRB.velocity = new Vector2(knockbackForce, theRB.velocity.y);
         }
-
-        hasntHit = false;
+        GetComponent<PlayerHealthController>().enabled = true;
     }
     IEnumerator KnockBackDashDelay()
     {
         isKnockback = true;
-        yield return new WaitForSeconds(knockbackCounter);
+        yield return new WaitForSeconds(knockbackCounter*3);
         isKnockback = false;
     }
-
     #endregion
+
+
 
     #region Bounce
     public void Bounce()
     {
-        GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, bounceForce);
+        theRB.velocity = new Vector2(theRB.velocity.x, bounceForce);
     }
     #endregion
     

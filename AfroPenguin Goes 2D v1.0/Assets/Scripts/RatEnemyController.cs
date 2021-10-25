@@ -12,7 +12,7 @@ public class RatEnemyController : MonoBehaviour
     public SpriteRenderer theSR;
     private Animator anim;
     public float moveTime = 3.0f;
-    public float waitTime = 2.0f;
+    public float waitTime = 0.0f;
     public float moveCount;
     public float waitCount;
 
