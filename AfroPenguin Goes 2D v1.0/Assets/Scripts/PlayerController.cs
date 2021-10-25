@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Globalization;
 using System.Numerics;
@@ -32,9 +33,14 @@ public class PlayerController : MonoBehaviour
     [Header("Dash")] 
     public bool isDashing;
     public bool dashDown;
+    public bool hasntHit;
     public float dashSpeed = 30f;
     public float dashTime = 0.1f;
     public float dashTimeInAir = 0.1f;
+    public GameObject dashRightCollider;
+    public GameObject dashLeftCollider;
+    public GameObject dashUpCollider;
+    public GameObject dashDownCollider;
 
     [Header("Dash Controller")] 
     public bool canDash;
@@ -80,6 +86,12 @@ public class PlayerController : MonoBehaviour
         theSR = GetComponent<SpriteRenderer>();
         theAnimator = GetComponent<Animator>();
         currentDashGauge = 0f;
+        isKnockback = false;
+        hasntHit = true;
+        dashRightCollider.SetActive(false);
+        dashLeftCollider.SetActive(false);
+        dashUpCollider.SetActive(false);
+        dashDownCollider.SetActive(false);
     }
 
     #endregion
@@ -265,6 +277,27 @@ public class PlayerController : MonoBehaviour
                 {
                     dashDown = false;
                 }
+
+                if (xRaw == 1)
+                {
+                    dashRightCollider.SetActive(true);
+                }
+
+                if (xRaw == -1)
+                {
+                    dashLeftCollider.SetActive(true);
+                }
+
+                if (yRaw == 1)
+                {
+                    dashUpCollider.SetActive(true);
+                }
+
+                if (yRaw == -1)
+                {
+                    dashDownCollider.SetActive(true);
+                }
+
                 Camera.main.transform.DOComplete();
                 FindObjectOfType<RippleEffect>().Emit(Camera.main.WorldToViewportPoint(transform.position));
                 isDashing = true;
@@ -290,9 +323,11 @@ public class PlayerController : MonoBehaviour
             //theRB.velocity = Vector2 * dashSpeed; //Set velocity
             yield return null;
         }
+
         FindObjectOfType<GhostTrail>().ShowGhost();
-        theRB.velocity = Vector2.zero;
-        isDashing = true;
+            theRB.velocity = Vector2.zero;
+            isDashing = true;
+
         if (dashDown == false)
         {
             yield return new WaitForSeconds(dashTimeInAir);
@@ -308,6 +343,10 @@ public class PlayerController : MonoBehaviour
         theAnimator.SetBool("isDashing", false);
         canDash = false;
         currentDashGauge = 0f;
+        dashRightCollider.SetActive(false);
+        dashLeftCollider.SetActive(false);
+        dashUpCollider.SetActive(false);
+        dashDownCollider.SetActive(false);
         UIController.instance.barAnimator.SetBool("isFilled",false);
         UIController.instance.iconAnimator.SetBool("isFilled",false);
         UIController.instance.dashIndicatorSlider.value = currentDashGauge;
@@ -317,8 +356,8 @@ public class PlayerController : MonoBehaviour
     #region Knockback
     public void KnockBack()
     {
-        knockbackCounter = knockbackLenght;
         StartCoroutine(KnockBackDelay());
+        knockbackCounter = knockbackLenght;
         GetComponent<Rigidbody2D>().velocity = new Vector2(0f, knockbackForce);
         theAnimator.SetTrigger("hurt");
         knockbackCounter -= Time.deltaTime;
@@ -339,6 +378,33 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(knockbackCounter);
         isKnockback = false;
     }
+    #endregion
+
+    #region KnockBackDash
+    public void KnockBackDash()
+    {
+        StartCoroutine(KnockBackDashDelay());
+        knockbackCounter = knockbackLenght;
+        GetComponent<Rigidbody2D>().velocity = new Vector2(0f, knockbackForce);
+        knockbackCounter -= Time.deltaTime;
+        //this counts down my time.
+        if (!theSR.flipX)
+            //if true, we are facing to the left. If false, facing to the right.
+        {
+            theRB.velocity = new Vector2(-knockbackForce, theRB.velocity.y);
+        }
+        else
+        {
+            theRB.velocity = new Vector2(knockbackForce, theRB.velocity.y);
+        }
+    }
+    IEnumerator KnockBackDashDelay()
+    {
+        isKnockback = true;
+        yield return new WaitForSeconds(knockbackCounter);
+        isKnockback = false;
+    }
+
     #endregion
 
     #region Bounce
@@ -376,5 +442,5 @@ public class PlayerController : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere((Vector2) transform.position + bottomOffset, groundCheckRadius);
     }
-    #endregion    
+    #endregion
 }

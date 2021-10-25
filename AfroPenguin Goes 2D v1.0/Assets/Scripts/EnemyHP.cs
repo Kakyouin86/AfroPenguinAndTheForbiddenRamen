@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 public class EnemyHP : MonoBehaviour
 {
@@ -35,7 +36,7 @@ public class EnemyHP : MonoBehaviour
         {
             StartCoroutine("HitConfirmAlmostDead");
         }
-        else if (currentHP == 0)
+        else if (currentHP <= 0)
         {
             isDead = true;
             theAnimator.SetBool("isDead", isDead);
@@ -45,9 +46,45 @@ public class EnemyHP : MonoBehaviour
         }
     }
 
-    IEnumerator KillSwitch()
+    public void TakeDamageDash(int damageDash)
     {
-        yield return new WaitForSeconds(0f);
+        PlayerHealthController.instance.enabled = false;
+        GetComponentInParent<DamagePlayerController>().enabled = false;
+
+        if (currentHP > damageDash)
+        {
+            PlayerController.instance.KnockBackDash();
+            currentHP -= damageDash;
+            StartCoroutine("HitConfirm");
+        }
+
+        if (currentHP == damageDash + 1)
+        {
+            PlayerController.instance.KnockBackDash();
+            currentHP -= damageDash;
+            StartCoroutine("HitConfirmAlmostDead");
+        }
+
+        else
+        {
+            currentHP -= damageDash;
+            isDead = true;
+            theAnimator.SetBool("isDead", isDead);
+            parentCol.enabled = false;
+            hurtboxCol.enabled = false;
+            KillInstantly();
+        }
+
+        PlayerController.instance.dashRightCollider.SetActive(false);
+        PlayerController.instance.dashLeftCollider.SetActive(false);
+        PlayerController.instance.dashUpCollider.SetActive(false);
+        PlayerController.instance.dashDownCollider.SetActive(false);
+        PlayerHealthController.instance.enabled = true;
+        GetComponentInParent<DamagePlayerController>().enabled = true;
+    }
+    
+    public void KillInstantly()
+    {
         Destroy(transform.parent.gameObject);
     }
 

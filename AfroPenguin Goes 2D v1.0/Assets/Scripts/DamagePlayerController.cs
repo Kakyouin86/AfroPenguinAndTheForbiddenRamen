@@ -15,7 +15,7 @@ public class DamagePlayerController : MonoBehaviour
     }
     public void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Player")
+        if (other.tag == "Player" && !PlayerController.instance.isDashing)
         {
             //FindObjectOfType<PlayerHealthController>().DealDamage();
             //Con eso busco al script dentro de todos los objetos que existan en esa escena, y aquel que tenga el script PlayerHealthController, andá a buscarlo y buscá y activá DealDamage()

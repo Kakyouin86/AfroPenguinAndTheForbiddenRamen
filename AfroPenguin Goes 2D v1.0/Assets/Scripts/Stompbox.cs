@@ -8,7 +8,6 @@ public class Stompbox : MonoBehaviour
     public GameObject deathEffect;
     public GameObject collectible;
     public int damageToDeal = 1;
-    public int damageToDealDash = 3;
     [Range(0, 100)] public float chanceToDrop = 1f;
 
     void Start()
