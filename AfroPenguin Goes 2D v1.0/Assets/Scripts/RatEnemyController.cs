@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyController : MonoBehaviour
+public class RatEnemyController : MonoBehaviour
 {
     public float moveSpeed = 5.0f;
     public Transform leftPoint;

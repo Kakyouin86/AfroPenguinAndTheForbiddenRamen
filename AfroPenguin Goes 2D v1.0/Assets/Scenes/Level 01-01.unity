@@ -2050,7 +2050,6 @@ GameObject:
   - component: {fileID: 221822270}
   - component: {fileID: 221822272}
   - component: {fileID: 221822268}
-  - component: {fileID: 221822269}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -2168,18 +2167,6 @@ MonoBehaviour:
   flashing: 0
   deathEffect: {fileID: 5951707332992650644, guid: cc42c591a1946a64ab3becfbaef5874e, type: 3}
   stompbox: {fileID: 21373725}
---- !u!114 &221822269
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 221822264}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 785c960371ea99a42aaf061a16fb4ee8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!50 &221822270
 Rigidbody2D:
   serializedVersion: 4
