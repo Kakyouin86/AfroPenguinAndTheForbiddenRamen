@@ -52,8 +52,18 @@ public class EnemyHP : MonoBehaviour
         currentHP -= damageDash;
         if (currentHP >= 2)
         {
-            PlayerController.instance.KnockBackDash(multiplier);
-            StartCoroutine("HitConfirm");
+            if (PlayerController.instance.dashDown)
+            {
+                
+                PlayerController.instance.Bounce();
+                StartCoroutine("HitConfirm");
+            }
+            else
+            {
+                PlayerController.instance.KnockBackDash(multiplier);
+                StartCoroutine("HitConfirm");
+            }
+
         }
 
         else if (currentHP == 1)

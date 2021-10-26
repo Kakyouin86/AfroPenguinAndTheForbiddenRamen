@@ -166,40 +166,43 @@ public class PlayerController : MonoBehaviour
 
     #region Ground Check
     public void GroundCheck()
-    {
-        cameFromTheGround = isGrounded;
-        isGrounded = Physics2D.OverlapCircle((Vector2) transform.position + bottomOffset, groundCheckRadius, whatIsGround);
-        theAnimator.SetBool("isGrounded", true);
-        theRB.gravityScale = 5;
-        if (isGrounded)
-        {
-            //isDashing = false;
-            if (!cameFromTheGround)
+    {   
+            cameFromTheGround = isGrounded;
+            isGrounded = Physics2D.OverlapCircle((Vector2) transform.position + bottomOffset, groundCheckRadius,
+                whatIsGround);
+            theAnimator.SetBool("isGrounded", true);
+            theRB.gravityScale = 5;
+            
+            if (isGrounded)
             {
-                availableJumps = totalJumps;
-                multipleJumps = false;
-                Debug.Log("I came from the sky");
-                if (dashDown)
+                //isDashing = false;
+                if (!cameFromTheGround)
                 {
-                    CreateDashDownDust();
-                    dashDown = false;
-                }
-                else
-                {
-                    CreateJumpDust();
+                    availableJumps = totalJumps;
+                    multipleJumps = false;
+                    Debug.Log("I came from the sky");
+                    if (dashDown)
+                    {
+                        CreateDashDownDust();
+                        dashDown = false;
+                    }
+                    else
+                    {
+                        CreateJumpDust();
+                    }
                 }
             }
-        }
-        else
-        {
-            theAnimator.SetBool("isGrounded", false);
-            if (cameFromTheGround)
+
+            else
             {
-                Debug.Log("I came from the ground");
                 theAnimator.SetBool("isGrounded", false);
-                StartCoroutine(CoyoteJumpDelay());
+                if (cameFromTheGround)
+                {
+                    Debug.Log("I came from the ground");
+                    theAnimator.SetBool("isGrounded", false);
+                    StartCoroutine(CoyoteJumpDelay());
+                }
             }
-        }
     }
     #endregion
 
@@ -298,7 +301,7 @@ public class PlayerController : MonoBehaviour
                 {
                     dashDownCollider.SetActive(true);
                 }
-
+                
                 Camera.main.transform.DOComplete();
                 FindObjectOfType<RippleEffect>().Emit(Camera.main.WorldToViewportPoint(transform.position));
                 isDashing = true;
@@ -327,6 +330,7 @@ public class PlayerController : MonoBehaviour
 
         FindObjectOfType<GhostTrail>().ShowGhost();
         theRB.velocity = Vector2.zero;
+        Debug.Log(theRB.velocity);
         isDashing = true;
         
         if (dashDown == false)
@@ -386,6 +390,8 @@ public class PlayerController : MonoBehaviour
     #region KnockbackDash
     public void KnockBackDash(float multiplier)
     {
+        isGrounded = false;
+        theAnimator.SetBool("isGrounded",false);
         StartCoroutine(KnockBackDashDelay());
         knockbackCounter = knockbackLenght;
         theRB.velocity = new Vector2(0f, knockbackForce * multiplier);

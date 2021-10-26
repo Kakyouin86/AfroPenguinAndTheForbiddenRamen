@@ -25,16 +25,7 @@ public class KnockbackEnemies : MonoBehaviour
 
     void Update()
     {
-        if (isKnockback)
-        {
-            KnockBack();
-            Debug.Log("True");
-        }
-        else
-        {
-            isKnockback = false;
-            Debug.Log("False");
-        }
+
     }
 
     #region KnockBack
