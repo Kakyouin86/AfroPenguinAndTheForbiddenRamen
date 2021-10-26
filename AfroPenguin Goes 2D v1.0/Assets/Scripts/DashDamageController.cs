@@ -23,6 +23,7 @@ public class DashDamageController : MonoBehaviour
         {
             other.gameObject.GetComponentInChildren<EnemyHP>().TakeDamageDash(damageToDealDash);
             Instantiate(deathEffect, other.transform.position, other.transform.rotation);
+            other.gameObject.GetComponent<KnockbackEnemies>().KnockBack();
             if (other.gameObject.tag == "Enemy" && other.gameObject.GetComponentInChildren<EnemyHP>().isDead)
             {
                 float dropSelect = Random.Range(0, 100f);

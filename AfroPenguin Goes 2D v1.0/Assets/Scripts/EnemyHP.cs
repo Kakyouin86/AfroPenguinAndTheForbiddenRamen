@@ -36,6 +36,7 @@ public class EnemyHP : MonoBehaviour
         {
             StartCoroutine("HitConfirmAlmostDead");
         }
+
         else if (currentHP <= 0)
         {
             isDead = true;
@@ -48,14 +49,39 @@ public class EnemyHP : MonoBehaviour
 
     public void TakeDamageDash(int damageDash)
     {
+        currentHP -= damageDash;
+        if (currentHP >= 2)
+        {
             PlayerController.instance.KnockBackDash(multiplier);
-            currentHP -= damageDash;
             StartCoroutine("HitConfirm");
+        }
+
+        else if (currentHP == 1)
+        {
+            PlayerController.instance.KnockBackDash(multiplier);
+            StartCoroutine("HitConfirmAlmostDead");
+        }
+
+        else if (currentHP <= 0)
+        {
+            PlayerController.instance.KnockBackDash(multiplier);
             isDead = true;
             theAnimator.SetBool("isDead", isDead);
             parentCol.enabled = false;
             hurtboxCol.enabled = false;
-            KillInstantly();
+            StartCoroutine("KillSwitch");
+        }
+
+
+
+            //PlayerController.instance.KnockBackDash(multiplier);
+            //currentHP -= damageDash;
+            //StartCoroutine("HitConfirm");
+            //isDead = true;
+            //theAnimator.SetBool("isDead", isDead);
+            //parentCol.enabled = false;
+            //hurtboxCol.enabled = false;
+            //KillInstantly();
     }
 
     IEnumerator KillSwitch()
