@@ -407,6 +407,7 @@ MonoBehaviour:
   collectible: {fileID: 3520091368721921335, guid: 2949bf68f82c1724abc4181f4c801af1, type: 3}
   damageToDeal: 1
   chanceToDrop: 100
+  bounceDashDownMultiplier: 1
 --- !u!1 &27222760
 GameObject:
   m_ObjectHideFlags: 0
@@ -585,7 +586,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &45493227
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -730,7 +731,7 @@ Transform:
   - {fileID: 236280438}
   - {fileID: 268427872}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &45493234
 MonoBehaviour:
@@ -2285,8 +2286,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.04864961, y: -0.024861813}
-  m_Size: {x: 0.6375625, y: 2.071478}
+  m_Offset: {x: -0.0085170865, y: -0.024861813}
+  m_Size: {x: 0.5232291, y: 2.071478}
   m_Direction: 0
 --- !u!114 &221822272
 MonoBehaviour:
@@ -2317,7 +2318,7 @@ MonoBehaviour:
   moveSpeedModifier: 1.5
   isDashing: 0
   dashDown: 0
-  hasntHit: 0
+  hasHit: 0
   dashSpeed: 30
   dashTime: 0.1
   dashTimeInAir: 0.1
@@ -2330,7 +2331,7 @@ MonoBehaviour:
   maxDashGauge: 100
   collectDashGauge: 20
   knockbackLenght: 0.25
-  knockbackForce: 5
+  knockbackForce: 6
   knockbackCounter: 0
   isKnockback: 0
   jumpForce: 15
@@ -4039,7 +4040,7 @@ MonoBehaviour:
   isDead: 0
   invisibleLength: 0.05
   invisibleCounter: 0
-  multiplier: 2
+  knockbackDashMultiplier: 2
 --- !u!61 &537855458
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5167,7 +5168,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 792563582}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.20599997, y: 0, z: 0}
+  m_LocalPosition: {x: 0.20599997, y: 0.155, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 221822266}
@@ -5671,7 +5672,7 @@ Transform:
   - {fileID: 1326912578}
   - {fileID: 719837665}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &873451052
 GameObject:
@@ -5974,7 +5975,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3987830711576219918, guid: c8063179fcb4ae04f8fcdabb17f763ba, type: 3}
       propertyPath: m_RootOrder
-      value: 17
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 3987830711576219918, guid: c8063179fcb4ae04f8fcdabb17f763ba, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6075,7 +6076,7 @@ MonoBehaviour:
   isDead: 0
   invisibleLength: 0.05
   invisibleCounter: 0
-  multiplier: 0
+  knockbackDashMultiplier: 2
 --- !u!61 &1041987406
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6900,7 +6901,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3987830711576219918, guid: c8063179fcb4ae04f8fcdabb17f763ba, type: 3}
       propertyPath: m_RootOrder
-      value: 18
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 3987830711576219918, guid: c8063179fcb4ae04f8fcdabb17f763ba, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7339,7 +7340,6 @@ GameObject:
   - component: {fileID: 1444017132}
   - component: {fileID: 1444017134}
   - component: {fileID: 1444017131}
-  - component: {fileID: 1444017135}
   m_Layer: 6
   m_Name: Enemy Rat 01
   m_TagString: Enemy
@@ -7459,7 +7459,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.18330806, y: -0.2973665}
+  m_Offset: {x: -0.18330806, y: -0.47243142}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -7470,7 +7470,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.6843501, y: 1.205495}
+  m_Size: {x: 1.6843501, y: 0.8553653}
   m_EdgeRadius: 0
 --- !u!50 &1444017133
 Rigidbody2D:
@@ -7487,7 +7487,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 5
+  m_GravityScale: 2
   m_Material: {fileID: 6200000, guid: 10dc8abcc8560874f93816bac9dc6cd3, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -7508,7 +7508,7 @@ MonoBehaviour:
   theRB: {fileID: 0}
   theSR: {fileID: 1444017129}
   anim: {fileID: 1444017130}
-  theKnockback: {fileID: 1444017135}
+  theKnockback: {fileID: 0}
   canMove: 0
   leftPoint: {fileID: 127329695}
   rightPoint: {fileID: 858332247}
@@ -7525,25 +7525,6 @@ MonoBehaviour:
     m_Bits: 640
   groundCheckRadius: 0.2
   bottomOffset: {x: 0, y: -1}
---- !u!114 &1444017135
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1444017127}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f0e5aae12b566647b49681bcef1d760, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  theRB: {fileID: 0}
-  theSR: {fileID: 0}
-  anim: {fileID: 0}
-  knockbackLenght: 0.25
-  knockbackForce: 7
-  knockbackCounter: 0
-  isKnockback: 0
 --- !u!1 &1454578785
 GameObject:
   m_ObjectHideFlags: 0
@@ -11451,7 +11432,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1538336287}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.20599997, y: -2.25, z: 0}
+  m_LocalPosition: {x: 0.20599997, y: -2.091, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 221822266}
@@ -11487,7 +11468,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.2173869, y: 1.1562928}
+  m_Offset: {x: -0.2173869, y: 0.95039654}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -11498,7 +11479,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.1967435, y: 0.5298717}
+  m_Size: {x: 1.1967435, y: 0.34489632}
   m_EdgeRadius: 0
 --- !u!1 &1539911288
 GameObject:
@@ -12002,7 +11983,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3987830711576219918, guid: c8063179fcb4ae04f8fcdabb17f763ba, type: 3}
       propertyPath: m_RootOrder
-      value: 16
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 3987830711576219918, guid: c8063179fcb4ae04f8fcdabb17f763ba, type: 3}
       propertyPath: m_LocalPosition.x
@@ -12452,7 +12433,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.22777963, y: -0.010104179}
+  m_Offset: {x: 0.13681668, y: -0.010104179}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -12463,7 +12444,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.54444075, y: 2.1383991}
+  m_Size: {x: 0.36251485, y: 2.1383991}
   m_EdgeRadius: 0
 --- !u!4 &1797157143
 Transform:
@@ -12473,7 +12454,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1797157140}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.661, y: 0, z: 0}
+  m_LocalPosition: {x: -0.79, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 221822266}
@@ -13287,6 +13268,7 @@ GameObject:
   - component: {fileID: 1954298304}
   - component: {fileID: 1954298307}
   - component: {fileID: 1954298305}
+  - component: {fileID: 1954298306}
   m_Layer: 6
   m_Name: Rat Collider
   m_TagString: Hurtbox
@@ -13320,16 +13302,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9bdea275d44edf40b4916a2e865e9f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  theSR: {fileID: 1444017129}
-  theAnimator: {fileID: 1444017130}
-  parentCol: {fileID: 1444017132}
-  hurtboxCol: {fileID: 1954298307}
-  enemyHP: 99
-  currentHP: 99
+  theSR: {fileID: 0}
+  theAnimator: {fileID: 0}
+  parentCol: {fileID: 0}
+  hurtboxCol: {fileID: 0}
+  enemyHP: 9999
+  currentHP: 9999
   isDead: 0
   invisibleLength: 0.05
   invisibleCounter: 0
-  multiplier: 2.5
+  knockbackDashMultiplier: 2
+--- !u!114 &1954298306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1954298303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f0e5aae12b566647b49681bcef1d760, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  theRB: {fileID: 0}
+  theSR: {fileID: 0}
+  anim: {fileID: 0}
+  knockbackLenght: 0.25
+  knockbackForce: 10
+  knockbackCounter: 0
+  isKnockback: 0
 --- !u!61 &1954298307
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13343,7 +13344,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.2973665}
+  m_Offset: {x: -0.1833081, y: -0.2973665}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -13354,7 +13355,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.317734, y: 1.2054954}
+  m_Size: {x: 1.6180385, y: 1.2054954}
   m_EdgeRadius: 0
 --- !u!1 &1961382674
 GameObject:
@@ -13514,7 +13515,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1980328244}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.174, y: 0, z: 0}
+  m_LocalPosition: {x: 0.59, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 221822266}
@@ -13533,7 +13534,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.22777963, y: -0.010104179}
+  m_Offset: {x: -0.04737276, y: -0.010104179}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -13544,7 +13545,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.54444075, y: 2.1383991}
+  m_Size: {x: 0.39127374, y: 2.1383991}
   m_EdgeRadius: 0
 --- !u!114 &1980328247
 MonoBehaviour:
@@ -13986,7 +13987,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2064299461
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14163,7 +14164,7 @@ Transform:
   - {fileID: 1045180118}
   - {fileID: 1931967666}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2065458086
 GameObject:

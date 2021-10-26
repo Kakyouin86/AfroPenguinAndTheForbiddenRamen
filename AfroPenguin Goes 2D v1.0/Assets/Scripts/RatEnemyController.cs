@@ -32,7 +32,7 @@ public class RatEnemyController : MonoBehaviour
     {
         theRB = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        theKnockback = GetComponent<KnockbackEnemies>();
+        theKnockback = GetComponentInChildren<KnockbackEnemies>();
         leftPoint.parent= null;
         rightPoint.parent = null;
         moveRight = true;
@@ -52,7 +52,7 @@ public class RatEnemyController : MonoBehaviour
     {
         canMove = true;
         if (theKnockback.isKnockback)
-            canMove = false;
+           canMove = false;
         return canMove;
     }
     #endregion

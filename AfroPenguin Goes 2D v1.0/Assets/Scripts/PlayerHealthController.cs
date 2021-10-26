@@ -56,10 +56,10 @@ public class PlayerHealthController : MonoBehaviour
             invisibleCounter -= Time.deltaTime;
             //we are taking away another value from this from the invincible counter.
 
-            //stompbox.SetActive(false);
+            stompbox.SetActive(false);
             if (invisibleCounter <= 0)
             {
-                //stompbox.SetActive(true);
+                stompbox.SetActive(true);
                 spriteRenderer.color = new Color(1f, 1f, 1f, 1.0f);
                 //spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, 1.0f);
             }
@@ -77,6 +77,8 @@ public class PlayerHealthController : MonoBehaviour
                 currentHealth = 0;
                 gameObject.SetActive(false);
                 Instantiate(deathEffect, transform.position, transform.rotation);
+                flashing = false;
+                spriteRenderer.color = new Color(1f, 1f, 1f, 1.0f);
                 LevelManager.instance.RespawnPlayer();
                 LevelManager.instance.SumLostLife();
                 UIController.instance.SumLostLife();

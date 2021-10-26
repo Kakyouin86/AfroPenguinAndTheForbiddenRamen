@@ -16,29 +16,27 @@ public class DashDamageController : MonoBehaviour
     {
         thePC = GetComponentInParent<PlayerController>();
     }
-
     public void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Enemy")
+        if (other.gameObject.tag == "Hurtbox")
         {
-            other.gameObject.GetComponentInChildren<EnemyHP>().TakeDamageDash(damageToDealDash);
-            Instantiate(deathEffect, other.transform.position, other.transform.rotation);
-
-            if (PlayerController.instance.dashDownCollider)
+            if (other.gameObject.GetComponentInChildren<EnemyHP>().enemyHP <= damageToDealDash)
             {
-                PlayerController.instance.hasHitDown = true;
-                Debug.Log(PlayerController.instance.hasHitDown);
-            }
-
-            other.gameObject.GetComponent<KnockbackEnemies>().KnockBack();
-            if (other.gameObject.tag == "Enemy" && other.gameObject.GetComponentInChildren<EnemyHP>().isDead)
-            {
+                other.gameObject.GetComponentInChildren<EnemyHP>().TakeDamageDash(damageToDealDash);
+                Instantiate(deathEffect, other.transform.position, other.transform.rotation);
                 float dropSelect = Random.Range(0, 100f);
 
                 if (dropSelect <= chanceToDrop)
                 {
                     Instantiate(collectible, other.transform.position, other.transform.rotation);
                 }
+            }
+            else
+            {
+                other.gameObject.GetComponentInChildren<EnemyHP>().TakeDamageDash(damageToDealDash);
+                Instantiate(deathEffect, other.transform.position, other.transform.rotation);
+                PlayerController.instance.hasHit = true;
+                other.GetComponent<KnockbackEnemies>().KnockBack();
             }
         }
     }

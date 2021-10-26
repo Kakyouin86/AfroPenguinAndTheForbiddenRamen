@@ -18,14 +18,13 @@ public class KnockbackEnemies : MonoBehaviour
     void Start()
     {
         isKnockback = false;
-        theRB = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();
-        theSR = GetComponentInChildren<SpriteRenderer>();
+        theRB = GetComponentInParent<Rigidbody2D>();
+        anim = GetComponentInParent<Animator>();
+        theSR = GetComponentInParent<SpriteRenderer>();
     }
 
     void Update()
     {
-
     }
 
     #region KnockBack
@@ -37,14 +36,35 @@ public class KnockbackEnemies : MonoBehaviour
         knockbackCounter -= Time.deltaTime;
         //this counts down my time.
  
-            if (PlayerController.instance.theRB.velocity.x >= 0)
+            if (theRB.velocity.x > 0 && PlayerController.instance.theRB.velocity.x > 0)
             { 
-                theRB.velocity = new Vector2(-knockbackForce, theRB.velocity.y);
+                theRB.velocity = new Vector2(knockbackForce, theRB.velocity.y);
+                Debug.Log(PlayerController.instance.theRB.velocity.x);
+                Debug.Log(theRB.velocity.x);
+                Debug.Log("1");
             }
-            else
+            else if (theRB.velocity.x > 0 && PlayerController.instance.theRB.velocity.x < 0)
             {
-            theRB.velocity = new Vector2(knockbackForce, theRB.velocity.y);
-            }
+                theRB.velocity = new Vector2(-knockbackForce, theRB.velocity.y);
+                Debug.Log(PlayerController.instance.theRB.velocity.x);
+                Debug.Log(theRB.velocity.x);
+                Debug.Log("2");
+        }
+            else if (theRB.velocity.x < 0 && PlayerController.instance.theRB.velocity.x > 0)
+            {
+                theRB.velocity = new Vector2(knockbackForce, theRB.velocity.y);
+                Debug.Log(PlayerController.instance.theRB.velocity.x);
+                Debug.Log(theRB.velocity.x);
+                Debug.Log("3");
+        }
+            else if (theRB.velocity.x < 0 && PlayerController.instance.theRB.velocity.x < 0)
+            {
+                theRB.velocity = new Vector2(-knockbackForce, theRB.velocity.y);
+                Debug.Log(PlayerController.instance.theRB.velocity.x);
+                Debug.Log(theRB.velocity.x);
+                Debug.Log("4");
+        }
+
     }
     IEnumerator KnockBackDelay()
     {

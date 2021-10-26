@@ -10,6 +10,7 @@ public class Stompbox : MonoBehaviour
     public GameObject collectible;
     public int damageToDeal = 1;
     [Range(0, 100)] public float chanceToDrop = 1f;
+    public float bounceDashDownMultiplier = 1f;
 
     private void Awake()
     {
@@ -34,7 +35,7 @@ public class Stompbox : MonoBehaviour
             {
                 other.gameObject.GetComponent<EnemyHP>().TakeDamage(damageToDeal);
                 Instantiate(deathEffect, other.transform.position, other.transform.rotation);
-                PlayerController.instance.Bounce();
+                PlayerController.instance.Bounce(1f);
             }
 
             if (other.gameObject.tag == "Hurtbox" && other.gameObject.GetComponent<EnemyHP>().isDead)

@@ -14,7 +14,7 @@ public class EnemyHP : MonoBehaviour
     public bool isDead;
     public float invisibleLength = 0.05f;
     public float invisibleCounter;
-    public float multiplier = 2f;
+    public float knockbackDashMultiplier = 2f;
 
     void Start()
     {
@@ -50,31 +50,29 @@ public class EnemyHP : MonoBehaviour
     public void TakeDamageDash(int damageDash)
     {
         currentHP -= damageDash;
-        if (currentHP >= 2)
+
+        if (currentHP >= 4)
         {
             if (PlayerController.instance.dashDown)
             {
-                
-                PlayerController.instance.Bounce();
+                PlayerController.instance.Bounce(1.5f);
                 StartCoroutine("HitConfirm");
             }
             else
             {
-                PlayerController.instance.KnockBackDash(multiplier);
+                PlayerController.instance.KnockBackDash(knockbackDashMultiplier);
                 StartCoroutine("HitConfirm");
             }
-
         }
 
         else if (currentHP == 1)
         {
-            PlayerController.instance.KnockBackDash(multiplier);
+            PlayerController.instance.KnockBackDash(knockbackDashMultiplier);
             StartCoroutine("HitConfirmAlmostDead");
         }
 
         else if (currentHP <= 0)
         {
-            PlayerController.instance.KnockBackDash(multiplier);
             isDead = true;
             theAnimator.SetBool("isDead", isDead);
             parentCol.enabled = false;
@@ -83,15 +81,14 @@ public class EnemyHP : MonoBehaviour
         }
 
 
-
-            //PlayerController.instance.KnockBackDash(multiplier);
-            //currentHP -= damageDash;
-            //StartCoroutine("HitConfirm");
-            //isDead = true;
-            //theAnimator.SetBool("isDead", isDead);
-            //parentCol.enabled = false;
-            //hurtboxCol.enabled = false;
-            //KillInstantly();
+        //PlayerController.instance.KnockBackDash(knockbackDashMultiplier);
+        //currentHP -= damageDash;
+        //StartCoroutine("HitConfirm");
+        //isDead = true;
+        //theAnimator.SetBool("isDead", isDead);
+        //parentCol.enabled = false;
+        //hurtboxCol.enabled = false;
+        //KillInstantly();
     }
 
     IEnumerator KillSwitch()

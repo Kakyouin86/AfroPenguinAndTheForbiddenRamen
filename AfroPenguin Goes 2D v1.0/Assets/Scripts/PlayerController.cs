@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Globalization;
+using System.Linq.Expressions;
 using System.Numerics;
 using DG.Tweening;
 using UnityEngine;
@@ -33,7 +34,7 @@ public class PlayerController : MonoBehaviour
     [Header("Dash")] 
     public bool isDashing;
     public bool dashDown;
-    public bool hasHitDown;
+    public bool hasHit;
     public float dashSpeed = 30f;
     public float dashTime = 0.1f;
     public float dashTimeInAir = 0.1f;
@@ -88,7 +89,7 @@ public class PlayerController : MonoBehaviour
         currentDashGauge = 0f;
         isKnockback = false;
         canDash = false;
-        hasHitDown = false;
+        hasHit = false;
         dashRightCollider.SetActive(false);
         dashLeftCollider.SetActive(false);
         dashUpCollider.SetActive(false);
@@ -100,6 +101,11 @@ public class PlayerController : MonoBehaviour
     #region Update
         void Update()
     {
+        if(Input.GetKeyDown(KeyCode.O))
+        {
+            canDash = true;
+
+        }
         if (CanMoveOrInteract() == false) 
                 return;
         {
@@ -320,7 +326,7 @@ public class PlayerController : MonoBehaviour
     {
         for (float t = 0; t < 1; t += Time.deltaTime / dashTime) //A loop that repeats every frame for a certain amount of seconds
         {
-            if (!hasHitDown)
+            if (!hasHit)
             {
                 FindObjectOfType<GhostTrail>().ShowGhost();
                 dashDustParticle.Play();
@@ -329,7 +335,11 @@ public class PlayerController : MonoBehaviour
                 yield return null;
             }
         }
-        Debug.Log(theRB.velocity);
+        dashRightCollider.SetActive(false);
+        dashLeftCollider.SetActive(false);
+        dashUpCollider.SetActive(false);
+        dashDownCollider.SetActive(false);
+
         if (dashDown == false)
         {
             yield return new WaitForSeconds(dashTimeInAir);
@@ -338,10 +348,7 @@ public class PlayerController : MonoBehaviour
         {
             yield return new WaitForSeconds(0);
         }
-        dashRightCollider.SetActive(false);
-        dashLeftCollider.SetActive(false);
-        dashUpCollider.SetActive(false);
-        dashDownCollider.SetActive(false);
+
         theRB.gravityScale = prevGravity;
         Debug.Log("Set Gravity to " +prevGravity);
         dashDustParticle.Stop();
@@ -349,7 +356,7 @@ public class PlayerController : MonoBehaviour
         isDashing = false;
         canDash = false;
         currentDashGauge = 0f;
-        hasHitDown = false;
+        hasHit = false;
         UIController.instance.barAnimator.SetBool("isFilled",false);
         UIController.instance.iconAnimator.SetBool("isFilled",false);
         UIController.instance.dashIndicatorSlider.value = currentDashGauge;
@@ -384,13 +391,13 @@ public class PlayerController : MonoBehaviour
     #endregion
 
     #region KnockbackDash
-    public void KnockBackDash(float multiplier)
+    public void KnockBackDash(float knockbackDashMultiplier)
     {
         isGrounded = false;
         theAnimator.SetBool("isGrounded",false);
         StartCoroutine(KnockBackDashDelay());
         knockbackCounter = knockbackLenght;
-        theRB.velocity = new Vector2(0f, knockbackForce * multiplier);
+        theRB.velocity = new Vector2(0f, knockbackForce * knockbackDashMultiplier);
         knockbackCounter -= Time.deltaTime;
         //this counts down my time.
         if (!theSR.flipX)
@@ -402,7 +409,6 @@ public class PlayerController : MonoBehaviour
         {
             theRB.velocity = new Vector2(knockbackForce, theRB.velocity.y);
         }
-        GetComponent<PlayerHealthController>().enabled = true;
     }
     IEnumerator KnockBackDashDelay()
     {
@@ -415,9 +421,9 @@ public class PlayerController : MonoBehaviour
 
 
     #region Bounce
-    public void Bounce()
+    public void Bounce(float bounceDashDownMultiplier)
     {
-        theRB.velocity = new Vector2(theRB.velocity.x, bounceForce);
+        theRB.velocity = new Vector2(theRB.velocity.x, bounceForce * bounceDashDownMultiplier);
     }
     #endregion
     

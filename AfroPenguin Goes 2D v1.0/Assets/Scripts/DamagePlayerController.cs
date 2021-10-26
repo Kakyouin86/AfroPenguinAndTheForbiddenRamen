@@ -13,23 +13,17 @@ public class DamagePlayerController : MonoBehaviour
     {
 
     }
-    public void OnTriggerEnter2D(Collider2D other)
+
+    public void OnTriggerEnter2D(Collider2D player)
     {
-        if (other.tag == "Player" && !PlayerController.instance.isDashing)
+        if (player.tag == "Player") //&& !PlayerController.instance.isDashing
         {
             //FindObjectOfType<PlayerHealthController>().DealDamage();
             //Con eso busco al script dentro de todos los objetos que existan en esa escena, y aquel que tenga el script PlayerHealthController, andá a buscarlo y buscá y activá DealDamage()
-            GetComponent<BoxCollider2D>().enabled = false;
-            GetComponent<BoxCollider2D>().enabled = true;
+            player.GetComponent<CapsuleCollider2D>().enabled = false;
+            player.GetComponent<CapsuleCollider2D>().enabled = true;
             PlayerHealthController.instance.DealDamage();
             Debug.Log("Hit Player");
         }
-
-        if (other.tag == "Player" && PlayerController.instance.isDashing)
-        {
-            GetComponent<BoxCollider2D>().enabled = false;
-            GetComponent<BoxCollider2D>().enabled = true;
-        }
-
     }
 }
