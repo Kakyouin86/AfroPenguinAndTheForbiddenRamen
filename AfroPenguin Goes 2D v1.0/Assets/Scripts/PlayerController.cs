@@ -335,7 +335,6 @@ public class PlayerController : MonoBehaviour
                 yield return null;
             }
         }
-        theRB.velocity = Vector2.zero;
         dashRightCollider.SetActive(false);
         dashLeftCollider.SetActive(false);
         dashUpCollider.SetActive(false);
@@ -418,6 +417,8 @@ public class PlayerController : MonoBehaviour
         isKnockback = false;
     }
     #endregion
+
+
 
     #region Bounce
     public void Bounce(float bounceDashDownMultiplier)
