@@ -33,7 +33,7 @@ public class PlayerController : MonoBehaviour
     [Header("Dash")] 
     public bool isDashing;
     public bool dashDown;
-    public bool hasntHit;
+    public bool hasHitDown;
     public float dashSpeed = 30f;
     public float dashTime = 0.1f;
     public float dashTimeInAir = 0.1f;
@@ -88,7 +88,7 @@ public class PlayerController : MonoBehaviour
         currentDashGauge = 0f;
         isKnockback = false;
         canDash = false;
-        hasntHit = true;
+        hasHitDown = false;
         dashRightCollider.SetActive(false);
         dashLeftCollider.SetActive(false);
         dashUpCollider.SetActive(false);
@@ -307,12 +307,9 @@ public class PlayerController : MonoBehaviour
                 isDashing = true;
                 theAnimator.SetBool("isDashing", true);
                 Vector2 dashDirection = new Vector2(xRaw, yRaw);
-                theRB.velocity = Vector2.zero;
                 float prevGravity = theRB.gravityScale; //Store previous gravity scale
                 theRB.gravityScale = 0; //Set gravity scale to 0
                 Debug.Log("Set Gravity to 0");
-                dashDustParticle.Play();
-                FindObjectOfType<GhostTrail>().ShowGhost();
                 StartCoroutine(DashCoroutine(dashDirection, prevGravity));
                 //theRB.velocity += dashDirection.normalized * dashSpeed;
             }
@@ -322,17 +319,17 @@ public class PlayerController : MonoBehaviour
     IEnumerator DashCoroutine(Vector2 dashDirection, float prevGravity)
     {
         for (float t = 0; t < 1; t += Time.deltaTime / dashTime) //A loop that repeats every frame for a certain amount of seconds
-        {            
-            theRB.velocity = dashDirection * dashSpeed;
-            //theRB.velocity = Vector2 * dashSpeed; //Set velocity
-            yield return null;
+        {
+            if (!hasHitDown)
+            {
+                FindObjectOfType<GhostTrail>().ShowGhost();
+                dashDustParticle.Play();
+                theRB.velocity = dashDirection * dashSpeed;
+                //theRB.velocity = Vector2 * dashSpeed; //Set velocity
+                yield return null;
+            }
         }
-
-        FindObjectOfType<GhostTrail>().ShowGhost();
-        theRB.velocity = Vector2.zero;
         Debug.Log(theRB.velocity);
-        isDashing = true;
-        
         if (dashDown == false)
         {
             yield return new WaitForSeconds(dashTimeInAir);
@@ -341,8 +338,6 @@ public class PlayerController : MonoBehaviour
         {
             yield return new WaitForSeconds(0);
         }
-
-        hasntHit = true;
         dashRightCollider.SetActive(false);
         dashLeftCollider.SetActive(false);
         dashUpCollider.SetActive(false);
@@ -354,6 +349,7 @@ public class PlayerController : MonoBehaviour
         isDashing = false;
         canDash = false;
         currentDashGauge = 0f;
+        hasHitDown = false;
         UIController.instance.barAnimator.SetBool("isFilled",false);
         UIController.instance.iconAnimator.SetBool("isFilled",false);
         UIController.instance.dashIndicatorSlider.value = currentDashGauge;

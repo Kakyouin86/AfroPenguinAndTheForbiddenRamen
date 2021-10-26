@@ -23,6 +23,13 @@ public class DashDamageController : MonoBehaviour
         {
             other.gameObject.GetComponentInChildren<EnemyHP>().TakeDamageDash(damageToDealDash);
             Instantiate(deathEffect, other.transform.position, other.transform.rotation);
+
+            if (PlayerController.instance.dashDownCollider)
+            {
+                PlayerController.instance.hasHitDown = true;
+                Debug.Log(PlayerController.instance.hasHitDown);
+            }
+
             other.gameObject.GetComponent<KnockbackEnemies>().KnockBack();
             if (other.gameObject.tag == "Enemy" && other.gameObject.GetComponentInChildren<EnemyHP>().isDead)
             {
@@ -35,23 +42,4 @@ public class DashDamageController : MonoBehaviour
             }
         }
     }
-
-    public void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Hurtbox")
-        {
-            collision.gameObject.GetComponentInChildren<EnemyHP>().TakeDamageDash(damageToDealDash);
-            Instantiate(deathEffect, collision.transform.position, collision.transform.rotation);
-            if (collision.gameObject.tag == "Hurtbox" && collision.gameObject.GetComponentInChildren<EnemyHP>().isDead)
-            {
-                float dropSelect = Random.Range(0, 100f);
-
-                if (dropSelect <= chanceToDrop)
-                {
-                    Instantiate(collectible, collision.transform.position, collision.transform.rotation);
-                }
-            }
-        }
-    }
-
 }
