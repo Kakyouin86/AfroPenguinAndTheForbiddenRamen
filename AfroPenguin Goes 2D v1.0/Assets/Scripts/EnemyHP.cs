@@ -31,7 +31,7 @@ public class EnemyHP : MonoBehaviour
         {
             StartCoroutine("HitConfirm");
         }
-        
+
         else if (currentHP == 1)
         {
             StartCoroutine("HitConfirmAlmostDead");
@@ -79,16 +79,6 @@ public class EnemyHP : MonoBehaviour
             hurtboxCol.enabled = false;
             StartCoroutine("KillSwitch");
         }
-
-
-        //PlayerController.instance.KnockBackDash(knockbackDashMultiplier);
-        //currentHP -= damageDash;
-        //StartCoroutine("HitConfirm");
-        //isDead = true;
-        //theAnimator.SetBool("isDead", isDead);
-        //parentCol.enabled = false;
-        //hurtboxCol.enabled = false;
-        //KillInstantly();
     }
 
     IEnumerator KillSwitch()
@@ -96,7 +86,7 @@ public class EnemyHP : MonoBehaviour
         yield return new WaitForSeconds(0f);
         Destroy(transform.parent.gameObject);
     }
-    
+
     public void KillInstantly()
     {
         Destroy(transform.parent.gameObject);
@@ -112,10 +102,10 @@ public class EnemyHP : MonoBehaviour
 
     IEnumerator HitConfirmAlmostDead()
     {
-            theSR.enabled = false;
-            StartCoroutine("FlashAlmostDead");
-            yield return new WaitForSeconds(0.1f);
-            theSR.enabled = true;
+        theSR.enabled = false;
+        StartCoroutine("FlashAlmostDead");
+        yield return new WaitForSeconds(0.1f);
+        theSR.enabled = true;
     }
     IEnumerator Flash()
     {

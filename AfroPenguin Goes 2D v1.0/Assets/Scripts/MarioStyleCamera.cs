@@ -10,7 +10,7 @@ public class MarioStyleCamera : MonoBehaviour
     public float aheadAmount = 1.5f;
     public float aheadSpeed = 1f;
 
-    public void CameraTrick()
+    public void Update()
     {
         //Camera Trick: Set a target as a child of the player so it moves either left or right when switching positions
         if (Input.GetAxisRaw("Horizontal") != 0)

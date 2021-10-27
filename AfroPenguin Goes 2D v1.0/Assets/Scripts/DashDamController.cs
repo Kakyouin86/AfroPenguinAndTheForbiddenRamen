@@ -1,9 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using UnityEngine;
 
-public class DashDamageController : MonoBehaviour
+public class DashDamController : MonoBehaviour
 {
     public PlayerController thePC;
     public GameObject deathEffect;
@@ -12,9 +11,14 @@ public class DashDamageController : MonoBehaviour
     [Range(0, 100)] public float chanceToDrop = 1f;
 
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
         thePC = GetComponentInParent<PlayerController>();
+    }
+
+    void Update()
+    {
+
     }
     public void OnTriggerEnter2D(Collider2D other)
     {

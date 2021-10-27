@@ -1,7 +1,5 @@
-using System;
 using System.Collections;
 using System.Globalization;
-using System.Linq.Expressions;
 using System.Numerics;
 using DG.Tweening;
 using UnityEngine;
@@ -31,23 +29,21 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed = 4f;
     public float moveSpeedModifier = 1.5f;
 
-    [Header("Dash")] 
+    [Header("Dash")]
     public bool isDashing;
     public bool dashDown;
+    public bool dashUp;
     public bool hasHit;
     public float dashSpeed = 30f;
     public float dashTime = 0.1f;
     public float dashTimeInAir = 0.1f;
-    public GameObject dashRightCollider;
-    public GameObject dashLeftCollider;
-    public GameObject dashUpCollider;
-    public GameObject dashDownCollider;
 
     [Header("Dash Controller")] 
     public bool canDash;
     public float currentDashGauge;
     public float maxDashGauge = 100f;
     public float collectDashGauge = 20f;
+    public GameObject theDashHurtbox;
 
     [Header("Knockback")]
     public float knockbackLenght = 0.25f;
@@ -90,10 +86,7 @@ public class PlayerController : MonoBehaviour
         isKnockback = false;
         canDash = false;
         hasHit = false;
-        dashRightCollider.SetActive(false);
-        dashLeftCollider.SetActive(false);
-        dashUpCollider.SetActive(false);
-        dashDownCollider.SetActive(false);
+        theDashHurtbox.SetActive(false);
     }
 
     #endregion
@@ -101,11 +94,11 @@ public class PlayerController : MonoBehaviour
     #region Update
         void Update()
     {
-        if(Input.GetKeyDown(KeyCode.O))
+        if (Input.GetKeyDown(KeyCode.O))
         {
             canDash = true;
-
         }
+
         if (CanMoveOrInteract() == false) 
                 return;
         {
@@ -122,7 +115,7 @@ public class PlayerController : MonoBehaviour
             GroundCheck();
             Jump();
             Dash(xRaw, yRaw);
-            CameraTrick();
+            //CameraTrick(); If I want the Super Mario Style camera, Here is the "where"
 
             if (theRB.velocity.x != 0) //if velocity is 0, then do nothing.
             {
@@ -172,43 +165,44 @@ public class PlayerController : MonoBehaviour
 
     #region Ground Check
     public void GroundCheck()
-    {   
-            cameFromTheGround = isGrounded;
-            isGrounded = Physics2D.OverlapCircle((Vector2) transform.position + bottomOffset, groundCheckRadius,
-                whatIsGround);
-            theAnimator.SetBool("isGrounded", true);
-            theRB.gravityScale = 5;
-            
-            if (isGrounded)
-            {
-                //isDashing = false;
-                if (!cameFromTheGround)
-                {
-                    availableJumps = totalJumps;
-                    multipleJumps = false;
-                    Debug.Log("I came from the sky");
-                    if (dashDown)
-                    {
-                        CreateDashDownDust();
-                        dashDown = false;
-                    }
-                    else
-                    {
-                        CreateJumpDust();
-                    }
-                }
-            }
+    {
+        cameFromTheGround = isGrounded;
+        isGrounded = Physics2D.OverlapCircle((Vector2)transform.position + bottomOffset, groundCheckRadius,
+            whatIsGround);
+        theAnimator.SetBool("isGrounded", true);
+        theRB.gravityScale = 5;
 
-            else
+        if (isGrounded)
+        {
+            //isDashing = false;
+            if (!cameFromTheGround)
             {
-                theAnimator.SetBool("isGrounded", false);
-                if (cameFromTheGround)
+                availableJumps = totalJumps;
+                multipleJumps = false;
+                Debug.Log("I came from the sky");
+                if (dashDown)
                 {
-                    Debug.Log("I came from the ground");
-                    theAnimator.SetBool("isGrounded", false);
-                    StartCoroutine(CoyoteJumpDelay());
+                    CreateDashDownDust();
+                    dashDown = false;
+                    dashDown = false;
+                }
+                else
+                {
+                    CreateJumpDust();
                 }
             }
+        }
+
+        else
+        {
+            theAnimator.SetBool("isGrounded", false);
+            if (cameFromTheGround)
+            {
+                Debug.Log("I came from the ground");
+                theAnimator.SetBool("isGrounded", false);
+                StartCoroutine(CoyoteJumpDelay());
+            }
+        }
     }
     #endregion
 
@@ -271,7 +265,7 @@ public class PlayerController : MonoBehaviour
         }
     }
     #endregion
-    
+
     #region Dash
     public void Dash(float xRaw, float yRaw)
     {
@@ -288,26 +282,16 @@ public class PlayerController : MonoBehaviour
                     dashDown = false;
                 }
 
-                if (xRaw == 1)
-                {
-                    dashRightCollider.SetActive(true);
-                }
-
-                if (xRaw == -1)
-                {
-                    dashLeftCollider.SetActive(true);
-                }
-
                 if (yRaw == 1)
                 {
-                    dashUpCollider.SetActive(true);
+                    dashUp = true;
+                }
+                else
+                {
+                    dashUp = false;
                 }
 
-                if (yRaw == -1)
-                {
-                    dashDownCollider.SetActive(true);
-                }
-                
+                theDashHurtbox.SetActive(true);
                 Camera.main.transform.DOComplete();
                 FindObjectOfType<RippleEffect>().Emit(Camera.main.WorldToViewportPoint(transform.position));
                 isDashing = true;
@@ -328,17 +312,21 @@ public class PlayerController : MonoBehaviour
         {
             if (!hasHit)
             {
+                
                 FindObjectOfType<GhostTrail>().ShowGhost();
                 dashDustParticle.Play();
                 theRB.velocity = dashDirection * dashSpeed;
                 //theRB.velocity = Vector2 * dashSpeed; //Set velocity
                 yield return null;
+                if (dashUp)
+                {
+                    theRB.velocity = Vector2.zero;
+                }
             }
         }
-        dashRightCollider.SetActive(false);
-        dashLeftCollider.SetActive(false);
-        dashUpCollider.SetActive(false);
-        dashDownCollider.SetActive(false);
+
+        theDashHurtbox.SetActive(false);
+        
 
         if (dashDown == false)
         {
@@ -350,25 +338,25 @@ public class PlayerController : MonoBehaviour
         }
 
         theRB.gravityScale = prevGravity;
-        Debug.Log("Set Gravity to " +prevGravity);
+        Debug.Log("Set Gravity to " + prevGravity);
         dashDustParticle.Stop();
         theAnimator.SetBool("isDashing", false);
         isDashing = false;
         canDash = false;
         currentDashGauge = 0f;
         hasHit = false;
-        UIController.instance.barAnimator.SetBool("isFilled",false);
-        UIController.instance.iconAnimator.SetBool("isFilled",false);
+        UIController.instance.barAnimator.SetBool("isFilled", false);
+        UIController.instance.iconAnimator.SetBool("isFilled", false);
         UIController.instance.dashIndicatorSlider.value = currentDashGauge;
     }
     #endregion
 
-    #region KnockBack
+    #region Knockback
     public void KnockBack()
     {
-        StartCoroutine(KnockBackDelay());
         knockbackCounter = knockbackLenght;
-        theRB.velocity = new Vector2(0f, knockbackForce);
+        StartCoroutine(KnockBackDelay());
+        GetComponent<Rigidbody2D>().velocity = new Vector2(0f, knockbackForce);
         theAnimator.SetTrigger("hurt");
         knockbackCounter -= Time.deltaTime;
         //this counts down my time.
@@ -394,7 +382,7 @@ public class PlayerController : MonoBehaviour
     public void KnockBackDash(float knockbackDashMultiplier)
     {
         isGrounded = false;
-        theAnimator.SetBool("isGrounded",false);
+        theAnimator.SetBool("isGrounded", false);
         StartCoroutine(KnockBackDashDelay());
         knockbackCounter = knockbackLenght;
         theRB.velocity = new Vector2(0f, knockbackForce * knockbackDashMultiplier);
@@ -413,12 +401,10 @@ public class PlayerController : MonoBehaviour
     IEnumerator KnockBackDashDelay()
     {
         isKnockback = true;
-        yield return new WaitForSeconds(knockbackCounter*3);
+        yield return new WaitForSeconds(knockbackCounter * 3);
         isKnockback = false;
     }
     #endregion
-
-
 
     #region Bounce
     public void Bounce(float bounceDashDownMultiplier)
@@ -426,7 +412,7 @@ public class PlayerController : MonoBehaviour
         theRB.velocity = new Vector2(theRB.velocity.x, bounceForce * bounceDashDownMultiplier);
     }
     #endregion
-    
+
     #region Dust Particles
     public void CreateDust()
     {
@@ -455,5 +441,5 @@ public class PlayerController : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere((Vector2) transform.position + bottomOffset, groundCheckRadius);
     }
-    #endregion
+    #endregion    
 }

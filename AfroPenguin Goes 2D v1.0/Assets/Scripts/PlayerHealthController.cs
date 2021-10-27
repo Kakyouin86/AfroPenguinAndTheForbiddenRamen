@@ -77,8 +77,6 @@ public class PlayerHealthController : MonoBehaviour
                 currentHealth = 0;
                 gameObject.SetActive(false);
                 Instantiate(deathEffect, transform.position, transform.rotation);
-                flashing = false;
-                spriteRenderer.color = new Color(1f, 1f, 1f, 1.0f);
                 LevelManager.instance.RespawnPlayer();
                 LevelManager.instance.SumLostLife();
                 UIController.instance.SumLostLife();

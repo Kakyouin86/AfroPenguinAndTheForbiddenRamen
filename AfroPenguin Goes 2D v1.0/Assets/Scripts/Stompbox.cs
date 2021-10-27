@@ -4,27 +4,16 @@ using UnityEngine;
 
 public class Stompbox : MonoBehaviour
 {
-    public static Stompbox instance;
     public PlayerController thePC;
     public GameObject deathEffect;
     public GameObject collectible;
     public int damageToDeal = 1;
+    public int damageToDealDash = 3;
     [Range(0, 100)] public float chanceToDrop = 1f;
-    public float bounceDashDownMultiplier = 1f;
-
-    private void Awake()
-    {
-        instance = this;
-    }
 
     void Start()
     {
         thePC = FindObjectOfType<PlayerController>();
-    }
-
-    public void Update()
-    {
-        
     }
 
     public void OnTriggerEnter2D(Collider2D other)
