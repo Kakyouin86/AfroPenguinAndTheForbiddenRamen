@@ -34,13 +34,14 @@ public class PlayerController : MonoBehaviour
     [Header("Dash")] 
     public bool isDashing;
     public bool dashDown;
-    public bool dashUp;
     public bool hasHit;
     public float dashSpeed = 30f;
     public float dashTime = 0.1f;
     public float dashTimeInAir = 0.1f;
-    public GameObject theShield;
-    public GameObject theDashHurtbox;
+    public GameObject dashRightCollider;
+    public GameObject dashLeftCollider;
+    public GameObject dashUpCollider;
+    public GameObject dashDownCollider;
 
     [Header("Dash Controller")] 
     public bool canDash;
@@ -89,8 +90,10 @@ public class PlayerController : MonoBehaviour
         isKnockback = false;
         canDash = false;
         hasHit = false;
-        theShield.SetActive(false); 
-        theDashHurtbox.SetActive(false);
+        dashRightCollider.SetActive(false);
+        dashLeftCollider.SetActive(false);
+        dashUpCollider.SetActive(false);
+        dashDownCollider.SetActive(false);
     }
 
     #endregion
@@ -187,7 +190,6 @@ public class PlayerController : MonoBehaviour
                     if (dashDown)
                     {
                         CreateDashDownDust();
-                        dashDown = false;
                         dashDown = false;
                     }
                     else
@@ -286,16 +288,26 @@ public class PlayerController : MonoBehaviour
                     dashDown = false;
                 }
 
-                if (yRaw == 1)
+                if (xRaw == 1)
                 {
-                    dashUp = true;
-                }
-                else
-                {
-                    dashUp = false;
+                    dashRightCollider.SetActive(true);
                 }
 
-                theDashHurtbox.SetActive(true);
+                if (xRaw == -1)
+                {
+                    dashLeftCollider.SetActive(true);
+                }
+
+                if (yRaw == 1)
+                {
+                    dashUpCollider.SetActive(true);
+                }
+
+                if (yRaw == -1)
+                {
+                    dashDownCollider.SetActive(true);
+                }
+                
                 Camera.main.transform.DOComplete();
                 FindObjectOfType<RippleEffect>().Emit(Camera.main.WorldToViewportPoint(transform.position));
                 isDashing = true;
@@ -316,41 +328,37 @@ public class PlayerController : MonoBehaviour
         {
             if (!hasHit)
             {
-                theShield.SetActive(true);
                 FindObjectOfType<GhostTrail>().ShowGhost();
                 dashDustParticle.Play();
                 theRB.velocity = dashDirection * dashSpeed;
                 //theRB.velocity = Vector2 * dashSpeed; //Set velocity
                 yield return null;
-                if (dashUp)
-                {
-                    theRB.velocity = Vector2.zero;
-                }
             }
         }
-        
-        theDashHurtbox.SetActive(false);
-        theShield.SetActive(false);
+        dashRightCollider.SetActive(false);
+        dashLeftCollider.SetActive(false);
+        dashUpCollider.SetActive(false);
+        dashDownCollider.SetActive(false);
 
         if (dashDown == false)
-            {
-                yield return new WaitForSeconds(dashTimeInAir);
-            }
-            else
-            {
-                yield return new WaitForSeconds(0);
-            }
+        {
+            yield return new WaitForSeconds(dashTimeInAir);
+        }
+        else
+        {
+            yield return new WaitForSeconds(0);
+        }
 
         theRB.gravityScale = prevGravity;
-        Debug.Log("Set Gravity to " + prevGravity);
+        Debug.Log("Set Gravity to " +prevGravity);
         dashDustParticle.Stop();
         theAnimator.SetBool("isDashing", false);
         isDashing = false;
         canDash = false;
         currentDashGauge = 0f;
         hasHit = false;
-        UIController.instance.barAnimator.SetBool("isFilled", false);
-        UIController.instance.iconAnimator.SetBool("isFilled", false);
+        UIController.instance.barAnimator.SetBool("isFilled",false);
+        UIController.instance.iconAnimator.SetBool("isFilled",false);
         UIController.instance.dashIndicatorSlider.value = currentDashGauge;
     }
     #endregion
@@ -407,9 +415,10 @@ public class PlayerController : MonoBehaviour
         isKnockback = true;
         yield return new WaitForSeconds(knockbackCounter*3);
         isKnockback = false;
-        theShield.SetActive(false);
     }
     #endregion
+
+
 
     #region Bounce
     public void Bounce(float bounceDashDownMultiplier)

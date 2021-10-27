@@ -32,8 +32,39 @@ public class KnockbackEnemies : MonoBehaviour
     {
         StartCoroutine(KnockBackDelay());
         knockbackCounter = knockbackLenght;
-        theRB.velocity = new Vector2(knockbackForce, knockbackForce);
+        theRB.velocity = new Vector2(0f, knockbackForce);
         knockbackCounter -= Time.deltaTime;
+        //this counts down my time.
+ 
+            if (theRB.velocity.x > 0 && PlayerController.instance.theRB.velocity.x > 0)
+            { 
+                theRB.velocity = new Vector2(knockbackForce, theRB.velocity.y);
+                Debug.Log(PlayerController.instance.theRB.velocity.x);
+                Debug.Log(theRB.velocity.x);
+                Debug.Log("1");
+            }
+            else if (theRB.velocity.x > 0 && PlayerController.instance.theRB.velocity.x < 0)
+            {
+                theRB.velocity = new Vector2(-knockbackForce, theRB.velocity.y);
+                Debug.Log(PlayerController.instance.theRB.velocity.x);
+                Debug.Log(theRB.velocity.x);
+                Debug.Log("2");
+        }
+            else if (theRB.velocity.x < 0 && PlayerController.instance.theRB.velocity.x > 0)
+            {
+                theRB.velocity = new Vector2(knockbackForce, theRB.velocity.y);
+                Debug.Log(PlayerController.instance.theRB.velocity.x);
+                Debug.Log(theRB.velocity.x);
+                Debug.Log("3");
+        }
+            else if (theRB.velocity.x < 0 && PlayerController.instance.theRB.velocity.x < 0)
+            {
+                theRB.velocity = new Vector2(-knockbackForce, theRB.velocity.y);
+                Debug.Log(PlayerController.instance.theRB.velocity.x);
+                Debug.Log(theRB.velocity.x);
+                Debug.Log("4");
+        }
+
     }
     IEnumerator KnockBackDelay()
     {
