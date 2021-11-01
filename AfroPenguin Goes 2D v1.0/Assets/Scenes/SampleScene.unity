@@ -847,9 +847,9 @@ GameObject:
   - component: {fileID: 468012498}
   - component: {fileID: 468012497}
   - component: {fileID: 468012496}
+  - component: {fileID: 468012502}
   - component: {fileID: 468012500}
   - component: {fileID: 468012501}
-  - component: {fileID: 468012502}
   m_Layer: 0
   m_Name: AfroPenguin
   m_TagString: Player
@@ -931,8 +931,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1833756987
+  m_SortingLayer: 1
   m_SortingOrder: 1
   m_Sprite: {fileID: 234397179923769590, guid: 36b7842c9c654df4f93a9710925622db, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1049,6 +1049,7 @@ MonoBehaviour:
   flashing: 0
   deathEffect: {fileID: 5951707332992650644, guid: cc42c591a1946a64ab3becfbaef5874e, type: 3}
   stompbox: {fileID: 1536062594}
+  placeToInstantiate: {x: 0, y: 0}
 --- !u!95 &468012502
 Animator:
   serializedVersion: 3
@@ -1760,8 +1761,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1833756987
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 4a1b20d70e3be3649845f88c7496efa4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -2629,7 +2630,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.021125793, y: 1.0879456}
@@ -2658,10 +2659,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thePC: {fileID: 0}
-  deathEffect: {fileID: 0}
-  collectible: {fileID: 3520091368721921335, guid: 2949bf68f82c1724abc4181f4c801af1, type: 3}
+  deathEffect: {fileID: 1091509851538068864, guid: 7629a88614125d245853a0d49ff2af2e, type: 3}
   damageToDealDash: 3
-  chanceToDrop: 1
+  placeToInstantiate: {x: 0, y: 0}
+  chanceToDrop: 100
 --- !u!4 &1203688752 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5120153411106223050, guid: e0d041105224dcc418e756ef8d3f2680, type: 3}
@@ -3101,6 +3102,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1400638116}
   - component: {fileID: 1400638119}
+  - component: {fileID: 1400638120}
   - component: {fileID: 1400638118}
   - component: {fileID: 1400638117}
   m_Layer: 0
@@ -3159,12 +3161,14 @@ MonoBehaviour:
   theAnimator: {fileID: 0}
   parentCol: {fileID: 0}
   hurtboxCol: {fileID: 0}
-  enemyHP: 3
+  enemyHP: 4
   currentHP: 0
   isDead: 0
   invisibleLength: 0.05
   invisibleCounter: 0
   knockbackDashMultiplier: 2
+  placeToInstantiate: {x: 0, y: 0}
+  collectible: {fileID: 3520091368721921335, guid: 2949bf68f82c1724abc4181f4c801af1, type: 3}
 --- !u!61 &1400638119
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3191,6 +3195,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.3032222, y: 0.21186665}
   m_EdgeRadius: 0
+--- !u!70 &1400638120
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1400638115}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.018518845, y: 0.10999524}
+  m_Size: {x: 0.30719885, y: 0.21434239}
+  m_Direction: 1
 --- !u!4 &1426332597 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5159251221308863891, guid: 449457cb176aeb34997d57994fa421eb, type: 3}
@@ -3336,7 +3356,6 @@ MonoBehaviour:
   deathEffect: {fileID: 1091509851538068864, guid: 7629a88614125d245853a0d49ff2af2e, type: 3}
   collectible: {fileID: 3520091368721921335, guid: 2949bf68f82c1724abc4181f4c801af1, type: 3}
   damageToDeal: 1
-  damageToDealDash: 3
   placeToInstantiate: {x: 0, y: 0}
   chanceToDrop: 100
 --- !u!61 &1536062597
@@ -3911,7 +3930,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1572174224}
-  m_BodyType: 1
+  m_BodyType: 2
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -3936,7 +3955,7 @@ TilemapCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_UsedByComposite: 1
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001

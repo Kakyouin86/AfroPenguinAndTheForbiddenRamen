@@ -15,6 +15,7 @@ public class Pickup : MonoBehaviour
     public GameObject pickupEffectStar;
     public GameObject pickupEffectHeal;
     public GameObject pickupEffectOrb;
+    public Vector2 placeToInstantiate;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -25,7 +26,8 @@ public class Pickup : MonoBehaviour
                 LevelManager.instance.starsCollected++;
                 isCollected = true;
                 Destroy(gameObject);
-                Instantiate(pickupEffectStar, transform.position, transform.rotation);
+                placeToInstantiate = new Vector2(transform.position.x, transform.position.y + 1.00f);
+                Instantiate(pickupEffectStar, placeToInstantiate, transform.rotation);
                 UIController.instance.UpdateStarsCount();
                 AudioManager.instance.PlaySFX(6);
             }
@@ -39,7 +41,8 @@ public class Pickup : MonoBehaviour
                     PlayerHealthController.instance.HealPlayer();
                     isCollected = true;
                     Destroy(gameObject);
-                    Instantiate(pickupEffectHeal, transform.position, transform.rotation);
+                    placeToInstantiate = new Vector2(transform.position.x, transform.position.y + 1.00f);
+                    Instantiate(pickupEffectHeal, placeToInstantiate, transform.rotation);
                     AudioManager.instance.PlaySFX(7);
                 }
             }
@@ -49,7 +52,8 @@ public class Pickup : MonoBehaviour
                 PlayerController.instance.BuildDash();
                 isCollected = true;
                 Destroy(gameObject);
-                Instantiate(pickupEffectOrb, transform.position, transform.rotation);
+                placeToInstantiate = new Vector2(transform.position.x, transform.position.y + 0.50f);
+                Instantiate(pickupEffectOrb, placeToInstantiate, transform.rotation);
                 AudioManager.instance.PlaySFX(7);
             }
         }

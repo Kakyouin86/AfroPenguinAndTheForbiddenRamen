@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 3987830711576219917}
   - component: {fileID: 3987830711576219916}
   - component: {fileID: 3987830711576219922}
-  - component: {fileID: 994492674603171244}
-  m_Layer: 0
+  - component: {fileID: 1775289192400111826}
+  m_Layer: 7
   m_Name: Orb - 01
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -90,8 +90,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1512722725
+  m_SortingLayer: 3
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 37536df473208b04bb2074c4077312c2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -117,10 +117,10 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.08}
   serializedVersion: 2
   m_Radius: 0.08
---- !u!114 &994492674603171244
+--- !u!114 &1775289192400111826
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -129,7 +129,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 3987830711576219921}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a884fb0defd9169449b17f9b51c679b2, type: 3}
+  m_Script: {fileID: 11500000, guid: 6cb426918b7470a488ef78b863884177, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifeTime: 0.75
+  isStar: 0
+  isHeal: 0
+  isOrb: 1
+  pickupEffectStar: {fileID: 0}
+  pickupEffectHeal: {fileID: 0}
+  pickupEffectOrb: {fileID: 3680313923953096239, guid: b3f323947265adf4399f97ca1b3ed87f, type: 3}
+  placeToInstantiate: {x: 0, y: 0}

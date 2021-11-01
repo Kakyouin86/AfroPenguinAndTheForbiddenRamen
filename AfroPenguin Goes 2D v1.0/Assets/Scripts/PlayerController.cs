@@ -214,16 +214,6 @@ public class PlayerController : MonoBehaviour
         {
             theRB.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * moveSpeed, theRB.velocity.y);
         }
-
-        if (theRB.velocity.x < 0)
-        {
-            transform.localScale = new Vector3(-1f, 1f, 1f);
-        }
-
-        else if (theRB.velocity.x > 0)
-        {
-            transform.localScale = Vector3.one;
-        }
     }
     #endregion
 
@@ -346,6 +336,8 @@ public class PlayerController : MonoBehaviour
                 }
                 Camera.main.transform.DOComplete();
                 FindObjectOfType<RippleEffect>().Emit(Camera.main.WorldToViewportPoint(transform.position));
+                theDashHurtbox.SetActive(true);
+                this.tag="Invulnerable";
                 isDashing = true;
                 theAnimator.SetBool("isDashing", true);
                 Vector2 dashDirection = new Vector2(xRaw, yRaw);
@@ -386,9 +378,10 @@ public class PlayerController : MonoBehaviour
         {
             yield return new WaitForSeconds(0);
         }
-
+        theDashHurtbox.SetActive(false);
+        this.tag = "Player";
         FindObjectOfType<GhostTrail>().ShowGhost();
-        theRB.velocity = Vector2.zero;
+        //theRB.velocity = Vector2.zero;
         theRB.gravityScale = previousGravity;
         dashDustParticle.Stop();
         isDashing = false;
@@ -407,7 +400,7 @@ public class PlayerController : MonoBehaviour
     {
         knockbackCounter = knockbackLenght;
         StartCoroutine(KnockBackDelay());
-        GetComponent<Rigidbody2D>().velocity = new Vector2(0f, knockbackForce);
+        theRB.velocity = new Vector2(0f, knockbackForce);
         theAnimator.SetTrigger("hurt");
         knockbackCounter -= Time.deltaTime;
         //this counts down my time.

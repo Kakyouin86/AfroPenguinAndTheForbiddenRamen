@@ -9,6 +9,7 @@ TagManager:
   - Item
   - Enemy
   - Hurtbox
+  - Invulnerable
   layers:
   - Default
   - TransparentFX
@@ -17,7 +18,7 @@ TagManager:
   - Water
   - UI
   - Ladder
-  - 
+  - Item
   - 
   - 
   - 
@@ -45,4 +46,13 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Enemy
+    uniqueID: 2461210309
+    locked: 0
+  - name: Player
+    uniqueID: 1752783207
+    locked: 0
+  - name: Item
+    uniqueID: 1512722725
     locked: 0

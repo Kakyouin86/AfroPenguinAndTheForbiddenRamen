@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5557625321408807787}
   - component: {fileID: 312788378282751626}
   - component: {fileID: 6662140655520835100}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Star - 01
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -93,8 +93,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1512722725
+  m_SortingLayer: 3
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 3b544c10532bb2a4c823ae9f0255e612, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -188,7 +188,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4809328456298088570}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Target
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -30,7 +30,7 @@ public class JumpyItem : MonoBehaviour
 
         if (returnToOrigin)
         {
-            theRB.transform.position = Vector2.MoveTowards(transform.position, PlayerController.instance.theRB.position, 25f * Time.deltaTime);
+            theRB.transform.position = Vector2.MoveTowards(transform.position, PlayerController.instance.theRB.position, 100f * Time.deltaTime);
         }
     }
 }
