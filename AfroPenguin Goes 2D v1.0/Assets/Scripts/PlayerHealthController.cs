@@ -35,7 +35,9 @@ public class PlayerHealthController : MonoBehaviour
     public bool flashing;
     public GameObject deathEffect;
     public GameObject stompbox;
-    
+    public Vector2 placeToInstantiate;
+
+
     private void Awake()
     {
         instance = this;
@@ -76,7 +78,8 @@ public class PlayerHealthController : MonoBehaviour
             {
                 currentHealth = 0;
                 gameObject.SetActive(false);
-                Instantiate(deathEffect, transform.position, transform.rotation);
+                placeToInstantiate = new Vector2(transform.position.x, transform.position.y + 1.00f);
+                Instantiate(deathEffect, placeToInstantiate, transform.rotation);
                 LevelManager.instance.RespawnPlayer();
                 LevelManager.instance.SumLostLife();
                 UIController.instance.SumLostLife();

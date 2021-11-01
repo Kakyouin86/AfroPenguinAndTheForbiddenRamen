@@ -7,6 +7,10 @@ public class Checkpoint : MonoBehaviour
     public SpriteRenderer theSR;
     public Sprite checkpointOn, checkpointOff;
 
+    void Start()
+    {
+        theSR = GetComponent<SpriteRenderer>();
+    }
 
     public void OnTriggerEnter2D(Collider2D other)
     {

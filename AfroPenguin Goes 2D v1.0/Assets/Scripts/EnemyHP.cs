@@ -9,7 +9,7 @@ public class EnemyHP : MonoBehaviour
     public Animator theAnimator;
     public Collider2D parentCol;
     public Collider2D hurtboxCol;
-    public int enemyHP;
+    public int enemyHP = 1;
     public int currentHP;
     public bool isDead;
     public float invisibleLength = 0.05f;

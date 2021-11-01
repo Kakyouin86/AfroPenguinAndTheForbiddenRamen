@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Numerics;
 using UnityEngine;
+using Vector2 = UnityEngine.Vector2;
 
 public class Stompbox : MonoBehaviour
 {
@@ -9,7 +11,8 @@ public class Stompbox : MonoBehaviour
     public GameObject collectible;
     public int damageToDeal = 1;
     public int damageToDealDash = 3;
-    [Range(0, 100)] public float chanceToDrop = 1f;
+    public Vector2 placeToInstantiate;
+    [Range(0, 100)] public float chanceToDrop = 100f;
 
     void Start()
     {
@@ -23,7 +26,8 @@ public class Stompbox : MonoBehaviour
             if (other.gameObject.tag == "Hurtbox")
             {
                 other.gameObject.GetComponent<EnemyHP>().TakeDamage(damageToDeal);
-                Instantiate(deathEffect, other.transform.position, other.transform.rotation);
+                placeToInstantiate = new Vector2(other.transform.position.x, other.transform.position.y + 1.00f);
+                Instantiate(deathEffect, placeToInstantiate, other.transform.rotation);
                 PlayerController.instance.Bounce(1f);
             }
 

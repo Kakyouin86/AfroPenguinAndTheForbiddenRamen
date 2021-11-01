@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1134945405355701745}
   - component: {fileID: 1610304352954673964}
-  - component: {fileID: 4877251160710609648}
+  - component: {fileID: 3668409317474843998}
   - component: {fileID: 8428671658014479588}
   m_Layer: 0
   m_Name: Orb Effect - 01
@@ -52,7 +52,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &4877251160710609648
+--- !u!114 &3668409317474843998
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -61,7 +61,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3680313923953096239}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc823990f25c7944ab26beac36eda7a7, type: 3}
+  m_Script: {fileID: 11500000, guid: a884fb0defd9169449b17f9b51c679b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   lifeTime: 0.75
@@ -102,8 +102,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1993774203
-  m_SortingLayer: 3
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

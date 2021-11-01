@@ -4,26 +4,24 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Enemy
-  - Platform
-  - Spike
-  - Goal Flag
-  - Item
-  - Hurtbox
+  - Ground
   - Ladder
+  - Item
+  - Enemy
+  - Hurtbox
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Ground
   - Water
   - UI
-  - Enemies
-  - Ground
-  - Player
-  - Platform
-  - Stompbox
-  - Bullets
+  - Ladder
+  - 
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 
@@ -47,25 +45,4 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: Background
-    uniqueID: 2368876995
-    locked: 0
-  - name: World
-    uniqueID: 2610570977
-    locked: 0
-  - name: Enemies
-    uniqueID: 2583660583
-    locked: 0
-  - name: Player
-    uniqueID: 843369713
-    locked: 0
-  - name: Item
-    uniqueID: 2613268623
-    locked: 0
-  - name: Pickups
-    uniqueID: 4190999323
-    locked: 0
-  - name: Effects
-    uniqueID: 2301193093
     locked: 0

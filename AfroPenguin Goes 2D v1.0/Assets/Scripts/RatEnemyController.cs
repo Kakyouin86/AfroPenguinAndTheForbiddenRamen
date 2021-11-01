@@ -32,6 +32,7 @@ public class RatEnemyController : MonoBehaviour
     {
         theRB = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        theSR = GetComponent<SpriteRenderer>();
         theKnockback = GetComponentInChildren<KnockbackEnemies>();
         leftPoint.parent= null;
         rightPoint.parent = null;
