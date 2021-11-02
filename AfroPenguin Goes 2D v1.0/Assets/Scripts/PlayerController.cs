@@ -26,7 +26,6 @@ public class PlayerController : MonoBehaviour
     public float y;
     public float xRaw;
     public float yRaw;
-    public Vector2 direction;
     public bool facingRight;
     public float moveSpeed = 4f;
     public float moveSpeedModifier = 1.5f;

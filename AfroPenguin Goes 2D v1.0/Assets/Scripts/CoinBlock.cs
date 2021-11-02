@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,7 +14,7 @@ public class CoinBlock : MonoBehaviour
     void Start () 
     {
         theAnimator = GetComponent<Animator>();
-        this.audioSource = GetComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>();
         child = transform.GetChild(0).gameObject;
     }
 
@@ -33,7 +34,7 @@ public class CoinBlock : MonoBehaviour
                     theAnimator.Play("Star Block - 01 - Hit");
                     LevelManager.instance.starsCollected++;
                     UIController.instance.UpdateStarsCount();
-				    //audioSource.Play();
+				    audioSource.Play();
                     totalStars -= 1;
 					if (totalStars == 0) 
                     {
