@@ -226,19 +226,12 @@ public class PlayerController : MonoBehaviour
             if (Input.GetKey(KeyCode.W))
             {
                 isClimbing = true;
-                theAnimator.SetBool("isClimbing",isClimbing);
-                if (Input.GetKey(KeyCode.S))
-                {
-                    isClimbing = true;
-                }
+                theAnimator.SetBool("isClimbing", isClimbing);
             }
-        }
-
-        else
-        {
-            if (Input.GetKeyDown(KeyCode.A) || (Input.GetKeyDown(KeyCode.D)))
+            if (Input.GetKey(KeyCode.S))
             {
-                isClimbing = false;
+                isClimbing = true;
+                theAnimator.SetBool("isClimbing", isClimbing);
             }
         }
 
@@ -246,10 +239,27 @@ public class PlayerController : MonoBehaviour
         {
             theRB.velocity = new Vector2(theRB.velocity.x, yRaw * climbSpeed);
             theRB.gravityScale = 0;
+            {
+                if (yRaw == 0 && xRaw == 0)
+                {
+                    theAnimator.speed = 0f;
+                }
+                else
+                {
+                    theAnimator.speed = 1f;
+                }
+            }
         }
         else
         {
             theRB.gravityScale = 5;
+            isClimbing = false;
+            theAnimator.SetBool("isClimbing", isClimbing);
+            theAnimator.speed = 1f;
+        }
+
+        if (isClimbing && isGrounded)
+        {
             isClimbing = false;
             theAnimator.SetBool("isClimbing", isClimbing);
         }
