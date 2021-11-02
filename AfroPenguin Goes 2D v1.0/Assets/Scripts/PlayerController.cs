@@ -226,6 +226,11 @@ public class PlayerController : MonoBehaviour
             if (Input.GetKey(KeyCode.W))
             {
                 isClimbing = true;
+                theAnimator.SetBool("isClimbing",isClimbing);
+                if (Input.GetKey(KeyCode.S))
+                {
+                    isClimbing = true;
+                }
             }
         }
 
@@ -245,6 +250,8 @@ public class PlayerController : MonoBehaviour
         else
         {
             theRB.gravityScale = 5;
+            isClimbing = false;
+            theAnimator.SetBool("isClimbing", isClimbing);
         }
     }
     #endregion
