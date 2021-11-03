@@ -10,14 +10,17 @@ public class Pickup : MonoBehaviour
     public bool isStar;
     public bool isHeal;
     public bool isOrb;
+    public bool isFish;
+    public float timeOfInvulnerability;
 
     [Header("Effects")]
     public GameObject pickupEffectStar;
     public GameObject pickupEffectHeal;
     public GameObject pickupEffectOrb;
+    public GameObject pickupEffectFish;
     public Vector2 placeToInstantiate;
 
-    private void OnTriggerEnter2D(Collider2D other)
+    public void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player") && !isCollected)
         {
@@ -34,9 +37,7 @@ public class Pickup : MonoBehaviour
             
             if (isHeal)
             {
-
                 if (PlayerHealthController.instance.currentHealth != PlayerHealthController.instance.maxHealth)
-
                 {
                     PlayerHealthController.instance.HealPlayer();
                     isCollected = true;
@@ -56,6 +57,31 @@ public class Pickup : MonoBehaviour
                 Instantiate(pickupEffectOrb, placeToInstantiate, transform.rotation);
                 AudioManager.instance.PlaySFX(7);
             }
+
+            if (isFish)
+            {
+                Destroy(gameObject);
+                placeToInstantiate = new Vector2(transform.position.x, transform.position.y + 1.00f);
+                Instantiate(pickupEffectStar, placeToInstantiate, transform.rotation);
+                StartCoroutine(IsInvulnerable());
+            }
         }
+    }
+
+    IEnumerator IsInvulnerable()
+    {
+        var timer = 0.0;
+        while (timer < timeOfInvulnerability)
+        {
+            PlayerController.instance.canDash = true;
+            PlayerController.instance.currentDashGauge = 100;
+            PlayerController.instance.tag = "Invulnerable";
+            PlayerController.instance.isInvulnerable = true;
+            UIController.instance.barAnimator.SetBool("isFilled", true);
+            UIController.instance.iconAnimator.SetBool("isFilled", true);
+            UIController.instance.dashIndicatorSlider.value = PlayerController.instance.currentDashGauge;
+            timer += Time.deltaTime;
+        }
+        yield return new WaitForSeconds(2f);
     }
 }
