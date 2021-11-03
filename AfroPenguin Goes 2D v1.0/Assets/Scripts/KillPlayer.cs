@@ -6,7 +6,7 @@ public class KillPlayer : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.tag == "Player")
+        if(other.tag == "Player" || other.tag == "Invulnerable")
         {
             LevelManager.instance.RespawnPlayer();
             LevelManager.instance.SumLostLife();

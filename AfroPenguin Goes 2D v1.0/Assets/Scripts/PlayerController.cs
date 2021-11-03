@@ -355,7 +355,7 @@ public class PlayerController : MonoBehaviour
                 Camera.main.transform.DOComplete();
                 FindObjectOfType<RippleEffect>().Emit(Camera.main.WorldToViewportPoint(transform.position));
                 theDashHurtbox.SetActive(true);
-                this.tag="Invulnerable";
+                tag="Invulnerable";
                 isDashing = true;
                 isInvulnerable = true;
                 theAnimator.SetBool("isDashing", true);
@@ -397,7 +397,7 @@ public class PlayerController : MonoBehaviour
             yield return new WaitForSeconds(0);
         }
         theDashHurtbox.SetActive(false);
-        this.tag = "Player";
+        tag = "Player";
         FindObjectOfType<GhostTrail>().ShowGhost();
         //theRB.velocity = Vector2.zero;
         theRB.gravityScale = previousGravity;

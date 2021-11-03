@@ -21,7 +21,7 @@ public class Ladder : MonoBehaviour
     void OnTriggerStay2D(Collider2D other)
     {
         // Get the player by tag
-        if (other.tag == "Player")
+        if (other.tag == "Player" || other.tag == "Invulnerable")
         {
             if (playerController != null)
             {
@@ -38,7 +38,7 @@ public class Ladder : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D other)
     {
-        if (other.tag == "Player")
+        if (other.tag == "Player" || other.tag == "Invulnerable")
         {
             if (playerController != null)
             {

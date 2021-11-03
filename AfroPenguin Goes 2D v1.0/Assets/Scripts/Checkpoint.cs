@@ -14,7 +14,7 @@ public class Checkpoint : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") || other.CompareTag("Invulnerable"))
         {
             CheckpointController.instance.HandleCheckpoints(this);
             //CheckpointController.instance.DeactivateCheckpoints();
