@@ -43,6 +43,7 @@ public class PlayerController : MonoBehaviour
     public bool dashDown;
     public bool dashUp;
     public bool hasHit;
+    public bool isInvulnerable;
     public float dashSpeed = 30f;
     public float dashTime = 0.1f;
     public float dashTimeInAir = 0.1f;
@@ -95,6 +96,7 @@ public class PlayerController : MonoBehaviour
         isKnockback = false;
         canDash = false;
         hasHit = false;
+        isInvulnerable = false;
         theDashHurtbox.SetActive(false);
     }
     #endregion
@@ -178,7 +180,7 @@ public class PlayerController : MonoBehaviour
                 {
                     CreateDashDownDust();
                     dashDown = false;
-                    dashDown = false;
+                    dashUp = false;
                 }
                 else
                 {
@@ -355,10 +357,10 @@ public class PlayerController : MonoBehaviour
                 theDashHurtbox.SetActive(true);
                 this.tag="Invulnerable";
                 isDashing = true;
+                isInvulnerable = true;
                 theAnimator.SetBool("isDashing", true);
                 Vector2 dashDirection = new Vector2(xRaw, yRaw);
                 theRB.velocity = Vector2.zero;
-                float prevGravity = theRB.gravityScale; //Store previous gravity scale
                 theRB.gravityScale = 0;
                 dashDustParticle.Play();
                 FindObjectOfType<GhostTrail>().ShowGhost();
@@ -403,6 +405,9 @@ public class PlayerController : MonoBehaviour
         isDashing = false;
         hasHit = false;
         canDash = false;
+        dashDown = false;
+        dashUp = false;
+        isInvulnerable = false;
         theAnimator.SetBool("isDashing", false);
         currentDashGauge = 0f;
         UIController.instance.barAnimator.SetBool("isFilled", false);

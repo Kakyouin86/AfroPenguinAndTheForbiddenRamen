@@ -82,6 +82,6 @@ public class Pickup : MonoBehaviour
             UIController.instance.dashIndicatorSlider.value = PlayerController.instance.currentDashGauge;
             timer += Time.deltaTime;
         }
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(0f);
     }
 }
