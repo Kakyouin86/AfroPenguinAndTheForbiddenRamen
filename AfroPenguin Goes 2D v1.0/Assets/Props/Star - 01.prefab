@@ -176,9 +176,14 @@ MonoBehaviour:
   isStar: 1
   isHeal: 0
   isOrb: 0
+  isFish: 0
+  timeOfInvulnerability: 0
+  timeOfInvulnerabilityTimer: 0
   pickupEffectStar: {fileID: 3534479628547249196, guid: 6215effe050e9cc438dec1a3b5541154, type: 3}
   pickupEffectHeal: {fileID: 0}
-  pickupEffectOrb: {fileID: 0}
+  pickupEffectOrb: {fileID: 3680313923953096239, guid: b3f323947265adf4399f97ca1b3ed87f, type: 3}
+  pickupEffectFish: {fileID: 5540902043049731583, guid: 294843af7727a914b859a357e34fc25b, type: 3}
+  placeToInstantiate: {x: 0, y: 0}
 --- !u!1 &8433157829085749235
 GameObject:
   m_ObjectHideFlags: 0

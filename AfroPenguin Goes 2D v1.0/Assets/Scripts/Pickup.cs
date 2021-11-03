@@ -69,7 +69,7 @@ public class Pickup : MonoBehaviour
                 gameObject.GetComponent<SpriteRenderer>().enabled = false;
                 gameObject.GetComponent<BoxCollider2D>().enabled = false;
                 placeToInstantiate = new Vector2(transform.position.x, transform.position.y + 1.00f);
-                //Instantiate(pickupEffectFish, placeToInstantiate, transform.rotation);
+                Instantiate(pickupEffectFish, placeToInstantiate, transform.rotation);
                 StartCoroutine(IsInvulnerable());
             }
         }
