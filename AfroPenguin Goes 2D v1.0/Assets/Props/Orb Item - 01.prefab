@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8176434670170653423}
   - component: {fileID: 8176434670170653425}
   - component: {fileID: 6812836798944271153}
+  - component: {fileID: 834962145}
   m_Layer: 7
   m_Name: Orb Item - 01
   m_TagString: Item
@@ -72,7 +73,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -146,3 +147,29 @@ MonoBehaviour:
   pickupEffectFish: {fileID: 5540902043049731583, guid: 294843af7727a914b859a357e34fc25b, type: 3}
   pickupEffectLife: {fileID: 0}
   placeToInstantiate: {x: 0, y: 0}
+--- !u!114 &834962145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8176434670170653426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ee9ad4c74b2eff478c683de37b56cee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ForceMaterial: {fileID: 0}
+  ActiveChange: 1
+  _Alpha: 1
+  __MainTex2: {fileID: 2800000, guid: 21297ee56dfcb3744aeca141dd1a29de, type: 3}
+  _Value1: 64
+  _Value2: 2
+  _Value3: 1
+  _Value4: 0
+  _AutoScrollX: 0
+  _AutoScrollSpeedX: 0
+  _AutoScrollY: 0
+  _AutoScrollSpeedY: 0
+  ShaderChange: 0
+  ActiveUpdate: 1
