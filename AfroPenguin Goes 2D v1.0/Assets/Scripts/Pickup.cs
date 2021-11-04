@@ -77,12 +77,18 @@ public class Pickup : MonoBehaviour
 
             if (isLife)
             {
-                LevelManager.instance.sumLostLife--;
-                Debug.Log(LevelManager.instance.sumLostLife);
-                UIController.instance.SumLostLife();
-                Destroy(gameObject);
-                pickupEffectLife.Play();
-                AudioManager.instance.PlaySFX(7);
+                if (LevelManager.instance.sumLostLife <= 0)
+                {
+
+                }
+                else
+                {
+                    LevelManager.instance.sumLostLife--;
+                    UIController.instance.SumLostLife();
+                    Destroy(gameObject);
+                    pickupEffectLife.Play();
+                    AudioManager.instance.PlaySFX(7);
+                }
             }
         }
     }
