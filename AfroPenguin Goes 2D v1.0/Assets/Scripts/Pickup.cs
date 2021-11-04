@@ -12,6 +12,7 @@ public class Pickup : MonoBehaviour
     public bool isHeal;
     public bool isOrb;
     public bool isFish;
+    public bool isLife;
     public float timeOfInvulnerability;
     public float timeOfInvulnerabilityTimer;
 
@@ -20,6 +21,7 @@ public class Pickup : MonoBehaviour
     public GameObject pickupEffectHeal;
     public GameObject pickupEffectOrb;
     public GameObject pickupEffectFish;
+    public GameObject pickupEffectlife;
     public Vector2 placeToInstantiate;
 
     void Update()
@@ -71,6 +73,15 @@ public class Pickup : MonoBehaviour
                 placeToInstantiate = new Vector2(transform.position.x, transform.position.y + 1.00f);
                 Instantiate(pickupEffectFish, placeToInstantiate, transform.rotation);
                 StartCoroutine(IsInvulnerable());
+            }
+
+            if (isLife)
+            {
+                LevelManager.instance.sumLostLife--;
+                Debug.Log(LevelManager.instance.sumLostLife);
+                UIController.instance.SumLostLife();
+                Destroy(gameObject);
+                AudioManager.instance.PlaySFX(7);
             }
         }
     }

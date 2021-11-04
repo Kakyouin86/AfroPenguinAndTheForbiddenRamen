@@ -9,10 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7388407248927234330}
+  - component: {fileID: 470685084}
   - component: {fileID: 7388407248927234333}
   - component: {fileID: 7388407248927234332}
   - component: {fileID: 7388407248927234335}
-  - component: {fileID: 470685084}
+  - component: {fileID: 251797644}
   m_Layer: 0
   m_Name: Fish Item - 01
   m_TagString: Untagged
@@ -34,6 +35,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &470685084
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7388407248927234334}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f0a97a934311dec45a00e18b878a0158, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!212 &7388407248927234333
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -53,7 +73,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -127,29 +147,38 @@ MonoBehaviour:
   isHeal: 0
   isOrb: 0
   isFish: 1
+  isLife: 0
   timeOfInvulnerability: 10
   timeOfInvulnerabilityTimer: 0
   pickupEffectStar: {fileID: 3534479628547249196, guid: 6215effe050e9cc438dec1a3b5541154, type: 3}
   pickupEffectHeal: {fileID: 0}
   pickupEffectOrb: {fileID: 3680313923953096239, guid: b3f323947265adf4399f97ca1b3ed87f, type: 3}
   pickupEffectFish: {fileID: 5540902043049731583, guid: 294843af7727a914b859a357e34fc25b, type: 3}
+  pickupEffectlife: {fileID: 0}
   placeToInstantiate: {x: 0, y: 0}
---- !u!95 &470685084
-Animator:
-  serializedVersion: 3
+--- !u!114 &251797644
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7388407248927234334}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: f0a97a934311dec45a00e18b878a0158, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06fdce9d336afa142a1a3d7401c5cf40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ForceMaterial: {fileID: 0}
+  ActiveChange: 1
+  _Alpha: 1
+  __MainTex2: {fileID: 2800000, guid: 4aa6ce280e1ca944fb25732fe398d905, type: 3}
+  _Value1: 0.5
+  _Value2: 1
+  _Value3: 1
+  _Value4: 0
+  _AutoScrollX: 0
+  _AutoScrollSpeedX: 0
+  _AutoScrollY: 0
+  _AutoScrollSpeedY: 0
+  ShaderChange: 0
+  ActiveUpdate: 1
