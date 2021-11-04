@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7388407248927234333}
   - component: {fileID: 7388407248927234332}
   - component: {fileID: 7388407248927234335}
+  - component: {fileID: 470685084}
   m_Layer: 0
   m_Name: Fish Item - 01
   m_TagString: Untagged
@@ -133,3 +134,22 @@ MonoBehaviour:
   pickupEffectOrb: {fileID: 3680313923953096239, guid: b3f323947265adf4399f97ca1b3ed87f, type: 3}
   pickupEffectFish: {fileID: 5540902043049731583, guid: 294843af7727a914b859a357e34fc25b, type: 3}
   placeToInstantiate: {x: 0, y: 0}
+--- !u!95 &470685084
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7388407248927234334}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f0a97a934311dec45a00e18b878a0158, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
