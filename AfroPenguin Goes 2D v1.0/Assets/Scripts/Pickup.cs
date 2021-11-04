@@ -21,7 +21,7 @@ public class Pickup : MonoBehaviour
     public GameObject pickupEffectHeal;
     public GameObject pickupEffectOrb;
     public GameObject pickupEffectFish;
-    public GameObject pickupEffectlife;
+    public ParticleSystem pickupEffectLife;
     public Vector2 placeToInstantiate;
 
     void Update()
@@ -81,6 +81,7 @@ public class Pickup : MonoBehaviour
                 Debug.Log(LevelManager.instance.sumLostLife);
                 UIController.instance.SumLostLife();
                 Destroy(gameObject);
+                pickupEffectLife.Play();
                 AudioManager.instance.PlaySFX(7);
             }
         }
