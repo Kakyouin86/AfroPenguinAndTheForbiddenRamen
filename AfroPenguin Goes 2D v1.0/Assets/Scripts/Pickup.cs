@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -13,6 +14,7 @@ public class Pickup : MonoBehaviour
     public bool isOrb;
     public bool isFish;
     public bool isLife;
+    public bool isGem;
     public float timeOfInvulnerability;
     public float timeOfInvulnerabilityTimer;
 
@@ -89,6 +91,21 @@ public class Pickup : MonoBehaviour
                     pickupEffectLife.Play();
                     AudioManager.instance.PlaySFX(7);
                 }
+            }
+
+            if (isGem)
+            {
+                LevelManager.instance.starsCollected++;
+                LevelManager.instance.starsCollected++;
+                LevelManager.instance.starsCollected++;
+                LevelManager.instance.starsCollected++;
+                LevelManager.instance.starsCollected++;
+                isCollected = true;
+                Destroy(gameObject);
+                placeToInstantiate = new Vector2(transform.position.x, transform.position.y + 1.00f);
+                Instantiate(pickupEffectStar, placeToInstantiate, transform.rotation);
+                UIController.instance.UpdateStarsCount();
+                AudioManager.instance.PlaySFX(6);
             }
         }
     }
