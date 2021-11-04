@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -22,6 +23,8 @@ public class Pickup : MonoBehaviour
     public GameObject pickupEffectStar;
     public GameObject pickupEffectHeal;
     public GameObject pickupEffectOrb;
+    public GameObject pickupEffectBarEffect;
+    public GameObject pickupEffectThunderInBarEffect;
     public GameObject pickupEffectFish;
     public ParticleSystem pickupEffectLife;
     public Vector2 placeToInstantiate;
@@ -70,6 +73,9 @@ public class Pickup : MonoBehaviour
 
             if (isFish)
             {
+                pickupEffectBarEffect.GetComponent<_2dxFX_LightningBolt>().enabled = true;
+                pickupEffectBarEffect.GetComponent<_2dxFX_Lightning>().enabled = true;
+                pickupEffectThunderInBarEffect.GetComponent<Animator>().Play("Thunder In Bar Effect - 01");
                 gameObject.GetComponent<SpriteRenderer>().enabled = false;
                 gameObject.GetComponent<BoxCollider2D>().enabled = false;
                 placeToInstantiate = new Vector2(transform.position.x, transform.position.y + 1.00f);
@@ -126,5 +132,7 @@ public class Pickup : MonoBehaviour
             PlayerController.instance.tag = "Player";
             PlayerController.instance.isInvulnerable = false;
         }
+        pickupEffectBarEffect.GetComponent<_2dxFX_LightningBolt>().enabled = false;
+        pickupEffectBarEffect.GetComponent<_2dxFX_Lightning>().enabled = false;
     }
 }
