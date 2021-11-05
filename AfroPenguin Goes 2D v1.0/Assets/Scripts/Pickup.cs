@@ -81,6 +81,7 @@ public class Pickup : MonoBehaviour
             {
                 pickupEffectBarEffect.GetComponent<_2dxFX_LightningBolt>().enabled = true;
                 pickupEffectBarEffect.GetComponent<_2dxFX_Lightning>().enabled = true;
+                PlayerController.instance.GetComponent <_2dxFX_LightningBolt>().enabled = true;
                 pickupEffectThunderInBarEffect.GetComponent<Animator>().Play("Thunder In Bar Effect - 01");
                 gameObject.GetComponent<SpriteRenderer>().enabled = false;
                 gameObject.GetComponent<BoxCollider2D>().enabled = false;
@@ -140,5 +141,6 @@ public class Pickup : MonoBehaviour
         }
         pickupEffectBarEffect.GetComponent<_2dxFX_LightningBolt>().enabled = false;
         pickupEffectBarEffect.GetComponent<_2dxFX_Lightning>().enabled = false;
+        PlayerController.instance.GetComponent<_2dxFX_LightningBolt>().enabled = false;
     }
 }
