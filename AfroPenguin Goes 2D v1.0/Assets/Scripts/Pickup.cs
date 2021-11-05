@@ -33,6 +33,12 @@ public class Pickup : MonoBehaviour
     {
     }
 
+    void Start()
+    {
+        pickupEffectBarEffect = GameObject.Find("Canvas/Dash Sprites/Bar-Fill");
+        pickupEffectThunderInBarEffect = GameObject.Find("UI Camera/Thunder In Bar");
+    }
+
     public void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player") || other.CompareTag("Invulnerable") && !isCollected)

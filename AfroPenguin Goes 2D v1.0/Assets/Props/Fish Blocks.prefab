@@ -69,7 +69,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1512722725
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 5c159b75e0c8b4f4d9ab2476f6b8f7de, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -352,6 +352,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7388407248927234335, guid: c182a04a83e9b17429c9f16a3d059193, type: 3}
+      propertyPath: pickupEffectHeal
+      value: 
+      objectReference: {fileID: 5744972218232270612, guid: a9a653c455a583a4f8cb4591c5d1754c, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c182a04a83e9b17429c9f16a3d059193, type: 3}
 --- !u!1 &1223763691915796052 stripped
