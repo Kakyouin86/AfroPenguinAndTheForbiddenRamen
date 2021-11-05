@@ -14081,6 +14081,63 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1001 &3209523898778331027
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4031426772084586154, guid: d68a2cea624498b41ba27e47d64508ae, type: 3}
+      propertyPath: m_RootOrder
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4031426772084586154, guid: d68a2cea624498b41ba27e47d64508ae, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4031426772084586154, guid: d68a2cea624498b41ba27e47d64508ae, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4031426772084586154, guid: d68a2cea624498b41ba27e47d64508ae, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4031426772084586154, guid: d68a2cea624498b41ba27e47d64508ae, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4031426772084586154, guid: d68a2cea624498b41ba27e47d64508ae, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4031426772084586154, guid: d68a2cea624498b41ba27e47d64508ae, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4031426772084586154, guid: d68a2cea624498b41ba27e47d64508ae, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4031426772084586154, guid: d68a2cea624498b41ba27e47d64508ae, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4031426772084586154, guid: d68a2cea624498b41ba27e47d64508ae, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4031426772084586154, guid: d68a2cea624498b41ba27e47d64508ae, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4948599427860619234, guid: d68a2cea624498b41ba27e47d64508ae, type: 3}
+      propertyPath: m_Name
+      value: Fish Blocks
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d68a2cea624498b41ba27e47d64508ae, type: 3}
 --- !u!1 &3560077582603163633
 GameObject:
   m_ObjectHideFlags: 0
