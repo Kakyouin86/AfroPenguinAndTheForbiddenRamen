@@ -23,9 +23,6 @@ public class CoinBlock : MonoBehaviour
 	}
 	void OnCollisionEnter2D(Collision2D player)
     {
-        Debug.Log(player.collider.bounds.max.y);
-        Debug.Log(player.collider.bounds.max.x);
-        Debug.Log(player.collider.bounds.min.y);
         if (player.collider.tag == "Player" || player.collider.tag == "Invulnerable" && 
             player.collider.bounds.max.y -0.5f < transform.position.y
             && player.collider.bounds.min.x < transform.position.x + 1.6f
