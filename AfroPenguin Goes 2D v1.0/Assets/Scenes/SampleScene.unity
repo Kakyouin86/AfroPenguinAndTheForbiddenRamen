@@ -876,7 +876,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 1.09375}
-  m_Size: {x: 1.125, y: 2.1875}
+  m_Size: {x: 0.67146957, y: 2.1875}
   m_Direction: 0
 --- !u!50 &468012497
 Rigidbody2D:
@@ -14192,6 +14192,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4031426772084586154, guid: d68a2cea624498b41ba27e47d64508ae, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4456619698698418443, guid: d68a2cea624498b41ba27e47d64508ae, type: 3}
+      propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4948599427860619234, guid: d68a2cea624498b41ba27e47d64508ae, type: 3}

@@ -31,6 +31,7 @@ public class LifeBlock : MonoBehaviour
             if (totalLife > 0)
             {
                 theAnimator.Play("Life Block - 01 - Hit");
+                StartCoroutine(ActivateTrigger());
                 audioSource.Play();
                 totalLife -= 1;
                 if (totalLife == 0)
@@ -42,5 +43,10 @@ public class LifeBlock : MonoBehaviour
                 }
             }
         }
+    }
+    IEnumerator ActivateTrigger()
+    {
+        yield return new WaitForSeconds(0.5f);
+        objectToInstantiate.GetComponent<BoxCollider2D>().isTrigger = true;
     }
 }

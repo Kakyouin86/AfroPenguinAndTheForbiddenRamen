@@ -24,7 +24,7 @@ public class CoinBlock : MonoBehaviour
 	void OnCollisionEnter2D(Collision2D player)
     {
         if (player.collider.tag == "Player" || player.collider.tag == "Invulnerable" && 
-            player.collider.bounds.max.y -0.5f < transform.position.y
+            player.collider.bounds.max.y - 0.5f < transform.position.y
             && player.collider.bounds.min.x < transform.position.x + 1.6f
             && player.collider.bounds.max.x > transform.position.x - 1.2f && !theAnimator.GetCurrentAnimatorStateInfo(0).IsName("Star Block - 01 - Hit")) 
             {

@@ -32,6 +32,7 @@ public class FishBlock : MonoBehaviour
             if (totalFish > 0)
             {
                 theAnimator.Play("Fish Block - 01 - Hit");
+                StartCoroutine(ActivateTrigger());
                 audioSource.Play();
                 totalFish -= 1;
                 if (totalFish == 0)
@@ -43,5 +44,11 @@ public class FishBlock : MonoBehaviour
                 }
             }
         }
+    }
+
+    IEnumerator ActivateTrigger()
+    {
+        yield return new WaitForSeconds(0.5f);
+        objectToInstantiate.GetComponent<BoxCollider2D>().isTrigger = true;
     }
 }
