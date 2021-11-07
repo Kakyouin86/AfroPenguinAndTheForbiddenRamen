@@ -358,7 +358,19 @@ public class PlayerController : MonoBehaviour
                 tag="Invulnerable";
                 isDashing = true;
                 isInvulnerable = true;
-                theAnimator.SetBool("isDashing", true);
+                if (dashUp)
+                {
+                    theAnimator.SetBool("isDashingUp", true);
+                }
+
+                if (dashDown)
+                {
+                    theAnimator.SetBool("isDashingDown", true);
+                }
+                if (!dashDown && !dashUp)
+                {
+                    theAnimator.SetBool("isDashing", true);
+                }
                 Vector2 dashDirection = new Vector2(xRaw, yRaw);
                 theRB.velocity = Vector2.zero;
                 theRB.gravityScale = 0;
@@ -409,6 +421,8 @@ public class PlayerController : MonoBehaviour
         dashUp = false;
         isInvulnerable = false;
         theAnimator.SetBool("isDashing", false);
+        theAnimator.SetBool("isDashingUp", false);
+        theAnimator.SetBool("isDashingDown", false);
         currentDashGauge = 0f;
         UIController.instance.barAnimator.SetBool("isFilled", false);
         UIController.instance.iconAnimator.SetBool("isFilled", false);

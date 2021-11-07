@@ -317,6 +317,30 @@ TextureImporter:
   - first:
       213: -5289884275363672305
     second: AfroPenguin - 01_54
+  - first:
+      213: -4969850023907527223
+    second: AfroPenguin - 01_55
+  - first:
+      213: -5590681017667823617
+    second: AfroPenguin - 01_56
+  - first:
+      213: -3306762755409677779
+    second: AfroPenguin - 01_57
+  - first:
+      213: -3144993448375454800
+    second: AfroPenguin - 01_58
+  - first:
+      213: 251415626414565977
+    second: AfroPenguin - 01_59
+  - first:
+      213: 5569140726114323227
+    second: AfroPenguin - 01_60
+  - first:
+      213: -5177606658662233107
+    second: AfroPenguin - 01_61
+  - first:
+      213: 1386949785510546250
+    second: AfroPenguin - 01_62
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -1103,9 +1127,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 17
-        y: 132
+        y: 131
         width: 16
-        height: 34
+        height: 35
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1378,7 +1402,7 @@ TextureImporter:
         x: 112
         y: 84
         width: 15
-        height: 34
+        height: 35
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1399,7 +1423,7 @@ TextureImporter:
         x: 143
         y: 84
         width: 16
-        height: 34
+        height: 35
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1546,7 +1570,7 @@ TextureImporter:
         x: 367
         y: 84
         width: 16
-        height: 34
+        height: 35
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1556,6 +1580,174 @@ TextureImporter:
       bones: []
       spriteID: f0f0600574e8696b0800000000000000
       internalID: -5289884275363672305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AfroPenguin - 01_55
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 36
+        width: 16
+        height: 35
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c576021cbb870bb0800000000000000
+      internalID: -4969850023907527223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AfroPenguin - 01_56
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 36
+        width: 15
+        height: 35
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff7d3613c39e962b0800000000000000
+      internalID: -5590681017667823617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AfroPenguin - 01_57
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 36
+        width: 15
+        height: 35
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d22705f3bc40c12d0800000000000000
+      internalID: -3306762755409677779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AfroPenguin - 01_58
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 36
+        width: 15
+        height: 35
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b376a02f1dba54d0800000000000000
+      internalID: -3144993448375454800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AfroPenguin - 01_59
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 34
+        width: 20
+        height: 38
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95a2c6f1e253d7300800000000000000
+      internalID: 251415626414565977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AfroPenguin - 01_60
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 36
+        width: 19
+        height: 34
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1b843cdbff894d40800000000000000
+      internalID: 5569140726114323227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AfroPenguin - 01_61
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 36
+        width: 19
+        height: 38
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: deb8db31d227528b0800000000000000
+      internalID: -5177606658662233107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AfroPenguin - 01_62
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 36
+        width: 20
+        height: 35
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4b09a64b7f6f3310800000000000000
+      internalID: 1386949785510546250
       vertices: []
       indices: 
       edges: []
