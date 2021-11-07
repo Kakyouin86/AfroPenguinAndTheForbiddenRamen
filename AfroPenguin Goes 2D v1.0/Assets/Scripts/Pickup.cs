@@ -65,6 +65,10 @@ public class Pickup : MonoBehaviour
                     Instantiate(pickupEffectHeal, placeToInstantiate, transform.rotation);
                     AudioManager.instance.PlaySFX(7);
                 }
+                else
+                {
+                    GetComponent<Animator>().Play("Life Item - 01 - Life Is Full");
+                }
             }
 
             if (isOrb)
