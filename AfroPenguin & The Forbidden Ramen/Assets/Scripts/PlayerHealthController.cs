@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental;
 using UnityEngine;
 
 public class PlayerHealthController : MonoBehaviour
@@ -37,7 +38,6 @@ public class PlayerHealthController : MonoBehaviour
     public GameObject stompbox;
     public Vector2 placeToInstantiate;
 
-
     private void Awake()
     {
         instance = this;
@@ -57,11 +57,10 @@ public class PlayerHealthController : MonoBehaviour
         {
             invisibleCounter -= Time.deltaTime;
             //we are taking away another value from this from the invincible counter.
+            StartCoroutine(StompboxDeactivated());
 
-            stompbox.SetActive(false);
-            if (invisibleCounter <= 0)
+            if (invisibleCounter <= 0.1)
             {
-                stompbox.SetActive(true);
                 spriteRenderer.color = new Color(1f, 1f, 1f, 1.0f);
                 //spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, 1.0f);
             }
@@ -153,6 +152,18 @@ public class PlayerHealthController : MonoBehaviour
             return new WaitForSeconds(0.05f);
             flashing = false;
         }
+
+        if (invisibleCounter <= 0.1)
+        {
+            flashing = false;
+        }
+    }
+
+    IEnumerator StompboxDeactivated()
+    {
+        stompbox.SetActive(false);
+        yield return new WaitForSeconds(0.2f);
+        stompbox.SetActive(true);
     }
 }
 
