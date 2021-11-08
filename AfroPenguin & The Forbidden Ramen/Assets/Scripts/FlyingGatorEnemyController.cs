@@ -22,7 +22,7 @@ public class FlyingGatorEnemyController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        theSR = GetComponent<SpriteRenderer>();
+        theSR = GetComponentInChildren<SpriteRenderer>();
         for (int i = 0; i < points.Length; i++) // For i which starts at 0, and as long as i is less than the points i arrayed, but i will keep adding one to each i
             {
             points[i].parent = null;
