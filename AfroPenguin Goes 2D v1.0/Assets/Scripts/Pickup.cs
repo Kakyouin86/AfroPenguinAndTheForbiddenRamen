@@ -48,7 +48,7 @@ public class Pickup : MonoBehaviour
                 LevelManager.instance.starsCollected++;
                 isCollected = true;
                 Destroy(gameObject);
-                placeToInstantiate = new Vector2(transform.position.x, transform.position.y + 1.00f);
+                placeToInstantiate = new Vector2(transform.position.x, transform.position.y + 0.50f);
                 Instantiate(pickupEffectStar, placeToInstantiate, transform.rotation);
                 UIController.instance.UpdateStarsCount();
                 AudioManager.instance.PlaySFX(6);
