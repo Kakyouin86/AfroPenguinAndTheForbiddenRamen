@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FlyingGator : MonoBehaviour
+public class FlyingGatorEnemyController : MonoBehaviour
 {
 
     public Transform[] points;
