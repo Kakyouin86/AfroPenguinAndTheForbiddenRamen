@@ -7,8 +7,8 @@ public class CameraController : MonoBehaviour
     public static CameraController instance;
     public Transform target;
     public Transform farBackground, middleBackground;
-    private float lastXPos;
-    private Vector2 lastPos;
+    public float lastXPos;
+    public Vector2 lastPos;
     public float minHeight = 0f, maxHeight = 2.5f;
     public bool stopFollow;
     public float minX = 0, maxX = 100;
