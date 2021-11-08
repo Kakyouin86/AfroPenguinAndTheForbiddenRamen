@@ -468,11 +468,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 239435017}
   m_CullTransparentMesh: 1
---- !u!4 &251113625 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7020574629748465104, guid: a7b4e069895c4f84f9a1f627b39f57a2, type: 3}
-  m_PrefabInstance: {fileID: 6782584297677245488}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &281094018
 GameObject:
   m_ObjectHideFlags: 0
@@ -2494,7 +2489,7 @@ MonoBehaviour:
   anim: {fileID: 0}
   theKnockback: {fileID: 0}
   canMove: 0
-  leftPoint: {fileID: 251113625}
+  leftPoint: {fileID: 1702267259}
   rightPoint: {fileID: 281094019}
   moveRight: 0
   moveSpeed: 3
@@ -2507,7 +2502,7 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 8
-  groundCheckRadius: 0.2
+  groundCheckRadius: 99
   bottomOffset: {x: 0, y: 0}
 --- !u!1 &1148678221
 GameObject:
