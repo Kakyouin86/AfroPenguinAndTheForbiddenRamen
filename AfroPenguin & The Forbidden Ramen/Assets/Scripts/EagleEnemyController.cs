@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FlyingGatorEnemyController : MonoBehaviour
+public class EagleEnemyController : MonoBehaviour
 {
-
     public Transform[] points;
     public float moveSpeed = 2f;
     public int currentPoint;
@@ -24,7 +23,7 @@ public class FlyingGatorEnemyController : MonoBehaviour
     {
         theSR = GetComponentInChildren<SpriteRenderer>();
         for (int i = 0; i < points.Length; i++) // For i which starts at 0, and as long as i is less than the points i arrayed, but i will keep adding one to each i
-            {
+        {
             points[i].parent = null;
         }
     }
