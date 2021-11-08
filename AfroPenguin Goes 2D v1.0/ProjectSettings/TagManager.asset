@@ -3,20 +3,15 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Ground
-  - Ladder
-  - Item
-  - Enemy
-  - Hurtbox
+  tags: []
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Ground
+  - 
   - Water
   - UI
-  - Ladder
+  - 
   - 
   - 
   - 
@@ -46,18 +41,3 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-<<<<<<< HEAD
-  - name: World
-    uniqueID: 3028959369
-    locked: 0
-  - name: Enemy
-    uniqueID: 2461210309
-    locked: 0
-  - name: Player
-    uniqueID: 1752783207
-    locked: 0
-  - name: Item
-    uniqueID: 1512722725
-    locked: 0
-=======
->>>>>>> parent of 6a60fd0 (Ahora si!)
