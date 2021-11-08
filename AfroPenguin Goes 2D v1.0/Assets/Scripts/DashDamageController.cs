@@ -6,9 +6,9 @@ public class DashDamageController : MonoBehaviour
 {
     public PlayerController thePC;
     public GameObject deathEffect;
+    public GameObject collectible;
     public int damageToDealDash = 3;
-    public Vector2 placeToInstantiate;
-    [Range(0, 100)] public float chanceToDrop = 100f;
+    [Range(0, 100)] public float chanceToDrop = 1f;
 
     // Start is called before the first frame update
     void Start()
@@ -20,15 +20,28 @@ public class DashDamageController : MonoBehaviour
     {
 
     }
-    public void OnTriggerEnter2D(Collider2D enemy)
+    public void OnTriggerEnter2D(Collider2D other)
     {
-        if (enemy.gameObject.tag == "Hurtbox")
+        if (other.gameObject.tag == "Hurtbox")
         {
-            enemy.gameObject.GetComponentInChildren<EnemyHP>().TakeDamageDash(damageToDealDash);
-            placeToInstantiate = new Vector2(enemy.transform.position.x, enemy.transform.position.y + 1.00f);
-            Instantiate(deathEffect, placeToInstantiate, enemy.transform.rotation);
-            PlayerController.instance.hasHit = true;
-            enemy.GetComponent<KnockbackEnemies>().KnockBack();
+            if (other.gameObject.GetComponentInChildren<EnemyHP>().enemyHP <= damageToDealDash)
+            {
+                other.gameObject.GetComponentInChildren<EnemyHP>().TakeDamageDash(damageToDealDash);
+                Instantiate(deathEffect, other.transform.position, other.transform.rotation);
+                float dropSelect = Random.Range(0, 100f);
+
+                if (dropSelect <= chanceToDrop)
+                {
+                    Instantiate(collectible, other.transform.position, other.transform.rotation);
+                }
+            }
+            else
+            {
+                other.gameObject.GetComponentInChildren<EnemyHP>().TakeDamageDash(damageToDealDash);
+                Instantiate(deathEffect, other.transform.position, other.transform.rotation);
+                PlayerController.instance.hasHit = true;
+                other.GetComponent<KnockbackEnemies>().KnockBack();
+            }
         }
     }
 }

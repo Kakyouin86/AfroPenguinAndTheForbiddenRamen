@@ -15,8 +15,6 @@ public class EnemyHP : MonoBehaviour
     public float invisibleLength = 0.05f;
     public float invisibleCounter;
     public float knockbackDashMultiplier = 2f;
-    public Vector2 placeToInstantiate;
-    public GameObject collectible;
 
     void Start()
     {
@@ -80,8 +78,6 @@ public class EnemyHP : MonoBehaviour
             parentCol.enabled = false;
             hurtboxCol.enabled = false;
             StartCoroutine("KillSwitch");
-            placeToInstantiate = new Vector2(transform.position.x + 1.00f, transform.position.y);
-            Instantiate(collectible, placeToInstantiate, transform.rotation);
         }
     }
 
@@ -101,10 +97,7 @@ public class EnemyHP : MonoBehaviour
         theSR.enabled = false;
         StartCoroutine("Flash");
         yield return new WaitForSeconds(0.1f);
-        GetComponent<BoxCollider2D>().enabled = false;
-        GetComponent<BoxCollider2D>().enabled = true;
         theSR.enabled = true;
-
     }
 
     IEnumerator HitConfirmAlmostDead()
@@ -112,8 +105,6 @@ public class EnemyHP : MonoBehaviour
         theSR.enabled = false;
         StartCoroutine("FlashAlmostDead");
         yield return new WaitForSeconds(0.1f);
-                GetComponent<BoxCollider2D>().enabled = false;
-        GetComponent<BoxCollider2D>().enabled = true;
         theSR.enabled = true;
     }
     IEnumerator Flash()

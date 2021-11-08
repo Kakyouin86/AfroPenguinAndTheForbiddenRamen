@@ -30,8 +30,12 @@ public class JumpyItem : MonoBehaviour
 
         if (returnToOrigin)
         {
+<<<<<<< HEAD
 
             theRB.transform.position = Vector2.MoveTowards(transform.position, PlayerController.instance.theRB.position, 100f * Time.deltaTime);
+=======
+            theRB.transform.position = Vector2.MoveTowards(transform.position, PlayerController.instance.theRB.position, 25f * Time.deltaTime);
+>>>>>>> parent of 6a60fd0 (Ahora si!)
         }
     }
 }

@@ -23,11 +23,14 @@ public class Pickup : MonoBehaviour
     public GameObject pickupEffectStar;
     public GameObject pickupEffectHeal;
     public GameObject pickupEffectOrb;
+<<<<<<< HEAD
     public GameObject pickupEffectBarEffect;
     public GameObject pickupEffectThunderInBarEffect;
     public GameObject pickupEffectFish;
     public ParticleSystem pickupEffectLife;
     public Vector2 placeToInstantiate;
+=======
+>>>>>>> parent of 6a60fd0 (Ahora si!)
 
     void Update()
     {
@@ -48,8 +51,12 @@ public class Pickup : MonoBehaviour
                 LevelManager.instance.starsCollected++;
                 isCollected = true;
                 Destroy(gameObject);
+<<<<<<< HEAD
                 placeToInstantiate = new Vector2(transform.position.x, transform.position.y + 0.50f);
                 Instantiate(pickupEffectStar, placeToInstantiate, transform.rotation);
+=======
+                Instantiate(pickupEffectStar, transform.position, transform.rotation);
+>>>>>>> parent of 6a60fd0 (Ahora si!)
                 UIController.instance.UpdateStarsCount();
                 AudioManager.instance.PlaySFX(6);
             }
@@ -61,8 +68,7 @@ public class Pickup : MonoBehaviour
                     PlayerHealthController.instance.HealPlayer();
                     isCollected = true;
                     Destroy(gameObject);
-                    placeToInstantiate = new Vector2(transform.position.x, transform.position.y + 1.00f);
-                    Instantiate(pickupEffectHeal, placeToInstantiate, transform.rotation);
+                    Instantiate(pickupEffectHeal, transform.position, transform.rotation);
                     AudioManager.instance.PlaySFX(7);
                 }
                 else
@@ -76,8 +82,7 @@ public class Pickup : MonoBehaviour
                 PlayerController.instance.BuildDash();
                 isCollected = true;
                 Destroy(gameObject);
-                placeToInstantiate = new Vector2(transform.position.x, transform.position.y + 0.50f);
-                Instantiate(pickupEffectOrb, placeToInstantiate, transform.rotation);
+                Instantiate(pickupEffectOrb, transform.position, transform.rotation);
                 AudioManager.instance.PlaySFX(7);
             }
 

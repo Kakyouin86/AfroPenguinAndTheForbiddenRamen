@@ -9,7 +9,6 @@ TagManager:
   - Item
   - Enemy
   - Hurtbox
-  - Invulnerable
   layers:
   - Default
   - TransparentFX
@@ -18,7 +17,7 @@ TagManager:
   - Water
   - UI
   - Ladder
-  - Item
+  - 
   - 
   - 
   - 
@@ -47,6 +46,7 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+<<<<<<< HEAD
   - name: World
     uniqueID: 3028959369
     locked: 0
@@ -59,3 +59,5 @@ TagManager:
   - name: Item
     uniqueID: 1512722725
     locked: 0
+=======
+>>>>>>> parent of 6a60fd0 (Ahora si!)

@@ -8,6 +8,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
+<<<<<<< HEAD:AfroPenguin Goes 2D v1.0/Assets/Props/Star Item - 01.prefab
   - component: {fileID: 2935870425321789173}
   m_Layer: 7
   m_Name: Target
@@ -47,6 +48,17 @@ GameObject:
   - component: {fileID: 3923983243312101523}
   m_Layer: 7
   m_Name: Star Item - 01
+=======
+  - component: {fileID: 8297217019480487259}
+  - component: {fileID: 5895232386291149470}
+  - component: {fileID: 2571552258897693540}
+  - component: {fileID: 8434557175995359210}
+  - component: {fileID: 5557625321408807787}
+  - component: {fileID: 312788378282751626}
+  - component: {fileID: 6662140655520835100}
+  m_Layer: 0
+  m_Name: Star - 01
+>>>>>>> parent of 6a60fd0 (Ahora si!):AfroPenguin Goes 2D v1.0/Assets/Props/Star - 01.prefab
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -123,8 +135,13 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+<<<<<<< HEAD:AfroPenguin Goes 2D v1.0/Assets/Props/Star Item - 01.prefab
   m_SortingLayerID: 1512722725
   m_SortingLayer: 4
+=======
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+>>>>>>> parent of 6a60fd0 (Ahora si!):AfroPenguin Goes 2D v1.0/Assets/Props/Star - 01.prefab
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 3b544c10532bb2a4c823ae9f0255e612, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -212,6 +229,7 @@ MonoBehaviour:
   timeOfInvulnerability: 0
   timeOfInvulnerabilityTimer: 0
   pickupEffectStar: {fileID: 3534479628547249196, guid: 6215effe050e9cc438dec1a3b5541154, type: 3}
+<<<<<<< HEAD:AfroPenguin Goes 2D v1.0/Assets/Props/Star Item - 01.prefab
   pickupEffectHeal: {fileID: 5744972218232270612, guid: a9a653c455a583a4f8cb4591c5d1754c, type: 3}
   pickupEffectOrb: {fileID: 3680313923953096239, guid: b3f323947265adf4399f97ca1b3ed87f, type: 3}
   pickupEffectBarEffect: {fileID: 0}
@@ -219,3 +237,37 @@ MonoBehaviour:
   pickupEffectFish: {fileID: 5540902043049731583, guid: 294843af7727a914b859a357e34fc25b, type: 3}
   pickupEffectLife: {fileID: 0}
   placeToInstantiate: {x: 0, y: 0}
+=======
+  pickupEffectHeal: {fileID: 0}
+  pickupEffectOrb: {fileID: 0}
+--- !u!1 &8433157829085749235
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4809328456298088570}
+  m_Layer: 0
+  m_Name: Target
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4809328456298088570
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8433157829085749235}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8297217019480487259}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+>>>>>>> parent of 6a60fd0 (Ahora si!):AfroPenguin Goes 2D v1.0/Assets/Props/Star - 01.prefab

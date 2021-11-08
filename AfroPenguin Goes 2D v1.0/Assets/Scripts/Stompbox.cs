@@ -10,6 +10,7 @@ public class Stompbox : MonoBehaviour
     public GameObject deathEffect;
     public GameObject collectible;
     public int damageToDeal = 1;
+    public int damageToDealDash = 3;
     public Vector2 placeToInstantiate;
     [Range(0, 100)] public float chanceToDrop = 100f;
 
@@ -28,8 +29,6 @@ public class Stompbox : MonoBehaviour
                 placeToInstantiate = new Vector2(other.transform.position.x, other.transform.position.y + 1.00f);
                 Instantiate(deathEffect, placeToInstantiate, other.transform.rotation);
                 PlayerController.instance.Bounce(1f);
-                GetComponentInParent<CapsuleCollider2D>().enabled = false;
-                GetComponentInParent<CapsuleCollider2D>().enabled = true;
             }
 
             if (other.gameObject.tag == "Hurtbox" && other.gameObject.GetComponent<EnemyHP>().isDead)
@@ -38,8 +37,7 @@ public class Stompbox : MonoBehaviour
 
                 if (dropSelect <= chanceToDrop)
                 {
-                    placeToInstantiate = new Vector2(other.transform.position.x + 1.00f, other.transform.position.y + 1.00f);
-                    Instantiate(collectible, placeToInstantiate, other.transform.rotation);
+                    Instantiate(collectible, other.transform.position, other.transform.rotation);
                 }
             }
         }
