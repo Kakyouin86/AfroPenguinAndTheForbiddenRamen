@@ -24,7 +24,7 @@ public class EnemyHP : MonoBehaviour
         theAnimator = transform.parent.GetComponent<Animator>();
         parentCol = transform.parent.GetComponent<Collider2D>();
         hurtboxCol = GetComponent<Collider2D>();
-        theSR = transform.parent.GetComponent<SpriteRenderer>();
+        theSR = transform.GetComponent<SpriteRenderer>();
     }
     public void TakeDamage(int damage)
     {

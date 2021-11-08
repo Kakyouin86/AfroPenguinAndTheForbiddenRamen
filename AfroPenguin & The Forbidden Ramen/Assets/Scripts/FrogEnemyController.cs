@@ -15,9 +15,9 @@ public class FrogEnemyController : MonoBehaviour
     public Transform leftPoint;
     public Transform rightPoint;
     public bool moveRight;
-    public float moveSpeed = 5.0f;
-    public float moveTime = 3.0f;
-    public float waitTime = 0.0f;
+    public float moveSpeed = 3.0f;
+    public float moveTime = 1.5f;
+    public float waitTime = 2.0f;
     public float moveCount;
     public float waitCount;
 
@@ -32,7 +32,7 @@ public class FrogEnemyController : MonoBehaviour
     {
         theRB = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        theSR = GetComponent<SpriteRenderer>();
+        theSR = GetComponentInChildren<SpriteRenderer>();
         theKnockback = GetComponentInChildren<KnockbackEnemies>();
         leftPoint.parent= null;
         rightPoint.parent = null;
@@ -52,8 +52,8 @@ public class FrogEnemyController : MonoBehaviour
     public bool CanMoveOrInteract()
     {
         canMove = true;
-    //    if (theKnockback.isKnockback)
-    //       canMove = false;
+        if (theKnockback.isKnockback)
+           canMove = false;
         return canMove;
     }
     #endregion
@@ -114,7 +114,7 @@ public class FrogEnemyController : MonoBehaviour
         
         else
         {
-            //canMove = false;
+            canMove = false;
         }
     }
     #endregion
