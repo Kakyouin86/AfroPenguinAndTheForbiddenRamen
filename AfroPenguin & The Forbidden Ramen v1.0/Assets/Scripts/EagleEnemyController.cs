@@ -107,11 +107,11 @@ public class EagleEnemyController : MonoBehaviour
         {
             if (transform.position.x < directionDifferencePlayerPosition.x)
             {
-                theSR.flipX = true;
+                theSR.flipX = true; //This is facing right.
             }
             else if (transform.position.x > directionDifferencePlayerPosition.x)
             {
-                theSR.flipX = false;
+                theSR.flipX = false; //This is facing left.
             }
         }
         
@@ -128,8 +128,6 @@ public class EagleEnemyController : MonoBehaviour
             }
         }
     }
-
-
 }
 
 //If I want the eagle to follow me wherever I am:
