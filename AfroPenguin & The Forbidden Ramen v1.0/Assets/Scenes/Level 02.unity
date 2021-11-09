@@ -502,7 +502,7 @@ MonoBehaviour:
   invisibleCounter: 0
   knockbackDashMultiplier: 2
   placeToInstantiate: {x: 0, y: 0}
-  collectible: {fileID: 0}
+  collectible: {fileID: 6546408857128971192, guid: 2949bf68f82c1724abc4181f4c801af1, type: 3}
 --- !u!61 &78863055
 BoxCollider2D:
   m_ObjectHideFlags: 0

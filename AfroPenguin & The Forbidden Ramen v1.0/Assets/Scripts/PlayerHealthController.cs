@@ -139,7 +139,7 @@ public class PlayerHealthController : MonoBehaviour
 
     IEnumerator Flash()
     {
-        while (invisibleCounter > 0)
+        while (invisibleCounter > 0.1)
         {
             //invincibleCounter -= Time.deltaTime;
             flashing = true;
