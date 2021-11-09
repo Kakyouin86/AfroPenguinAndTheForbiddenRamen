@@ -16,7 +16,7 @@ public class EagleEnemyController : MonoBehaviour
 
     //This is if we want to just attack once
     public float waitAfterAttack;
-    private float attackCounter;
+    public float attackCounter;
 
     // Start is called before the first frame update
     void Start()
@@ -28,7 +28,6 @@ public class EagleEnemyController : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (attackCounter > 0)
@@ -63,6 +62,8 @@ public class EagleEnemyController : MonoBehaviour
         {
             if (attackTarget == Vector3.zero) //this is a check to see if we are attacking the player. Vector3.zero where EVERYTHING XYZ are 0
             {
+                GetComponent<Animator>().SetTrigger("isAboutToAttack", true);
+                GetComponent<Animator>().SetBool("IsAttacking",true);
                 attackTarget = PlayerController.instance.transform.position;
             }
 
@@ -71,10 +72,10 @@ public class EagleEnemyController : MonoBehaviour
             //this next one is I want the eagle to just attack once and then stop and go back
             if (Vector3.Distance(transform.position, attackTarget) <= 0.1f) //close to that attack point
             {
+                GetComponent<Animator>().SetBool("isMoving", true);
                 attackCounter = waitAfterAttack;
                 attackTarget = Vector3.zero;
                 //Wait a length of time and then you can go move towards the player.
-
             }
         }
     }

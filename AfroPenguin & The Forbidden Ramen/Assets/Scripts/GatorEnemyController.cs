@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class GatorEnemyController : MonoBehaviour
 {
-
     public Transform[] points;
     public float moveSpeed = 2f;
     public int currentPoint;
@@ -17,7 +16,7 @@ public class GatorEnemyController : MonoBehaviour
 
     //This is if we want to just attack once
     public float waitAfterAttack;
-    private float attackCounter;
+    public float attackCounter;
 
     // Start is called before the first frame update
     void Start()
@@ -29,7 +28,6 @@ public class GatorEnemyController : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (attackCounter > 0)
@@ -75,42 +73,7 @@ public class GatorEnemyController : MonoBehaviour
                 attackCounter = waitAfterAttack;
                 attackTarget = Vector3.zero;
                 //Wait a length of time and then you can go move towards the player.
-
             }
         }
     }
 }
-
-//If I want the eagle to follow me wherever I am:
-//        void Update()
-//{
-//    if (Vector3.Distance(transform.position, PlayerController.instance.transform.position) > distanceToAttackPlayer) // If the player is outside a range, then flap around
-//    {
-
-//        transform.position = Vector3.MoveTowards(transform.position, points[currentPoint].position, moveSpeed * Time.deltaTime);
-//        if (Vector3.Distance(transform.position, points[currentPoint].position) < 0.5f)
-//        {
-//            currentPoint++;
-//            //our currentPoint becomes 1
-//            if (currentPoint >= points.Length)
-//            {
-//                currentPoint = 0;
-//            }
-//        }
-
-//        if (transform.position.x < points[currentPoint].position.x)
-//        {
-//            theSR.flipX = true;
-//        }
-//        else if (transform.position.x > points[currentPoint].position.x)
-//        {
-//            theSR.flipX = false;
-//        }
-//    }
-//    else
-//    {
-//        transform.position = Vector3.MoveTowards(transform.position, PlayerController.instance.transform.position, chaseSpeed * Time.deltaTime);
-//    }
-//}
-
-
