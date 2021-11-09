@@ -252,7 +252,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 27181102}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -284,6 +284,7 @@ MonoBehaviour:
   theRB: {fileID: 0}
   theSR: {fileID: 0}
   theAnimator: {fileID: 0}
+  directionDifferencePlayerPosition: {x: 0, y: 0}
   isAttacking: 0
   currentPoint: 0
   moveSpeed: 5

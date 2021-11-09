@@ -13,8 +13,10 @@ public class EagleEnemyController : MonoBehaviour
     public SpriteRenderer theSR;
     public Animator theAnimator;
 
-    [Header("Movement")]
+    [Header("Movement")] 
+    public Vector2 directionDifferencePlayerPosition;
     public bool isAttacking;
+
     public int currentPoint;
     public float moveSpeed = 5f;
     public float distanceToAttackPlayer = 4f;
@@ -45,25 +47,15 @@ public class EagleEnemyController : MonoBehaviour
     {
         WhereToLook();
 
-        Vector2 direction = player.position - transform.position;
-        if (transform.position.x < direction.x)
-        {
-            theSR.flipX = true;
-        }
-        else if (transform.position.x > direction.x)
-        {
-            theSR.flipX = false;
-        }
-
         if (attackTarget == Vector3.zero)
         {
             isAttacking = false;
         }
+
         else
         {
             isAttacking = true;
         }
-
 
         if (attackCounter > 0)
         {
@@ -85,16 +77,6 @@ public class EagleEnemyController : MonoBehaviour
                     {
                         currentPoint = 0;
                     }
-                }
-
-                if (!isAttacking && transform.position.x < points[currentPoint].position.x)
-                {
-                    theSR.flipX = true;
-                }
-
-                else if (transform.position.x > points[currentPoint].position.x && !isAttacking)
-                {
-                    theSR.flipX = false;
                 }
             }
 
@@ -120,7 +102,31 @@ public class EagleEnemyController : MonoBehaviour
 
     public void WhereToLook()
     {
+        directionDifferencePlayerPosition = player.position - transform.position;
+        if (isAttacking)
+        {
+            if (transform.position.x < directionDifferencePlayerPosition.x)
+            {
+                theSR.flipX = true;
+            }
+            else if (transform.position.x > directionDifferencePlayerPosition.x)
+            {
+                theSR.flipX = false;
+            }
+        }
+        
+        if (!isAttacking)
+        {
+            if (transform.position.x < points[currentPoint].position.x)
+            {
+                theSR.flipX = true;
+            }
 
+            else if (transform.position.x > points[currentPoint].position.x)
+            {
+                theSR.flipX = false;
+            }
+        }
     }
 
 
