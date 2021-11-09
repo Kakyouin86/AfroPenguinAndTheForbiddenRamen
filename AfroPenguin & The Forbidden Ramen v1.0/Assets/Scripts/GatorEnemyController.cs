@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class GatorEnemyController : MonoBehaviour
 {
+    [Header("Components")]
     public Transform[] points;
+
+    [Header("Movement")]
     public float moveSpeed = 2f;
     public int currentPoint;
     public SpriteRenderer theSR;
