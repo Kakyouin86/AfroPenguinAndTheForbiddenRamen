@@ -13,10 +13,7 @@ public class EagleEnemyController : MonoBehaviour
     public SpriteRenderer theSR;
     public Animator theAnimator;
 
-    [Header("Movement")] 
-    public Vector2 directionDifferencePlayerPosition;
-    public bool isAttacking;
-
+    [Header("Movement")]
     public int currentPoint;
     public float moveSpeed = 5f;
     public float distanceToAttackPlayer = 4f;
@@ -35,7 +32,6 @@ public class EagleEnemyController : MonoBehaviour
         theSR = GetComponentInChildren<SpriteRenderer>();
         theAnimator = GetComponent<Animator>();
         player = FindObjectOfType<PlayerController>().GetComponent<Transform>();
-        isAttacking = false;
 
         for (int i = 0; i < points.Length; i++) // For i which starts at 0, and as long as i is less than the points i arrayed, but i will keep adding one to each i
         {
@@ -46,17 +42,6 @@ public class EagleEnemyController : MonoBehaviour
     void Update()
     {
         WhereToLook();
-
-        if (attackTarget == Vector3.zero)
-        {
-            isAttacking = false;
-        }
-
-        else
-        {
-            isAttacking = true;
-        }
-
         if (attackCounter > 0)
         {
             attackCounter -= Time.deltaTime;
@@ -102,31 +87,29 @@ public class EagleEnemyController : MonoBehaviour
 
     public void WhereToLook()
     {
-        directionDifferencePlayerPosition = player.position - transform.position;
-        if (isAttacking)
+        if (attackTarget != Vector3.zero)
         {
-            if (transform.position.x < directionDifferencePlayerPosition.x)
+            if (transform.position.x < player.transform.position.x)
             {
                 theSR.flipX = true; //This is facing right.
             }
-            else if (transform.position.x > directionDifferencePlayerPosition.x)
+            else if (transform.position.x > player.transform.position.x)
             {
                 theSR.flipX = false; //This is facing left.
             }
         }
-        
-        if (!isAttacking)
+        else
         {
             if (transform.position.x < points[currentPoint].position.x)
             {
                 theSR.flipX = true;
             }
-
             else if (transform.position.x > points[currentPoint].position.x)
             {
                 theSR.flipX = false;
             }
         }
+
     }
 }
 
