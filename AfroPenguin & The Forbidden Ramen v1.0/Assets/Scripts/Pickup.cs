@@ -67,7 +67,7 @@ public class Pickup : MonoBehaviour
                 }
                 else
                 {
-                    GetComponent<Animator>().Play("Life Item - 01 - Life Is Full");
+                    GetComponentInChildren<Animator>().Play("Life Item - 01 - Life Is Full");
                 }
             }
 

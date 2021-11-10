@@ -16,6 +16,7 @@ public class LifeBlock : MonoBehaviour
         theAnimator = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
         child = transform.GetChild(0).gameObject;
+        objectToInstantiate = transform.GetChild(1).gameObject;
     }
 
     void Update()
