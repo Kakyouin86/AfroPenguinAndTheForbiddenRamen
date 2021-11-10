@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class KillPlayer : MonoBehaviour
 {
-    public GameObject deathEffectPlayer;
     public GameObject deathEffectEnemy;
+    public GameObject deathEffectPlayer;
     public Vector2 placeToInstantiate;
     private void OnTriggerEnter2D(Collider2D other)
     {
