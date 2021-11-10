@@ -98,8 +98,9 @@ public class Pickup : MonoBehaviour
             {
                 if (LevelManager.instance.sumLostLife <= 0)
                 {
-
+                    GetComponentInChildren<Animator>().Play("Minus Life Lost Item - 01 - Life Is Full");
                 }
+
                 else
                 {
                     LevelManager.instance.sumLostLife--;
