@@ -11,8 +11,6 @@ GameObject:
   - component: {fileID: 7308249820669284605}
   - component: {fileID: 7308249820669284601}
   - component: {fileID: 7308249820669284600}
-  - component: {fileID: 7308249820669284603}
-  - component: {fileID: 7308249820669284602}
   m_Layer: 0
   m_Name: Minus Life Lost Item - 01
   m_TagString: Untagged
@@ -29,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 7308249820669284604}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -104,47 +102,3 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &7308249820669284603
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7308249820669284604}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.65624994}
-  serializedVersion: 2
-  m_Radius: 0.71874994
---- !u!114 &7308249820669284602
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7308249820669284604}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6cb426918b7470a488ef78b863884177, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isStar: 0
-  isHeal: 0
-  isOrb: 0
-  isFish: 0
-  isLife: 1
-  isGem: 0
-  timeOfInvulnerability: 0
-  timeOfInvulnerabilityTimer: 0
-  pickupEffectStar: {fileID: 3534479628547249196, guid: 6215effe050e9cc438dec1a3b5541154, type: 3}
-  pickupEffectHeal: {fileID: 5744972218232270612, guid: a9a653c455a583a4f8cb4591c5d1754c, type: 3}
-  pickupEffectOrb: {fileID: 3680313923953096239, guid: b3f323947265adf4399f97ca1b3ed87f, type: 3}
-  pickupEffectBarEffect: {fileID: 0}
-  pickupEffectThunderInBarEffect: {fileID: 0}
-  pickupEffectFish: {fileID: 5540902043049731583, guid: 294843af7727a914b859a357e34fc25b, type: 3}
-  pickupEffectLife: {fileID: 0}
-  placeToInstantiate: {x: 0, y: 0}
