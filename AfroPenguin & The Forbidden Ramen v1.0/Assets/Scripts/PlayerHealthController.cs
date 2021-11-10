@@ -32,7 +32,7 @@ public class PlayerHealthController : MonoBehaviour
     public int maxHealth = 6;
     public float invisibleLength = 1;
     public float invisibleCounter;
-    private SpriteRenderer spriteRenderer;
+    public SpriteRenderer spriteRenderer;
     public bool flashing;
     public GameObject deathEffect;
     public GameObject stompbox;
