@@ -75,10 +75,12 @@ public class BossBearEnemyController : MonoBehaviour
                 theRB.position = Vector2.MoveTowards(transform.position,
                     new Vector2(newWanderLeft.x, transform.position.y), walkSpeed * Time.deltaTime);
 
-                if (Vector2.Distance(transform.position, new Vector2(newWanderLeft.x, transform.position.y)) < 0.05f)
+                if (Vector2.Distance(transform.position, new Vector2(newWanderLeft.x, transform.position.y)) < 0.01f)
                 {
                     waitTimeCounterCharge = waitTimeCharge;
                     waitTimeCounterCharge -= Time.deltaTime;
+                    theAnimator.SetBool("isWalking", false);
+                    theAnimator.SetBool("isWalkingBackwards", false);
                     {
                         if (waitTimeCounterCharge <= 0.05f)
                         {
