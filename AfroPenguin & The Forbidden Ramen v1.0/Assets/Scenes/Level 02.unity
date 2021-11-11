@@ -1662,14 +1662,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   theRB: {fileID: 0}
   theAnimator: {fileID: 0}
-  walkSpeed: 4
+  walkSpeed: 10
   leftPointWanderLeft: {fileID: 2108662537}
   rightPointWanderLeft: {fileID: 1339852568}
   newWanderLeft: {x: 0, y: 0}
   chargingTimesBetweenCycles: 0
   invisibleLengthCharge: 0
   invisibleCounterCharge: 0
-  waitTimeCharge: 0.06
+  waitTimeCharge: 0.02
   waitTimeCounterCharge: 0
   isGrounded: 0
   whatIsGround:
