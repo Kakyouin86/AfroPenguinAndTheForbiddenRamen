@@ -48,6 +48,7 @@ public class BossBearEnemyController : MonoBehaviour
 
     void Update()
     {
+
         isGrounded = Physics2D.OverlapCircle((Vector2)transform.position + bottomOffset, groundCheckRadius, whatIsGround);
         if (isGrounded)
         {
@@ -55,47 +56,36 @@ public class BossBearEnemyController : MonoBehaviour
             {
                 invisibleLengthCharge = Random.Range(3f, 6f);
                 invisibleCounterCharge = invisibleLengthCharge;
+                waitTimeCounterCharge = waitTimeCharge;
                 WanderOnTheLeft();
             }
-
 
             if (invisibleCounterCharge > 0)
             {
                 invisibleCounterCharge -= Time.deltaTime;
-                Vector2 currentPosition = theRB.position;
-                if (currentPosition.x <= newWanderLeft.x)
-                {
-                    theAnimator.SetBool("isWalking", true);
-                }
-                else
-                {
-                    theAnimator.SetBool("isWalkingBackwards", true);
-                }
+                theAnimator.SetBool("isWalking", true);
+                theRB.position = Vector2.MoveTowards(transform.position, new Vector2(newWanderLeft.x, transform.position.y), walkSpeed * Time.deltaTime);
 
-                theRB.position = Vector2.MoveTowards(transform.position,
-                    new Vector2(newWanderLeft.x, transform.position.y), walkSpeed * Time.deltaTime);
-
-                if (Vector2.Distance(transform.position, new Vector2(newWanderLeft.x, transform.position.y)) < 0.01f)
+                if (Vector2.Distance(transform.position, new Vector2(newWanderLeft.x, transform.position.y)) < 0.2f)
                 {
-                    waitTimeCounterCharge = waitTimeCharge;
-                    waitTimeCounterCharge -= Time.deltaTime;
-                    theAnimator.SetBool("isWalking", false);
-                    theAnimator.SetBool("isWalkingBackwards", false);
+                    if (waitTimeCounterCharge <= 0.1f)
                     {
-                        if (waitTimeCounterCharge <= 0.05f)
-                        {
-                            WanderOnTheLeft();
-                        }
+                        WanderOnTheLeft();
+                        waitTimeCounterCharge = waitTimeCharge;
+                    }
+                    else
+                    {
+                        theAnimator.SetBool("isWalking", false);
+                        waitTimeCounterCharge -= Time.deltaTime;
                     }
                 }
             }
 
             else
-                {
-                    theAnimator.SetBool("isWalking", false);
-                    theAnimator.SetBool("isWalkingBackwards", false);
-                }
+            {
+                theAnimator.SetBool("isWalking", false);
             }
+        }
     }
 
     void WanderOnTheLeft()
