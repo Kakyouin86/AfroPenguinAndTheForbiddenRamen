@@ -1660,17 +1660,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bb37d6e55f23e54c9b4fdb5e715446b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  theBoss: {fileID: 0}
+  theRB: {fileID: 0}
   theAnimator: {fileID: 0}
-  walkSpeed: 1
-  runSpeed: 0
-  timeBetweenRun: 0
-  isOnTheRight: 0
+  walkSpeed: 4
   leftPointWanderLeft: {fileID: 2108662537}
   rightPointWanderLeft: {fileID: 1339852568}
   newWanderLeft: {x: 0, y: 0}
-  invisibleLength: 0
-  invisibleCounter: 0
+  chargingTimesBetweenCycles: 1
+  invisibleLengthCharge: 0
+  invisibleCounterCharge: 0
+  waitTimeCharge: 0.06
+  waitTimeCounterCharge: 0
   isGrounded: 0
   whatIsGround:
     serializedVersion: 2

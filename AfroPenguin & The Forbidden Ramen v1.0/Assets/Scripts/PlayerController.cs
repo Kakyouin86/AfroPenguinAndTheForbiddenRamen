@@ -385,9 +385,7 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator DashCoroutine(Vector2 dashDirection)
     {
-        for (float t = 0;
-            t < 1;
-            t += Time.deltaTime / dashTime) //A loop that repeats every frame for a certain amount of seconds
+        for (float t = 0; t < 1; t += Time.deltaTime / dashTime) //A loop that repeats every frame for a certain amount of seconds
         {
             if (!hasHit)
             {

@@ -21,19 +21,19 @@ AnimationClip:
   - curve:
     - time: 0
       value: {fileID: 21300000, guid: 6035b678cba6cfa4989dcbb81db48cd6, type: 3}
-    - time: 0.25
+    - time: 0.21428572
       value: {fileID: 21300000, guid: 11f0342c198cb26428de3cafd6c00984, type: 3}
-    - time: 0.5
+    - time: 0.42857143
       value: {fileID: 21300000, guid: 79108fb199ab97b4091ad20e51000e0b, type: 3}
-    - time: 0.75
+    - time: 0.64285713
       value: {fileID: 21300000, guid: da7f31871a57d9640a921e603242dd8b, type: 3}
-    - time: 1
+    - time: 0.85714287
       value: {fileID: 21300000, guid: 6035b678cba6cfa4989dcbb81db48cd6, type: 3}
     attribute: m_Sprite
     path: Boss - Bear - 01 - Collider
     classID: 212
     script: {fileID: 0}
-  m_SampleRate: 60
+  m_SampleRate: 70
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -58,7 +58,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 1.0166667
+    m_StopTime: 0.8714286
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
