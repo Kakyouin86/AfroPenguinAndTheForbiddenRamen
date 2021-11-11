@@ -6,14 +6,19 @@ using UnityEngine;
 
 public class BossBearEnemyController : MonoBehaviour
 {
-    public Transform theBoss;
+    [Header("Components")]
+    //public Transform theBoss;
     public Animator theAnimator;
+
+    [Header("Movement")]
     public float walkSpeed = 2f;
-    public float runSpeed;
-    public float timeBetweenRun;
+   // public float runSpeed;
+    //public float timeBetweenRun;
     //public Transform leftPoint;
-   // public Transform rightPoint;
-    public bool isOnTheRight;
+    // public Transform rightPoint;
+
+    [Header("Positions")]
+    //public bool isOnTheRight;
     public Transform leftPointWanderLeft;
     public Transform rightPointWanderLeft;
     public Vector2 newWanderLeft;
@@ -53,7 +58,7 @@ public class BossBearEnemyController : MonoBehaviour
                 invisibleCounter -= Time.deltaTime;
                 transform.position = Vector2.MoveTowards(transform.position, new Vector2(newWanderLeft.x, transform.position.y), walkSpeed * Time.deltaTime);
                 theAnimator.SetBool("isWalking", true);
-                if (Vector2.Distance(transform.position, new Vector2(newWanderLeft.x, transform.position.y)) < .05f)
+                if (Vector2.Distance(transform.position, new Vector2(newWanderLeft.x, transform.position.y)) < 0.05f)
                 {
                     WanderOnTheLeft();
                 }

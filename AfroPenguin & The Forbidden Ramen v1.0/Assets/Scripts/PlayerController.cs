@@ -7,6 +7,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     #region Variables
+    [Header("Components")]
     public static PlayerController instance;
     public bool canMove;
 
