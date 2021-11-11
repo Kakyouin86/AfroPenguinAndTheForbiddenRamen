@@ -1559,7 +1559,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!4 &692301626
 Transform:
@@ -1666,7 +1666,7 @@ MonoBehaviour:
   leftPointWanderLeft: {fileID: 2108662537}
   rightPointWanderLeft: {fileID: 1339852568}
   newWanderLeft: {x: 0, y: 0}
-  chargingTimesBetweenCycles: 1
+  chargingTimesBetweenCycles: 0
   invisibleLengthCharge: 0
   invisibleCounterCharge: 0
   waitTimeCharge: 0.06

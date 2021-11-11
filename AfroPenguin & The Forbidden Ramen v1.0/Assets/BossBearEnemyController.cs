@@ -8,6 +8,7 @@ public class BossBearEnemyController : MonoBehaviour
 {
     [Header("Components")]
     //public Transform theBoss;
+    public Rigidbody2D theRB;
     public Animator theAnimator;
 
     [Header("Movement")]
@@ -22,8 +23,11 @@ public class BossBearEnemyController : MonoBehaviour
     public Transform leftPointWanderLeft;
     public Transform rightPointWanderLeft;
     public Vector2 newWanderLeft;
-    public float invisibleLength = 2f;
-    public float invisibleCounter;
+    public int chargingTimesBetweenCycles;
+    public float invisibleLengthCharge;
+    public float invisibleCounterCharge;
+    public float waitTimeCharge = 0.06f;
+    public float waitTimeCounterCharge;
 
     [Header("Ground Check")]
     public bool isGrounded;
@@ -33,8 +37,9 @@ public class BossBearEnemyController : MonoBehaviour
 
     void Start()
     {
+        theRB = GetComponent<Rigidbody2D>();
         theAnimator = GetComponent<Animator>();
-        invisibleCounter = invisibleLength;
+        invisibleCounterCharge = invisibleLengthCharge;
         //leftPoint.parent = null;
         //rightPoint.parent = null;
         leftPointWanderLeft.parent = null;
@@ -48,32 +53,52 @@ public class BossBearEnemyController : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.I))
             {
-                invisibleLength = Random.Range(3f, 6f);
-                invisibleCounter = invisibleLength;
+                invisibleLengthCharge = Random.Range(3f, 6f);
+                invisibleCounterCharge = invisibleLengthCharge;
                 WanderOnTheLeft();
             }
 
-            if (invisibleCounter > 0)
+
+            if (invisibleCounterCharge > 0)
             {
-                invisibleCounter -= Time.deltaTime;
-                transform.position = Vector2.MoveTowards(transform.position, new Vector2(newWanderLeft.x, transform.position.y), walkSpeed * Time.deltaTime);
-                theAnimator.SetBool("isWalking", true);
+                invisibleCounterCharge -= Time.deltaTime;
+                Vector2 currentPosition = theRB.position;
+                if (currentPosition.x <= newWanderLeft.x)
+                {
+                    theAnimator.SetBool("isWalking", true);
+                }
+                else
+                {
+                    theAnimator.SetBool("isWalkingBackwards", true);
+                }
+
+                theRB.position = Vector2.MoveTowards(transform.position,
+                    new Vector2(newWanderLeft.x, transform.position.y), walkSpeed * Time.deltaTime);
+
                 if (Vector2.Distance(transform.position, new Vector2(newWanderLeft.x, transform.position.y)) < 0.05f)
                 {
-                    WanderOnTheLeft();
+                    waitTimeCounterCharge = waitTimeCharge;
+                    waitTimeCounterCharge -= Time.deltaTime;
+                    {
+                        if (waitTimeCounterCharge <= 0.05f)
+                        {
+                            WanderOnTheLeft();
+                        }
+                    }
                 }
             }
 
             else
-            {
-                theAnimator.SetBool("isWalking", false);
+                {
+                    theAnimator.SetBool("isWalking", false);
+                    theAnimator.SetBool("isWalkingBackwards", false);
+                }
             }
-        }
     }
 
     void WanderOnTheLeft()
     {
-        newWanderLeft.x = Mathf.RoundToInt(Random.Range(leftPointWanderLeft.position.x,rightPointWanderLeft.position.x));
+        newWanderLeft.x = Mathf.RoundToInt(Random.Range(leftPointWanderLeft.position.x, rightPointWanderLeft.position.x));
     }
 
     #region Ground Check Gizmo
