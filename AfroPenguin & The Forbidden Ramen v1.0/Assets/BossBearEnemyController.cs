@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening.Plugins.Options;
 using JetBrains.Annotations;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class BossBearEnemyController : MonoBehaviour
@@ -23,11 +24,16 @@ public class BossBearEnemyController : MonoBehaviour
     public Transform leftPointWanderLeft;
     public Transform rightPointWanderLeft;
     public Vector2 newWanderLeft;
-    public int chargingTimesBetweenCycles;
     public float invisibleLengthCharge;
     public float invisibleCounterCharge;
     public float waitTimeCharge = 0.06f;
     public float waitTimeCounterCharge;
+    public bool isFinished;
+
+    [Header("Dash")] 
+    public Transform theRightSide;
+    public float dashCounter;
+    public float dashTime;
 
     [Header("Ground Check")]
     public bool isGrounded;
@@ -40,15 +46,16 @@ public class BossBearEnemyController : MonoBehaviour
         theRB = GetComponent<Rigidbody2D>();
         theAnimator = GetComponent<Animator>();
         invisibleCounterCharge = invisibleLengthCharge;
+        dashCounter = dashTime;
         //leftPoint.parent = null;
         //rightPoint.parent = null;
         leftPointWanderLeft.parent = null;
         rightPointWanderLeft.parent = null;
+        isFinished = false;
     }
 
     void Update()
     {
-
         isGrounded = Physics2D.OverlapCircle((Vector2)transform.position + bottomOffset, groundCheckRadius, whatIsGround);
         if (isGrounded)
         {
@@ -62,28 +69,13 @@ public class BossBearEnemyController : MonoBehaviour
 
             if (invisibleCounterCharge > 0)
             {
-                invisibleCounterCharge -= Time.deltaTime;
-                theAnimator.SetBool("isWalking", true);
-                theRB.position = Vector2.MoveTowards(transform.position, new Vector2(newWanderLeft.x, transform.position.y), walkSpeed * Time.deltaTime);
-
-                if (Vector2.Distance(transform.position, new Vector2(newWanderLeft.x, transform.position.y)) < 0.1f)
-                {
-                    if (waitTimeCounterCharge <= 0.1f)
-                    {
-                        WanderOnTheLeft();
-                        waitTimeCounterCharge = waitTimeCharge;
-                    }
-                    else
-                    {
-                        theAnimator.SetBool("isWalking", false);
-                        waitTimeCounterCharge -= Time.deltaTime;
-                    }
-                }
+                ChargeToTheRight();
             }
 
-            else
+            if (invisibleCounterCharge <= 0 && isFinished)
             {
                 theAnimator.SetBool("isWalking", false);
+                DashToTheRight();
             }
         }
     }
@@ -91,6 +83,35 @@ public class BossBearEnemyController : MonoBehaviour
     void WanderOnTheLeft()
     {
         newWanderLeft.x = Mathf.RoundToInt(Random.Range(leftPointWanderLeft.position.x, rightPointWanderLeft.position.x));
+    }
+
+    public void ChargeToTheRight()
+    {
+        invisibleCounterCharge -= Time.deltaTime;
+        theAnimator.SetBool("isWalking", true);
+        theRB.position = Vector2.MoveTowards(transform.position, new Vector2(newWanderLeft.x, transform.position.y), walkSpeed * Time.deltaTime);
+
+        if (Vector2.Distance(transform.position, new Vector2(newWanderLeft.x, transform.position.y)) < 0.1f)
+        {
+            if (waitTimeCounterCharge <= 0.1f)
+            {
+                WanderOnTheLeft();
+                waitTimeCounterCharge = waitTimeCharge;
+            }
+            else
+            {
+                theAnimator.SetBool("isWalking", false);
+                waitTimeCounterCharge -= Time.deltaTime;
+            }
+        }
+
+        isFinished = true;
+
+    }
+
+    public void DashToTheRight()
+    {
+        theRB.position = Vector2.MoveTowards(transform.position, theRightSide.transform.position, walkSpeed * 5 * Time.deltaTime);
     }
 
     #region Ground Check Gizmo
