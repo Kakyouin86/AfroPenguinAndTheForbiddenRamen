@@ -12,7 +12,7 @@ public class BossBearEnemyController : MonoBehaviour
     public Animator theAnimator;
 
     [Header("Movement")]
-    public float walkSpeed = 2f;
+    public float walkSpeed = 10f;
    // public float runSpeed;
     //public float timeBetweenRun;
     //public Transform leftPoint;
@@ -66,7 +66,7 @@ public class BossBearEnemyController : MonoBehaviour
                 theAnimator.SetBool("isWalking", true);
                 theRB.position = Vector2.MoveTowards(transform.position, new Vector2(newWanderLeft.x, transform.position.y), walkSpeed * Time.deltaTime);
 
-                if (Vector2.Distance(transform.position, new Vector2(newWanderLeft.x, transform.position.y)) < 0.2f)
+                if (Vector2.Distance(transform.position, new Vector2(newWanderLeft.x, transform.position.y)) < 0.1f)
                 {
                     if (waitTimeCounterCharge <= 0.1f)
                     {

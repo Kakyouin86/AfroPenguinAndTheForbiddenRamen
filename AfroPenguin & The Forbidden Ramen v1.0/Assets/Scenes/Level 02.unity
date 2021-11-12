@@ -1669,7 +1669,7 @@ MonoBehaviour:
   chargingTimesBetweenCycles: 0
   invisibleLengthCharge: 0
   invisibleCounterCharge: 0
-  waitTimeCharge: 0.02
+  waitTimeCharge: 0.5
   waitTimeCounterCharge: 0
   isGrounded: 0
   whatIsGround:
