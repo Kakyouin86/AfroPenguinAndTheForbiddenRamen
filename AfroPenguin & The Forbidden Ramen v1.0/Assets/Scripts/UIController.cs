@@ -32,6 +32,7 @@ public class UIController : MonoBehaviour
     public float fadeSpeed = 3.0f;
     public bool shouldFadeToBlack, shouldFadeFromBlack;
     public GameObject levelCompleteText;
+    public Slider bossHealthBarSlider;
 
 
     private void Awake()

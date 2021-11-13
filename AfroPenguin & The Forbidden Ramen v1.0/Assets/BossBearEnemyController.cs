@@ -41,6 +41,11 @@ public class BossBearEnemyController : MonoBehaviour
     public float groundCheckRadius = 0.2f;
     public Vector2 bottomOffset;
 
+    [Header("Health")]
+    public float health = 100f;
+    public float damageStompbox = 1f;
+    public float damageDash = 20f;
+
     void Start()
     {
         theRB = GetComponent<Rigidbody2D>();
@@ -56,6 +61,15 @@ public class BossBearEnemyController : MonoBehaviour
 
     void Update()
     {
+        UIController.instance.bossHealthBarSlider.value = health;
+
+        if (health <= 0)
+        {
+            theAnimator.SetTrigger("isDead");
+        }
+        
+
+
         isGrounded = Physics2D.OverlapCircle((Vector2)transform.position + bottomOffset, groundCheckRadius, whatIsGround);
         if (isGrounded)
         {
