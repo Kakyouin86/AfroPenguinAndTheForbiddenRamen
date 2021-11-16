@@ -519,5 +519,23 @@ public class PlayerController : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere((Vector2)transform.position + bottomOffset, groundCheckRadius);
     }
-    #endregion   
+    #endregion
+
+    #region Platforms
+    public void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.tag == "Platform")
+        {
+            transform.parent = other.transform;
+        }
+    }
+
+    public void OnCollisionExit2D(Collision2D other)
+    {
+        if (other.gameObject.tag == "Platform")
+        {
+            transform.parent = null;
+        }
+    }
+    #endregion
 }
