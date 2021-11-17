@@ -14,9 +14,14 @@ public class LevelManager : MonoBehaviour
     public string levelToLoad;
     public float timeInLevel;
     public bool isPlayingIntro;
-    private void Awake()
+    public void Awake()
     {
         instance = this;
+    }
+
+    public void Start()
+    {
+        theAnimator = GetComponent<Animator>();
     }
 
     void Update()
