@@ -7,7 +7,8 @@ using UnityEngine.UIElements;
 
 public class Pickup : MonoBehaviour
 {
-    private bool isCollected;
+    public bool isCollected;
+    public bool hasReinstantiation;
 
     [Header("Item Types")]
     public bool isStar;
@@ -47,7 +48,7 @@ public class Pickup : MonoBehaviour
             {
                 LevelManager.instance.starsCollected++;
                 isCollected = true;
-                Destroy(gameObject);
+                DestroyOrNot();
                 placeToInstantiate = new Vector2(transform.position.x, transform.position.y + 0.50f);
                 Instantiate(pickupEffectStar, placeToInstantiate, transform.rotation);
                 UIController.instance.UpdateStarsCount();
@@ -60,7 +61,7 @@ public class Pickup : MonoBehaviour
                 {
                     PlayerHealthController.instance.HealPlayer();
                     isCollected = true;
-                    Destroy(gameObject);
+                    DestroyOrNot();
                     placeToInstantiate = new Vector2(transform.position.x, transform.position.y + 1.00f);
                     Instantiate(pickupEffectHeal, placeToInstantiate, transform.rotation);
                     AudioManager.instance.PlaySFX(7);
@@ -75,7 +76,7 @@ public class Pickup : MonoBehaviour
             {
                 PlayerController.instance.BuildDash();
                 isCollected = true;
-                Destroy(gameObject);
+                DestroyOrNot();
                 placeToInstantiate = new Vector2(transform.position.x, transform.position.y + 0.50f);
                 Instantiate(pickupEffectOrb, placeToInstantiate, transform.rotation);
                 AudioManager.instance.PlaySFX(7);
@@ -105,7 +106,7 @@ public class Pickup : MonoBehaviour
                 {
                     LevelManager.instance.sumLostLife--;
                     UIController.instance.SumLostLife();
-                    Destroy(gameObject);
+                    DestroyOrNot();
                     pickupEffectLife.Play();
                     AudioManager.instance.PlaySFX(7);
                 }
@@ -119,7 +120,7 @@ public class Pickup : MonoBehaviour
                 LevelManager.instance.starsCollected++;
                 LevelManager.instance.starsCollected++;
                 isCollected = true;
-                Destroy(gameObject);
+                DestroyOrNot();
                 placeToInstantiate = new Vector2(transform.position.x, transform.position.y + 1.00f);
                 Instantiate(pickupEffectStar, placeToInstantiate, transform.rotation);
                 UIController.instance.UpdateStarsCount();
@@ -147,5 +148,26 @@ public class Pickup : MonoBehaviour
         pickupEffectBarEffect.GetComponent<_2dxFX_LightningBolt>().enabled = false;
         pickupEffectBarEffect.GetComponent<_2dxFX_Lightning>().enabled = false;
         PlayerController.instance.GetComponent<_2dxFX_LightningBolt>().enabled = false;
+    }
+
+    public void DestroyOrNot()
+    {
+        if (hasReinstantiation)
+        {
+            GetComponent<SpriteRenderer>().enabled = false;
+            GetComponent<CircleCollider2D>().enabled = false;
+            StartCoroutine(TimeInvisible());
+        }
+
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+    IEnumerator TimeInvisible()
+    {
+        yield return new WaitForSeconds(3f);
+        GetComponent<SpriteRenderer>().enabled = true;
+        GetComponent<CircleCollider2D>().enabled = true;
     }
 }
