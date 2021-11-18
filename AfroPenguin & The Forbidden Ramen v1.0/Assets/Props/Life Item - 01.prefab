@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2721864539153701291}
   - component: {fileID: 7327032866250711175}
   m_Layer: 0
-  m_Name: Life Item - 01 - Collider
+  m_Name: Life Item - 01 - Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -165,6 +165,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cb426918b7470a488ef78b863884177, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isCollected: 0
+  hasReinstantiation: 0
   isStar: 0
   isHeal: 1
   isOrb: 0
