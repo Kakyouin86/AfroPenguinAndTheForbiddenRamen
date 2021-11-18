@@ -82,7 +82,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Star & Life Block - 01
+    path: Star & Life Block - 01 - Sprite
   m_ScaleCurves: []
   m_FloatCurves:
   - curve:
@@ -138,7 +138,7 @@ AnimationClip:
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 2888271058
+      path: 3271673605
       attribute: 1
       script: {fileID: 0}
       typeID: 4
@@ -249,6 +249,16 @@ AnimationClip:
     script: {fileID: 0}
   - curve:
       serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalPosition.x
+    path: Star & Life Block - 01 - Sprite
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
         time: 0
@@ -281,7 +291,17 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.y
-    path: Star & Life Block - 01
+    path: Star & Life Block - 01 - Sprite
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalPosition.z
+    path: Star & Life Block - 01 - Sprite
     classID: 4
     script: {fileID: 0}
   m_EulerEditorCurves: []
