@@ -25,7 +25,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - Effect_Fade: 1
-    - ExplosionValue: 0.57277024
+    - ExplosionValue: 0.23144898
     - OffsetUV_X_1: 0
     - OffsetUV_Y_1: 0.445
     - OffsetUV_ZoomX_1: 1
@@ -51,4 +51,3 @@ Material:
     m_Colors:
     - _OutlineEmpty_Color_1: {r: 1, g: 1, b: 1, a: 1}
     - _Outline_Color_1: {r: 1, g: 1, b: 1, a: 1}
-  m_BuildTextureStacks: []

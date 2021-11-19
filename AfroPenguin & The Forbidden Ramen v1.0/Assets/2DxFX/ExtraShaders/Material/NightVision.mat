@@ -127,7 +127,7 @@ Material:
     - _CircleHole_PosX_1: 0.5
     - _CircleHole_PosY_1: 0.5
     - _CircleHole_Size_1: 0
-    - _ColorFilters_Fade_1: 0.94842696
+    - _ColorFilters_Fade_1: 0.19584925
     - _ColorHSV_Brightness_1: 1.26
     - _ColorHSV_Hue_1: 254.62515
     - _ColorHSV_Saturation_1: 1
@@ -204,4 +204,3 @@ Material:
     - _ShadowLight_Color_1: {r: 0, g: 0.7, b: 1, a: 1}
     - _TintColor: {r: 0, g: 0.647059, b: 1, a: 1}
     - _TintRGBA_Color_1: {r: 1, g: 0.7941177, b: 0, a: 1}
-  m_BuildTextureStacks: []

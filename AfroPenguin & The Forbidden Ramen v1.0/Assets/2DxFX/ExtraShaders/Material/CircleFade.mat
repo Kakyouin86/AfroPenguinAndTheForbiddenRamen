@@ -80,7 +80,7 @@ Material:
     - _CircleFade_Dist_1: 0.2
     - _CircleFade_PosX_1: 0.559
     - _CircleFade_PosY_1: 0.5
-    - _CircleFade_Size_1: -0.7207562
+    - _CircleFade_Size_1: -0.46227223
     - _ColorMask: 15
     - _Cutoff: 0.5
     - _Destroyer_Speed_1: 0.5
@@ -108,4 +108,3 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-  m_BuildTextureStacks: []

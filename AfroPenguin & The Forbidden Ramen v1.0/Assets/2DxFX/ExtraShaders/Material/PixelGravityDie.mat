@@ -32,7 +32,7 @@ Material:
     - OffsetUV_ZoomY_1: 1
     - PinchUV_Size_1: 0.2540917
     - PixelUV_Size: 48
-    - Pixel_Fade: 0.39746958
+    - Pixel_Fade: 0.05467372
     - Pixel_Size: 42.5
     - _ColorMask: 15
     - _LerpUV_Fade_1: 1
@@ -53,4 +53,3 @@ Material:
     m_Colors:
     - _OutlineEmpty_Color_1: {r: 1, g: 1, b: 1, a: 1}
     - _Outline_Color_1: {r: 1, g: 1, b: 1, a: 1}
-  m_BuildTextureStacks: []

@@ -30,7 +30,7 @@ Material:
     - OffsetUV_ZoomY_1: 1
     - _ColorMask: 15
     - _LerpUV_Fade_1: 1
-    - _Make3DFX_Dist_1: 0.1793708
+    - _Make3DFX_Dist_1: -0.12166031
     - _Make3DFX_Light_1: -0.64
     - _Make3DFX_PosX_1: 0.53
     - _Make3DFX_PosY_1: -1.81
@@ -47,4 +47,3 @@ Material:
     m_Colors:
     - _OutlineEmpty_Color_1: {r: 1, g: 1, b: 1, a: 1}
     - _Outline_Color_1: {r: 1, g: 1, b: 1, a: 1}
-  m_BuildTextureStacks: []

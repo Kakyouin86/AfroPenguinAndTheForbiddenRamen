@@ -129,7 +129,7 @@ Material:
     - _Emboss_Intensity_1: 0.18
     - _Emboss_grayfade_1: 1.28
     - _Emboss_original_1: 1
-    - _GhostFX_ClipDown_1: 0.18546109
+    - _GhostFX_ClipDown_1: 0.600632
     - _GhostFX_ClipLeft_1: 0.566
     - _GhostFX_ClipRight_1: 0.433
     - _GhostFX_ClipUp_1: 0.705
@@ -165,4 +165,3 @@ Material:
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _FillColor_Color_1: {r: 0.3814879, g: 1, b: 0.1911765, a: 1}
     - _TintRGBA_Color_1: {r: 1, g: 0.7941177, b: 0, a: 1}
-  m_BuildTextureStacks: []

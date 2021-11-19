@@ -162,7 +162,7 @@ Material:
     - _InverseColor_Fade_1: 0.9232315
     - _Jpeg_Compression_1: 0.436
     - _LerpUV_Fade_1: 0.386
-    - _Lerp_Fade_1: 0.94842696
+    - _Lerp_Fade_1: 0.19584925
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
@@ -190,4 +190,3 @@ Material:
     - _InnerGlowHQ_Color_1: {r: 1, g: 0.08088237, b: 0, a: 1}
     - _TintColor: {r: 0, g: 0.647059, b: 1, a: 1}
     - _TintRGBA_Color_1: {r: 1, g: 0.7941177, b: 0, a: 1}
-  m_BuildTextureStacks: []

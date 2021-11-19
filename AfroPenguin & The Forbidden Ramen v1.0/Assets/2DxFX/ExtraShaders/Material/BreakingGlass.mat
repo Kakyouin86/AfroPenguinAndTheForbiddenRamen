@@ -62,7 +62,7 @@ Material:
     m_Floats:
     - Break_Seed: 1.141
     - Break_Size: 12.1
-    - Break_Value: -0.071771294
+    - Break_Value: -0.3117284
     - _AutomaticLerp_Speed_1: 0.487
     - _BlurHQPlus_Intensity_1: 32.6
     - _Blur_Intensity_1: -0.2695522
@@ -92,4 +92,3 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-  m_BuildTextureStacks: []
