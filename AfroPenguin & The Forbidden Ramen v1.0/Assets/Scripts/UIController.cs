@@ -34,7 +34,6 @@ public class UIController : MonoBehaviour
     public GameObject levelCompleteText;
     public Slider bossHealthBarSlider;
 
-
     private void Awake()
     {
         instance = this;
