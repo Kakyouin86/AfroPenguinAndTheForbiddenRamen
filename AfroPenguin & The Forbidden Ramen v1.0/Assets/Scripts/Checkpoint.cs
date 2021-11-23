@@ -25,13 +25,11 @@ public class Checkpoint : MonoBehaviour
 
     public void ResetCheckpoint()
     {
-
         theSR.sprite = checkpointOff;
     }
 
     public void ActivateCheckpoint()
     {
-
         theSR.sprite = checkpointOn;
     }
 }
