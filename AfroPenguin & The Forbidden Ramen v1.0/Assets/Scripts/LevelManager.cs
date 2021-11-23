@@ -14,6 +14,7 @@ public class LevelManager : MonoBehaviour
     public string levelToLoad;
     public float timeInLevel;
     public bool isPlayingIntro;
+    public GameObject[] enemiesToRespawn;
     public void Awake()
     {
         instance = this;
@@ -76,6 +77,11 @@ public class LevelManager : MonoBehaviour
         PlayerHealthController.instance.currentHealth = PlayerHealthController.instance.maxHealth;
 
         UIController.instance.UpdateHealthUpdate();
+
+        for (int i = 0; i < enemiesToRespawn.Length; i++)
+        {
+            enemiesToRespawn[i].gameObject.SetActive(true);
+        }
     }
 
     public void EndLevel()

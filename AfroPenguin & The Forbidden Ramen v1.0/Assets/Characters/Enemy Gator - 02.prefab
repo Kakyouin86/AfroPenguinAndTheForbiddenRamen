@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6436524260956903237}
   - component: {fileID: 6436524260956903243}
   m_Layer: 0
-  m_Name: Enemt Gator - 02 - Collider
+  m_Name: Enemy Gator - 02 - Collider
   m_TagString: Hurtbox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -351,3 +351,4 @@ MonoBehaviour:
   distanceToAttackPlayer: 0
   chaseSpeed: 0
   waitAfterAttack: 0
+  attackCounter: 0

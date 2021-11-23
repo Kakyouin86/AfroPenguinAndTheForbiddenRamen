@@ -88,12 +88,21 @@ public class EnemyHP : MonoBehaviour
     IEnumerator KillSwitch()
     {
         yield return new WaitForSeconds(0f);
-        Destroy(transform.parent.gameObject);
+        //Destroy(transform.parent.gameObject);
+        theSR.color = new Color(1f, 1f, 1f, 1.0f);
+        GetComponent<BoxCollider2D>().enabled = true;
+        transform.parent.gameObject.GetComponent<BoxCollider2D>().enabled = true;
+        GetComponentInChildren<EnemyHP>().currentHP = GetComponentInChildren<EnemyHP>().enemyHP;
+        transform.parent.gameObject.SetActive(false);
     }
 
     public void KillInstantly()
     {
-        Destroy(transform.parent.gameObject);
+        theSR.color = new Color(1f, 1f, 1f, 1.0f);
+        GetComponent<BoxCollider2D>().enabled = true;
+        transform.parent.gameObject.GetComponent<BoxCollider2D>().enabled = true;
+        GetComponentInChildren<EnemyHP>().currentHP = GetComponentInChildren<EnemyHP>().enemyHP;
+        transform.parent.gameObject.SetActive(false);
     }
 
     IEnumerator HitConfirm()
@@ -104,7 +113,6 @@ public class EnemyHP : MonoBehaviour
         GetComponent<BoxCollider2D>().enabled = false;
         GetComponent<BoxCollider2D>().enabled = true;
         theSR.enabled = true;
-
     }
 
     IEnumerator HitConfirmAlmostDead()
@@ -116,6 +124,7 @@ public class EnemyHP : MonoBehaviour
         GetComponent<BoxCollider2D>().enabled = true;
         theSR.enabled = true;
     }
+
     IEnumerator Flash()
     {
         invisibleCounter = invisibleLength;
