@@ -8,7 +8,7 @@ public class DarkCaveController : MonoBehaviour
 {
     public SpriteRenderer theSR;
     public bool shouldFadeToBlack;
-    public float fadeSpeed = 0.5;
+    public float fadeSpeed = 0.5f;
 
     // Start is called before the first frame update
     void Start()
