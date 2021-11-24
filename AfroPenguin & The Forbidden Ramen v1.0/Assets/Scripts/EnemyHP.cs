@@ -90,6 +90,7 @@ public class EnemyHP : MonoBehaviour
         yield return new WaitForSeconds(0f);
         //Destroy(transform.parent.gameObject);
         theSR.color = new Color(1f, 1f, 1f, 1.0f);
+        theSR.enabled = true;
         GetComponent<BoxCollider2D>().enabled = true;
         transform.parent.gameObject.GetComponent<BoxCollider2D>().enabled = true;
         GetComponentInChildren<EnemyHP>().currentHP = GetComponentInChildren<EnemyHP>().enemyHP;
@@ -99,6 +100,7 @@ public class EnemyHP : MonoBehaviour
     public void KillInstantly()
     {
         theSR.color = new Color(1f, 1f, 1f, 1.0f);
+        theSR.enabled = true;
         GetComponent<BoxCollider2D>().enabled = true;
         transform.parent.gameObject.GetComponent<BoxCollider2D>().enabled = true;
         GetComponentInChildren<EnemyHP>().currentHP = GetComponentInChildren<EnemyHP>().enemyHP;
@@ -112,6 +114,8 @@ public class EnemyHP : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         GetComponent<BoxCollider2D>().enabled = false;
         GetComponent<BoxCollider2D>().enabled = true;
+        GetComponentInParent<BoxCollider2D>().enabled = false;
+        GetComponentInParent<BoxCollider2D>().enabled = true;
         theSR.enabled = true;
     }
 
@@ -120,8 +124,10 @@ public class EnemyHP : MonoBehaviour
         theSR.enabled = false;
         StartCoroutine("FlashAlmostDead");
         yield return new WaitForSeconds(0.1f);
-                GetComponent<BoxCollider2D>().enabled = false;
+        GetComponent<BoxCollider2D>().enabled = false;
         GetComponent<BoxCollider2D>().enabled = true;
+        GetComponentInParent<BoxCollider2D>().enabled = false;
+        GetComponentInParent<BoxCollider2D>().enabled = true;
         theSR.enabled = true;
     }
 
@@ -132,11 +138,9 @@ public class EnemyHP : MonoBehaviour
         {
             invisibleCounter -= Time.deltaTime;
             theSR.color = new Color(theSR.color.r, theSR.color.g, theSR.color.b, 0.5f);
-            yield
-                return new WaitForSeconds(0.05f);
+            yield return new WaitForSeconds(0.05f);
             theSR.color = new Color(theSR.color.r, theSR.color.g, theSR.color.b, 1f);
-            yield
-                return new WaitForSeconds(0.05f);
+            yield return new WaitForSeconds(0.05f);
         }
         theSR.color = new Color(1f, 1f, 1f, 1.0f);
     }
@@ -148,11 +152,9 @@ public class EnemyHP : MonoBehaviour
         {
             invisibleCounter -= Time.deltaTime;
             theSR.color = new Color(theSR.color.r, theSR.color.g, theSR.color.b, 0.5f);
-            yield
-                return new WaitForSeconds(0.05f);
+            yield return new WaitForSeconds(0.05f);
             theSR.color = new Color(0.7264151f, 0.1329476f, 0.1329476f, 1f);
-            yield
-                return new WaitForSeconds(0.05f);
+            yield return new WaitForSeconds(0.05f);
         }
         theSR.color = new Color(1f, 1f, 1f, 1.0f);
     }
