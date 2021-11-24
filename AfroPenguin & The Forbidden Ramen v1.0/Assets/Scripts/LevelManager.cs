@@ -14,6 +14,7 @@ public class LevelManager : MonoBehaviour
     public string levelToLoad;
     public float timeInLevel;
     public bool isPlayingIntro;
+    public bool isPlayingLevelEnd;
     public GameObject[] enemiesToRespawn;
     public void Awake()
     {
@@ -23,6 +24,7 @@ public class LevelManager : MonoBehaviour
     public void Start()
     {
         theAnimator = GetComponent<Animator>();
+        isPlayingLevelEnd = false;
     }
 
     void Update()
@@ -92,10 +94,11 @@ public class LevelManager : MonoBehaviour
     public IEnumerator EndLevelCo()
     {
         AudioManager.instance.PlayLevelVictory();
-        PlayerController.instance.canMove = false;
-        CameraController.instance.stopFollow = true;
+        isPlayingLevelEnd = true;
+        //CameraController.instance.stopFollow = true;
+        FindObjectOfType<CameraFollowMegaMan>().enabled = false;
         UIController.instance.levelCompleteText.SetActive(true);
-        yield return new WaitForSeconds(1.5f);
+        //yield return new WaitForSeconds(0.0f);
         UIController.instance.FadeToBlack();
         //If I don't put any yield, then I won't be able to test anything.
         yield return new WaitForSeconds((1f / UIController.instance.fadeSpeed) + 3f);

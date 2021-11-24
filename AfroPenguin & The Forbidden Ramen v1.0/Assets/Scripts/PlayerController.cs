@@ -156,6 +156,9 @@ public class PlayerController : MonoBehaviour
             canMove = false;
         //if (LevelManager.instance.isPlayingIntro)
         //    canMove = false;
+
+        if (LevelManager.instance.isPlayingLevelEnd)
+            canMove = false;
         return canMove;
     }
     #endregion
