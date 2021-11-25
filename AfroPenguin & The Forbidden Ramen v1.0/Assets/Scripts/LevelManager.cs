@@ -98,10 +98,10 @@ public class LevelManager : MonoBehaviour
         //CameraController.instance.stopFollow = true;
         FindObjectOfType<CameraFollowMegaMan>().enabled = false;
         UIController.instance.levelCompleteText.SetActive(true);
-        //yield return new WaitForSeconds(0.0f);
+        yield return new WaitForSeconds(2f);
         UIController.instance.FadeToBlack();
         //If I don't put any yield, then I won't be able to test anything.
-        yield return new WaitForSeconds((1f / UIController.instance.fadeSpeed) + 3f);
+        yield return new WaitForSeconds((1f / UIController.instance.fadeSpeed) + 1);
         //We will store information: PlayerPrefs. Unlocked is 1.
         PlayerPrefs.SetInt(SceneManager.GetActiveScene().name + "_unlocked", 1);
         PlayerPrefs.SetString("CurrentLevel", (SceneManager.GetActiveScene().name));
