@@ -72,12 +72,12 @@ SpriteRenderer:
   m_SortingLayerID: 1512722725
   m_SortingLayer: 4
   m_SortingOrder: 1
-  m_Sprite: {fileID: 3951126739053189346, guid: 36b7842c9c654df4f93a9710925622db, type: 3}
+  m_Sprite: {fileID: -4673061261109283067, guid: 31019374c4ff11445bde8c7cec934a90, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.125, y: 1.1875}
+  m_Size: {x: 0.23, y: 0.21}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -129,7 +129,7 @@ Transform:
   m_GameObject: {fileID: 6301943298866445696}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_Children:
   - {fileID: 5920514581281004126}
   m_Father: {fileID: 0}
@@ -163,6 +163,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cb426918b7470a488ef78b863884177, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isCollected: 0
+  hasReinstantiation: 0
   isStar: 0
   isHeal: 0
   isOrb: 0
