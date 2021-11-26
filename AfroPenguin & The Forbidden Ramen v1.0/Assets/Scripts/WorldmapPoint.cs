@@ -30,7 +30,7 @@ public class WorldmapPoint : MonoBehaviour
                 ramenStarsBadge.SetActive(true);
             }
 
-            if (livesLost == 0)
+            if (livesLost == 0 && PlayerPrefs.GetInt("_unlocked") == 1)
             {
                 noLivesLostBadge.SetActive(true);
             }
