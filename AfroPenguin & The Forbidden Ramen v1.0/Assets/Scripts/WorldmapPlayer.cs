@@ -23,6 +23,9 @@ public class WorldmapPlayer : MonoBehaviour
             //the distance between two objects, out current position, and our current POINT position. Since it is really really low, then, we can move since we need to be AT the point.
             theAnimator.SetBool("walkingRight", false);
             theAnimator.SetBool("walkingLeft", false);
+            theAnimator.SetBool("walkingUp", false);
+            theAnimator.SetBool("walkingDown", false);
+
 
             //first: move, to where?, how fast?
             if (Input.GetAxisRaw("Horizontal") > .5f)
@@ -32,6 +35,8 @@ public class WorldmapPlayer : MonoBehaviour
                     SetNextPoint(currentPoint.right);
                     theAnimator.SetBool("walkingRight",true);
                     theAnimator.SetBool("walkingLeft", false);
+                    theAnimator.SetBool("walkingUp", false);
+                    theAnimator.SetBool("walkingDown", false);
                 }
             }
 
@@ -42,6 +47,8 @@ public class WorldmapPlayer : MonoBehaviour
                     SetNextPoint(currentPoint.left);
                     theAnimator.SetBool("walkingRight", false);
                     theAnimator.SetBool("walkingLeft", true);
+                    theAnimator.SetBool("walkingUp", false);
+                    theAnimator.SetBool("walkingDown", false);
                 }
             }
 
@@ -50,8 +57,10 @@ public class WorldmapPlayer : MonoBehaviour
                 if (currentPoint.up != null)
                 {
                     SetNextPoint(currentPoint.up);
-                    theAnimator.SetBool("walkingRight", true);
+                    theAnimator.SetBool("walkingRight", false);
                     theAnimator.SetBool("walkingLeft", false);
+                    theAnimator.SetBool("walkingUp", true);
+                    theAnimator.SetBool("walkingDown", false);
                 }
             }
 
@@ -61,7 +70,9 @@ public class WorldmapPlayer : MonoBehaviour
                 {
                     SetNextPoint(currentPoint.down);
                     theAnimator.SetBool("walkingRight", false);
-                    theAnimator.SetBool("walkingLeft", true);
+                    theAnimator.SetBool("walkingLeft", false);
+                    theAnimator.SetBool("walkingUp", false);
+                    theAnimator.SetBool("walkingDown", true);
                 }
             }
 
