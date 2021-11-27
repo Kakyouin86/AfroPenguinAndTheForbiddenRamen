@@ -10,6 +10,7 @@ public class WorldmapLevelManager : MonoBehaviour
 
     void Start()
     {
+        PlayerPrefs.SetString("CurrentLevel", SceneManager.GetSceneByName("Level 01").ToString());
         allPoints = FindObjectsOfType<WorldmapPoint>();
         if(PlayerPrefs.HasKey("CurrentLevel"))
         {
@@ -33,9 +34,9 @@ public class WorldmapLevelManager : MonoBehaviour
 
     public IEnumerator LoadLevelCo()
     {
-        AudioManager.instance.PlaySFX(4);
+        //AudioManager.instance.PlaySFX(4);
         WorldmapUIController.instance.FadeToBlack();
-        yield return new WaitForSeconds((1.0F / WorldmapUIController.instance.fadeSpeed) + 0.25f);
+        yield return new WaitForSeconds((1.0f / WorldmapUIController.instance.fadeSpeed));
         SceneManager.LoadScene(worldmapPlayer.currentPoint.levelToLoad);
     }    
 }

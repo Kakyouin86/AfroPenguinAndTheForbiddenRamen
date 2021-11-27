@@ -76,7 +76,7 @@ public class WorldmapPlayer : MonoBehaviour
                 }
             }
 
-            if(currentPoint.isLevel && currentPoint.levelToLoad != "" && !currentPoint.isLocked) //"blank"
+            if(currentPoint.isLevel && currentPoint.levelToLoad != "" && !currentPoint.isLocked)
             {
                 WorldmapUIController.instance.ShowLevelInfo(currentPoint);
                 if (Input.GetButtonDown("Jump"))

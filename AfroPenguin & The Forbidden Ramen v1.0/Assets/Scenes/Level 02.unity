@@ -730,7 +730,7 @@ MonoBehaviour:
   barAnimator: {fileID: 6653442201570647540}
   iconAnimator: {fileID: 6653442201642787616}
   fadeScreen: {fileID: 1066894358}
-  fadeSpeed: 3
+  fadeSpeed: 1.5
   shouldFadeToBlack: 0
   shouldFadeFromBlack: 0
   levelCompleteText: {fileID: 1264500348}
@@ -1134,7 +1134,7 @@ SpriteRenderer:
   m_Size: {x: 1.125, y: 2.1875}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &468012499
@@ -2481,7 +2481,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -4457,6 +4457,8 @@ MonoBehaviour:
   levelToLoad: Main Menu
   timeInLevel: 0
   isPlayingIntro: 0
+  isPlayingLevelEnd: 0
+  enemiesToRespawn: []
 --- !u!222 &1599320189
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -14698,7 +14700,7 @@ SpriteRenderer:
   m_Size: {x: 1.375, y: 2.0625}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &3560077582746284281
@@ -14780,7 +14782,7 @@ SpriteRenderer:
   m_Size: {x: 1.375, y: 2.0625}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &3560077583216129500
@@ -14862,7 +14864,7 @@ SpriteRenderer:
   m_Size: {x: 1.375, y: 2.0625}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &3560077583702640896
@@ -14996,7 +14998,7 @@ SpriteRenderer:
   m_Size: {x: 1.375, y: 2.0625}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!224 &3867480678275369407

@@ -9,7 +9,8 @@ public class WorldmapPoint : MonoBehaviour
     public bool isLocked;
     public string levelToLoad;
     public string levelToCheck;
-    public string levelName;
+    public string levelNameEnglish;
+    public string levelNameSpanish;
     public int starsCollected, livesLost;
     public float bestTime;
     public GameObject ramenStarsBadge, noLivesLostBadge;

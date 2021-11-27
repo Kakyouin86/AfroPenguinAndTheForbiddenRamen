@@ -1,16 +1,41 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
     public string startScene, continueScene;
     public GameObject continueButton;
+    public Image fadeScreen;
+    public float fadeSpeed = 1.0f;
+    public bool shouldFadeToBlack, shouldFadeFromBlack;
 
     // Start is called before the first frame update
     void Start()
     {
+        FadeFromBlack();
+        switch (LanguageSelect.instance.language)
+        {
+            case 1: 
+                GameObject[] englishGameObjects = GameObject.FindGameObjectsWithTag("English Text");
+                foreach (GameObject go in englishGameObjects)
+                {
+                    go.SetActive(false);
+                }
+                break;
+
+            default:
+                GameObject[] españolGameObjects = GameObject.FindGameObjectsWithTag("Español Text");
+                foreach (GameObject go in españolGameObjects)
+                {
+                    go.SetActive(false);
+                }
+                break;
+        }
+
         if (PlayerPrefs.HasKey(startScene+ "_unlocked"))
         {
             continueButton.SetActive(true);
@@ -22,27 +47,48 @@ public class MainMenu : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Update()
     {
-        
+        if (shouldFadeToBlack)
+        {
+            fadeScreen.color = new Color(fadeScreen.color.r, fadeScreen.color.g, fadeScreen.color.b, Mathf.MoveTowards(fadeScreen.color.a, 1f, fadeSpeed * Time.deltaTime));
+            if (fadeScreen.color.a == 1f)
+            {
+                shouldFadeToBlack = false;
+            }
+        }
+
+        if (shouldFadeFromBlack)
+        {
+            fadeScreen.color = new Color(fadeScreen.color.r, fadeScreen.color.g, fadeScreen.color.b, Mathf.MoveTowards(fadeScreen.color.a, 0f, fadeSpeed * Time.deltaTime));
+            if (fadeScreen.color.a == 0f)
+            {
+                shouldFadeFromBlack = false;
+            }
+        }
     }
 
     public void StartGame()
     {
         SceneManager.LoadScene(startScene);
         PlayerPrefs.DeleteAll();
+        PlayerPrefs.SetInt("Language", LanguageSelect.instance.language);
     }
 
     public void QuitGame()
     {
         Application.Quit();
-        Debug.Log("Quitting Game");
     }
 
     public void ContinueGame()
     {
         SceneManager.LoadScene(continueScene);
+    }
+
+    public void FadeFromBlack()
+    {
+        shouldFadeFromBlack = true;
+        shouldFadeToBlack = false;
     }
 }
 

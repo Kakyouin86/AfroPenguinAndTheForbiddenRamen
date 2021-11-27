@@ -25,6 +25,26 @@ public class LevelManager : MonoBehaviour
     {
         theAnimator = GetComponent<Animator>();
         isPlayingLevelEnd = false;
+        switch (LanguageSelect.instance.language)
+        {
+            case 1:
+                GameObject[] englishGameObjects = GameObject.FindGameObjectsWithTag("English Text");
+                foreach (GameObject go in englishGameObjects)
+                {
+                    go.SetActive(false);
+                }
+
+                break;
+
+            default:
+                GameObject[] españolGameObjects = GameObject.FindGameObjectsWithTag("Español Text");
+                foreach (GameObject go in españolGameObjects)
+                {
+                    go.SetActive(false);
+                }
+
+                break;
+        }
     }
 
     void Update()

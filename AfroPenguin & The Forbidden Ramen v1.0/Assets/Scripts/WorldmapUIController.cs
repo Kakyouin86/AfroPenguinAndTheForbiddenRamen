@@ -20,6 +20,26 @@ public class WorldmapUIController : MonoBehaviour
     void Start()
     {
         FadeFromBlack();
+        switch (LanguageSelect.instance.language)
+        {
+            case 1:
+                GameObject[] englishGameObjects = GameObject.FindGameObjectsWithTag("English Text");
+                foreach (GameObject go in englishGameObjects)
+                {
+                    go.SetActive(false);
+                }
+
+                break;
+
+            default:
+                GameObject[] españolGameObjects = GameObject.FindGameObjectsWithTag("Español Text");
+                foreach (GameObject go in españolGameObjects)
+                {
+                    go.SetActive(false);
+                }
+
+                break;
+        }
     }
 
     // Update is called once per frame
@@ -58,7 +78,17 @@ public class WorldmapUIController : MonoBehaviour
 
     public void ShowLevelInfo(WorldmapPoint worldMapPongLevelInfo) //I'm giving you the WorldmapPoint variable to use to get information. LevelInfo is made up.
     {
-        levelName.text = worldMapPongLevelInfo.levelName;
+        switch (LanguageSelect.instance.language)
+        {
+            case 1:
+                levelName.text = worldMapPongLevelInfo.levelNameSpanish;
+                break;
+
+            default:
+                levelName.text = worldMapPongLevelInfo.levelNameEnglish;
+                break;
+        }
+
         starsCollected.text = "Stars collected: " + worldMapPongLevelInfo.starsCollected;
         livesLost.text = "Lives lost: " + worldMapPongLevelInfo.livesLost; //no need because there is a string before. NO NEED ->.ToString();
 
