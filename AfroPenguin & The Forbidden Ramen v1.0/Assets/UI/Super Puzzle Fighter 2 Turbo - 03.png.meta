@@ -152,7 +152,364 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Super Puzzle Fighter 2 Turbo - 03_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1151
+        width: 384
+        height: 224
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 376c1cbedceee1f20800000000000000
+      internalID: 3395413737274984051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Puzzle Fighter 2 Turbo - 03_1
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 1151
+        width: 384
+        height: 224
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70c8c79ed24c8f790800000000000000
+      internalID: -7496025878288364537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Puzzle Fighter 2 Turbo - 03_2
+      rect:
+        serializedVersion: 2
+        x: 772
+        y: 1151
+        width: 384
+        height: 224
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df9446cc10da49390800000000000000
+      internalID: -7812429230345270787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Puzzle Fighter 2 Turbo - 03_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 925
+        width: 384
+        height: 224
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba3068005d53c2240800000000000000
+      internalID: 4768245294431601579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Puzzle Fighter 2 Turbo - 03_4
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 925
+        width: 384
+        height: 224
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae3f504b27b3657f0800000000000000
+      internalID: -624246134511635478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Puzzle Fighter 2 Turbo - 03_5
+      rect:
+        serializedVersion: 2
+        x: 772
+        y: 925
+        width: 384
+        height: 224
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61796b23cc07c9280800000000000000
+      internalID: -9035222730085591274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Puzzle Fighter 2 Turbo - 03_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 699
+        width: 384
+        height: 224
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d257d1d2948cf15b0800000000000000
+      internalID: -5395373611951491795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Puzzle Fighter 2 Turbo - 03_7
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 699
+        width: 384
+        height: 224
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e8414a7f7e1a30a0800000000000000
+      internalID: -6901169946131085087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Puzzle Fighter 2 Turbo - 03_8
+      rect:
+        serializedVersion: 2
+        x: 772
+        y: 699
+        width: 384
+        height: 224
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d40d86f5f90717480800000000000000
+      internalID: -8903211158531944371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Puzzle Fighter 2 Turbo - 03_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 473
+        width: 384
+        height: 224
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1798c25f5ab01b60800000000000000
+      internalID: 7714871080259196699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Puzzle Fighter 2 Turbo - 03_10
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 473
+        width: 384
+        height: 224
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de0072fdf0b7e5400800000000000000
+      internalID: 314824332061114605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Puzzle Fighter 2 Turbo - 03_11
+      rect:
+        serializedVersion: 2
+        x: 772
+        y: 473
+        width: 384
+        height: 224
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b42e18cf78b23800800000000000000
+      internalID: 590737360096732338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Puzzle Fighter 2 Turbo - 03_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 247
+        width: 384
+        height: 224
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2874a2e81bd96e80800000000000000
+      internalID: -8184769947841038293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Puzzle Fighter 2 Turbo - 03_13
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 247
+        width: 384
+        height: 224
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aed8e244cfe005b60800000000000000
+      internalID: 7732697036833590762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Puzzle Fighter 2 Turbo - 03_14
+      rect:
+        serializedVersion: 2
+        x: 772
+        y: 247
+        width: 384
+        height: 224
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2c7b855434f3f120800000000000000
+      internalID: 2446567528202992683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Puzzle Fighter 2 Turbo - 03_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 21
+        width: 384
+        height: 224
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 743fb97606db93da0800000000000000
+      internalID: -5964528009722727609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Puzzle Fighter 2 Turbo - 03_16
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 21
+        width: 384
+        height: 224
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7fe1d118635418650800000000000000
+      internalID: 6233339459654196983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
