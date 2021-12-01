@@ -22,28 +22,30 @@ public class MenuButton : MonoBehaviour
     }
     void Update()
     {
-		if(menuButtonController.index == thisIndex)
-		{
-            theAnimator.SetBool ("selected", true);
+        if (menuButtonController.index == thisIndex)
+            {
+                theAnimator.SetBool("selected", true);
 
-			if(Input.GetAxis ("Submit") == 1)
-			{
-                theAnimator.SetBool ("pressed", true);
-                StartCoroutine("LittleFade");
+                if (Input.GetAxis("Submit") == 1)
+                {
+                    theAnimator.SetBool("pressed", true);
+                    FindObjectOfType<MenuButtonController>().canMove = false;
+                    StartCoroutine("LittleFade");
+                }
+
+                else if (theAnimator.GetBool("pressed"))
+                {
+                    theAnimator.SetBool("pressed", false);
+                    animatorFunctions.disableOnce = true;
+                }
             }
 
-			else if (theAnimator.GetBool ("pressed"))
-			{
-                theAnimator.SetBool ("pressed", false);
-				animatorFunctions.disableOnce = true;
-			}
-		}
-
-		else
-		{
-            theAnimator.SetBool ("selected", false);
-		}
+            else
+            {
+                theAnimator.SetBool("selected", false);
+            }
     }
+
 
     IEnumerator LittleFade()
 

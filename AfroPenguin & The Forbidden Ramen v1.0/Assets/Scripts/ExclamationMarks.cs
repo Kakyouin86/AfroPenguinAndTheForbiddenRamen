@@ -15,24 +15,29 @@ public class ExclamationMarks : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
     }
 
     public void OnTriggerEnter2D(Collider2D player)
     {
-        if (player.CompareTag("Player") || player.CompareTag("Invulnerable"))
+        if (PlayerController.instance.canMove)
         {
-            theAnimator.Play("Exclamation Mark - 01 - Opening Action");
-            theAnimator.SetBool("isOpened", true);
+            if (player.CompareTag("Player") || player.CompareTag("Invulnerable"))
+            {
+                theAnimator.Play("Exclamation Mark - 01 - Opening Action");
+                theAnimator.SetBool("isOpened", true);
+            }
         }
     }
 
     public void OnTriggerExit2D(Collider2D player)
     {
-        if (player.CompareTag("Player") || player.CompareTag("Invulnerable"))
+        if (PlayerController.instance.canMove)
         {
-            theAnimator.Play("Exclamation Mark - 01 - Closing Action");
-            theAnimator.SetBool("isOpened", false);
+            if (player.CompareTag("Player") || player.CompareTag("Invulnerable"))
+            {
+                theAnimator.Play("Exclamation Mark - 01 - Closing Action");
+                theAnimator.SetBool("isOpened", false);
+            }
         }
     }
 }

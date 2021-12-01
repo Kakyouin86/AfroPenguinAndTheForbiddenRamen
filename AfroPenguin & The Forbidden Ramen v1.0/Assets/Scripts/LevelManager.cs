@@ -23,7 +23,6 @@ public class LevelManager : MonoBehaviour
 
     public void Start()
     {
-        theAnimator = GetComponent<Animator>();
         isPlayingLevelEnd = false;
         switch (LanguageSelect.instance.language)
         {

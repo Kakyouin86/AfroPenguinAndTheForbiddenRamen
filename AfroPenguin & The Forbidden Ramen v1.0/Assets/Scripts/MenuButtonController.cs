@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class MenuButtonController : MonoBehaviour {
@@ -9,49 +10,58 @@ public class MenuButtonController : MonoBehaviour {
     public bool keyDown;
     public int maxIndex;
 	public AudioSource audioSource;
+    public bool canMove;
 
 	void Start () 
     {
 		audioSource = GetComponent<AudioSource>();
-	}
-    
-	void Update () {
-		if(Input.GetAxis ("Vertical") != 0)
-        {
-			if(!keyDown){
-				if (Input.GetAxis ("Vertical") < 0) 
-                {
-					if(index < maxIndex)
-                    {
-						index++;
-					}
-                    
-                    else
-                    {
-						index = 0;
-					}
+        canMove = true;
 
-				}
-                
-                else if(Input.GetAxis ("Vertical") > 0)
-                {
-					if(index > 0)
-                    {
-						index --; 
-					}
-                    else
-                    {
-						index = maxIndex;
-					}
-				}
-				keyDown = true;
-			}
-		}
-        
-        else
-        {
-			keyDown = false;
-		}
-	}
+    }
 
+    void Update()
+
+    {
+        if (canMove)
+        {
+            if (Input.GetAxis("Vertical") != 0)
+            {
+                if (!keyDown)
+                {
+                    if (Input.GetAxis("Vertical") < 0)
+                    {
+                        if (index < maxIndex)
+                        {
+                            index++;
+                        }
+
+                        else
+                        {
+                            index = 0;
+                        }
+
+                    }
+
+                    else if (Input.GetAxis("Vertical") > 0)
+                    {
+                        if (index > 0)
+                        {
+                            index--;
+                        }
+                        else
+                        {
+                            index = maxIndex;
+                        }
+                    }
+
+                    keyDown = true;
+                }
+            }
+
+            else
+            {
+                keyDown = false;
+            }
+        }
+    }
 }
