@@ -18,7 +18,7 @@ public class InfiniteBackgroundLoop : MonoBehaviour
     void Update()
     {
         transform.Translate(Vector2.down * speed * Time.deltaTime);
-        if (transform.position.y <= -130)
+        if (transform.position.y <= -120)
         {
             transform.position = startPosition;
         }
