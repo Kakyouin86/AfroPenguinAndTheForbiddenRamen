@@ -50,7 +50,7 @@ public class MenuButton : MonoBehaviour
     IEnumerator LittleFade()
 
     {
-        yield return new WaitForSeconds(0.7f);
+        yield return new WaitForSeconds(1f);
         thisButton.onClick.Invoke();
     }
 }

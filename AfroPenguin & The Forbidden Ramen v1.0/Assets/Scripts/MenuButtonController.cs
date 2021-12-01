@@ -16,11 +16,9 @@ public class MenuButtonController : MonoBehaviour {
     {
 		audioSource = GetComponent<AudioSource>();
         canMove = true;
-
     }
 
     void Update()
-
     {
         if (canMove)
         {

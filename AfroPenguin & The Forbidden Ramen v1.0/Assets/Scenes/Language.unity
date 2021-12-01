@@ -795,6 +795,7 @@ MonoBehaviour:
   keyDown: 0
   maxIndex: 2
   audioSource: {fileID: 0}
+  canMove: 0
 --- !u!82 &1814437653
 AudioSource:
   m_ObjectHideFlags: 0

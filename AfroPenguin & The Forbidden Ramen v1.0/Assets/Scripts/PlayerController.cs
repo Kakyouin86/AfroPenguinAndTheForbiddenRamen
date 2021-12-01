@@ -116,12 +116,13 @@ public class PlayerController : MonoBehaviour
         if (CanMoveOrInteract() == false)
             return;
         {
-            theAnimator.SetFloat("xVelocity", Mathf.Abs(theRB.velocity.x));
-            theAnimator.SetFloat("yVelocity", theRB.velocity.y);
             x = Input.GetAxis("Horizontal");
             y = Input.GetAxis("Vertical");
             xRaw = Input.GetAxisRaw("Horizontal");
             yRaw = Input.GetAxisRaw("Vertical");
+
+            //theAnimator.SetFloat("xVelocity", Mathf.Abs(theRB.velocity.x));
+            theAnimator.SetFloat("yVelocity", theRB.velocity.y);
 
             GroundCheck();
             Walk();
@@ -213,11 +214,13 @@ public class PlayerController : MonoBehaviour
 
         {
             theRB.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * moveSpeed * moveSpeedModifier, theRB.velocity.y);
+            theAnimator.SetFloat("xVelocity", Mathf.Abs(theRB.velocity.x));
         }
 
         else
         {
             theRB.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * moveSpeed, theRB.velocity.y);
+            theAnimator.SetFloat("xVelocity", Mathf.Abs(theRB.velocity.x));
         }
     }
     #endregion
