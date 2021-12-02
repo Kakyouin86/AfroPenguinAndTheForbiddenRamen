@@ -79,7 +79,7 @@ public class WorldmapPlayer : MonoBehaviour
             if(currentPoint.isLevel && currentPoint.levelToLoad != "" && !currentPoint.isLocked)
             {
                 WorldmapUIController.instance.ShowLevelInfo(currentPoint);
-                if (Input.GetButtonDown("Jump"))
+                if (Input.GetButtonDown("Jump") || Input.GetButtonDown("Submit"))
                 {
                     levelLoading = true;
                     theManager.LoadLevel();
@@ -92,6 +92,6 @@ public class WorldmapPlayer : MonoBehaviour
     {
         currentPoint = nextPoint;
         WorldmapUIController.instance.HideLevelInfo();
-        //AudioManager.instance.PlaySFX(5);
+        AudioManager.instance.PlaySFX(0);
     }
 }

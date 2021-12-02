@@ -34,7 +34,7 @@ public class WorldmapLevelManager : MonoBehaviour
 
     public IEnumerator LoadLevelCo()
     {
-        //AudioManager.instance.PlaySFX(4);
+        AudioManager.instance.PlaySFX(1);
         WorldmapUIController.instance.FadeToBlack();
         yield return new WaitForSeconds((1.0f / WorldmapUIController.instance.fadeSpeed));
         SceneManager.LoadScene(worldmapPlayer.currentPoint.levelToLoad);

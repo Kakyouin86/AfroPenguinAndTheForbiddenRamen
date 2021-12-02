@@ -13,6 +13,7 @@ public class KillPlayer : MonoBehaviour
         {
             placeToInstantiate = new Vector2(other.transform.position.x, other.transform.position.y + 1.00f);
             Instantiate(deathEffectPlayer, placeToInstantiate, other.transform.rotation);
+            AudioManager.instance.PlaySFX(1);
             LevelManager.instance.RespawnPlayer();
             LevelManager.instance.SumLostLife();
             UIController.instance.SumLostLife();

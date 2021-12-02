@@ -77,7 +77,7 @@ public class LevelManager : MonoBehaviour
         //this is a CoRoutine. It happens outside the normal execution time of Unity.
         PlayerController.instance.gameObject.SetActive(false);
 
-        AudioManager.instance.PlaySFX(8);
+        //AudioManager.instance.PlaySFX(8);
 
         yield return new WaitForSeconds(waitToRespawn - (1.0f / UIController.instance.fadeSpeed));
         //Yield return new wait for seconds: an instruction to the respawn Coroutine, to wait for a RETURN (a value to be true).

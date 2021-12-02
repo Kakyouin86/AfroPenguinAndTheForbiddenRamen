@@ -27,6 +27,7 @@ public class Stompbox : MonoBehaviour
                 other.gameObject.GetComponent<EnemyHP>().TakeDamage(damageToDeal);
                 placeToInstantiate = new Vector2(other.transform.position.x, other.transform.position.y + 1.00f);
                 Instantiate(deathEffect, placeToInstantiate, other.transform.rotation);
+                AudioManager.instance.PlaySFX(2);
                 PlayerController.instance.Bounce(1f);
                 GetComponentInParent<CapsuleCollider2D>().enabled = false;
                 GetComponentInParent<CapsuleCollider2D>().enabled = true;

@@ -285,6 +285,7 @@ public class PlayerController : MonoBehaviour
                 availableJumps--;
                 theRB.velocity = Vector2.up * jumpForce;
                 CreateJumpDust();
+                AudioManager.instance.PlaySFX(0);
             }
 
             else
@@ -294,18 +295,21 @@ public class PlayerController : MonoBehaviour
                     multipleJumps = true;
                     availableJumps--;
                     theRB.velocity = Vector2.up * jumpForce;
+                    AudioManager.instance.PlaySFX(0);
                 }
 
                 if (multipleJumps && availableJumps > 0)
                 {
                     availableJumps--;
                     theRB.velocity = Vector2.up * jumpForce;
+                    AudioManager.instance.PlaySFX(0);
                 }
             }
         }
         if (Input.GetButtonUp("Jump") && GetComponent<Rigidbody2D>().velocity.y > 0)
         {
             theRB.velocity = new Vector2(theRB.velocity.x, theRB.velocity.y * 0.5f);
+
         }
     }
     #endregion

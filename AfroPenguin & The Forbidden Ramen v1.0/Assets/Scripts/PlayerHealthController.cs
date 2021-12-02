@@ -79,6 +79,7 @@ public class PlayerHealthController : MonoBehaviour
                 gameObject.SetActive(false);
                 placeToInstantiate = new Vector2(transform.position.x, transform.position.y + 1.00f);
                 Instantiate(deathEffect, placeToInstantiate, transform.rotation);
+                AudioManager.instance.PlaySFX(1);
                 LevelManager.instance.RespawnPlayer();
                 LevelManager.instance.SumLostLife();
                 UIController.instance.SumLostLife();
@@ -88,7 +89,7 @@ public class PlayerHealthController : MonoBehaviour
             {
                 invisibleCounter = invisibleLength;
                 PlayerController.instance.KnockBack();
-                AudioManager.instance.PlaySFX(9);
+                AudioManager.instance.PlaySFX(3);
                 if (currentHealth < 2)
                 {
                     FlashWrapper();

@@ -64,7 +64,7 @@ public class Pickup : MonoBehaviour
                     DestroyOrNot();
                     placeToInstantiate = new Vector2(transform.position.x, transform.position.y + 1.00f);
                     Instantiate(pickupEffectHeal, placeToInstantiate, transform.rotation);
-                    AudioManager.instance.PlaySFX(7);
+                    AudioManager.instance.PlaySFX(8);
                 }
                 else
                 {
@@ -92,6 +92,7 @@ public class Pickup : MonoBehaviour
                 gameObject.GetComponent<BoxCollider2D>().enabled = false;
                 placeToInstantiate = new Vector2(transform.position.x, transform.position.y + 1.00f);
                 Instantiate(pickupEffectFish, placeToInstantiate, transform.rotation);
+                AudioManager.instance.PlaySFX(11);
                 StartCoroutine(IsInvulnerable());
             }
 
@@ -108,7 +109,7 @@ public class Pickup : MonoBehaviour
                     UIController.instance.SumLostLife();
                     DestroyOrNot();
                     pickupEffectLife.Play();
-                    AudioManager.instance.PlaySFX(7);
+                    AudioManager.instance.PlaySFX(10);
                 }
             }
 
@@ -123,8 +124,8 @@ public class Pickup : MonoBehaviour
                 DestroyOrNot();
                 placeToInstantiate = new Vector2(transform.position.x, transform.position.y + 1.00f);
                 Instantiate(pickupEffectStar, placeToInstantiate, transform.rotation);
+                AudioManager.instance.PlaySFX(9);
                 UIController.instance.UpdateStarsCount();
-                AudioManager.instance.PlaySFX(6);
             }
         }
     }
