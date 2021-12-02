@@ -76,29 +76,29 @@ public class WorldmapUIController : MonoBehaviour
         shouldFadeToBlack = false;
     }
 
-    public void ShowLevelInfo(WorldmapPoint worldMapPongLevelInfo) //I'm giving you the WorldmapPoint variable to use to get information. LevelInfo is made up.
+    public void ShowLevelInfo(WorldmapPoint worldMapPointLevelInfo) //I'm giving you the WorldmapPoint variable to use to get information. LevelInfo is made up.
     {
         switch (LanguageSelect.instance.language)
         {
             case 1:
-                levelName.text = worldMapPongLevelInfo.levelNameSpanish;
+                levelName.text = worldMapPointLevelInfo.levelNameSpanish;
                 break;
 
             default:
-                levelName.text = worldMapPongLevelInfo.levelNameEnglish;
+                levelName.text = worldMapPointLevelInfo.levelNameEnglish;
                 break;
         }
 
-        starsCollected.text = "Stars collected: " + worldMapPongLevelInfo.starsCollected;
-        livesLost.text = "Lives lost: " + worldMapPongLevelInfo.livesLost; //no need because there is a string before. NO NEED ->.ToString();
+        starsCollected.text = "Stars collected: " + worldMapPointLevelInfo.starsCollected;
+        livesLost.text = "Lives lost: " + worldMapPointLevelInfo.livesLost; //no need because there is a string before. NO NEED ->.ToString();
 
-        if (worldMapPongLevelInfo.bestTime == 0)
+        if (worldMapPointLevelInfo.bestTime == 0)
         {
             bestTime.text = "Best time: ---";
         }
         else
         {
-            bestTime.text = "Best time: " + worldMapPongLevelInfo.bestTime.ToString("F2") + "s";
+            bestTime.text = "Best time: " + worldMapPointLevelInfo.bestTime.ToString("F2") + "s";
         }
 
         levelInfoPanel.SetActive(true);

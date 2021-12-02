@@ -13,6 +13,9 @@ public class WorldmapPlayer : MonoBehaviour
     void Start()
     {
         theAnimator = GetComponent<Animator>();
+        transform.position = new Vector2(
+            PlayerPrefs.GetFloat("Level Selected" + ".x", transform.position.x),
+            PlayerPrefs.GetFloat("Level Selected" + ".y", transform.position.y));
     }
 
     void Update()
