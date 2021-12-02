@@ -29,6 +29,7 @@ public class ItemsToInstantiate : MonoBehaviour
             theAnimator.SetBool("stop", true);
             GetComponent<Collider2D>().enabled = false;
             StartCoroutine(InstantiateItems());
+            StartCoroutine(SmallWait());
         }
     }
 
@@ -39,7 +40,12 @@ public class ItemsToInstantiate : MonoBehaviour
         {
             items[i].SetActive(true);
         }
+    }
 
+    IEnumerator SmallWait()
+    {
+        yield return new WaitForSeconds(0.7f);
+        GetComponent<AudioSource>().Play();
     }
 
 }

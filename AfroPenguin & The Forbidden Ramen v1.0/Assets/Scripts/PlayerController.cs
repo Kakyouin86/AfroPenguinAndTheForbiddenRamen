@@ -332,6 +332,7 @@ public class PlayerController : MonoBehaviour
         {
             currentDashGauge = 100f;
             canDash = true;
+            AudioManager.instance.PlaySFX(4);
             UIController.instance.barAnimator.SetBool("isFilled", true);
             UIController.instance.iconAnimator.SetBool("isFilled", true);
             UIController.instance.dashIndicatorSlider.value = currentDashGauge;
@@ -363,6 +364,7 @@ public class PlayerController : MonoBehaviour
                 {
                     dashUp = false;
                 }
+                AudioManager.instance.PlaySFX(5);
                 Camera.main.transform.DOComplete();
                 FindObjectOfType<RippleEffect>().Emit(Camera.main.WorldToViewportPoint(transform.position));
                 theDashHurtbox.SetActive(true);

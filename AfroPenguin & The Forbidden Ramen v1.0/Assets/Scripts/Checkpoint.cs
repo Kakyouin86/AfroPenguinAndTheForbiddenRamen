@@ -17,6 +17,7 @@ public class Checkpoint : MonoBehaviour
         if (other.CompareTag("Player") || other.CompareTag("Invulnerable"))
         {
             CheckpointController.instance.HandleCheckpoints(this);
+            GetComponent<AudioSource>().Play();
             //CheckpointController.instance.DeactivateCheckpoints();
             //theSR.sprite = checkpointOn;
             //CheckpointController.instance.SetSpawnPoint(transform.position);

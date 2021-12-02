@@ -25,6 +25,7 @@ public class ExclamationMarks : MonoBehaviour
             {
                 theAnimator.Play("Exclamation Mark - 01 - Opening Action");
                 theAnimator.SetBool("isOpened", true);
+                GetComponent<AudioSource>().Play();
             }
         }
     }

@@ -12,6 +12,7 @@ public class SlammingBlock : MonoBehaviour
     public float resetSpeed = 2f;
     public float waitCounter;
     public bool slamming, resetting;
+    public bool playOnce;
 
     // Start is called before the first frame update
     void Start()
@@ -30,31 +31,32 @@ public class SlammingBlock : MonoBehaviour
             {
                 slamming = true;
                 waitCounter = waitAfterSlam;
+                playOnce = true;
             }
         }
 
         if (slamming)
         {
             theSlammer.position = Vector3.MoveTowards(theSlammer.position, slammerTarget.position, slamSpeed * Time.deltaTime);
-
-
-
             if (theSlammer.position == slammerTarget.position)
             {
+                if (playOnce)
+                {
+                    GetComponent<AudioSource>().Play();
+                    playOnce = false;
+                }
                 waitCounter -= Time.deltaTime;
                 if (waitCounter <= 0)
                 {
                     slamming = false;
                     resetting = true;
                 }
-
             }
         }
 
         if (resetting)
         {
             theSlammer.position = Vector3.MoveTowards(theSlammer.position, startPoint, resetSpeed * Time.deltaTime);
-
             if (theSlammer.position == startPoint)
             {
                 resetting = false;

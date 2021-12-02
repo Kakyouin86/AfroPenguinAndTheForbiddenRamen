@@ -20,6 +20,7 @@ public class BouncePad : MonoBehaviour
         {
             PlayerController.instance.theRB.velocity = new Vector2(PlayerController.instance.theRB.velocity.x, bounceForce);
             anim.SetTrigger("Bounce");
+            GetComponent<AudioSource>().Play();
         }
     }
 }
