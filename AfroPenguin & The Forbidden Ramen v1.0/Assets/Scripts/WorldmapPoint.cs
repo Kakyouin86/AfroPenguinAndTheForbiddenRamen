@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class WorldmapPoint : MonoBehaviour
 {
@@ -11,7 +12,8 @@ public class WorldmapPoint : MonoBehaviour
     public string levelToCheck;
     public string levelNameEnglish;
     public string levelNameSpanish;
-    public int starsCollected, livesLost;
+    public int starsCollected;
+    public float livesLost;
     public float bestTime;
     public GameObject ramenStarsBadge, noLivesLostBadge;
 
@@ -31,9 +33,13 @@ public class WorldmapPoint : MonoBehaviour
                 ramenStarsBadge.SetActive(true);
             }
 
-            if (livesLost == 0 && PlayerPrefs.GetInt("_unlocked") == 1)
+            if (PlayerPrefs.GetInt("_unlocked") == 1)
             {
-                noLivesLostBadge.SetActive(true);
+                livesLost = PlayerPrefs.GetInt(levelToLoad + "_lives");
+                if (livesLost == 0)
+                {
+                    noLivesLostBadge.SetActive(true);
+                }
             }
 
             isLocked = true;

@@ -10,7 +10,7 @@ public class WorldmapLevelManager : MonoBehaviour
 
     void Start()
     {
-        PlayerPrefs.SetString("CurrentLevel", SceneManager.GetSceneByName("Level 01").ToString());
+        //PlayerPrefs.SetString("CurrentLevel", SceneManager.GetSceneByName("Level 01").ToString());
         allPoints = FindObjectsOfType<WorldmapPoint>();
         if(PlayerPrefs.HasKey("CurrentLevel"))
         {

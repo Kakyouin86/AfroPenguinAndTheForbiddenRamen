@@ -74,29 +74,18 @@ public class LevelManager : MonoBehaviour
     //this is a coroutine. It happens outside the normal time of Unity. LESSON 41 WITH JAMES DOYLE.
     public IEnumerator RespawnCo()
     {
-        //this is a CoRoutine. It happens outside the normal execution time of Unity.
         PlayerController.instance.gameObject.SetActive(false);
-
         //AudioManager.instance.PlaySFX(8);
-
         yield return new WaitForSeconds(waitToRespawn - (1.0f / UIController.instance.fadeSpeed));
-        //Yield return new wait for seconds: an instruction to the respawn Coroutine, to wait for a RETURN (a value to be true).
-        //When it finishes, it continues below
 
         UIController.instance.FadeToBlack();
-
         yield return new WaitForSeconds((1.0f / UIController.instance.fadeSpeed) + 0.25f);
 
         UIController.instance.FadeFromBlack();
-
         PlayerController.instance.gameObject.SetActive(true);
-
         PlayerController.instance.theSR.flipX = false;
-
         PlayerController.instance.gameObject.transform.position = CheckpointController.instance.spawnPoint;
-
         PlayerHealthController.instance.currentHealth = PlayerHealthController.instance.maxHealth;
-
         UIController.instance.UpdateHealthUpdate();
 
         for (int i = 0; i < enemiesToRespawn.Length; i++)
@@ -124,7 +113,8 @@ public class LevelManager : MonoBehaviour
         //We will store information: PlayerPrefs. Unlocked is 1.
         PlayerPrefs.SetInt(SceneManager.GetActiveScene().name + "_unlocked", 1);
         PlayerPrefs.SetString("CurrentLevel", (SceneManager.GetActiveScene().name));
-        
+        PlayerPrefs.SetFloat(SceneManager.GetActiveScene().name + "_lives", sumLostLife);
+
         if (PlayerPrefs.HasKey(SceneManager.GetActiveScene().name + "_stars"))
         {
             if (starsCollected > PlayerPrefs.GetInt(SceneManager.GetActiveScene().name + "_stars"))

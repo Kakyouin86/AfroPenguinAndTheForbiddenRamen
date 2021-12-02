@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 
 public class WorldmapPlayer : MonoBehaviour
@@ -9,13 +10,16 @@ public class WorldmapPlayer : MonoBehaviour
     public bool levelLoading;
     public WorldmapLevelManager theManager;
     public Animator theAnimator;
+    public Vector3 lastPosition;
+
+    void Awake()
+    {
+        //transform.position = new Vector3(lastPosition.x, lastPosition.y);
+    }
 
     void Start()
     {
         theAnimator = GetComponent<Animator>();
-        transform.position = new Vector2(
-            PlayerPrefs.GetFloat("Level Selected" + ".x", transform.position.x),
-            PlayerPrefs.GetFloat("Level Selected" + ".y", transform.position.y));
     }
 
     void Update()
@@ -84,6 +88,8 @@ public class WorldmapPlayer : MonoBehaviour
                 WorldmapUIController.instance.ShowLevelInfo(currentPoint);
                 if (Input.GetButtonDown("Jump") || Input.GetButtonDown("Submit"))
                 {
+                    //lastPosition.x = currentPoint.transform.position.x;
+                    //lastPosition.y = currentPoint.transform.position.x;
                     levelLoading = true;
                     theManager.LoadLevel();
                 }
