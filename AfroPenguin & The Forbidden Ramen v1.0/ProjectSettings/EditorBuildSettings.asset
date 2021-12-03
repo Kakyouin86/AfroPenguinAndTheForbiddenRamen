@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Osaka Studios.unity
+    guid: 06b6dcb2ff1979e4390bbcece8dbf0ad
+  - enabled: 1
     path: Assets/Scenes/Language.unity
     guid: dc6015f51ba0afc4fb3f2974601fab17
   - enabled: 1
