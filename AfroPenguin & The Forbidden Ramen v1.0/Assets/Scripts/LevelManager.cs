@@ -9,7 +9,7 @@ public class LevelManager : MonoBehaviour
     public Animator theAnimator;
     public PhysicsMaterial2D physicsMaterial;
     public float waitToRespawn = 1.5f;
-    public float sumLostLife;
+    public int sumLostLife;
     public int starsCollected;
     public string levelToLoad;
     public float timeInLevel;
@@ -113,7 +113,6 @@ public class LevelManager : MonoBehaviour
         //We will store information: PlayerPrefs. Unlocked is 1.
         PlayerPrefs.SetInt(SceneManager.GetActiveScene().name + "_unlocked", 1);
         PlayerPrefs.SetString("CurrentLevel", (SceneManager.GetActiveScene().name));
-        PlayerPrefs.SetFloat(SceneManager.GetActiveScene().name + "_lives", sumLostLife);
 
         if (PlayerPrefs.HasKey(SceneManager.GetActiveScene().name + "_stars"))
         {
@@ -140,6 +139,20 @@ public class LevelManager : MonoBehaviour
         {
             PlayerPrefs.SetFloat(SceneManager.GetActiveScene().name + "_time", timeInLevel);
         }
+
+        if (PlayerPrefs.HasKey(SceneManager.GetActiveScene().name + "_lives"))
+        {
+            if (sumLostLife < PlayerPrefs.GetInt(SceneManager.GetActiveScene().name + "_lives"))
+            {
+                PlayerPrefs.SetInt(SceneManager.GetActiveScene().name + "_lives", sumLostLife);
+            }
+        }
+
+        else
+        {
+            PlayerPrefs.SetInt(SceneManager.GetActiveScene().name + "_lives", sumLostLife);
+        }
+
         SceneManager.LoadScene(levelToLoad);
     }
 }

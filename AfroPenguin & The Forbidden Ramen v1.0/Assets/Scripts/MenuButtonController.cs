@@ -10,17 +10,17 @@ public class MenuButtonController : MonoBehaviour {
     public bool keyDown;
     public int maxIndex;
 	public AudioSource audioSource;
-    public bool canMove;
+    public bool canMoveMenuButtonController;
 
 	void Start () 
     {
 		audioSource = GetComponent<AudioSource>();
-        canMove = true;
+        canMoveMenuButtonController = true;
     }
 
     void Update()
     {
-        if (canMove)
+        if (canMoveMenuButtonController)
         {
             if (Input.GetAxis("Vertical") != 0)
             {

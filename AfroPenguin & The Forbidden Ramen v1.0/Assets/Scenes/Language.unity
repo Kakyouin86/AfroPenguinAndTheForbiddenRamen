@@ -387,7 +387,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -382.68967}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 1220, y: 238}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &534400958
 MonoBehaviour:
@@ -406,6 +406,7 @@ MonoBehaviour:
   animatorFunctions: {fileID: 0}
   thisIndex: 2
   thisButton: {fileID: 0}
+  canMoveMenuButton: 0
 --- !u!114 &534400959
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -795,7 +796,7 @@ MonoBehaviour:
   keyDown: 0
   maxIndex: 2
   audioSource: {fileID: 0}
-  canMove: 0
+  canMoveMenuButtonController: 0
 --- !u!82 &1814437653
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1228,7 +1229,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -193}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 1220, y: 238}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1071796480296277282
 CanvasRenderer:
@@ -1269,6 +1270,7 @@ MonoBehaviour:
   animatorFunctions: {fileID: 0}
   thisIndex: 1
   thisButton: {fileID: 0}
+  canMoveMenuButton: 0
 --- !u!114 &1071796480296277286
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1587,6 +1589,7 @@ MonoBehaviour:
   animatorFunctions: {fileID: 0}
   thisIndex: 0
   thisButton: {fileID: 0}
+  canMoveMenuButton: 0
 --- !u!114 &5243090340493228411
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1628,7 +1631,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -6}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 1220, y: 238}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &5323153011538558838
 MonoBehaviour:

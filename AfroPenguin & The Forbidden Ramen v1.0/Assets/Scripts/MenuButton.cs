@@ -13,12 +13,14 @@ public class MenuButton : MonoBehaviour
     public AnimatorFunctions animatorFunctions;
     public int thisIndex;
     public Button thisButton;
+    public bool canMoveMenuButton;
 
     void Start()
     {
         theAnimator = GetComponent<Animator>();
         animatorFunctions = GetComponent<AnimatorFunctions>();
         thisButton = GetComponent<Button>();
+        canMoveMenuButton = true;
     }
     void Update()
     {
@@ -26,10 +28,11 @@ public class MenuButton : MonoBehaviour
             {
                 theAnimator.SetBool("selected", true);
 
-                if (Input.GetAxis("Submit") == 1)
+                if (Input.GetAxis("Submit") == 1 && canMoveMenuButton)
                 {
                     theAnimator.SetBool("pressed", true);
-                    FindObjectOfType<MenuButtonController>().canMove = false;
+                    FindObjectOfType<MenuButtonController>().canMoveMenuButtonController = false;
+                    canMoveMenuButton = false;
                     StartCoroutine("LittleFade");
                 }
 
@@ -40,13 +43,11 @@ public class MenuButton : MonoBehaviour
                 }
             }
 
-            else
-            {
-                theAnimator.SetBool("selected", false);
-            }
+        else
+        {
+            theAnimator.SetBool("selected", false);
+        }
     }
-
-
     IEnumerator LittleFade()
 
     {
