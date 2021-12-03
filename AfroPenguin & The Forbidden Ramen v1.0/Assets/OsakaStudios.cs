@@ -4,21 +4,18 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class LanguageSelect : MonoBehaviour
+public class OsakaStudios : MonoBehaviour
 {
-    public static LanguageSelect instance;
-    public int language;
+    public string nextScene;
     public Image fadeScreen;
     public float fadeSpeed = 1.0f;
     public bool shouldFadeToBlack, shouldFadeFromBlack;
-    private void Awake()
-    {
-        instance = this;
-    }
 
-    public void Start()
+    // Start is called before the first frame update
+    void Start()
     {
         FadeFromBlack();
+        StartCoroutine(EndOfTheClip());
     }
 
     public void Update()
@@ -40,36 +37,27 @@ public class LanguageSelect : MonoBehaviour
                 shouldFadeFromBlack = false;
             }
         }
-    }
 
-    public void EnglishLanguage()
-    {
-        PlayerPrefs.SetInt("Language", 0);
-        language = PlayerPrefs.GetInt("Language");
-        StartCoroutine("LittleFade");
+        if (Input.GetButtonDown("Jump") || Input.GetButtonDown("Submit") || Input.GetMouseButtonDown(0))
+        {
+            SceneManager.LoadScene(nextScene);
+        }
     }
-
-    public void SpanishLanguage()
-    {
-        PlayerPrefs.SetInt("Language", 1);
-        language = PlayerPrefs.GetInt("Language");
-        StartCoroutine("LittleFade");
-    }
-
-    public void QuitGame()
-    {
-        Application.Quit();
-    }
-
     public void FadeFromBlack()
     {
         shouldFadeFromBlack = true;
         shouldFadeToBlack = false;
     }
 
-    IEnumerator LittleFade()
+    public void GoToNextScreen()
     {
-        yield return new WaitForSeconds(1.5f);
-        SceneManager.LoadScene("Main Menu");
+        SceneManager.LoadScene(nextScene);
     }
+
+    IEnumerator EndOfTheClip()
+    {
+        yield return new WaitForSeconds(11f);
+        SceneManager.LoadScene(nextScene);
+    }
+
 }

@@ -70,9 +70,9 @@ public class MainMenu : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene(startScene);
         PlayerPrefs.DeleteAll();
         PlayerPrefs.SetInt("Language", LanguageSelect.instance.language);
+        StartCoroutine("LittleFadeStart");
     }
 
     public void QuitGame()
@@ -82,13 +82,25 @@ public class MainMenu : MonoBehaviour
 
     public void ContinueGame()
     {
-        SceneManager.LoadScene(continueScene);
+        PlayerPrefs.SetInt("Language", LanguageSelect.instance.language);
+        StartCoroutine("LittleFadeContinue");
     }
 
     public void FadeFromBlack()
     {
         shouldFadeFromBlack = true;
         shouldFadeToBlack = false;
+    }
+    IEnumerator LittleFadeStart()
+    {
+        yield return new WaitForSeconds(2.0f);
+        SceneManager.LoadScene(startScene);
+    }
+
+    IEnumerator LittleFadeContinue()
+    {
+        yield return new WaitForSeconds(2.0f);
+        SceneManager.LoadScene(continueScene);
     }
 }
 
