@@ -46,14 +46,14 @@ public class LanguageSelect : MonoBehaviour
     {
         PlayerPrefs.SetInt("Language", 0);
         language = PlayerPrefs.GetInt("Language");
-        StartCoroutine("LittleFade");
+        SceneManager.LoadScene("Main Menu");
     }
 
     public void SpanishLanguage()
     {
         PlayerPrefs.SetInt("Language", 1);
         language = PlayerPrefs.GetInt("Language");
-        StartCoroutine("LittleFade");
+        SceneManager.LoadScene("Main Menu");
     }
 
     public void QuitGame()
@@ -65,11 +65,5 @@ public class LanguageSelect : MonoBehaviour
     {
         shouldFadeFromBlack = true;
         shouldFadeToBlack = false;
-    }
-
-    IEnumerator LittleFade()
-    {
-        yield return new WaitForSeconds(1.5f);
-        SceneManager.LoadScene("Main Menu");
     }
 }
