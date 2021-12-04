@@ -28,7 +28,7 @@ public class MenuButton : MonoBehaviour
             {
                 theAnimator.SetBool("selected", true);
 
-                if (Input.GetAxis("Submit") == 1 && canMoveMenuButton)
+                if (Input.GetAxis("Submit") == 1 && canMoveMenuButton || Input.GetMouseButtonDown(0) && canMoveMenuButton)
                 {
                     theAnimator.SetBool("pressed", true);
                     FindObjectOfType<MenuButtonController>().canMoveMenuButtonController = false;
