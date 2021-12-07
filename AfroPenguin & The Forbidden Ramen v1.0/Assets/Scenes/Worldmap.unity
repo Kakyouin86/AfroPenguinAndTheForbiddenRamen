@@ -531,7 +531,7 @@ MonoBehaviour:
   right: {fileID: 829295854}
   isLevel: 1
   isLocked: 0
-  levelToLoad: Prelude
+  levelToLoad: Level 00
   levelToCheck: Prelude
   levelNameEnglish: Prelude
   levelNameSpanish: Preludio
@@ -676,6 +676,7 @@ MonoBehaviour:
   levelLoading: 0
   theManager: {fileID: 1903573412}
   theAnimator: {fileID: 0}
+  lastPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &401628789
 GameObject:
   m_ObjectHideFlags: 0
