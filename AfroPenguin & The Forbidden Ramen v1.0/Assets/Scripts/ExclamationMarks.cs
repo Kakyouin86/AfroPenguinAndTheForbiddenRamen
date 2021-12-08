@@ -28,6 +28,10 @@ public class ExclamationMarks : MonoBehaviour
                 GetComponent<AudioSource>().Play();
             }
         }
+        else
+        {
+            StartCoroutine("LittlePause");
+        }
     }
 
     public void OnTriggerExit2D(Collider2D player)
@@ -40,5 +44,12 @@ public class ExclamationMarks : MonoBehaviour
                 theAnimator.SetBool("isOpened", false);
             }
         }
+    }
+
+    IEnumerator LittlePause()
+    {
+        GetComponent<BoxCollider2D>().enabled = false;
+        yield return new WaitForSeconds(0.3f);
+        GetComponent<BoxCollider2D>().enabled = true;
     }
 }
