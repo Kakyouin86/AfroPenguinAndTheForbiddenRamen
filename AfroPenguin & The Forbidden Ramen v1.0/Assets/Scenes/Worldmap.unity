@@ -531,8 +531,8 @@ MonoBehaviour:
   right: {fileID: 829295854}
   isLevel: 1
   isLocked: 0
-  levelToLoad: Level 00
-  levelToCheck: Level 00
+  levelToLoad: PreLoad 01
+  levelToCheck: PreLoad 01
   levelNameEnglish: Prelude
   levelNameSpanish: Preludio
   starsCollected: 0
@@ -647,7 +647,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 10
   m_Sprite: {fileID: -4673061261109283067, guid: 7acfc952dbe344d439ef6933a9e64a4b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

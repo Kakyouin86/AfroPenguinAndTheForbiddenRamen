@@ -1045,7 +1045,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 705bf45aaa73a994894d0087a9ca8597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startScene: Level 00
+  startScene: PreLoad 01
   continueScene: WorldMap
   continueButton: {fileID: 1930070754}
   fadeScreen: {fileID: 1108505827}
@@ -8430,7 +8430,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ddf0e2b108b5534682e4ce441ba5768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 500
+  speed: 20
   startPosition: {x: 0, y: 0}
 --- !u!222 &1451754232
 CanvasRenderer:

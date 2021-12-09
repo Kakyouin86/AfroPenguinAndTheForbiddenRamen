@@ -17,7 +17,7 @@ public class InfiniteBackgroundLoop : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector2.down * speed * Time.deltaTime);
+        transform.Translate(Vector2.down * speed);
         if (transform.position.y <= -500)
         {
             transform.position = startPosition;
