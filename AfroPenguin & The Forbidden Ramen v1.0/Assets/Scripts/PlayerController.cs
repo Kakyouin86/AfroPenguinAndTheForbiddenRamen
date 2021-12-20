@@ -402,6 +402,7 @@ public class PlayerController : MonoBehaviour
             if (!hasHit)
             {
                 theRB.velocity = dashDirection * dashSpeed;
+                //theRB.AddForce(dashDirection * dashSpeed);
                 //theRB.velocity = Vector2 * dashSpeed; //Set velocity
                 yield return null;
                 if (dashUp)
