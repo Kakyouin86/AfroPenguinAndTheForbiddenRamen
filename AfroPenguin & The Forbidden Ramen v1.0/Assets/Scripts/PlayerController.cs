@@ -231,12 +231,12 @@ public class PlayerController : MonoBehaviour
         climbRaycast = Physics2D.Raycast(transform.position, Vector2.up, climbRaycastDistance, whatIsLadder);
         if (climbRaycast.collider != null)
         {
-            if (Input.GetKey(KeyCode.W))
+            if (Input.GetKey(KeyCode.W) || Input.GetAxis("Vertical") > 0)
             {
                 isClimbing = true;
                 theAnimator.SetBool("isClimbing", isClimbing);
             }
-            if (Input.GetKey(KeyCode.S))
+            if (Input.GetKey(KeyCode.S) || Input.GetAxis("Vertical") < 0)
             {
                 isClimbing = true;
                 theAnimator.SetBool("isClimbing", isClimbing);
@@ -343,7 +343,7 @@ public class PlayerController : MonoBehaviour
     #region Dash
     public void Dash()
     {
-        if (Input.GetButtonDown("Fire1") && !isDashing && canDash && !isClimbing)
+        if (Input.GetButtonDown("Fire1") && !isDashing && canDash && !isClimbing || Input.GetKey(KeyCode.Z) && !isDashing && canDash && !isClimbing)
         {
             if (xRaw != 0 || yRaw != 0)
             {

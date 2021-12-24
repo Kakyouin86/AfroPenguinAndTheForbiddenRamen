@@ -58,7 +58,7 @@ public class StarLifeBlock : MonoBehaviour
     }
     IEnumerator ActivateTrigger()
     {
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.5f);
         objectToInstantiate.GetComponent<CircleCollider2D>().isTrigger = true;
     }
 }
