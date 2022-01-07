@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
-    public string startScene, continueScene;
+    public string startScene, continueScene, creditsScene;
     public GameObject continueButton;
     public Image fadeScreen;
     public float fadeSpeed = 1.0f;
@@ -83,6 +83,11 @@ public class MainMenu : MonoBehaviour
     public void ContinueGame()
     {
         SceneManager.LoadScene(continueScene);
+    }
+
+    public void CreditsScene()
+    {
+        SceneManager.LoadScene(creditsScene);
     }
 
     public void FadeFromBlack()
