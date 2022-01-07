@@ -12,6 +12,7 @@ public class EagleEnemyController : MonoBehaviour
     public Rigidbody2D theRB;
     public SpriteRenderer theSR;
     public Animator theAnimator;
+    public AudioSource audioSource;
 
     [Header("Movement")]
     public int currentPoint;
@@ -32,6 +33,7 @@ public class EagleEnemyController : MonoBehaviour
         theSR = GetComponentInChildren<SpriteRenderer>();
         theAnimator = GetComponent<Animator>();
         player = FindObjectOfType<PlayerController>().GetComponent<Transform>();
+        audioSource = GetComponent<AudioSource>();
 
         for (int i = 0; i < points.Length; i++) // For i which starts at 0, and as long as i is less than the points i arrayed, but i will keep adding one to each i
         {
@@ -71,8 +73,8 @@ public class EagleEnemyController : MonoBehaviour
                 if (attackTarget == Vector3.zero) //this is a check to see if we are attacking the player. Vector3.zero where EVERYTHING XYZ are 0
                 {
                     attackTarget = PlayerController.instance.transform.position;
+                    audioSource.Play();
                 }
-                
                 transform.position = Vector3.MoveTowards(transform.position, attackTarget, chaseSpeed * Time.deltaTime);
                 //this next one is I want the eagle to just attack once and then stop and go back
                 if (Vector3.Distance(transform.position, attackTarget) <= 0.1f) //close to that attack point
