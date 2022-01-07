@@ -17,6 +17,8 @@ public class Pickup : MonoBehaviour
     public bool isFish;
     public bool isLife;
     public bool isGem;
+    public bool isGemx2;
+    public bool isDiamond;
     public float timeOfInvulnerability;
     public float timeOfInvulnerabilityTimer;
 
@@ -126,6 +128,53 @@ public class Pickup : MonoBehaviour
                 Instantiate(pickupEffectStar, placeToInstantiate, transform.rotation);
                 AudioManager.instance.PlaySFX(9);
                 UIController.instance.UpdateStarsCount();
+            }
+
+            if (isGemx2)
+            {
+                LevelManager.instance.starsCollected++;
+                LevelManager.instance.starsCollected++;
+                LevelManager.instance.starsCollected++;
+                LevelManager.instance.starsCollected++;
+                LevelManager.instance.starsCollected++;
+                LevelManager.instance.starsCollected++;
+                LevelManager.instance.starsCollected++;
+                LevelManager.instance.starsCollected++;
+                LevelManager.instance.starsCollected++;
+                LevelManager.instance.starsCollected++;
+                isCollected = true;
+                DestroyOrNot();
+                placeToInstantiate = new Vector2(transform.position.x, transform.position.y + 1.00f);
+                Instantiate(pickupEffectStar, placeToInstantiate, transform.rotation);
+                AudioManager.instance.PlaySFX(12);
+                UIController.instance.UpdateStarsCount();
+            }
+
+            if (isDiamond)
+            {
+                LevelManager.instance.starsCollected++;
+                LevelManager.instance.starsCollected++;
+                LevelManager.instance.starsCollected++;
+                LevelManager.instance.starsCollected++;
+                LevelManager.instance.starsCollected++;
+                LevelManager.instance.starsCollected++;
+                LevelManager.instance.starsCollected++;
+                LevelManager.instance.starsCollected++;
+                LevelManager.instance.starsCollected++;
+                LevelManager.instance.starsCollected++;
+                isCollected = true;
+                DestroyOrNot();
+                placeToInstantiate = new Vector2(transform.position.x, transform.position.y + 1.00f);
+                Instantiate(pickupEffectStar, placeToInstantiate, transform.rotation);
+                AudioManager.instance.PlaySFX(13);
+                UIController.instance.UpdateStarsCount();
+
+                if (LevelManager.instance.sumLostLife > 0)
+                {
+                    LevelManager.instance.sumLostLife--;
+                    UIController.instance.SumLostLife();
+                    pickupEffectLife.Play();
+                }
             }
         }
     }

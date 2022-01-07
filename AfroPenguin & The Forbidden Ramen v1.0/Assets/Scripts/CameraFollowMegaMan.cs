@@ -4,19 +4,24 @@ using UnityEngine;
 
 public class CameraFollowMegaMan : MonoBehaviour
 {
+    public static CameraFollowMegaMan instance;
     public Transform player;
-    public float timeOffset;
+    public float timeOffset = 0.25f;
     public Vector3 offsetPos;
     public Vector3 boundsMin;
     public Vector3 boundsMax;
     public Vector2 lastPos;
     public Transform farBackground, middleBackground;
 
-
+    private void Awake()
+    {
+        instance = this;
+    }
     void Start()
     {
         //lastXPos = transform.position.x;
         lastPos = transform.position;
+        player = FindObjectOfType<PlayerController>().GetComponent<Transform>();
     }
     void Update()
     {

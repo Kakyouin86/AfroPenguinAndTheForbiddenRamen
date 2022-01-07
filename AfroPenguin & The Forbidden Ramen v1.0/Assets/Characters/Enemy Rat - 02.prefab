@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2581913036291744326}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Right Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 2581913036348322983}
   - component: {fileID: 2581913036348322985}
   - component: {fileID: 2581913036348322986}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Enemy Rat - 02 - Collider
   m_TagString: Hurtbox
   m_Icon: {fileID: 0}
@@ -210,7 +210,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2581913036738405087}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Left Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -245,7 +245,7 @@ GameObject:
   - component: {fileID: 2581913038002012206}
   - component: {fileID: 2581913038002012178}
   - component: {fileID: 2581913038002012179}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Enemy Rat - 02
   m_TagString: Enemy
   m_Icon: {fileID: 0}

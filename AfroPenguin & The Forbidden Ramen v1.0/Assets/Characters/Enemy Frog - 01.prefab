@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7329068569857459692}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Left Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 7329068570498156656}
   - component: {fileID: 7329068570498156669}
   - component: {fileID: 7329068570498156668}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Enemy Frog - 01
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -187,7 +187,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7329068571812834068}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Right Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -221,7 +221,7 @@ GameObject:
   - component: {fileID: 7329068571876244659}
   - component: {fileID: 7329068571876244660}
   - component: {fileID: 7329068571876244661}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Enemy Frog - 01 - Collider
   m_TagString: Hurtbox
   m_Icon: {fileID: 0}
