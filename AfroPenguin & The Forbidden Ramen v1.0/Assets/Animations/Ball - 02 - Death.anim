@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Enemy Ball - 03 - Walk
+  m_Name: Ball - 02 - Death
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,11 +20,11 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 2208599548231437811, guid: f0602587f1a53c64e944f294cdd3e008, type: 3}
+      value: {fileID: 3921659720041121592, guid: fe1ae712e0733a544a673b8f28206883, type: 3}
     - time: 0.25
-      value: {fileID: 7321860925332775908, guid: f0602587f1a53c64e944f294cdd3e008, type: 3}
+      value: {fileID: -3283612256175682486, guid: fe1ae712e0733a544a673b8f28206883, type: 3}
     attribute: m_Sprite
-    path: Enemy Ball - 03 - Collider
+    path: Enemy Ball - 02 - Collider
     classID: 212
     script: {fileID: 0}
   m_SampleRate: 4
@@ -35,15 +35,15 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 3893871780
+      path: 1941080267
       attribute: 0
       script: {fileID: 0}
       typeID: 212
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 2208599548231437811, guid: f0602587f1a53c64e944f294cdd3e008, type: 3}
-    - {fileID: 7321860925332775908, guid: f0602587f1a53c64e944f294cdd3e008, type: 3}
+    - {fileID: 3921659720041121592, guid: fe1ae712e0733a544a673b8f28206883, type: 3}
+    - {fileID: -3283612256175682486, guid: fe1ae712e0733a544a673b8f28206883, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}

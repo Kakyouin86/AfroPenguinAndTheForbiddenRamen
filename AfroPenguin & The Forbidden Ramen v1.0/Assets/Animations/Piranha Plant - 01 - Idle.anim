@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Enemy Ball - 02 - Walk
+  m_Name: Piranha Plant - 01 - Idle
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,14 +20,22 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 8815510344056854847, guid: 827a66710184cbc409322517531f35a3, type: 3}
-    - time: 0.25
-      value: {fileID: 3043301225123603448, guid: 827a66710184cbc409322517531f35a3, type: 3}
+      value: {fileID: 21300000, guid: 814516c8d0ab4f7468b9e5ad83080598, type: 3}
+    - time: 0.06666667
+      value: {fileID: 21300000, guid: 0cc2e7f93e5bdf84989de7a7d54b12ca, type: 3}
+    - time: 0.13333334
+      value: {fileID: 21300000, guid: fb25ff75364b124428cbe1acfb5321f7, type: 3}
+    - time: 0.2
+      value: {fileID: 21300000, guid: 96e091211d9ddfa4d86beb17aff784ff, type: 3}
+    - time: 0.26666668
+      value: {fileID: 21300000, guid: b8816247f04cb2e49aedb7afc9974232, type: 3}
+    - time: 0.33333334
+      value: {fileID: 21300000, guid: 346a9b96ef039b64c8750279ecdc75ea, type: 3}
     attribute: m_Sprite
-    path: Enemy Ball - 02 - Collider
+    path: Enemy Piranha Plant - 01 - Collider
     classID: 212
     script: {fileID: 0}
-  m_SampleRate: 4
+  m_SampleRate: 15
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -35,21 +43,25 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 1941080267
+      path: 1234692246
       attribute: 0
       script: {fileID: 0}
       typeID: 212
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 8815510344056854847, guid: 827a66710184cbc409322517531f35a3, type: 3}
-    - {fileID: 3043301225123603448, guid: 827a66710184cbc409322517531f35a3, type: 3}
+    - {fileID: 21300000, guid: 814516c8d0ab4f7468b9e5ad83080598, type: 3}
+    - {fileID: 21300000, guid: 0cc2e7f93e5bdf84989de7a7d54b12ca, type: 3}
+    - {fileID: 21300000, guid: fb25ff75364b124428cbe1acfb5321f7, type: 3}
+    - {fileID: 21300000, guid: 96e091211d9ddfa4d86beb17aff784ff, type: 3}
+    - {fileID: 21300000, guid: b8816247f04cb2e49aedb7afc9974232, type: 3}
+    - {fileID: 21300000, guid: 346a9b96ef039b64c8750279ecdc75ea, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.5
+    m_StopTime: 0.4
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
