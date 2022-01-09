@@ -38,7 +38,6 @@ public class PlayerHealthController : MonoBehaviour
     public GameObject stompbox;
     public Vector2 placeToInstantiate;
     public GameObject pickupEffectBarEffect;
-    public GameObject pickupEffectThunderInBarEffect;
 
     private void Awake()
     {
@@ -47,11 +46,8 @@ public class PlayerHealthController : MonoBehaviour
     }
     void Start()
     {
-        pickupEffectBarEffect = GameObject.Find("Canvas/Dash Sprites/Bar-Fill");
-        pickupEffectThunderInBarEffect = GameObject.Find("UI Camera/Thunder In Bar");
         flashing = false;
         pickupEffectBarEffect.GetComponent<_2dxFX_LightningBolt>().enabled = false;
-        pickupEffectThunderInBarEffect.GetComponent<_2dxFX_Lightning>().enabled = false;
         PlayerController.instance.GetComponent<_2dxFX_LightningBolt>().enabled = false;
         currentHealth = maxHealth;
         spriteRenderer = GetComponent<SpriteRenderer>();

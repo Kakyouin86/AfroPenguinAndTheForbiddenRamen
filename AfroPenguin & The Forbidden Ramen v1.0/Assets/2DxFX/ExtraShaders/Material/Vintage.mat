@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Vintage
-  m_Shader: {fileID: 4800000, guid: 2ae634f0958330a4d8d700a8e731044a, type: 3}
+  m_Shader: {fileID: 4800000, guid: 374b9bfce729fc64b9cbc1f2f842f213, type: 3}
   m_ShaderKeywords: ETC1_EXTERNAL_ALPHA
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -32,10 +32,13 @@ Material:
     - Symbiose_Position: -0.209
     - TiltDownUV_TiltDownUV_Value_1: -0.14888936
     - TiltRightUV_TiltRightUV_Value_1: -0.0381003
+    - _Alpha: 1
     - _ColorFilters_Fade_1: 1
     - _ColorMask: 15
+    - _Colors: 4
     - _Fire_Addition_Value: 0.5
     - _Fire_Displacement_Value: 0
+    - _Offset: 1
     - _Sharpness_Angle_1: 0.25
     - _Sharpness_Distance_1: 2.66
     - _Sharpness_Fade_1: 1
@@ -56,4 +59,6 @@ Material:
     - _ThresholdSmooth_Value_1: 0.53
     - _Threshold_Fade_1: 0.5
     - _TurnMetal_Speed_1: 1
-    m_Colors: []
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+  m_BuildTextureStacks: []

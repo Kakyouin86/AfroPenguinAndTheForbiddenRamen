@@ -30,5 +30,14 @@ public class DashDamageController : MonoBehaviour
             PlayerController.instance.hasHit = true;
             enemy.GetComponent<KnockbackEnemies>().KnockBack();
         }
+
+        if (enemy.gameObject.tag == "Boss Hurtbox")
+        {
+            enemy.gameObject.GetComponentInChildren<EnemyHP>().TakeDamageDashBoss(damageToDealDash);
+            placeToInstantiate = new Vector2(enemy.transform.position.x, enemy.transform.position.y + 1.00f);
+            Instantiate(deathEffect, placeToInstantiate, enemy.transform.rotation);
+            PlayerController.instance.hasHit = true;
+            enemy.GetComponent<KnockbackEnemies>().KnockBack();
+        }
     }
 }

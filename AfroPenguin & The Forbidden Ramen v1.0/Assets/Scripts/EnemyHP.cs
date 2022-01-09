@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
+
 public class EnemyHP : MonoBehaviour
 {
     public SpriteRenderer theSR;
@@ -17,6 +19,8 @@ public class EnemyHP : MonoBehaviour
     public float knockbackDashMultiplier = 2f;
     public Vector2 placeToInstantiate;
     public GameObject collectible;
+    public Slider theBossSlider;
+    public GameObject theBossHealthBar;
 
     void Start()
     {
@@ -46,6 +50,27 @@ public class EnemyHP : MonoBehaviour
             parentCol.enabled = false;
             hurtboxCol.enabled = false;
             StartCoroutine("KillSwitch");
+        }
+    }
+
+    public void TakeDamageBoss(int damage)
+    {
+        currentHP -= damage;
+        theBossSlider.value = currentHP;
+        if (currentHP >= 2)
+        {
+            StartCoroutine("HitConfirm");
+        }
+
+        else if (currentHP == 1)
+        {
+            StartCoroutine("HitConfirmAlmostDead");
+        }
+
+        else if (currentHP <= 0)
+        {
+            isDead = true;
+            theBossHealthBar.SetActive(false);
         }
     }
 
@@ -82,6 +107,38 @@ public class EnemyHP : MonoBehaviour
             StartCoroutine("KillSwitch");
             placeToInstantiate = new Vector2(transform.position.x + 1.00f, transform.position.y);
             Instantiate(collectible, placeToInstantiate, transform.rotation);
+        }
+    }
+
+    public void TakeDamageDashBoss(int damageDash)
+    {
+        currentHP -= damageDash;
+        theBossSlider.value = currentHP;
+
+        if (currentHP >= 4)
+        {
+            if (PlayerController.instance.dashDown)
+            {
+                PlayerController.instance.Bounce(1.5f);
+                StartCoroutine("HitConfirm");
+            }
+            else
+            {
+                PlayerController.instance.KnockBackDash(knockbackDashMultiplier);
+                StartCoroutine("HitConfirm");
+            }
+        }
+
+        else if (currentHP == 1)
+        {
+            PlayerController.instance.KnockBackDash(knockbackDashMultiplier);
+            StartCoroutine("HitConfirmAlmostDead");
+        }
+
+        else if (currentHP <= 0)
+        {
+            isDead = true;
+            theBossHealthBar.SetActive(false);
         }
     }
 

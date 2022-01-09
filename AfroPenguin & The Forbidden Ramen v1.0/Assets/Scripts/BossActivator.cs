@@ -5,18 +5,22 @@ using UnityEngine;
 public class BossActivator : MonoBehaviour
 {
     public GameObject theBossBattle, theBossSlider, cameraAnimator;
-    //public Animator cameraAnimator;
+    public GameObject bossPosition;
+    public Vector3 positionToSave;
 
     // Start is called before the first frame update
     void Start()
     {
-        //cameraAnimator = GetComponent<Animator>();
+        positionToSave = bossPosition.transform.position;
+        if (bossPosition.transform.position != positionToSave)
+        {
+            bossPosition.transform.position = positionToSave;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-
     }
 
     private void OnTriggerEnter2D(Collider2D other)

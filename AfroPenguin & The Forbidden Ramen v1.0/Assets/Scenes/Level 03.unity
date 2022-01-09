@@ -337,6 +337,7 @@ MonoBehaviour:
   knockbackDashMultiplier: 2
   placeToInstantiate: {x: 0, y: 0}
   collectible: {fileID: 0}
+  theBossSlider: {fileID: 0}
 --- !u!61 &114876599
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1781,7 +1782,7 @@ RectTransform:
   - {fileID: 1939632415}
   - {fileID: 426564267}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2282,6 +2283,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5172748424124853921, guid: 9a401c6c5dcc2ba4e925ed6c17811182, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5172748424124853921, guid: 9a401c6c5dcc2ba4e925ed6c17811182, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -4.885292
+      objectReference: {fileID: 0}
     - target: {fileID: 9162338985566425443, guid: 9a401c6c5dcc2ba4e925ed6c17811182, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -9217,7 +9226,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -9644,7 +9653,7 @@ Transform:
   - {fileID: 1065048458}
   - {fileID: 1100908643}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1283830288
 PrefabInstance:
@@ -12752,6 +12761,8 @@ MonoBehaviour:
   - {fileID: 349971252}
   BGM: {fileID: 1844609478}
   levelEndMusic: {fileID: 1290992658}
+  bossBattleMusic: {fileID: 0}
+  fishItemMusic: {fileID: 0}
 --- !u!4 &2022507895
 Transform:
   m_ObjectHideFlags: 0
