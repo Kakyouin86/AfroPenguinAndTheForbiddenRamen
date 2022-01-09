@@ -7,6 +7,10 @@ public class KillPlayer : MonoBehaviour
     public GameObject deathEffectEnemy;
     public GameObject deathEffectPlayer;
     public Vector2 placeToInstantiate;
+
+    void Start()
+    {
+    }
     private void OnTriggerEnter2D(Collider2D other)
     {
         if(other.tag == "Player" || other.tag == "Invulnerable")

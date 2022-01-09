@@ -210,7 +210,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7020574629748465104}
   m_Layer: 8
-  m_Name: Left Point
+  m_Name: Enemy Rat - 01 - Left Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -359,7 +359,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7020574630195125577}
   m_Layer: 8
-  m_Name: Right Point
+  m_Name: Enemy Rat - 01 - Right Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

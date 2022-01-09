@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8700966609858871811}
   m_Layer: 8
-  m_Name: Right Point
+  m_Name: Enemy Ant - 01 - Right Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -40,7 +40,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8700966610054084443}
   m_Layer: 8
-  m_Name: Left Point
+  m_Name: Enemy Ant - 01 - Left Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -74,7 +74,7 @@ GameObject:
   - component: {fileID: 8700966610174080836}
   - component: {fileID: 8700966610174080837}
   m_Layer: 8
-  m_Name: Enemy Ant - 02 - Collider
+  m_Name: Enemy Ant - 01 - Collider
   m_TagString: Hurtbox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

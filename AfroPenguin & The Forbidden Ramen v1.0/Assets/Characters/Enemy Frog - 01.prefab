@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7329068569857459692}
   m_Layer: 8
-  m_Name: Left Point
+  m_Name: Enemy Frog - 01 - Left Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -188,7 +188,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7329068571812834068}
   m_Layer: 8
-  m_Name: Right Point
+  m_Name: Enemy Frog - 01 - Right Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

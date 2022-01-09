@@ -139,7 +139,7 @@ public class CameraTransitionMegaMan : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("Invulnerable"))
         {
             // only move the camera positions
             // this is best used for falls where the player clears the trigger

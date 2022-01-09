@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1784099376053136580}
   - component: {fileID: 1784099376053136583}
   m_Layer: 8
-  m_Name: Enemy Eagle - 02 - Collider
+  m_Name: Enemy Eagle - 01 - Collider
   m_TagString: Hurtbox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -404,7 +404,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1784099376743030038}
   m_Layer: 8
-  m_Name: Right Point
+  m_Name: Enemy Eagle - 01 - Right Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -434,7 +434,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1784099377665130703}
   m_Layer: 8
-  m_Name: Left Point
+  m_Name: Enemy Eagle - 01 - Left Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -147,7 +147,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.033380687, y: 0.91796875}
@@ -173,6 +173,8 @@ MonoBehaviour:
   isFish: 0
   isLife: 0
   isGem: 0
+  isGemx2: 0
+  isDiamond: 0
   timeOfInvulnerability: 0
   timeOfInvulnerabilityTimer: 0
   pickupEffectStar: {fileID: 3534479628547249196, guid: 6215effe050e9cc438dec1a3b5541154, type: 3}

@@ -7,7 +7,7 @@ public class AudioManager : MonoBehaviour
 
     public static AudioManager instance;
     public AudioSource[] soundEffects;
-    public AudioSource BGM, levelEndMusic;
+    public AudioSource BGM, levelEndMusic, bossBattleMusic;
 
     private void Awake()
     {
@@ -35,6 +35,16 @@ public class AudioManager : MonoBehaviour
     {
         BGM.Stop();
         levelEndMusic.Play();
+    }
+    public void PlayBossMusic()
+    {
+        BGM.Stop();
+        bossBattleMusic.Play();
+    }
+    public void StopBossMusic()
+    {
+        bossBattleMusic.Stop();
+        BGM.Play();
     }
 }
 

@@ -9,18 +9,19 @@ public class PiranhaPlantEnemyController : MonoBehaviour
     public Transform player;
     public SpriteRenderer theSR;
     public Animator theAnimator;
-    public GameObject firePrefab;
     public Transform firePoint;
+    public GameObject firePrefab;
+    public bool facingRight;
 
     [Header("Movement")]
     public float waitAfterAttackShot = 1.5f;
     public float waitAfterAttackHead = 1f;
-    public float distanceToAttackPlayerShot = 4f;
-    public float distanceToAttackPlayerHead = 3f;
+    public float distanceToAttackPlayerShot = 3.5f;
+    public float distanceToAttackPlayerHead = 3.5f;
     public float maximumDistanceToAttackPlayer = 10f;
     public float attackCounterShot;
     public float attackCounterHead;
-    public float shotForce = 7f;
+    public float shotForce = 0.05f;
 
     void Start()
     {
@@ -37,13 +38,13 @@ public class PiranhaPlantEnemyController : MonoBehaviour
         if (attackCounterShot > 0)
         {
             attackCounterShot -= Time.deltaTime;
-            theAnimator.SetBool("is Far", false);
+            theAnimator.SetBool("isFar", false);
         }
 
         if (attackCounterHead > 0)
         {
             attackCounterHead -= Time.deltaTime;
-            theAnimator.SetBool("is Close", false);
+            theAnimator.SetBool("isClose", false);
         }
 
         else
@@ -56,45 +57,52 @@ public class PiranhaPlantEnemyController : MonoBehaviour
     {
         if (Vector3.Distance(transform.position, player.transform.position) > maximumDistanceToAttackPlayer)
         {
-            theAnimator.SetBool("is Far", false);
-            theAnimator.SetBool("is Close", false);
+            theAnimator.SetBool("isFar", false);
+            theAnimator.SetBool("isClose", false);
         }
 
         if (Vector3.Distance(transform.position, player.transform.position) < distanceToAttackPlayerHead)
         {
-            theAnimator.SetBool("is Far", false);
-            theAnimator.SetBool("is Close", true);
+            theAnimator.SetBool("isFar", false);
+            theAnimator.SetBool("isClose", true);
             if (theAnimator.GetCurrentAnimatorStateInfo(0).IsName("Piranha Plant - 01 - Head Attack"))
             {
                 attackCounterHead = waitAfterAttackHead;
-                theAnimator.SetBool("is Close", false);
+                theAnimator.SetBool("isClose", false);
             }
         }
         
         else if (Vector3.Distance(transform.position, player.transform.position) >= distanceToAttackPlayerShot && Vector3.Distance(transform.position, player.transform.position) < maximumDistanceToAttackPlayer)
         {
-            theAnimator.SetBool("is Far", true);
-            GameObject fire = Instantiate(firePrefab, firePoint.position, firePoint.rotation);
-            Rigidbody2D rb2d = fire.GetComponent<Rigidbody2D>();
-            rb2d.AddForce(firePoint.up * shotForce, ForceMode2D.Impulse);
-
+            theAnimator.SetBool("isFar", true);
             if (theAnimator.GetCurrentAnimatorStateInfo(0).IsName("Piranha Plant - 01 - Attack"))
             {
                 attackCounterShot = waitAfterAttackShot;
-                theAnimator.SetBool("is Far", false);
+                theAnimator.SetBool("isFar", false);
             }
         }
     }
 
+    public void Shoot()
+    {
+        GameObject fire = Instantiate(firePrefab, firePoint.position, firePoint.rotation);
+        Rigidbody2D rb2d = fire.GetComponent<Rigidbody2D>();
+        rb2d.AddForce(firePoint.up * shotForce);
+        //rb2d.velocity = transform.right * shotForce;
+    }
+
+
     public void WhereToLook()
     {
-        if (transform.position.x < player.transform.position.x)
+        if (transform.position.x < player.transform.position.x && !facingRight)
         {
-            theSR.flipX = true; //This is facing right.
+            facingRight = !facingRight;
+            transform.Rotate(0f, 180f, 0f);
         }
-        else if (transform.position.x > player.transform.position.x)
+        else if (transform.position.x > player.transform.position.x && facingRight)
         {
-            theSR.flipX = false; //This is facing left.
+            facingRight = !facingRight;
+            facingRight = false;
         }
     }
 }

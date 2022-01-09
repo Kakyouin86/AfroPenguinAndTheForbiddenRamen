@@ -176,7 +176,7 @@ GameObject:
   - component: {fileID: 2217991435437579892}
   - component: {fileID: 2217991435437579895}
   m_Layer: 3
-  m_Name: Kill Player
+  m_Name: Slamming Block - 01 - Kill Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -292,6 +292,7 @@ MonoBehaviour:
   waitCounter: 0
   slamming: 0
   resetting: 0
+  playOnce: 0
 --- !u!82 &468280925
 AudioSource:
   m_ObjectHideFlags: 0
@@ -398,7 +399,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2217991437404983158}
   m_Layer: 3
-  m_Name: Target Space
+  m_Name: Slamming Block - 01 - Target Space
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
