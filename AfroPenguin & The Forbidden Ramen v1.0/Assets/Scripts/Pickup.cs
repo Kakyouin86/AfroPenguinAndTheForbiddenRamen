@@ -19,7 +19,7 @@ public class Pickup : MonoBehaviour
     public bool isGem;
     public bool isGemx2;
     public bool isDiamond;
-    public float timeOfInvulnerability;
+    public float timeOfInvulnerability = 22f;
     public float timeOfInvulnerabilityTimer;
 
     [Header("Effects")]
@@ -95,6 +95,7 @@ public class Pickup : MonoBehaviour
                 placeToInstantiate = new Vector2(transform.position.x, transform.position.y + 1.00f);
                 Instantiate(pickupEffectFish, placeToInstantiate, transform.rotation);
                 AudioManager.instance.PlaySFX(11);
+                AudioManager.instance.PlayFishItemMusic();
                 StartCoroutine(IsInvulnerable());
             }
 
@@ -194,6 +195,7 @@ public class Pickup : MonoBehaviour
             yield return null;
             PlayerController.instance.tag = "Player";
             PlayerController.instance.isInvulnerable = false;
+            AudioManager.instance.PlayBGM();
         }
         pickupEffectBarEffect.GetComponent<_2dxFX_LightningBolt>().enabled = false;
         pickupEffectBarEffect.GetComponent<_2dxFX_Lightning>().enabled = false;

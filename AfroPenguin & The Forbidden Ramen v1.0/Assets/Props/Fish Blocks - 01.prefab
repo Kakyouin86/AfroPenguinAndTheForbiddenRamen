@@ -428,7 +428,9 @@ MonoBehaviour:
   isFish: 1
   isLife: 0
   isGem: 0
-  timeOfInvulnerability: 10
+  isGemx2: 0
+  isDiamond: 0
+  timeOfInvulnerability: 22
   timeOfInvulnerabilityTimer: 0
   pickupEffectStar: {fileID: 3534479628547249196, guid: 6215effe050e9cc438dec1a3b5541154, type: 3}
   pickupEffectHeal: {fileID: 5744972218232270612, guid: a9a653c455a583a4f8cb4591c5d1754c, type: 3}

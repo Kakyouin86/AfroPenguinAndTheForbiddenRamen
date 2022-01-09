@@ -122,7 +122,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
-    oldSize: {x: 1.85, y: 1.79}
+    oldSize: {x: 1.8499999, y: 1.7921872}
     newSize: {x: 1.85, y: 1.79}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -143,18 +143,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cb426918b7470a488ef78b863884177, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isCollected: 0
+  hasReinstantiation: 0
   isStar: 0
   isHeal: 0
   isOrb: 0
   isFish: 1
   isLife: 0
   isGem: 0
-  timeOfInvulnerability: 10
+  isGemx2: 0
+  isDiamond: 0
+  timeOfInvulnerability: 22
   timeOfInvulnerabilityTimer: 0
   pickupEffectStar: {fileID: 3534479628547249196, guid: 6215effe050e9cc438dec1a3b5541154, type: 3}
   pickupEffectHeal: {fileID: 0}
   pickupEffectOrb: {fileID: 3680313923953096239, guid: b3f323947265adf4399f97ca1b3ed87f, type: 3}
   pickupEffectBarEffect: {fileID: 0}
+  pickupEffectThunderInBarEffect: {fileID: 0}
   pickupEffectFish: {fileID: 5540902043049731583, guid: 294843af7727a914b859a357e34fc25b, type: 3}
   pickupEffectLife: {fileID: 0}
   placeToInstantiate: {x: 0, y: 0}

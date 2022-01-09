@@ -154,7 +154,8 @@ public class PlayerHealthController : MonoBehaviour
     IEnumerator StompboxDeactivated()
     {
         stompbox.SetActive(false);
-        yield return new WaitForSeconds(0.15f);
+        yield return new WaitForSeconds(0.1f);
+        //it was 0.2f
         stompbox.SetActive(true);
     }
 }

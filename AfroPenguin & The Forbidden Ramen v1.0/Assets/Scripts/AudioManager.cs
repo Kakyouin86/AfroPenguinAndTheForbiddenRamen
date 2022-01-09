@@ -7,7 +7,7 @@ public class AudioManager : MonoBehaviour
 
     public static AudioManager instance;
     public AudioSource[] soundEffects;
-    public AudioSource BGM, levelEndMusic, bossBattleMusic;
+    public AudioSource BGM, levelEndMusic, bossBattleMusic, fishItemMusic;
 
     private void Awake()
     {
@@ -31,6 +31,11 @@ public class AudioManager : MonoBehaviour
         //soundEffects[soundToPlay].pitch = Random.Range(0.9f, 1.1f);
         soundEffects[soundToPlay].Play();
     }
+    public void PlayBGM()
+    {
+        BGM.Play();
+    }
+
     public void PlayLevelVictory()
     {
         BGM.Stop();
@@ -41,6 +46,13 @@ public class AudioManager : MonoBehaviour
         BGM.Stop();
         bossBattleMusic.Play();
     }
+
+    public void PlayFishItemMusic()
+    {
+        BGM.Stop();
+        fishItemMusic.Play();
+    }
+
     public void StopBossMusic()
     {
         bossBattleMusic.Stop();
