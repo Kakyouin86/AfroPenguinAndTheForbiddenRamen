@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 public class BossBattle : MonoBehaviour
 {
@@ -35,8 +36,9 @@ public class BossBattle : MonoBehaviour
         WhereToLook();
         GroundCheck();
 
+
         //Health related
-        if (enemyHP.currentHP <= 3)
+        if (enemyHP.currentHP >0 && enemyHP.currentHP <= 5)
         {
             theAnimator.SetTrigger("stageTwo");
         }
@@ -48,11 +50,16 @@ public class BossBattle : MonoBehaviour
             {
                 invisibleWalls[i].SetActive(false);
             }
-            theAnimator.SetTrigger("death");
 
+            for (int i = 0; i < prizes.Length; i++)
+            {
+                prizes[i].SetActive(true);
+            }
+
+            theAnimator.SetTrigger("death");
             StartCoroutine(DeathSequence());
-            theBoss.GetComponent<BoxCollider2D>().enabled = false;
             theHurtbox.tag = "Boss Hurtbox";
+
         }
 
         //Hurtbox related
@@ -73,11 +80,7 @@ public class BossBattle : MonoBehaviour
 
     IEnumerator DeathSequence()
     {
-        for (int i = 0; i < prizes.Length; i++)
-        {
-            prizes[i].SetActive(true);
-        }
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(1f);
         theBoss.SetActive(false);
     }
 

@@ -112,11 +112,19 @@ public class EnemyHP : MonoBehaviour
 
     public void TakeDamageDashBoss(int damageDash)
     {
-        currentHP -= damageDash;
-        theBossSlider.value = currentHP;
+        if (currentHP <= 3)
+        {
+            currentHP = 0;
+            theBossSlider.value = currentHP;
+            isDead = true;
+            theBossHealthBar.SetActive(false);
+        }
 
         if (currentHP >= 4)
         {
+
+            currentHP -= damageDash;
+            theBossSlider.value = currentHP;
             if (PlayerController.instance.dashDown)
             {
                 PlayerController.instance.Bounce(1.5f);
@@ -127,18 +135,6 @@ public class EnemyHP : MonoBehaviour
                 PlayerController.instance.KnockBackDash(knockbackDashMultiplier);
                 StartCoroutine("HitConfirm");
             }
-        }
-
-        else if (currentHP == 1)
-        {
-            PlayerController.instance.KnockBackDash(knockbackDashMultiplier);
-            StartCoroutine("HitConfirmAlmostDead");
-        }
-
-        else if (currentHP <= 0)
-        {
-            isDead = true;
-            theBossHealthBar.SetActive(false);
         }
     }
 

@@ -31,8 +31,5 @@ public class BossSlimeJump : StateMachineBehaviour
         
             Vector2 target = new Vector2(playerPosition.position.x, animator.transform.position.y);
             animator.transform.position = Vector2.MoveTowards(animator.transform.position, target, speed * Time.deltaTime);
-            
     }
-
-
 }
