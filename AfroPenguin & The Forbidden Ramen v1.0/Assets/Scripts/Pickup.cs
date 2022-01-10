@@ -195,11 +195,11 @@ public class Pickup : MonoBehaviour
             yield return null;
             PlayerController.instance.tag = "Player";
             PlayerController.instance.isInvulnerable = false;
-            AudioManager.instance.PlayBGM();
         }
         pickupEffectBarEffect.GetComponent<_2dxFX_LightningBolt>().enabled = false;
         pickupEffectBarEffect.GetComponent<_2dxFX_Lightning>().enabled = false;
         PlayerController.instance.GetComponent<_2dxFX_LightningBolt>().enabled = false;
+        AudioManager.instance.PlayNormalBGM();
     }
 
     public void DestroyOrNot()

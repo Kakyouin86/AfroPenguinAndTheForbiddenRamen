@@ -33,6 +33,7 @@ public class BossRestarter : MonoBehaviour
     {
         if (player.CompareTag("Player") || player.CompareTag("Invulnerable"))
         {
+            AudioManager.instance.PlayBGM();
             for (int i = 0; i < everythingYouNeedRestarted.Length; i++)
             {
                 everythingYouNeedRestarted[i].SetActive(true);

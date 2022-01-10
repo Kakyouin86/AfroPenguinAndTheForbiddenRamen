@@ -33,6 +33,18 @@ public class AudioManager : MonoBehaviour
     }
     public void PlayBGM()
     {
+        if (!fishItemMusic.isPlaying)
+        {
+            if (!BGM.isPlaying)
+            {
+                bossBattleMusic.Stop();
+                BGM.Play();
+            }
+        }
+    }
+
+    public void PlayNormalBGM()
+    {
         BGM.Play();
     }
 
@@ -43,20 +55,21 @@ public class AudioManager : MonoBehaviour
     }
     public void PlayBossMusic()
     {
-        BGM.Stop();
+        fishItemMusic.Stop();
+        BGM.Pause();
         bossBattleMusic.Play();
     }
 
     public void PlayFishItemMusic()
     {
-        BGM.Stop();
         fishItemMusic.Play();
+        BGM.Stop();
     }
 
     public void StopBossMusic()
     {
         bossBattleMusic.Stop();
-        BGM.Play();
+        BGM.UnPause();
     }
 }
 

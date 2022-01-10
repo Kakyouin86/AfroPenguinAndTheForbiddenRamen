@@ -43,6 +43,7 @@ public class BossBattle : MonoBehaviour
 
         if (enemyHP.currentHP <= 0)
         {
+            AudioManager.instance.PlayBGM();
             for (int i = 0; i < invisibleWalls.Length; i++)
             {
                 invisibleWalls[i].SetActive(false);
