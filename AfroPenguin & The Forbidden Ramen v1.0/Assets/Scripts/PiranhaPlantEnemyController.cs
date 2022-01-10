@@ -28,12 +28,20 @@ public class PiranhaPlantEnemyController : MonoBehaviour
         theSR = GetComponentInChildren<SpriteRenderer>();
         theAnimator = GetComponent<Animator>();
         player = FindObjectOfType<PlayerController>().GetComponent<Transform>();
+        facingRight = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        WhereToLook();
+        if (transform.position.x < player.transform.position.x && !facingRight)
+        {
+            WhereToLook();
+        }
+        else if (transform.position.x > player.transform.position.x && facingRight)
+        {
+            WhereToLook();
+        }
 
         if (attackCounterShot > 0)
         {
@@ -94,15 +102,7 @@ public class PiranhaPlantEnemyController : MonoBehaviour
 
     public void WhereToLook()
     {
-        if (transform.position.x < player.transform.position.x && !facingRight)
-        {
-            facingRight = !facingRight;
-            transform.Rotate(0f, 180f, 0f);
-        }
-        else if (transform.position.x > player.transform.position.x && facingRight)
-        {
-            facingRight = !facingRight;
-            facingRight = false;
-        }
+        facingRight = !facingRight;
+        transform.Rotate(0f, 180f, 0);
     }
 }

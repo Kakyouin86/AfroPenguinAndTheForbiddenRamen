@@ -14823,7 +14823,6 @@ MonoBehaviour:
   stompbox: {fileID: 5172748425191970800}
   placeToInstantiate: {x: 0, y: 0}
   pickupEffectBarEffect: {fileID: 0}
-  pickupEffectThunderInBarEffect: {fileID: 0}
 --- !u!114 &5172748424124853925
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14927,7 +14926,6 @@ MonoBehaviour:
   thePC: {fileID: 0}
   enemyDeathEffect: {fileID: 1091509851538068864, guid: 7629a88614125d245853a0d49ff2af2e, type: 3}
   starCollectible: {fileID: 6546408857128971192, guid: 2949bf68f82c1724abc4181f4c801af1, type: 3}
-  bossCollectible: {fileID: 3379668846800772460, guid: 9e8cb3ade19d5b94eba001b5d814025d, type: 3}
   damageToDeal: 1
   placeToInstantiate: {x: 0, y: 0}
   chanceToDrop: 100
