@@ -12,6 +12,10 @@ public class BossBattle : MonoBehaviour
     public GameObject theBoss;
     public GameObject theHurtbox;
     public GameObject[] invisibleWalls;
+    public bool isGrounded;
+    public LayerMask whatIsGround;
+    public float groundCheckRadius = 0.2f;
+    public Vector2 bottomOffset;
 
     void Start()
     {
@@ -29,6 +33,8 @@ public class BossBattle : MonoBehaviour
     void Update()
     {
         WhereToLook();
+        GroundCheck();
+
         //Health related
         if (enemyHP.currentHP <= 3)
         {
@@ -85,7 +91,15 @@ public class BossBattle : MonoBehaviour
         {
             theHurtbox.GetComponentInChildren<SpriteRenderer>().flipX = false;
         }
+    }
 
-
+    public void GroundCheck()
+    {
+        isGrounded = Physics2D.OverlapCircle((Vector2)transform.position + bottomOffset, groundCheckRadius, whatIsGround);
+    }
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere((Vector2)transform.position + bottomOffset, groundCheckRadius);
     }
 }
