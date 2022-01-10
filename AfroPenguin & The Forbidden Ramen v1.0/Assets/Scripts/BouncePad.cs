@@ -16,7 +16,7 @@ public class BouncePad : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.tag == "Player")
+        if(other.tag == "Player" || other.tag == "Invulnerable")
         {
             PlayerController.instance.theRB.velocity = new Vector2(PlayerController.instance.theRB.velocity.x, bounceForce);
             anim.SetTrigger("Bounce");
