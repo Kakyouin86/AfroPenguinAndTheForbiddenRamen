@@ -57,7 +57,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Slime - 01 - Idle
+  m_Name: Slime - 02 - Idle
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -71,7 +71,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 25e4adaa8e6f12e4d8a6b385e98e543e, type: 2}
+  m_Motion: {fileID: 7400000, guid: 47cf241a740ac1e4e95c7cadba0e6039, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -112,7 +112,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Enemy Slime - 01
+  m_Name: Enemy Slime - 02
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: isMoving
@@ -172,7 +172,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Slime - 01 - Jump
+  m_Name: Slime - 02 - Jump
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -186,7 +186,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: adb53eb7cf9f7a84ab4f7541396cd35c, type: 2}
+  m_Motion: {fileID: 7400000, guid: e804121ce13b48c47923116e9a753da8, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

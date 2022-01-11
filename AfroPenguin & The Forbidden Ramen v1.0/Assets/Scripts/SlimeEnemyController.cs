@@ -16,6 +16,10 @@ public class SlimeEnemyController : MonoBehaviour
     public Transform rightPoint;
     public bool moveRight;
     public float moveSpeed = 3.0f;
+    public float moveTime = 3.0f;
+    public float waitTime = 0.0f;
+    public float moveCount;
+    public float waitCount;
 
     [Header("Ground Check")]
     public bool isGrounded;
@@ -33,6 +37,7 @@ public class SlimeEnemyController : MonoBehaviour
         leftPoint.parent = null;
         rightPoint.parent = null;
         moveRight = true;
+        moveCount = moveTime;
     }
 
     // Update is called once per frame
@@ -60,28 +65,50 @@ public class SlimeEnemyController : MonoBehaviour
         isGrounded = Physics2D.OverlapCircle((Vector2)transform.position + bottomOffset, groundCheckRadius, whatIsGround);
         if (isGrounded)
         {
-            anim.SetBool("isMoving", true);
-            if (moveRight)
+            if (moveCount >= 0)
             {
-                theRB.velocity = new Vector2(moveSpeed, theRB.velocity.y);
+                moveCount -= Time.deltaTime;
 
-                theSR.flipX = true;
-
-                if (transform.position.x > rightPoint.position.x)
+                if (moveRight)
                 {
-                    moveRight = false;
+                    theRB.velocity = new Vector2(moveSpeed, theRB.velocity.y);
+
+                    theSR.flipX = true;
+
+                    if (transform.position.x > rightPoint.position.x)
+                    {
+                        moveRight = false;
+                    }
                 }
+                else
+                {
+                    theRB.velocity = new Vector2(-moveSpeed, theRB.velocity.y);
+
+                    theSR.flipX = false;
+
+                    if (transform.position.x < leftPoint.position.x)
+                    {
+                        moveRight = true;
+                    }
+                }
+
+                if (moveCount <= 0)
+                {
+                    waitCount = Random.Range(waitTime * .75f, waitTime * 1.25f);
+                }
+
+                anim.SetBool("isMoving", true);
             }
-            else
+            else if (waitCount >= 0)
             {
-                theRB.velocity = new Vector2(-moveSpeed, theRB.velocity.y);
+                waitCount -= Time.deltaTime;
+                theRB.velocity = new Vector2(0f, theRB.velocity.y);
 
-                theSR.flipX = false;
-
-                if (transform.position.x < leftPoint.position.x)
+                if (waitCount <= 0)
                 {
-                    moveRight = true;
+                    moveCount = Random.Range(moveTime * .75f, waitTime * .75f);
                 }
+                anim.SetBool("isMoving", false);
             }
         }
 
