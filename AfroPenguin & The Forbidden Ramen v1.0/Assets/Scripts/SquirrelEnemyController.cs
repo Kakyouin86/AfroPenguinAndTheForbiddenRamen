@@ -8,11 +8,14 @@ public class SquirrelEnemyController : MonoBehaviour
     public Transform player;
     public SpriteRenderer theSR;
     public bool facingRight;
+    public GameObject squirrelChild;
+    public Animator theAnimator;
 
     void Start()
     {
         theSR = GetComponentInChildren<SpriteRenderer>();
         player = FindObjectOfType<PlayerController>().GetComponent<Transform>();
+        theAnimator = GetComponent<Animator>();
         facingRight = false;
     }
 
@@ -27,6 +30,11 @@ public class SquirrelEnemyController : MonoBehaviour
         {
             WhereToLook();
         }
+
+        if (theAnimator.GetCurrentAnimatorStateInfo(0).IsName("Squirrel - Launch"))
+        {
+            squirrelChild.tag = "Enemy";
+        }
     }
 
     public void WhereToLook()
@@ -34,5 +42,4 @@ public class SquirrelEnemyController : MonoBehaviour
         facingRight = !facingRight;
         transform.Rotate(0f, 180f, 0);
     }
-
 }

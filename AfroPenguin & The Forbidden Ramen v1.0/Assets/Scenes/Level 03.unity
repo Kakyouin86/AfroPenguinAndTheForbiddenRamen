@@ -2191,9 +2191,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f6aa9d95690fae4fb4d7453be904e95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  theAnimator: {fileID: 0}
+  t: 0
+  startPosition: {x: 0, y: 0, z: 0}
+  targetPosition: {x: 0, y: 0, z: 0}
+  timeToReachTarget: 1.5
+  theAnimator: {fileID: 4297457231993140470}
   launchSpeed: 3
-  squirrelRB: {fileID: 0}
+  squirrel: {fileID: 4297457231993140469}
+  effectToInsantiate: {fileID: 6712692783482062457, guid: 1a411fa33a155f042b3bf55ec0299236, type: 3}
 --- !u!1001 &701429115
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14797,7 +14802,7 @@ MonoBehaviour:
   theAnimator: {fileID: 0}
   parentCol: {fileID: 0}
   hurtboxCol: {fileID: 0}
-  enemyHP: 3
+  enemyHP: 1
   currentHP: 0
   isDead: 0
   invisibleLength: 0.05
@@ -15008,3 +15013,5 @@ MonoBehaviour:
   player: {fileID: 0}
   theSR: {fileID: 0}
   facingRight: 0
+  squirrelChild: {fileID: 4297457230405559638}
+  theAnimator: {fileID: 0}
