@@ -99,7 +99,6 @@ public class PiranhaPlantEnemyController : MonoBehaviour
         //rb2d.velocity = transform.right * shotForce;
     }
 
-
     public void WhereToLook()
     {
         facingRight = !facingRight;
