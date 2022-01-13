@@ -135,6 +135,8 @@ MonoBehaviour:
   knockbackDashMultiplier: 2
   placeToInstantiate: {x: 0, y: 0}
   collectible: {fileID: 6546408857128971192, guid: 2949bf68f82c1724abc4181f4c801af1, type: 3}
+  theBossSlider: {fileID: 0}
+  theBossHealthBar: {fileID: 0}
 --- !u!114 &1784099376053136583
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -280,9 +282,9 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 12
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -315,7 +317,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
