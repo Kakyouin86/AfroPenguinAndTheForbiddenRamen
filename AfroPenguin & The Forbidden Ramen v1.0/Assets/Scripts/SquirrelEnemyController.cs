@@ -10,12 +10,14 @@ public class SquirrelEnemyController : MonoBehaviour
     public bool facingRight;
     public GameObject squirrelChild;
     public Animator theAnimator;
+    public AudioSource audioSource;
 
     void Start()
     {
         theSR = GetComponentInChildren<SpriteRenderer>();
         player = FindObjectOfType<PlayerController>().GetComponent<Transform>();
         theAnimator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
         facingRight = false;
     }
 
@@ -41,5 +43,9 @@ public class SquirrelEnemyController : MonoBehaviour
     {
         facingRight = !facingRight;
         transform.Rotate(0f, 180f, 0);
+    }
+    public void soundSFX()
+    {
+        audioSource.Play();
     }
 }

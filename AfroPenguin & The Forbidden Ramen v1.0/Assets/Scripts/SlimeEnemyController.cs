@@ -9,6 +9,7 @@ public class SlimeEnemyController : MonoBehaviour
     public SpriteRenderer theSR;
     public Animator anim;
     public KnockbackEnemies theKnockback;
+    public AudioSource audioSource;
 
     [Header("Movement")]
     public bool canMove;
@@ -32,6 +33,7 @@ public class SlimeEnemyController : MonoBehaviour
     {
         theRB = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
         theSR = GetComponentInChildren<SpriteRenderer>();
         theKnockback = GetComponentInChildren<KnockbackEnemies>();
         leftPoint.parent = null;
@@ -116,6 +118,11 @@ public class SlimeEnemyController : MonoBehaviour
         {
             canMove = false;
         }
+    }
+
+    public void soundSFX()
+    {
+        audioSource.Play();
     }
     #endregion
 

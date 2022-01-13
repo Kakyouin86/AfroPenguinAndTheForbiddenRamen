@@ -37,6 +37,7 @@ public class LifeBlock : MonoBehaviour
                     totalLife -= 1;
                     if (totalLife == 0)
                     {
+                        AudioManager.instance.PlaySFX(14);
                         theAnimator.SetBool("stop", true);
                         objectToInstantiate.SetActive(true);
                         child.GetComponent<SpriteRenderer>().color = Color.white;

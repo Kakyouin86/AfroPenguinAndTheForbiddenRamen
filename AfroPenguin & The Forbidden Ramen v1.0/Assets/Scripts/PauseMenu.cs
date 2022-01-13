@@ -34,6 +34,7 @@ public class PauseMenu : MonoBehaviour
     {
         if (isPaused)
         {
+            AudioManager.instance.BGM.UnPause();
             isPaused = false;
             pauseScreen.SetActive(false);
             Time.timeScale = 1.0f;
@@ -41,6 +42,7 @@ public class PauseMenu : MonoBehaviour
 
         else
         {
+            AudioManager.instance.BGM.Pause();
             isPaused = true;
             pauseScreen.SetActive(true);
             Time.timeScale = 0.0f;   

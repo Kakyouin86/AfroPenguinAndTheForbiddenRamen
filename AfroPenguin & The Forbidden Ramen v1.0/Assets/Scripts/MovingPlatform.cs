@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class MovingPlatform : MonoBehaviour
 {
-
     public Transform[] points;
     public float moveSpeed;
     public int currentPoint;

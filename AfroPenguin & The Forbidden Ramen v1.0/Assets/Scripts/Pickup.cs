@@ -71,6 +71,7 @@ public class Pickup : MonoBehaviour
                 else
                 {
                     GetComponentInChildren<Animator>().Play("Life Item - 01 - Life Is Full");
+                    AudioManager.instance.PlaySFX(14);
                 }
             }
 
@@ -104,6 +105,7 @@ public class Pickup : MonoBehaviour
                 if (LevelManager.instance.sumLostLife <= 0)
                 {
                     GetComponentInChildren<Animator>().Play("Minus Life Lost Item - 01 - Life Is Full");
+                    AudioManager.instance.PlaySFX(14);
                 }
 
                 else

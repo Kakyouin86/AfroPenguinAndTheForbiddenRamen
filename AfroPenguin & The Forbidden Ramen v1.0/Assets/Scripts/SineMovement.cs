@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 public class SineMovement : MonoBehaviour
 {
-    Vector2 movePos;
-    Vector2 startPos;
+    public Vector2 movePos;
+    public Vector2 startPos;
     public float moveFreq = 1f;
     public float moveDis = 1f;
     public bool moveHori;

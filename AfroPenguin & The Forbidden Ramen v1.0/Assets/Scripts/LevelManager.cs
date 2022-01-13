@@ -74,6 +74,7 @@ public class LevelManager : MonoBehaviour
     //this is a coroutine. It happens outside the normal time of Unity. LESSON 41 WITH JAMES DOYLE.
     public IEnumerator RespawnCo()
     {
+        FindObjectOfType<PlayerController>().transform.parent = null;
         PlayerController.instance.gameObject.SetActive(false);
         //AudioManager.instance.PlaySFX(8);
         yield return new WaitForSeconds(waitToRespawn - (1.0f / UIController.instance.fadeSpeed));

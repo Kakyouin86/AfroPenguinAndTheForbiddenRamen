@@ -24,7 +24,9 @@ public class CircularMovement : MonoBehaviour
             angle = angle + Time.deltaTime * -angularSpeed;
 
             if (angle >= 360f)
+            {
                 angle = 0f;
+            }
         }
 
         else
@@ -35,7 +37,9 @@ public class CircularMovement : MonoBehaviour
             angle = angle + Time.deltaTime * angularSpeed;
 
             if (angle >= 360f)
+            {
                 angle = 0f;
+            }
         }
 
     }
