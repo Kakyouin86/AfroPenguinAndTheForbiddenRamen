@@ -1,14 +1,12 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.UIElements;
 
-public class BossBattle : MonoBehaviour
+public class BossBattleBear : MonoBehaviour
 {
     public Transform player;
     public Animator theAnimator;
     public EnemyHP enemyHP;
+    public bool faceRight;
     public GameObject[] prizes;
     public GameObject theBoss;
     public GameObject theHurtbox;
@@ -29,6 +27,7 @@ public class BossBattle : MonoBehaviour
         {
             invisibleWalls[i].SetActive(true);
         }
+        faceRight = true;
     }
 
     void Update()
@@ -38,7 +37,7 @@ public class BossBattle : MonoBehaviour
 
 
         //Health related
-        if (enemyHP.currentHP >0 && enemyHP.currentHP <= 5)
+        if (enemyHP.currentHP > 0 && enemyHP.currentHP <= 6)
         {
             theAnimator.SetTrigger("stageTwo");
         }
@@ -69,9 +68,9 @@ public class BossBattle : MonoBehaviour
             theHurtbox.tag = "Boss Hurtbox";
         }
 
-        if (theAnimator.GetCurrentAnimatorStateInfo(0).IsName("Boss Slime - 01 - Jump Stage 01") 
-            || theAnimator.GetCurrentAnimatorStateInfo(0).IsName("Boss Slime - 01 - Jump Stage 02") 
-            || theAnimator.GetCurrentAnimatorStateInfo(0).IsName("Boss Slime - 01 - Intro") 
+        if (theAnimator.GetCurrentAnimatorStateInfo(0).IsName("Boss Slime - 01 - Jump Stage 01")
+            || theAnimator.GetCurrentAnimatorStateInfo(0).IsName("Boss Slime - 01 - Jump Stage 02")
+            || theAnimator.GetCurrentAnimatorStateInfo(0).IsName("Boss Slime - 01 - Intro")
             || theAnimator.GetCurrentAnimatorStateInfo(0).IsName("Boss Slime - 01 - Big Jump"))
         {
             theHurtbox.tag = "Enemy";
@@ -86,17 +85,17 @@ public class BossBattle : MonoBehaviour
 
     public void WhereToLook()
     {
-        if (player.transform.position.x > transform.position.x)
+        if (transform.position.x < player.transform.position.x && !faceRight)
         {
-            theHurtbox.GetComponentInChildren<SpriteRenderer>().flipX = true;
+            faceRight = !faceRight;
+            transform.Rotate(0f, 180f, 0);
         }
-
-        else
+        else if (transform.position.x > player.transform.position.x && faceRight)
         {
-            theHurtbox.GetComponentInChildren<SpriteRenderer>().flipX = false;
+            faceRight = !faceRight;
+            transform.Rotate(0f, 180f, 0);
         }
     }
-
     public void GroundCheck()
     {
         isGrounded = Physics2D.OverlapCircle((Vector2)transform.position + bottomOffset, groundCheckRadius, whatIsGround);

@@ -22,25 +22,6 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 1
-        inSlope: Infinity
-        outSlope: Infinity
-        tangentMode: 103
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_Enabled
-    path: Enemy Slime - 01 - Collider
-    classID: 114
-    script: {fileID: 11500000, guid: 9303bedcf09fac74c872648f417d73dc, type: 3}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
         value: 0
         inSlope: 0
         outSlope: 0
@@ -142,7 +123,26 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: _Value1
-    path: Enemy Slime - 01 - Collider
+    path: Boss Slime - 01 - Collider
+    classID: 114
+    script: {fileID: 11500000, guid: 9303bedcf09fac74c872648f417d73dc, type: 3}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_Enabled
+    path: Boss Slime - 01 - Collider
     classID: 114
     script: {fileID: 11500000, guid: 9303bedcf09fac74c872648f417d73dc, type: 3}
   m_PPtrCurves: []
@@ -154,18 +154,18 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 3841639534
-      attribute: 3305885265
-      script: {fileID: 11500000, guid: 9303bedcf09fac74c872648f417d73dc, type: 3}
-      typeID: 114
-      customType: 24
-      isPPtrCurve: 0
-    - serializedVersion: 2
-      path: 3841639534
+      path: 1081330907
       attribute: 1558875887
       script: {fileID: 11500000, guid: 9303bedcf09fac74c872648f417d73dc, type: 3}
       typeID: 114
       customType: 0
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 1081330907
+      attribute: 3305885265
+      script: {fileID: 11500000, guid: 9303bedcf09fac74c872648f417d73dc, type: 3}
+      typeID: 114
+      customType: 24
       isPPtrCurve: 0
     pptrCurveMapping: []
   m_AnimationClipSettings:
@@ -194,25 +194,6 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 1
-        inSlope: Infinity
-        outSlope: Infinity
-        tangentMode: 103
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_Enabled
-    path: Enemy Slime - 01 - Collider
-    classID: 114
-    script: {fileID: 11500000, guid: 9303bedcf09fac74c872648f417d73dc, type: 3}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
         value: 0
         inSlope: 0
         outSlope: 0
@@ -314,7 +295,26 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: _Value1
-    path: Enemy Slime - 01 - Collider
+    path: Boss Slime - 01 - Collider
+    classID: 114
+    script: {fileID: 11500000, guid: 9303bedcf09fac74c872648f417d73dc, type: 3}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_Enabled
+    path: Boss Slime - 01 - Collider
     classID: 114
     script: {fileID: 11500000, guid: 9303bedcf09fac74c872648f417d73dc, type: 3}
   m_EulerEditorCurves: []

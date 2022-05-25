@@ -12,14 +12,17 @@ public class BossBearRandomBehavior : StateMachineBehaviour
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         timerIdle = Random.Range(minTimeWaiting, maxTimeWaiting);
-        randomBehavior = Random.Range(0, 1);
+        randomBehavior = Random.Range(0, 2);
         switch (randomBehavior)
         {
             case 0:
-                animator.SetTrigger("isIdle");
+                animator.SetTrigger("walk");
                 break;
             case 1:
-                animator.SetTrigger("isWalking");
+                animator.SetTrigger("stomp");
+                break;
+            case 2:
+                animator.SetTrigger("jump");
                 break;
         }
     }
@@ -29,7 +32,7 @@ public class BossBearRandomBehavior : StateMachineBehaviour
     {
         if (timerIdle <= 0.1f)
         {
-            animator.SetTrigger("isWalking");
+            animator.SetTrigger("walk");
         }
         else
         {

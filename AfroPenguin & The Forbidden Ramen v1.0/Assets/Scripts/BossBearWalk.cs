@@ -5,8 +5,8 @@ using UnityEngine;
 public class BossBearWalk : StateMachineBehaviour
 {
     public float timerWalk;
-    public float minTimeWalking = 7f;
-    public float maxTimeWalking = 12f;
+    public float minTimeWalking = 4f;
+    public float maxTimeWalking = 5f;
     public float moveSpeed = 5f;
     public Transform playerPosition;
 
@@ -34,8 +34,6 @@ public class BossBearWalk : StateMachineBehaviour
         animator.transform.position = Vector2.MoveTowards(animator.transform.position, target, moveSpeed * Time.deltaTime);
 
 
-
-
         //if (timerWalk <= 0.1f)
         //{
         //    animator.SetTrigger("isIdle");
@@ -50,7 +48,7 @@ public class BossBearWalk : StateMachineBehaviour
         //animator.transform.position = Vector2.MoveTowards(animator.transform.position, target, moveSpeed * Time.deltaTime);
         if (Vector2.Distance(target, animator.transform.position) <= 1.5f)
             {
-                animator.SetTrigger("isThrow");
+                animator.SetTrigger("goAway");
             }
         //}
     }
