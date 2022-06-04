@@ -24,7 +24,7 @@ public class LevelManager : MonoBehaviour
     public void Start()
     {
         isPlayingLevelEnd = false;
-        switch (LanguageSelect.instance.language)
+        switch (PlayerPrefs.GetInt("Language"))
         {
             case 1:
                 GameObject[] englishGameObjects = GameObject.FindGameObjectsWithTag("English Text");
@@ -36,8 +36,8 @@ public class LevelManager : MonoBehaviour
                 break;
 
             default:
-                GameObject[] españolGameObjects = GameObject.FindGameObjectsWithTag("Español Text");
-                foreach (GameObject go in españolGameObjects)
+                GameObject[] espaÃ±olGameObjects = GameObject.FindGameObjectsWithTag("EspaÃ±ol Text");
+                foreach (GameObject go in espaÃ±olGameObjects)
                 {
                     go.SetActive(false);
                 }
@@ -74,7 +74,7 @@ public class LevelManager : MonoBehaviour
     //this is a coroutine. It happens outside the normal time of Unity. LESSON 41 WITH JAMES DOYLE.
     public IEnumerator RespawnCo()
     {
-        //FindObjectOfType<PlayerController>().transform.parent = null; // Borré esto porque tiraba error. Checkear bien con algo de Enero 2022.
+        //FindObjectOfType<PlayerController>().transform.parent = null; // Borrï¿½ esto porque tiraba error. Checkear bien con algo de Enero 2022.
         PlayerController.instance.gameObject.SetActive(false);
         //AudioManager.instance.PlaySFX(8);
         yield return new WaitForSeconds(waitToRespawn - (1.0f / UIController.instance.fadeSpeed));

@@ -17,9 +17,9 @@ public class MainMenu : MonoBehaviour
     void Start()
     {
         FadeFromBlack();
-        switch (LanguageSelect.instance.language)
+        switch (PlayerPrefs.GetInt("Language"))
         {
-            case 1: 
+            case 1:
                 GameObject[] englishGameObjects = GameObject.FindGameObjectsWithTag("English Text");
                 foreach (GameObject go in englishGameObjects)
                 {
@@ -28,15 +28,15 @@ public class MainMenu : MonoBehaviour
                 break;
 
             default:
-                GameObject[] españolGameObjects = GameObject.FindGameObjectsWithTag("Español Text");
-                foreach (GameObject go in españolGameObjects)
+                GameObject[] espaÃ±olGameObjects = GameObject.FindGameObjectsWithTag("EspaÃ±ol Text");
+                foreach (GameObject go in espaÃ±olGameObjects)
                 {
                     go.SetActive(false);
                 }
                 break;
         }
 
-        if (PlayerPrefs.HasKey(startScene+ "_unlocked"))
+        if (PlayerPrefs.HasKey(startScene + "_unlocked"))
         {
             continueButton.SetActive(true);
         }
@@ -72,7 +72,6 @@ public class MainMenu : MonoBehaviour
     {
         SceneManager.LoadScene(startScene);
         PlayerPrefs.DeleteAll();
-        PlayerPrefs.SetInt("Language", LanguageSelect.instance.language);
     }
 
     public void QuitGame()
