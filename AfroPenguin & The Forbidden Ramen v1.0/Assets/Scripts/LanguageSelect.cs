@@ -6,15 +6,10 @@ using UnityEngine.UI;
 
 public class LanguageSelect : MonoBehaviour
 {
-    public static LanguageSelect instance;
     public int language;
     public Image fadeScreen;
     public float fadeSpeed = 1.0f;
     public bool shouldFadeToBlack, shouldFadeFromBlack;
-    private void Awake()
-    {
-        instance = this;
-    }
 
     public void Start()
     {
@@ -45,14 +40,12 @@ public class LanguageSelect : MonoBehaviour
     public void EnglishLanguage()
     {
         PlayerPrefs.SetInt("Language", 0);
-        language = PlayerPrefs.GetInt("Language");
         SceneManager.LoadScene("Main Menu");
     }
 
     public void SpanishLanguage()
     {
         PlayerPrefs.SetInt("Language", 1);
-        language = PlayerPrefs.GetInt("Language");
         SceneManager.LoadScene("Main Menu");
     }
 
