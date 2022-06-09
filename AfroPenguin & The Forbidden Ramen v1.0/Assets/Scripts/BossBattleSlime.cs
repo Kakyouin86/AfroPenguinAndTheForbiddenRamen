@@ -128,7 +128,7 @@ public class BossBattleSlime : MonoBehaviour
         if (isTouchingWall)
         {
             targetPosition.x = transform.position.x + (isPastThePlayer ? -overshoot : overshoot);
-            Debug.Log("Touching Wall or Player!");
+            Debug.Log("Touching Wall!");
             Invoke("MoveToPosition", timeToMove);
         }
 
