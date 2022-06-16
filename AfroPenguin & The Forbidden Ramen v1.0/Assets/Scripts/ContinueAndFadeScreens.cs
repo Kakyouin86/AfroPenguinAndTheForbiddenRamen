@@ -15,7 +15,7 @@ public class ContinueAndFadeScreens : MonoBehaviour
     void Start()
     {
         FadeFromBlack();
-        switch (LanguageSelect.instance.language)
+        switch (PlayerPrefs.GetInt("Language"))
         {
             case 1:
                 GameObject[] englishGameObjects = GameObject.FindGameObjectsWithTag("English Text");
@@ -27,8 +27,8 @@ public class ContinueAndFadeScreens : MonoBehaviour
                 break;
 
             default:
-                GameObject[] españolGameObjects = GameObject.FindGameObjectsWithTag("Español Text");
-                foreach (GameObject go in españolGameObjects)
+                GameObject[] espaÃ±olGameObjects = GameObject.FindGameObjectsWithTag("EspaÃ±ol Text");
+                foreach (GameObject go in espaÃ±olGameObjects)
                 {
                     go.SetActive(false);
                 }
@@ -58,7 +58,7 @@ public class ContinueAndFadeScreens : MonoBehaviour
                 shouldFadeFromBlack = false;
             }
         }
-        
+
         if (Input.anyKeyDown)
         {
             SceneManager.LoadSceneAsync(sceneName);

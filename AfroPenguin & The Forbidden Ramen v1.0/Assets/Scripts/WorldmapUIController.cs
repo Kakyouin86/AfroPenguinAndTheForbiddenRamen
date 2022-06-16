@@ -11,7 +11,7 @@ public class WorldmapUIController : MonoBehaviour
     public bool shouldFadeToBlack, shouldFadeFromBlack;
     public GameObject levelInfoPanel;
     public Text levelName, livesLost, starsCollected, bestTime;
-    
+
     private void Awake()
     {
         instance = this;
@@ -20,7 +20,7 @@ public class WorldmapUIController : MonoBehaviour
     void Start()
     {
         FadeFromBlack();
-        switch (LanguageSelect.instance.language)
+        switch (PlayerPrefs.GetInt("Language"))
         {
             case 1:
                 GameObject[] englishGameObjects = GameObject.FindGameObjectsWithTag("English Text");
@@ -32,8 +32,8 @@ public class WorldmapUIController : MonoBehaviour
                 break;
 
             default:
-                GameObject[] españolGameObjects = GameObject.FindGameObjectsWithTag("Español Text");
-                foreach (GameObject go in españolGameObjects)
+                GameObject[] espaÃ±olGameObjects = GameObject.FindGameObjectsWithTag("EspaÃ±ol Text");
+                foreach (GameObject go in espaÃ±olGameObjects)
                 {
                     go.SetActive(false);
                 }
@@ -78,7 +78,7 @@ public class WorldmapUIController : MonoBehaviour
 
     public void ShowLevelInfo(WorldmapPoint worldMapPointLevelInfo) //I'm giving you the WorldmapPoint variable to use to get information. LevelInfo is made up.
     {
-        switch (LanguageSelect.instance.language)
+        switch (PlayerPrefs.GetInt("Language"))
         {
             case 1:
                 levelName.text = worldMapPointLevelInfo.levelNameSpanish;

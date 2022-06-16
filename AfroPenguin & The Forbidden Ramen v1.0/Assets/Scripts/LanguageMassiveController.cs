@@ -7,7 +7,7 @@ public class LanguageMassiveController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        switch (LanguageSelect.instance.language)
+        switch (PlayerPrefs.GetInt("Language"))
         {
             case 1:
                 GameObject[] englishGameObjects = GameObject.FindGameObjectsWithTag("English Text");
@@ -19,8 +19,8 @@ public class LanguageMassiveController : MonoBehaviour
                 break;
 
             default:
-                GameObject[] españolGameObjects = GameObject.FindGameObjectsWithTag("Español Text");
-                foreach (GameObject go in españolGameObjects)
+                GameObject[] espaÃ±olGameObjects = GameObject.FindGameObjectsWithTag("EspaÃ±ol Text");
+                foreach (GameObject go in espaÃ±olGameObjects)
                 {
                     go.SetActive(false);
                 }
@@ -32,6 +32,6 @@ public class LanguageMassiveController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }
