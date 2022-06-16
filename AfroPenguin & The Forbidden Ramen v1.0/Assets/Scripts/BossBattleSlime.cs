@@ -15,8 +15,16 @@ public class BossBattleSlime : MonoBehaviour
     public GameObject[] invisibleWalls;
     public bool isGrounded;
     public LayerMask whatIsGround;
+    public LayerMask whatIsInvisibleWall;
     public float groundCheckRadius = 0.2f;
+    public float wallCheckRadius = 0.2f;
     public Vector2 bottomOffset;
+    public float timeToMove = 5f;
+    public float overshoot = 50f;
+
+    public Vector3 targetPosition;
+
+    private bool isPastThePlayer;
 
     void Start()
     {
@@ -25,6 +33,24 @@ public class BossBattleSlime : MonoBehaviour
         theHurtbox = transform.GetChild(0).gameObject;
         theBoss = transform.gameObject;
         player = FindObjectOfType<PlayerController>().GetComponent<Transform>();
+        targetPosition = player.position;
+        targetPosition.x = int.MinValue;
+    }
+
+    private void OnDisable()
+    {
+        if(invisibleWalls == null)
+        {
+            return;
+        }
+        for (int i = 0; i < invisibleWalls.Length; i++)
+        {
+            invisibleWalls[i].SetActive(false);
+        }
+    }
+
+    private void OnEnable()
+    {
         for (int i = 0; i < invisibleWalls.Length; i++)
         {
             invisibleWalls[i].SetActive(true);
@@ -33,12 +59,18 @@ public class BossBattleSlime : MonoBehaviour
 
     void Update()
     {
-        WhereToLook();
+        bool wasPastThePlayer = isPastThePlayer;
+        isPastThePlayer = player.transform.position.x > transform.position.x;
+        if (isPastThePlayer != wasPastThePlayer)
+        {
+            Invoke("MoveToPosition", timeToMove);
+        }
         GroundCheck();
+        OnTouchInvisibleWall();
 
 
         //Health related
-        if (enemyHP.currentHP >0 && enemyHP.currentHP <= 5)
+        if (enemyHP.currentHP > 0 && enemyHP.currentHP <= 5)
         {
             theAnimator.SetTrigger("stageTwo");
         }
@@ -46,11 +78,6 @@ public class BossBattleSlime : MonoBehaviour
         if (enemyHP.currentHP <= 0)
         {
             AudioManager.instance.PlayBGM();
-            for (int i = 0; i < invisibleWalls.Length; i++)
-            {
-                invisibleWalls[i].SetActive(false);
-            }
-
             for (int i = 0; i < prizes.Length; i++)
             {
                 prizes[i].SetActive(true);
@@ -69,9 +96,9 @@ public class BossBattleSlime : MonoBehaviour
             theHurtbox.tag = "Boss Hurtbox";
         }
 
-        if (theAnimator.GetCurrentAnimatorStateInfo(0).IsName("Boss Slime - 01 - Jump Stage 01") 
-            || theAnimator.GetCurrentAnimatorStateInfo(0).IsName("Boss Slime - 01 - Jump Stage 02") 
-            || theAnimator.GetCurrentAnimatorStateInfo(0).IsName("Boss Slime - 01 - Intro") 
+        if (theAnimator.GetCurrentAnimatorStateInfo(0).IsName("Boss Slime - 01 - Jump Stage 01")
+            || theAnimator.GetCurrentAnimatorStateInfo(0).IsName("Boss Slime - 01 - Jump Stage 02")
+            || theAnimator.GetCurrentAnimatorStateInfo(0).IsName("Boss Slime - 01 - Intro")
             || theAnimator.GetCurrentAnimatorStateInfo(0).IsName("Boss Slime - 01 - Big Jump"))
         {
             theHurtbox.tag = "Enemy";
@@ -84,26 +111,33 @@ public class BossBattleSlime : MonoBehaviour
         theBoss.SetActive(false);
     }
 
-    public void WhereToLook()
-    {
-        if (player.transform.position.x > transform.position.x)
-        {
-            theHurtbox.GetComponentInChildren<SpriteRenderer>().flipX = true;
-        }
-
-        else
-        {
-            theHurtbox.GetComponentInChildren<SpriteRenderer>().flipX = false;
-        }
-    }
-
     public void GroundCheck()
     {
         isGrounded = Physics2D.OverlapCircle((Vector2)transform.position + bottomOffset, groundCheckRadius, whatIsGround);
     }
+
     void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere((Vector2)transform.position + bottomOffset, groundCheckRadius);
+    }
+
+    void OnTouchInvisibleWall()
+    {
+        bool isTouchingWall = Physics2D.IsTouchingLayers(theHurtbox.GetComponent<Collider2D>(), whatIsInvisibleWall);
+        if (isTouchingWall)
+        {
+            targetPosition.x = transform.position.x + (isPastThePlayer ? -overshoot : overshoot);
+            Debug.Log("Touching Wall!");
+            Invoke("MoveToPosition", timeToMove);
+        }
+
+    }
+
+    void MoveToPosition()
+    {
+        targetPosition.x = (isPastThePlayer ? int.MaxValue : int.MinValue);
+        theHurtbox.GetComponentInChildren<SpriteRenderer>().flipX = isPastThePlayer;
+        Debug.Log("Target changed");
     }
 }
