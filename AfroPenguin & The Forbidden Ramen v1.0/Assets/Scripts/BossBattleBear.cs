@@ -1,4 +1,5 @@
 using System.Collections;
+using NiceIO.Sysroot;
 using UnityEngine;
 
 public class BossBattleBear : MonoBehaviour
@@ -15,6 +16,8 @@ public class BossBattleBear : MonoBehaviour
     public LayerMask whatIsGround;
     public float groundCheckRadius = 0.2f;
     public Vector2 bottomOffset;
+    public Transform bearLeftPoint;
+    public Transform bearRightPoint;
 
     void Start()
     {
@@ -22,6 +25,10 @@ public class BossBattleBear : MonoBehaviour
         enemyHP = GetComponentInChildren<EnemyHP>();
         theHurtbox = transform.GetChild(0).gameObject;
         theBoss = transform.gameObject;
+        bearLeftPoint = GameObject.FindGameObjectWithTag("Boss Wander Left").GetComponent<Transform>();
+        bearRightPoint = GameObject.FindGameObjectWithTag("Boss Wander Right").GetComponent<Transform>();
+        bearLeftPoint.parent = null;
+        bearRightPoint.parent = null;
         player = FindObjectOfType<PlayerController>().GetComponent<Transform>();
         for (int i = 0; i < invisibleWalls.Length; i++)
         {
@@ -32,9 +39,9 @@ public class BossBattleBear : MonoBehaviour
 
     void Update()
     {
+        Slash();
         WhereToLook();
         GroundCheck();
-
 
         //Health related
         if (enemyHP.currentHP > 0 && enemyHP.currentHP <= 6)
@@ -83,6 +90,13 @@ public class BossBattleBear : MonoBehaviour
         theBoss.SetActive(false);
     }
 
+    public void Slash()
+    {
+        if (Vector2.Distance(player.position, theBoss.transform.position) <= 5f)
+        {
+            theBoss.GetComponent<Animator>().SetTrigger("goAway");
+        }
+    }
     public void WhereToLook()
     {
         if (transform.position.x < player.transform.position.x && !faceRight)
