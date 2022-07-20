@@ -16,7 +16,7 @@ public class BossBearRandomBehavior : StateMachineBehaviour
         switch (randomBehavior)
         {
             case 0:
-                animator.SetTrigger("walk");
+                animator.SetTrigger("throw");
                 break;
         }
     }
@@ -26,7 +26,7 @@ public class BossBearRandomBehavior : StateMachineBehaviour
     {
         if (timerIdle <= 0.1f)
         {
-            animator.SetTrigger("walk");
+            animator.SetTrigger("throw");//es walk
         }
         else
         {

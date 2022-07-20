@@ -7,7 +7,7 @@ public class Shot01 : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         GameObject effect = Instantiate(hitFX, transform.position, Quaternion.identity);
-        Destroy(effect, 0.3f);
-        Destroy(gameObject);
+        //Destroy(effect, 0.3f); OJO QUE ESTO TIENE QUE IR
+        //Destroy(gameObject); OJO QUE ESTO TIENE QUE IR
     }
 }
