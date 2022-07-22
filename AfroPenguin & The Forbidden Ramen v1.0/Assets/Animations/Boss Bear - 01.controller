@@ -89,20 +89,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3697e92a6a1aa4547be0d2da03431277, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  firingAngle: 0
-  gravity: 10
-  projectile: {fileID: 4090755943302059197, guid: 370125c72266c0c4395ce43e3230096b, type: 3}
   firePrefab: {fileID: 6541271334297090938, guid: 7cd7a833d862d3345b56a14f5e5a89de, type: 3}
-  fire: {fileID: 0}
-  firePoint: {fileID: 0}
-  elapse_time: 0
-  target_Distance: 0
-  projectile_Velocity: 0
-  flightDuration: 0
-  vx: 0
-  vy: 0
-  shotForce: 0.05
+  shotForceMultiplier: 0.015
+  v0: 3.5
 --- !u!1101 &-3625320857337926254
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
